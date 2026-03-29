@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const PlanContext = createContext();
 
@@ -12,4 +12,7 @@ export function PlanProvider({ children }) {
     );
 }
 
-export { PlanContext };
+// 👇 ADICIONA ISSO
+export function usePlan() {
+    return useContext(PlanContext);
+}

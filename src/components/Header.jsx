@@ -49,7 +49,7 @@ export default function Header() {
                         ))}
                     </nav>
 
-                    <a href="https://wa.me/5514996580459" target="_blank" rel="noopener noreferrer"
+                    <a href="http://localhost:5173/planos" target="_blank" rel="noopener noreferrer"
                         className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
                         Solicitar Proposta
                     </a>
@@ -67,7 +67,7 @@ export default function Header() {
                                 {link.label}
                             </Link>
                         ))}
-                        <a href="https://wa.me/5514996580459" target="_blank" rel="noopener noreferrer"
+                        <a href="http://localhost:5173/planos" target="_blank" rel="noopener noreferrer"
                             className="bg-orange-500 text-white font-semibold px-5 py-2.5 rounded-lg text-center text-sm">
                             Solicitar Proposta
                         </a>

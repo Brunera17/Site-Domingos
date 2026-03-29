@@ -1,11 +1,7 @@
-import Header from "../components/Header";
 
 export default function Proposta() {
     return (
         <div className="bg-[#111] text-white min-h-screen font-barlow">
-
-            <Header />
-
             {/* HERO */}
             <section className="px-6 py-20 bg-black relative">
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
