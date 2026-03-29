@@ -1,88 +1,174 @@
-import { motion } from "framer-motion";
-import { usePlan } from "../context/PlanContext";
-import { useNavigate } from "react-router-dom";
-
-const plans = [
-    { name: "Bronze", price: 490, color: "from-[#CD7F32] to-transparent" },
-    { name: "Prata", price: 890, color: "from-[#A8A9AD] to-transparent" },
-    { name: "Ouro", price: 1490, color: "from-[#D4AF37] to-transparent", featured: true },
-    { name: "Diamante", price: 2490, color: "from-[#38C4D8] to-transparent" },
-];
+import { useState } from "react";
+import "../styles/Planos.css";
 
 export default function Planos() {
-    const { setSelectedPlan } = usePlan();
-    const navigate = useNavigate();
+    const [annual, setAnnual] = useState(false);
 
-    function handleSelect(plan) {
-        setSelectedPlan(plan);
-        navigate("/proposta");
-    }
+    const toggleBilling = () => {
+        setAnnual(!annual);
+    };
+
+    const getPrice = (mensal, anual) => {
+        return annual ? anual : mensal;
+    };
 
     return (
-        <div className="min-h-screen bg-[#0C0C0C] text-white px-6 py-20">
-
+        <>
             {/* HERO */}
-            <div className="text-center mb-16">
-                <h1 className="text-6xl font-black uppercase tracking-tight">
-                    Escolha o plano <span className="text-orange-500 italic">certo</span>
+            <section className="hero">
+                <div className="hero-eyebrow">
+                    <span></span>
+                    Domingos Assessoria Empresarial · CRC Nº 2SP 037.257/O-8
+                    <span></span>
+                </div>
+
+                <h1>
+                    Escolha o plano
+                    <br />
+                    <em>certo</em> para sua
+                    <br />
+                    empresa
                 </h1>
-                <p className="text-zinc-400 mt-4">
-                    Contabilidade consultiva com níveis estratégicos
+
+                <p className="hero-sub">
+                    Contabilidade consultiva, planejamento fiscal e compliance integrados
+                    em quatro níveis de cobertura — do essencial ao estratégico.
                 </p>
+
+                <div className="hero-badges">
+                    <div className="badge">
+                        <div className="badge-dot"></div>Atendimento 100% digital
+                    </div>
+                    <div className="badge">
+                        <div className="badge-dot"></div>+530 clientes ativos
+                    </div>
+                    <div className="badge">
+                        <div className="badge-dot"></div>14 estados · 85 cidades
+                    </div>
+                    <div className="badge">
+                        <div className="badge-dot"></div>Equipe multidisciplinar
+                    </div>
+                </div>
+            </section>
+
+            {/* TOGGLE */}
+            <div className="billing-wrap">
+                <span className={`billing-label ${!annual && "active"}`}>
+                    Mensal
+                </span>
+
+                <div
+                    className={`toggle-pill ${annual ? "annual" : ""}`}
+                    onClick={toggleBilling}
+                >
+                    <div className="toggle-knob"></div>
+                </div>
+
+                <span className={`billing-label ${annual && "active"}`}>
+                    Anual
+                </span>
+
+                {annual && <span className="discount-badge show">2 meses grátis</span>}
             </div>
 
-            {/* GRID */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+            {/* PLANS */}
+            <section className="plans-grid">
 
-                {plans.map((plan, i) => (
-                    <motion.div
-                        key={plan.name}
-                        initial={{ opacity: 0, y: 60 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        whileHover={{ scale: 1.04 }}
-                        className={`relative rounded-2xl p-6 border transition cursor-pointer
-            ${plan.featured
-                                ? "bg-[#1A1700] border-yellow-400 shadow-[0_0_40px_rgba(212,175,55,0.2)]"
-                                : "bg-[#181818] border-[#2A2A2A]"}`}
-                        onClick={() => handleSelect(plan)}
-                    >
-
-                        {/* GLOW TOP */}
-                        <div className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r ${plan.color}`} />
-
-                        {/* NOME */}
-                        <h3 className={`text-xl font-bold uppercase mb-2
-              ${plan.featured ? "text-yellow-400" : "text-white"}`}>
-                            {plan.name}
-                        </h3>
-
-                        {/* DESCRIÇÃO */}
-                        <p className="text-zinc-400 text-sm mb-6">
-                            Plano ideal para empresas que buscam crescimento
-                        </p>
-
-                        {/* PREÇO */}
-                        <div className="flex items-end gap-1 mb-6">
-                            <span className="text-sm">R$</span>
-                            <span className="text-5xl font-black tracking-tight">
-                                {plan.price}
-                            </span>
-                            <span className="text-zinc-400 text-sm">/mês</span>
+                {/* BRONZE */}
+                <div className="plan-card plan-bronze">
+                    <div className="tier-badge">
+                        <div className="tier-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
                         </div>
+                        <span className="tier-name">Bronze</span>
+                    </div>
 
-                        {/* BOTÃO */}
-                        <button className={`w-full py-3 rounded font-semibold transition
-              ${plan.featured
-                                ? "bg-yellow-400 text-black hover:bg-yellow-300"
-                                : "bg-orange-500 hover:bg-orange-600"}`}>
-                            Escolher plano
-                        </button>
+                    <p className="plan-desc">
+                        Compliance essencial para empresas do Simples Nacional.
+                    </p>
 
-                    </motion.div>
-                ))}
+                    <div className="price-row">
+                        <span className="price-currency">R$</span>
+                        <span className="price-value">
+                            {getPrice(490, 408)}
+                        </span>
+                        <span className="price-period">/mês</span>
+                    </div>
 
-            </div>
-        </div>
+                    <a
+                        href="https://wa.me/5514996580459"
+                        className="cta-btn cta-outline"
+                    >
+                        Solicitar proposta
+                    </a>
+                </div>
+
+                {/* PRATA */}
+                <div className="plan-card plan-prata">
+                    <div className="tier-badge">
+                        <div className="tier-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                        </div>
+                        <span className="tier-name">Prata</span>
+                    </div>
+
+                    <p className="plan-desc">
+                        Estrutura completa para empresas em crescimento.
+                    </p>
+
+                    <div className="price-row">
+                        <span className="price-currency">R$</span>
+                        <span className="price-value">
+                            {getPrice(890, 741)}
+                        </span>
+                        <span className="price-period">/mês</span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/5514996580459"
+                        className="cta-btn cta-outline"
+                    >
+                        Solicitar proposta
+                    </a>
+                </div>
+
+                {/* OURO */}
+                <div className="plan-card plan-ouro featured">
+                    <div className="tier-badge">
+                        <div className="tier-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                            </svg>
+                        </div>
+                        <span className="tier-name">Ouro</span>
+                        <span className="popular-tag">Mais popular</span>
+                    </div>
+
+                    <p className="plan-desc">
+                        Gestão contábil completa com estratégia.
+                    </p>
+
+                    <div className="price-row">
+                        <span className="price-currency">R$</span>
+                        <span className="price-value">
+                            {getPrice(1690, 1408)}
+                        </span>
+                        <span className="price-period">/mês</span>
+                    </div>
+
+                    <a
+                        href="https://wa.me/5514996580459"
+                        className="cta-btn cta-solid"
+                    >
+                        Solicitar proposta
+                    </a>
+                </div>
+
+            </section>
+        </>
     );
 }
