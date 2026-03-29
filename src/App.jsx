@@ -9,6 +9,9 @@ import ServicoDetalhe from './pages/ServicoDetalhe'
 import Blog from './pages/Blog'
 import TrabalheConosco from './pages/TrabalheConosco'
 import Contato from './pages/Contato'
+import Planos from './pages/Planos'
+import Proposta from './pages/Proposta'
+import { PlanProvider } from './context/PlanContext'
 
 export default function App() {
   return (
@@ -23,6 +26,8 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/proposta" element={<Proposta />} />
+          <Route path="/planos" element={<Planos />} />
         </Routes>
       </main>
       <Footer />
