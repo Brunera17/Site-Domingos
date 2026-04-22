@@ -103,7 +103,7 @@ export default function ServicosSection() {
     const otherServices = services.filter(s => s.id !== selected)
 
     return (
-        <section className="px-6 bg-zinc-950 overflow-hidden" style={{ minHeight: 'calc(100vh - 80px)' }}>
+        <section className="px-6 bg-black overflow-hidden" style={{ minHeight: 'calc(100vh - 80px)' }}>
             <div className="max-w-7xl mx-auto flex flex-col py-8 gap-5">
 
                 {/* Cabeçalho */}

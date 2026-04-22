@@ -1,15 +1,9 @@
 import { Link } from 'react-router-dom'
-import { CheckCircle, Star } from 'lucide-react'
-import { testimonials, sectors } from '../data/data'
 import Hero from '../components/Hero'
 import ServicosSection from '../components/ServicosSection'
-
-
-const diferenciais = [
-    { icon: '✅', title: 'Atendimento de Excelência', desc: 'Atendimento humano, personalizado e ágil. Você não é apenas um número para nós.' },
-    { icon: '📉', title: 'Redução de Custos', desc: 'Planejamento tributário eficiente para sua empresa pagar menos impostos legalmente.' },
-    { icon: '👨‍💼', title: 'Equipe Multidisciplinar', desc: 'Contadores, advogados, administradores e profissionais de TI trabalhando pelo seu sucesso.' },
-]
+import SetoresSection from '../components/SetoresSection'
+import DiferenciaisSection from '../components/Diferenciais'
+import TestemunhosSection from '../components/Testemunho'
 
 const resources = [
     { type: 'E-book', title: 'Guia Completo de Planejamento Tributário', desc: 'Aprenda estratégias para reduzir impostos de forma legal e aumentar a lucratividade.', image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop' },
@@ -22,71 +16,9 @@ export default function Home() {
         <>
             <Hero />
             <ServicosSection />
-
-            {/* Setores */}
-            <section className="py-20 px-6 bg-gray-950">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl font-black text-white mb-3">Setores que Atendemos</h2>
-                        <p className="text-gray-400">Atendemos diversos segmentos com expertise e conhecimento especializado</p>
-                    </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {sectors.map((s) => (
-                            <div key={s} className="bg-gray-900 border border-gray-800 rounded-xl p-5 flex items-center gap-3">
-                                <CheckCircle size={20} className="text-orange-500 shrink-0" />
-                                <span className="text-white font-medium text-sm">{s}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Diferenciais */}
-            <section className="py-20 px-6 bg-black">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl font-black text-white mb-3">Por Que Escolher a Domingos Assessoria?</h2>
-                        <p className="text-gray-400">Nossos diferenciais que fazem a diferença no seu negócio</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {diferenciais.map((d) => (
-                            <div key={d.title} className="bg-gray-900 border border-gray-800 rounded-xl p-8">
-                                <div className="w-14 h-14 rounded-full bg-orange-500/20 flex items-center justify-center text-2xl mb-5">{d.icon}</div>
-                                <h3 className="text-white font-bold text-lg mb-3">{d.title}</h3>
-                                <p className="text-gray-400 text-sm">{d.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Depoimentos */}
-            <section className="py-20 px-6 bg-gray-950">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl font-black text-white mb-3">Depoimentos</h2>
-                        <p className="text-gray-400">O que nossos clientes dizem sobre nossos serviços</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {testimonials.map((t) => (
-                            <div key={t.id} className="bg-gray-900 border border-gray-800 rounded-xl p-6">
-                                <div className="flex gap-1 mb-4">
-                                    {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-orange-500 fill-orange-500" />)}
-                                </div>
-                                <p className="text-gray-300 italic mb-5">"{t.text}"</p>
-                                <div className="flex items-center gap-3">
-                                    <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
-                                    <div>
-                                        <div className="text-white font-semibold">{t.name}</div>
-                                        <div className="text-gray-400 text-xs">{t.role}</div>
-                                        <div className="text-gray-500 text-xs">{t.company}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <SetoresSection />
+            <DiferenciaisSection />
+            <TestemunhosSection />
 
             {/* Recursos */}
             <section className="py-20 px-6 bg-black">
