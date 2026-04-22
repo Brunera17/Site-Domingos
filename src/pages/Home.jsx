@@ -1,13 +1,9 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, CheckCircle, Star } from 'lucide-react'
-import { services, testimonials, sectors } from '../data/data'
+import { CheckCircle, Star } from 'lucide-react'
+import { testimonials, sectors } from '../data/data'
+import Hero from '../components/Hero'
+import ServicosSection from '../components/ServicosSection'
 
-const stats = [
-    { value: '530+', label: 'Clientes Ativos' },
-    { value: '14', label: 'Estados' },
-    { value: '80+', label: 'Cidades' },
-    { value: '30+', label: 'Colaboradores' },
-]
 
 const diferenciais = [
     { icon: '✅', title: 'Atendimento de Excelência', desc: 'Atendimento humano, personalizado e ágil. Você não é apenas um número para nós.' },
@@ -24,69 +20,8 @@ const resources = [
 export default function Home() {
     return (
         <>
-            {/* Hero */}
-            <section className="relative min-h-screen flex flex-col justify-center px-6"
-                style={{ backgroundImage: 'linear-gradient(to right, rgba(0,0,0,0.95) 55%, rgba(0,0,0,0.6) 100%), url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1400&h=900&fit=crop)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
-                <div className="max-w-7xl mx-auto w-full py-24">
-                    <span className="inline-block bg-orange-500/20 text-orange-500 border border-orange-500/30 text-xs font-semibold px-3 py-1 rounded-full mb-6">
-                        Mais de 10 anos de experiência
-                    </span>
-                    <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6 max-w-2xl">
-                        Contabilidade para sua empresa{' '}
-                        <span className="text-orange-500">pagar menos impostos</span> e lucrar mais!
-                    </h1>
-                    <p className="text-gray-300 text-lg mb-8 max-w-lg">
-                        Hub completo de soluções empresariais com atendimento humanizado, ágil e de excelência. Atendemos 530+ clientes em 14 estados.
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/5514996580459" target="_blank" rel="noopener noreferrer"
-                            className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg flex items-center gap-2 transition-colors text-lg">
-                            Solicitar Proposta Gratuita <ArrowRight size={20} />
-                        </a>
-                        <Link to="/servicos"
-                            className="border border-white text-white hover:bg-white hover:text-black font-bold px-8 py-4 rounded-lg transition-colors text-lg">
-                            Conhecer Serviços
-                        </Link>
-                    </div>
-                    <div className="flex flex-wrap gap-10 mt-16">
-                        {stats.map((s) => (
-                            <div key={s.label}>
-                                <div className="text-4xl font-black text-orange-500">{s.value}</div>
-                                <div className="text-gray-400 text-sm">{s.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Serviços */}
-            <section className="py-20 px-6 bg-black">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-14">
-                        <h2 className="text-4xl font-black text-white mb-3">Nossos Serviços</h2>
-                        <p className="text-gray-400">Soluções completas para todas as necessidades da sua empresa</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {services.slice(0, 9).map((s) => (
-                            <Link key={s.id} to={`/servicos/${s.id}`}
-                                className="bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-orange-500/50 transition-all group">
-                                <div className="text-3xl mb-4">{s.icon}</div>
-                                <h3 className="text-white font-bold text-lg mb-2">{s.title}</h3>
-                                <p className="text-gray-400 text-sm mb-4">{s.description}</p>
-                                <span className="text-orange-500 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                                    Saiba mais <ArrowRight size={14} />
-                                </span>
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="text-center mt-10">
-                        <Link to="/servicos"
-                            className="border border-white text-white hover:bg-white hover:text-black font-bold px-8 py-3 rounded-lg transition-colors inline-flex items-center gap-2">
-                            Ver Todos os Serviços <ArrowRight size={18} />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <Hero />
+            <ServicosSection />
 
             {/* Setores */}
             <section className="py-20 px-6 bg-gray-950">
