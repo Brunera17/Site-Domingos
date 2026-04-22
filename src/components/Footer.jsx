@@ -47,24 +47,6 @@ export default function Footer() {
     return (
         <footer className="bg-zinc-950 border-t border-zinc-800/60">
 
-            {/* Faixa CTA topo */}
-            <div className="border-b border-zinc-800/60">
-                <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-zinc-400 text-sm">
-                        Pronto para <span className="text-white font-medium">reduzir seus impostos</span> e fazer sua empresa crescer?
-                    </p>
-                    <a
-                        href="https://wa.me/5514996580459"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors whitespace-nowrap"
-                    >
-                        Falar com um especialista
-                        <ChevronRight size={15} />
-                    </a>
-                </div>
-            </div>
-
             {/* Corpo principal */}
             <div className="max-w-7xl mx-auto px-6 pt-12 pb-10">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
