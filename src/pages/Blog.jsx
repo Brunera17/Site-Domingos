@@ -68,9 +68,9 @@ export default function Blog() {
                                             <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
                                             <span className="flex items-center gap-1"><Clock size={12} /> {post.readTime}</span>
                                         </div>
-                                        <button className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+                                        <Link to={`/blog/${post.id}`} className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all">
                                             Ler mais <ArrowRight size={14} />
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             ))}

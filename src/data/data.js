@@ -37,3 +37,20 @@ export const blogPosts = [
 ]
 
 export const sectors = ['Prestadores de Serviços','Comércio','Atacados','Rural','Indústrias','E-commerce','Associações e Cooperativas','Hospitais']
+
+export const contactInfo = {
+  phone: '014.9.9658-0459',
+  phoneTel: 'tel:+5514996580459',
+  whatsapp: 'https://wa.me/5514996580459',
+  email: 'sucessodocliente@domingosassessoria.com.br',
+  address: 'Av. Antônio Justino Viera, 350 - Jardim Planalto, Itaí - SP, 18730-136',
+}
+
+export const navLinks = [
+  { to: '/', label: 'Início' },
+  { to: '/sobre', label: 'Sobre' },
+  { to: '/servicos', label: 'Serviços' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/trabalhe-conosco', label: 'Trabalhe Conosco' },
+  { to: '/contato', label: 'Contato' },
+]
