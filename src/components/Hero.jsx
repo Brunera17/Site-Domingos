@@ -28,7 +28,7 @@ export default function Hero() {
         <section
             ref={heroRef}
             className="relative flex flex-col justify-center overflow-hidden"
-            style={{ height: 'calc(100vh - 80px)' }}
+            style={{ height: '100vh' }}
         >
             {/* Background com parallax */}
             <div
@@ -83,7 +83,7 @@ export default function Hero() {
                     {/* Subtítulo */}
                     <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
                         Hub completo de soluções empresariais com atendimento
-                        humanizado e ágil. Contabilidade, fiscal, DP e consultoria — tudo em um só lugar.
+                        humanizado e ágil. Contabilidade, fiscal, DP e consultoria. Tudo em um só lugar.
                     </p>
 
                     {/* Botões */}

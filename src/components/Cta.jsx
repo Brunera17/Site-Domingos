@@ -6,7 +6,7 @@ export default function CTASection() {
     return (
         <section
             className="relative overflow-hidden bg-zinc-950"
-            style={{ height: 'calc(100vh - 80px)' }}
+            style={{ height: '100vh' }}
         >
             {/* Imagem à esquerda com clip diagonal */}
             <div

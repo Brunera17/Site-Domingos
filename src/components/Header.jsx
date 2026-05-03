@@ -15,12 +15,15 @@ const navLinks = [
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [visible, setVisible] = useState(true)
+    const [scrolled, setScrolled] = useState(false)
     const lastScrollY = useRef(0)
     const location = useLocation()
+    const isHome = location.pathname === '/'
 
     useEffect(() => {
         const handleScroll = () => {
             const currentY = window.scrollY
+            setScrolled(currentY > 10)
             if (currentY < 10) {
                 setVisible(true)
             } else if (currentY < lastScrollY.current) {
@@ -38,10 +41,12 @@ export default function Header() {
     // Fecha menu ao navegar
     useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
+    const headerBg = 'bg-black/20 backdrop-blur-md'
+
     return (
         <>
             {/* Header principal */}
-            <header className={`sticky top-0 z-50 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm transition-all duration-700 ease-in-out ${
+            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${headerBg} ${
                 visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
             }`}>
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">

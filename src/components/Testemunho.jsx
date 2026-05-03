@@ -74,7 +74,7 @@ export default function TestemunhosSection() {
     return (
         <section
             className="px-6 bg-black overflow-hidden"
-            style={{ height: 'calc(100vh - 80px)' }}
+            style={{ height: '100vh' }}
         >
             <div className="max-w-7xl mx-auto h-full flex flex-col py-8 gap-8">
 
