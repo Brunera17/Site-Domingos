@@ -13,6 +13,7 @@ import TrabalheConosco from "./pages/TrabalheConosco";
 import Contato from "./pages/Contato";
 import Planos from "./pages/Planos";
 import Proposta from "./pages/Proposta";
+import BlogPost from './pages/BlogPost'
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
         </Route>
 
         {/* 🧼 ROTAS SEM HEADER */}
