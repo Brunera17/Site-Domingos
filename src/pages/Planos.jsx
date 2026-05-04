@@ -123,16 +123,49 @@ const planos = [
 
 // Cores por plano
 const cores = {
-    bronze:  { ring: 'border-amber-700/40',  badge: 'bg-amber-900/30 text-amber-400 border-amber-700/40',  accent: 'text-amber-500',  btn: 'border border-amber-700/50 hover:border-amber-500 text-white hover:bg-amber-900/20' },
-    prata:   { ring: 'border-zinc-500/40',   badge: 'bg-zinc-800 text-zinc-300 border-zinc-600/40',         accent: 'text-zinc-300',   btn: 'border border-zinc-600 hover:border-zinc-400 text-white hover:bg-zinc-800' },
-    ouro:    { ring: 'border-orange-500/60', badge: 'bg-orange-500/20 text-orange-400 border-orange-500/30', accent: 'text-orange-500', btn: 'bg-orange-500 hover:bg-orange-600 text-white' },
-    platina: { ring: 'border-sky-500/40',    badge: 'bg-sky-900/30 text-sky-400 border-sky-600/40',          accent: 'text-sky-400',    btn: 'border border-sky-700/50 hover:border-sky-500 text-white hover:bg-sky-900/20' },
+    bronze:  {
+        ring:        'border-orange-700/40',
+        ringSelected:'border-orange-500 ring-1 ring-orange-500/40',
+        badge:       'bg-orange-900/30 text-orange-400 border-orange-700/40',
+        accent:      'text-orange-500',
+        btn:         'border border-orange-600/70 hover:border-orange-500 hover:bg-orange-900/20 text-orange-500',
+        glow:        '',
+        glowSelected:'bg-orange-500/5',
+    },
+    prata:   {
+        ring:        'border-zinc-500/40',
+        ringSelected:'border-zinc-300 ring-1 ring-zinc-300/20',
+        badge:       'bg-zinc-800 text-zinc-300 border-zinc-600/40',
+        accent:      'text-zinc-300',
+        btn:         'border border-zinc-500/60 hover:border-zinc-300 hover:bg-zinc-800/60 text-zinc-300',
+        glow:        '',
+        glowSelected:'bg-zinc-300/5',
+    },
+    ouro:    {
+        ring:        'border-yellow-500/60',
+        ringSelected:'border-yellow-400 ring-1 ring-yellow-400/30',
+        badge:       'bg-yellow-500/15 text-yellow-400 border-yellow-500/40',
+        accent:      'text-yellow-400',
+        btn:         'border border-yellow-500/60 hover:border-yellow-400 hover:bg-yellow-500/10 text-yellow-400',
+        glow:        'bg-yellow-500/5',
+        glowSelected:'bg-yellow-500/8',
+    },
+    platina: {
+        ring:        'border-sky-500/40',
+        ringSelected:'border-sky-400 ring-1 ring-sky-400/30',
+        badge:       'bg-sky-900/30 text-sky-400 border-sky-600/40',
+        accent:      'text-sky-400',
+        btn:         'border border-sky-600/60 hover:border-sky-400 hover:bg-sky-900/20 text-sky-400',
+        glow:        '',
+        glowSelected:'bg-sky-500/5',
+    },
 }
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
 export default function Planos() {
     const [annual, setAnnual] = useState(false)
+    const [selecionado, setSelecionado] = useState(null)
 
     const getPreco = (plano) => {
         if (!plano.precoMensal) return null
@@ -227,25 +260,37 @@ export default function Planos() {
                         const preco = getPreco(plano)
                         const featuresAtivas = features.filter(f => plano.features[f.id])
 
+                        const selecionadoAtual = selecionado === plano.id
+
                         return (
                             <div
                                 key={plano.id}
-                                className={`relative flex flex-col bg-zinc-900 border rounded-2xl p-6 transition-all duration-300 ${cor.ring} ${plano.destaque ? 'ring-1 ring-orange-500/30' : ''}`}
+                                onClick={() => setSelecionado(selecionadoAtual ? null : plano.id)}
+                                className={`relative flex flex-col bg-zinc-900 border rounded-2xl p-6 transition-all duration-300 cursor-pointer select-none
+                                    ${selecionadoAtual ? cor.ringSelected : cor.ring}`}
                             >
-                                {/* Glow no ouro */}
-                                {plano.destaque && (
-                                    <div className="absolute inset-0 rounded-2xl bg-orange-500/5 pointer-events-none" />
+                                {/* Glow */}
+                                {(cor.glow || selecionadoAtual) && (
+                                    <div className={`absolute inset-0 rounded-2xl pointer-events-none transition-all duration-300
+                                        ${selecionadoAtual ? cor.glowSelected : cor.glow}`} />
                                 )}
 
                                 {/* Header */}
                                 <div className="mb-5">
                                     <div className="flex items-center justify-between mb-3">
                                         <span className="text-white font-black text-xl">{plano.nome}</span>
-                                        {plano.badge && (
-                                            <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cor.badge}`}>
-                                                {plano.badge}
-                                            </span>
-                                        )}
+                                        <div className="flex items-center gap-2">
+                                            {selecionadoAtual && (
+                                                <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cor.badge}`}>
+                                                    Selecionado
+                                                </span>
+                                            )}
+                                            {plano.badge && !selecionadoAtual && (
+                                                <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cor.badge}`}>
+                                                    {plano.badge}
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
                                     <p className="text-zinc-500 text-sm leading-relaxed">{plano.desc}</p>
                                 </div>
@@ -329,7 +374,7 @@ export default function Planos() {
                                     </th>
                                     {planos.map(p => (
                                         <th key={p.id} className="px-4 py-5 text-center">
-                                            <span className={`font-black text-sm ${p.destaque ? 'text-orange-500' : 'text-white'}`}>
+                                            <span className={`font-black text-sm ${cores[p.id].accent}`}>
                                                 {p.nome}
                                             </span>
                                         </th>
@@ -423,7 +468,7 @@ export default function Planos() {
                     </a>
                 </div>
             </section>
-            
+
         </div>
     )
 }

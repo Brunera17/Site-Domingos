@@ -4,22 +4,17 @@ import logo from "../assets/logo_domingos_transparente.png"
 
 const socialLinks = [
     {
-        href: 'https://instagram.com/domingosassessoria',
+        href: 'https://instagram.com/domingosempresarial',
         label: 'Instagram',
         svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" /></svg>
     },
     {
-        href: 'https://facebook.com/domingosassessoria',
+        href: 'https://facebook.com/domingosempresarial',
         label: 'Facebook',
         svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
     },
     {
-        href: 'https://youtube.com/domingosassessoria',
-        label: 'YouTube',
-        svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" /></svg>
-    },
-    {
-        href: 'https://linkedin.com/company/domingosassessoria',
+        href: 'https://linkedin.com/company/domingosempresarial',
         label: 'LinkedIn',
         svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
     },
@@ -163,8 +158,7 @@ export default function Footer() {
                         {/* Horário */}
                         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
                             <p className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Horário de atendimento</p>
-                            <p className="text-zinc-300 text-xs">Seg – Sex: 8h às 18h</p>
-                            <p className="text-zinc-300 text-xs">Sábado: 8h às 12h</p>
+                            <p className="text-zinc-300 text-xs">Seg – Sex: 7h30 às 17h48</p>
                         </div>
                     </div>
                 </div>
