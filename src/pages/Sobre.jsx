@@ -258,7 +258,7 @@ export default function Sobre() {
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-px bg-orange-500" />
                                 <div>
-                                    <div className="text-white font-bold">Dr. Domingos Santos</div>
+                                    <div className="text-white font-bold">Marcelo Domingos</div>
                                     <div className="text-zinc-500 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-B</div>
                                 </div>
                             </div>
