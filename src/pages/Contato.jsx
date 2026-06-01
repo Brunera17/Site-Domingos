@@ -83,7 +83,7 @@ export default function Contato() {
                             {[
                                 { value: '1 dia útil', label: 'Tempo de retorno' },
                                 { value: 'Grátis', label: 'Primeira consulta' },
-                                { value: '500+', label: 'Clientes atendidos' },
+                                { value: '530+', label: 'Clientes atendidos' },
                                 { value: '10+', label: 'Anos de experiência' },
                             ].map(s => (
                                 <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 text-center">
@@ -135,8 +135,7 @@ export default function Contato() {
                                 icon: Clock,
                                 title: 'Horário de Atendimento',
                                 content: <div className="text-zinc-400 text-sm space-y-0.5">
-                                    <p>Segunda a Sexta: <span className="text-zinc-300">8h às 18h</span></p>
-                                    <p>Sábado: <span className="text-zinc-300">8h às 12h</span></p>
+                                    <p>Segunda a Sexta: <span className="text-zinc-300">7h30 às 17h48</span></p>
                                 </div>,
                             },
                         ].map(({ icon: Icon, title, content }) => (
