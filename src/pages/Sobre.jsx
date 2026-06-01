@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp } from 'lucide-react'
+import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
@@ -13,21 +13,71 @@ const stats = [
 ]
 
 const timeline = [
-    { ano: '2014', titulo: 'Fundação', desc: 'Dr. Domingos Santos abre o escritório em Itaí-SP com foco em pequenas empresas da região.' },
-    { ano: '2016', titulo: 'Expansão Regional', desc: 'Crescimento para 5 cidades do interior paulista e contratação dos primeiros colaboradores.' },
-    { ano: '2018', titulo: '100 Clientes', desc: 'Marco de 100 clientes ativos e abertura do departamento de consultoria empresarial.' },
-    { ano: '2020', titulo: 'Presença Nacional', desc: 'Expansão para 8 estados com atendimento 100% digital. Equipe passa de 15 colaboradores.' },
-    { ano: '2022', titulo: '400 Clientes', desc: 'Lançamento do BPO Financeiro e do setor de legalização empresarial. 14 estados atendidos.' },
-    { ano: '2024', titulo: 'Hub de Soluções', desc: 'Consolidação como hub completo com 530+ clientes, 30+ colaboradores e 80+ cidades.' },
+    {
+        ano: '2017',
+        titulo: 'Fundação — O início de uma escolha',
+        desc: 'Marcelo Domingos abre o escritório em Itaí-SP com um propósito claro: oferecer contabilidade de qualidade real para pequenas e médias empresas do interior, que até então tinham acesso apenas ao mínimo burocrático.',
+        frase: 'Porque o empresário do interior merecia mais do que apenas cumprir obrigações.',
+    },
+    {
+        ano: '2018',
+        titulo: 'Expansão Regional — Além de Itaí',
+        desc: 'O crescimento por indicação levou o escritório a atender empresas em outras cidades da região. Primeira contratação de colaboradores e estruturação de processos internos para manter a qualidade com escala.',
+        frase: 'Crescemos por recomendação — o melhor sinal de que estávamos no caminho certo.',
+    },
+    {
+        ano: '2019',
+        titulo: 'Especialização — Mais do que contabilidade',
+        desc: 'Abertura formal do departamento de consultoria tributária e empresarial. A partir daqui, o escritório passou a entregar planejamento fiscal estruturado, não apenas apuração de impostos.',
+        frase: 'O cliente deixou de pagar mais imposto do que devia.',
+    },
+    {
+        ano: '2020',
+        titulo: 'Transformação Digital — Atendimento 100% remoto',
+        desc: 'A pandemia acelerou o que já estava em curso: implantação de plataformas digitais, assinatura eletrônica e atendimento remoto sem perda de qualidade. A distância deixou de ser um obstáculo.',
+        frase: 'Nossos clientes não sentiram a transição. Sentiram a melhora.',
+    },
+    {
+        ano: '2022',
+        titulo: 'Estrutura de Gestão — Time e processos maduros',
+        desc: 'Consolidação de departamentos internos (Fiscal, Departamento Pessoal, Societário e Relacionamento). Implantação de indicadores de qualidade e SLAs de atendimento.',
+        frase: 'Processos organizados = cliente bem atendido e equipe de alta performance.',
+    },
+    {
+        ano: '2024',
+        titulo: 'Referência Regional',
+        desc: 'Domingos Assessoria consolida-se como referência em contabilidade consultiva no interior paulista, com carteira ativa em crescimento, equipe especializada e metodologia própria de planejamento tributário e gestão empresarial.',
+        frase: '10 anos. Um propósito que não mudou: gerar resultado real para quem confia em nós.',
+    },
+    {
+        ano: '2026',
+        titulo: 'Hub Completo — 30 colaboradores, 14 estados',
+        desc: 'A Domingos Assessoria alcança 30 colaboradores especializados e presença ativa em 14 estados brasileiros. O hub é ampliado com contabilidade, recuperação tributária, auditoria, perícia contábil e financeira sob o mesmo teto.',
+        frase: 'Mais do que um escritório contábil: um hub estratégico para empresas que querem crescer com segurança.',
+    },
 ]
 
 const valores = [
-    { icon: Heart, label: 'Atendimento humano e próximo' },
-    { icon: Award, label: 'Excelência técnica' },
-    { icon: Eye, label: 'Ética e transparência' },
-    { icon: TrendingUp, label: 'Atualização constante' },
-    { icon: Target, label: 'Compromisso com resultados' },
-    { icon: Users, label: 'Inovação e tecnologia' },
+    {
+        icon: TrendingUp,
+        label: 'Resultado visível',
+        desc: 'Toda orientação que entregamos deve impactar o caixa, a segurança fiscal ou a estratégia do cliente. Não existimos para burocracia — existimos para gerar resultado.',
+    },
+    {
+        icon: Heart,
+        label: 'Atendimento humano e próximo',
+        desc: 'O empresário não precisa de jargões — precisa de clareza. Respondemos rápido, explicamos com objetividade e tratamos cada cliente como prioridade, não como número de pasta.',
+    },
+    {
+        icon: Award,
+        label: 'Excelência técnica com atualização constante',
+        desc: 'Atuamos em um ambiente tributário e trabalhista que muda continuamente. Nossa equipe se atualiza de forma sistemática para que o cliente nunca seja surpreendido.',
+    },
+    {
+        icon: Eye,
+        label: 'Ética e transparência absolutas',
+        desc: 'Não vendemos o que o cliente não precisa. Não omitimos riscos para parecer conveniente. Nossa credibilidade é construída na verdade — mesmo quando a verdade é difícil.',
+    },
 ]
 
 const departamentos = [
@@ -43,19 +93,18 @@ const departamentos = [
     'Comercial',
 ]
 
-// 🔁 Substitua pelos dados reais
 const equipe = [
-    { nome: 'Dr. Domingos Santos', cargo: 'Sócio Fundador e Contador', departamento: 'Contabilidade', bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Dra. Fernanda Costa', cargo: 'Contadora e Consultora', departamento: 'Consultoria', bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.', foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Ricardo Almeida', cargo: 'Advogado Tributarista', departamento: 'Fiscal / Tributário', bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.', foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Juliana Martins', cargo: 'Gerente de DP', departamento: 'Departamento Pessoal', bio: 'Administradora com expertise em departamento pessoal, eSocial e legislação trabalhista.', foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Carlos Mendes', cargo: 'Analista Fiscal', departamento: 'Fiscal / Tributário', bio: 'Especialista em apuração de impostos, obrigações acessórias e planejamento fiscal.', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Ana Paula Lima', cargo: 'Analista Contábil', departamento: 'Contabilidade', bio: 'Responsável pela escrituração contábil e elaboração de demonstrações financeiras.', foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Bruno Oliveira', cargo: 'Desenvolvedor Full Stack', departamento: 'TI', bio: 'Responsável pelos sistemas internos, automações e infraestrutura tecnológica da empresa.', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Patrícia Souza', cargo: 'Coordenadora Administrativa', departamento: 'Administrativo', bio: 'Gestora dos processos administrativos garantindo eficiência operacional em toda a empresa.', foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Felipe Torres', cargo: 'Analista Financeiro', departamento: 'Financeiro', bio: 'Especialista em BPO financeiro, fluxo de caixa e relatórios gerenciais.', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Larissa Campos', cargo: 'Consultora Comercial', departamento: 'Comercial', bio: 'Responsável pelo relacionamento com novos clientes e expansão do portfólio.', foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Rafael Nunes', cargo: 'Especialista em Legalização', departamento: 'Legalização Empresarial', bio: 'Especialista em abertura, alteração e regularização de empresas em todo o Brasil.', foto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Marcelo Domingos', cargo: 'Sócio Fundador e Contador', departamento: 'Administrativo', bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Ágata', cargo: 'Contadora e Consultora', departamento: 'Administrativo', bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.', foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Maylon', cargo: 'Advogado Tributarista', departamento: 'Fiscal / Tributário', bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.', foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Odair Domingos', cargo: 'Gerente de DP', departamento: 'Departamento Pessoal', bio: 'Administradora com expertise em departamento pessoal, eSocial e legislação trabalhista.', foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Nelson Kayki', cargo: 'Analista Fiscal', departamento: 'Fiscal / Tributário', bio: 'Especialista em apuração de impostos, obrigações acessórias e planejamento fiscal.', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Gabriela Amabily', cargo: 'Analista Contábil', departamento: 'Contabilidade', bio: 'Responsável pela escrituração contábil e elaboração de demonstrações financeiras.', foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Lilian Souza', cargo: 'Desenvolvedor Full Stack', departamento: 'TI', bio: 'Responsável pelos sistemas internos, automações e infraestrutura tecnológica da empresa.', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Pedro', cargo: 'Coordenadora Administrativa', departamento: 'Administrativo', bio: 'Gestora dos processos administrativos garantindo eficiência operacional em toda a empresa.', foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Adrielly Oliveira', cargo: 'Analista Financeiro', departamento: 'Financeiro', bio: 'Especialista em BPO financeiro, fluxo de caixa e relatórios gerenciais.', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face' },
+    { nome: 'Flávia Marques', cargo: 'Consultora Comercial', departamento: 'Comercial', bio: 'Responsável pelo relacionamento com novos clientes e expansão do portfólio.', foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face' },
+    { nome: '', cargo: 'Especialista em Legalização', departamento: 'Legalização Empresarial', bio: 'Especialista em abertura, alteração e regularização de empresas em todo o Brasil.', foto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face' },
 ]
 
 const estruturaImages = [
@@ -82,7 +131,6 @@ export default function Sobre() {
                 className="relative flex items-end overflow-hidden"
                 style={{ height: '70vh', minHeight: '500px' }}
             >
-                {/* Imagem de fundo */}
                 <img
                     src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop"
                     alt="Equipe Domingos Assessoria"
@@ -104,8 +152,8 @@ export default function Sobre() {
                         <span className="text-orange-500">do seu negócio.</span>
                     </h1>
                     <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
-                        Mais de 10 anos transformando a gestão de empresas com atendimento
-                        humano, tecnologia e expertise multidisciplinar.
+                        Mais de 10 anos entregando clareza fiscal, segurança jurídica e vantagem
+                        tributária — com atendimento humano, próximo e resultado mensurável no caixa do cliente.
                     </p>
                 </div>
             </section>
@@ -147,7 +195,7 @@ export default function Sobre() {
                         <div className="absolute left-[88px] top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
 
                         <div className="flex flex-col gap-8">
-                            {timeline.map((item, i) => (
+                            {timeline.map((item) => (
                                 <div key={item.ano} className="flex gap-8 items-start">
                                     {/* Ano */}
                                     <div className="shrink-0 w-16 text-right hidden md:block">
@@ -163,7 +211,10 @@ export default function Sobre() {
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
                                             <h3 className="text-white font-bold">{item.titulo}</h3>
                                         </div>
-                                        <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
+                                        <p className="text-zinc-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+                                        <p className="text-orange-400/80 text-xs font-medium italic border-l-2 border-orange-500/40 pl-3">
+                                            → {item.frase}
+                                        </p>
                                     </div>
                                 </div>
                             ))}
@@ -207,8 +258,8 @@ export default function Sobre() {
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-px bg-orange-500" />
                                 <div>
-                                    <div className="text-white font-bold">Dr. Domingos Santos</div>
-                                    <div className="text-zinc-500 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
+                                    <div className="text-white font-bold">Marcelo Domingos</div>
+                                    <div className="text-zinc-500 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-B</div>
                                 </div>
                             </div>
                         </div>
@@ -228,15 +279,17 @@ export default function Sobre() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Missão + Visão */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Target size={22} className="text-orange-500" />
                             </div>
                             <h3 className="text-white font-bold text-xl mb-3">Missão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
-                                Oferecer soluções contábeis, fiscais e empresariais de excelência, atuando como
-                                hub de soluções com atendimento humano, ágil e personalizado.
+                                Entregar clareza fiscal, segurança jurídica e vantagem tributária para empresas do
+                                agronegócio, comércio, serviço e indústria — com atendimento humano, próximo e
+                                resultado mensurável no caixa do cliente.
                             </p>
                         </div>
 
@@ -246,28 +299,54 @@ export default function Sobre() {
                             </div>
                             <h3 className="text-white font-bold text-xl mb-3">Visão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
-                                Ser referência nacional em assessoria empresarial, reconhecidos pela qualidade
-                                técnica, inovação e compromisso com o sucesso dos clientes.
+                                Ser o escritório contábil mais recomendado pelos empresários do Brasil — reconhecido
+                                pela excelência técnica, pela clareza na comunicação e pelo impacto financeiro real
+                                gerado a cada cliente atendido.
                             </p>
                         </div>
+                    </div>
 
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
+                    {/* Valores — grid expandido com descrições */}
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                                 <Heart size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-white font-bold text-xl mb-3">Valores</h3>
-                            <ul className="space-y-2.5">
-                                {valores.map((v) => {
-                                    const Icon = v.icon
-                                    return (
-                                        <li key={v.label} className="flex items-center gap-2.5 text-zinc-400 text-sm">
-                                            <Icon size={14} className="text-orange-500 shrink-0" />
-                                            {v.label}
-                                        </li>
-                                    )
-                                })}
-                            </ul>
+                            <h3 className="text-white font-bold text-xl">Valores</h3>
                         </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            {valores.map((v) => {
+                                const Icon = v.icon
+                                return (
+                                    <div key={v.label} className="flex gap-4">
+                                        <div className="shrink-0 mt-0.5">
+                                            <Icon size={18} className="text-orange-500" />
+                                        </div>
+                                        <div>
+                                            <p className="text-white text-sm font-semibold mb-1">{v.label}</p>
+                                            <p className="text-zinc-500 text-xs leading-relaxed">{v.desc}</p>
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                {/* CTA inline — Missão/Valores */}
+                <div className="max-w-7xl mx-auto mt-10">
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <p className="text-white font-semibold text-sm">
+                            Quer uma contabilidade assim? Fale com a Domingos.
+                        </p>
+                        <a
+                            href="https://wa.me/5514996580459"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap"
+                        >
+                            Falar no WhatsApp <ArrowRight size={16} />
+                        </a>
                     </div>
                 </div>
             </section>
