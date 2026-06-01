@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import lucimarafoto from '../assets/colaboradores/lucimara.webp'
+import dayanefoto from '../assets/colaboradores/Dayane Pasin.webp'
+import marcelofoto from '../assets/colaboradores/Marcelo 2.webp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -94,17 +97,167 @@ const departamentos = [
 ]
 
 const equipe = [
-    { nome: 'Marcelo Domingos', cargo: 'Sócio Fundador e Contador', departamento: 'Administrativo', bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Ágata', cargo: 'Contadora e Consultora', departamento: 'Administrativo', bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.', foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Maylon', cargo: 'Advogado Tributarista', departamento: 'Fiscal / Tributário', bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.', foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Odair Domingos', cargo: 'Gerente de DP', departamento: 'Departamento Pessoal', bio: 'Administradora com expertise em departamento pessoal, eSocial e legislação trabalhista.', foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Nelson Kayki', cargo: 'Analista Fiscal', departamento: 'Fiscal / Tributário', bio: 'Especialista em apuração de impostos, obrigações acessórias e planejamento fiscal.', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Gabriela Amabily', cargo: 'Analista Contábil', departamento: 'Contabilidade', bio: 'Responsável pela escrituração contábil e elaboração de demonstrações financeiras.', foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Lilian Souza', cargo: 'Desenvolvedor Full Stack', departamento: 'TI', bio: 'Responsável pelos sistemas internos, automações e infraestrutura tecnológica da empresa.', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Pedro', cargo: 'Coordenadora Administrativa', departamento: 'Administrativo', bio: 'Gestora dos processos administrativos garantindo eficiência operacional em toda a empresa.', foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Adrielly Oliveira', cargo: 'Analista Financeiro', departamento: 'Financeiro', bio: 'Especialista em BPO financeiro, fluxo de caixa e relatórios gerenciais.', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face' },
-    { nome: 'Flávia Marques', cargo: 'Consultora Comercial', departamento: 'Comercial', bio: 'Responsável pelo relacionamento com novos clientes e expansão do portfólio.', foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face' },
-    { nome: '', cargo: 'Especialista em Legalização', departamento: 'Legalização Empresarial', bio: 'Especialista em abertura, alteração e regularização de empresas em todo o Brasil.', foto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face' },
+    {
+        nome: 'Marcelo Domingos',
+        cargo: 'Sócio Fundador e Contador',
+        departamento: 'Administrativo',
+        bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.',
+        foto: marcelofoto
+    },
+    {
+        nome: 'Ágata',
+        cargo: 'Contadora e Consultora',
+        departamento: 'Administrativo',
+        bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.',
+        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Maylon',
+        cargo: 'Advogado Tributarista',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.',
+        foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Odair Domingos',
+        cargo: 'Gerente de DP',
+        departamento: 'Departamento Pessoal',
+        bio: 'Administrador com expertise em departamento pessoal, eSocial e legislação trabalhista.',
+        foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Nelson Kayki',
+        cargo: 'Analista Fiscal',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Especialista em apuração de impostos, obrigações acessórias e planejamento fiscal.',
+        foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Gabriela Amabily',
+        cargo: 'Analista Contábil',
+        departamento: 'Contabilidade',
+        bio: 'Responsável pela escrituração contábil e elaboração de demonstrações financeiras.',
+        foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Flávia Marques',
+        cargo: 'Consultora Comercial',
+        departamento: 'Comercial',
+        bio: 'Responsável pelo relacionamento com novos clientes e expansão do portfólio.',
+        foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Adriely Maria de Oliveira',
+        cargo: 'Financeiro',
+        departamento: 'Financeiro',
+        bio: 'Atua nas rotinas administrativas e financeiras, responsável por organização financeira, emissão de boletos, controle de pagamentos e atendimento aos clientes.',
+        foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Daniele da Silva',
+        cargo: 'Analista Fiscal',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Experiência em apuração de empresas nos regimes MEI, Simples Nacional, Lucro Presumido e Lucro Real. Emissão de NF-e, CT-e, NFS e MDF-e, controle de planilhas e atendimento ao cliente.',
+        foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Daniele Fátima Almeida de Oliveira',
+        cargo: 'Auxiliar de Departamento Contábil',
+        departamento: 'Contabilidade',
+        bio: 'Atua com lançamentos contábeis, conferências, apurações e lançamentos rurais, com foco em organização, agilidade e atendimento ao cliente.',
+        foto: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Dayane Pasin de Almeida',
+        cargo: 'Gerente de Relacionamento',
+        departamento: 'Administrativo',
+        bio: 'Oferece suporte e atendimento personalizado aos clientes, fortalecendo relações de confiança e garantindo a melhor experiência no atendimento.',
+        foto: dayanefoto
+    },
+    {
+        nome: 'Iasmin Sthefania Antunes de Oliveira',
+        cargo: 'Estagiária – Departamento Pessoal',
+        departamento: 'Departamento Pessoal',
+        bio: 'Estagiária e estudante de Técnico em Administração. Atua com organização de documentos, atendimento e apoio nas rotinas administrativas.',
+        foto: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'João Brayan da Silva Fabricio',
+        cargo: 'Societário',
+        departamento: 'Legalização Empresarial',
+        bio: 'Atua com abertura, alteração e baixa de empresas, elaboração de documentos societários, processos na Junta Comercial, Redesim e viabilidade.',
+        foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Laura Cristina Chiara',
+        cargo: 'Assistente Fiscal',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Experiência em rotinas fiscais, apuração de impostos, análise de documentos e interpretação de legislações federais, estaduais e municipais.',
+        foto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Lílian Maria de Souza',
+        cargo: 'Coordenadora – Departamento Pessoal',
+        departamento: 'Departamento Pessoal',
+        bio: 'Experiência em rotinas de folha de pagamento, emissão de guias de FGTS, rescisões contratuais e suporte à equipe e clientes.',
+        foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Lucimara Rondino de Oliveira',
+        cargo: 'Auxiliar – Departamento Pessoal',
+        departamento: 'Departamento Pessoal',
+        bio: 'Atua no fechamento da folha mensal e rotinas correlatas, com conhecimento em emissão de notas fiscais e demais processos do setor.',
+        foto: lucimarafoto
+    },
+    {
+        nome: 'Márcio José de Oliveira Junior',
+        cargo: 'Auxiliar – Departamento Fiscal',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Auxilia nas rotinas fiscais, organização de documentos, apuração de impostos e atendimento a clientes, com foco em responsabilidade e eficiência.',
+        foto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Maria Isabel Travassi Rodrigues',
+        cargo: 'Auxiliar Administrativo / Recepcionista',
+        departamento: 'Administrativo',
+        bio: 'Atua com rotinas administrativas e fiscais, organização de documentos e recepção de clientes, prezando pelo atendimento com simpatia e eficiência.',
+        foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Miguel Oliveira de Sousa Coelho',
+        cargo: 'Assistente de Legalização',
+        departamento: 'Legalização Empresarial',
+        bio: 'Executa todo o processo de constituição de empresas do início ao fim, incluindo Holdings e Consórcios. Também atua com IR, declarações de MEI, planejamentos personalizados e regularização de empresas.',
+        foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Pedro Henrique Campos de Camargo',
+        cargo: 'Coordenador de Legalização',
+        departamento: 'Legalização Empresarial',
+        bio: 'Quase 5 anos de experiência societária e empresarial. Coordena equipe e processos junto à JUCESP, Receita Federal, cartórios e órgãos de registro, além de regularização de Produtores Rurais.',
+        foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Taynara Cristina de Oliveira',
+        cargo: 'Auxiliar – Departamento Societário',
+        departamento: 'Legalização Empresarial',
+        bio: 'Atua com abertura, alteração e regularização de empresas, licenças, enquadramentos e acompanhamento de demandas junto a órgãos públicos.',
+        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Vanessa Leonidia de Almeida',
+        cargo: 'Analista – Departamento Pessoal',
+        departamento: 'Departamento Pessoal',
+        bio: 'Experiência em rotinas trabalhistas, folha de pagamento, controle de ponto, admissões, demissões e atendimento aos colaboradores.',
+        foto: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face'
+    },
+    {
+        nome: 'Yasmin Christine Melo dos Santos',
+        cargo: 'Estagiária – Departamento Contábil',
+        departamento: 'Contabilidade',
+        bio: 'Estagiária na área contábil, atuando com lançamentos contábeis e rurais. Cursa o ensino médio conciliando estudos e experiência profissional.',
+        foto: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face'
+    },
 ]
 
 const estruturaImages = [
@@ -191,21 +344,14 @@ export default function Sobre() {
                     </div>
 
                     <div className="relative">
-                        {/* Linha vertical */}
                         <div className="absolute left-[88px] top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
-
                         <div className="flex flex-col gap-8">
                             {timeline.map((item) => (
                                 <div key={item.ano} className="flex gap-8 items-start">
-                                    {/* Ano */}
                                     <div className="shrink-0 w-16 text-right hidden md:block">
                                         <span className="text-orange-500 font-black text-sm">{item.ano}</span>
                                     </div>
-
-                                    {/* Dot */}
                                     <div className="shrink-0 hidden md:flex items-center justify-center w-5 h-5 rounded-full bg-orange-500 border-4 border-black mt-0.5 z-10" />
-
-                                    {/* Conteúdo */}
                                     <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition-colors">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
@@ -227,24 +373,21 @@ export default function Sobre() {
             <section className="py-24 px-6 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                        {/* Foto */}
                         <div className="relative">
                             <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
                                 <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=750&fit=crop&crop=face"
-                                    alt="Dr. Domingos Santos"
-                                    className="w-full h-full object-cover"
+                                    src={marcelofoto}
+                                    alt="Marcelo Domingos"
+                                    className="w-full h-full object-cover object-top"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
-                            {/* Card flutuante */}
                             <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-zinc-800 rounded-xl p-4 max-w-[200px]">
                                 <div className="text-2xl font-black text-orange-500">10+</div>
                                 <div className="text-zinc-400 text-xs">anos liderando a empresa</div>
                             </div>
                         </div>
 
-                        {/* Citação */}
                         <div>
                             <div
                                 className="text-zinc-700 font-black leading-none mb-6 select-none"
@@ -279,7 +422,6 @@ export default function Sobre() {
                         </h2>
                     </div>
 
-                    {/* Missão + Visão */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
@@ -306,7 +448,6 @@ export default function Sobre() {
                         </div>
                     </div>
 
-                    {/* Valores — grid expandido com descrições */}
                     <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
                         <div className="flex items-center gap-3 mb-8">
                             <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
@@ -333,7 +474,6 @@ export default function Sobre() {
                     </div>
                 </div>
 
-                {/* CTA inline — Missão/Valores */}
                 <div className="max-w-7xl mx-auto mt-10">
                     <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <p className="text-white font-semibold text-sm">
@@ -373,11 +513,10 @@ export default function Sobre() {
                                 <button
                                     key={dep}
                                     onClick={() => setFiltro(dep)}
-                                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
-                                        filtro === dep
-                                            ? 'bg-orange-500 border-orange-500 text-white'
-                                            : 'bg-transparent border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white'
-                                    }`}
+                                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${filtro === dep
+                                        ? 'bg-orange-500 border-orange-500 text-white'
+                                        : 'bg-transparent border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white'
+                                        }`}
                                 >
                                     {dep}
                                     {dep !== 'Todos' && (
@@ -390,13 +529,12 @@ export default function Sobre() {
                         </div>
                     </div>
 
-                    {/* Grid */}
-                    <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                    {/* ── Grid — SEM layout no container, SEM layout nos cards ── */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         <AnimatePresence mode="popLayout">
                             {equipeFiltrada.map((membro) => (
                                 <motion.div
                                     key={membro.nome}
-                                    layout
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.95 }}
@@ -407,6 +545,7 @@ export default function Sobre() {
                                         <img
                                             src={membro.foto}
                                             alt={membro.nome}
+                                            loading="lazy"
                                             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                         />
                                         <span className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-orange-400 text-xs font-bold px-2.5 py-1 rounded-full border border-orange-500/20">
@@ -421,7 +560,7 @@ export default function Sobre() {
                                 </motion.div>
                             ))}
                         </AnimatePresence>
-                    </motion.div>
+                    </div>
 
                     {equipeFiltrada.length === 0 && (
                         <div className="text-center py-20 text-zinc-600 text-sm">
@@ -452,6 +591,7 @@ export default function Sobre() {
                                 <img
                                     src={img}
                                     alt={`Estrutura ${i + 1}`}
+                                    loading="lazy"
                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                                     style={{ height: i === 0 ? '100%' : '200px' }}
                                 />
