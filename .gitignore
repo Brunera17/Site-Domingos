@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Arquivos grandes / compactados
+*.rar
+*.zip
+*.7z
+
+# Imagens originais pesadas (só commitar .webp otimizadas)
+src/assets/colaboradores/*.jpg
+src/assets/colaboradores/*.png
