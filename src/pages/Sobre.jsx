@@ -30,6 +30,11 @@ import pedrofoto from '../assets/colaboradores/PEDRO.webp'
 import taynarafoto from '../assets/colaboradores/TAYNARA.webp'
 import vanessafoto from '../assets/colaboradores/VANESSA.webp'
 import yasminfoto from '../assets/colaboradores/YASMIN.webp'
+import fotoComTodosFoto from '../assets/colaboradores/FOTO COM TODOS.webp'
+
+import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
+import lobbyFoto from '../assets/espaco/lobby.webp'
+import recepcaoFoto from '../assets/espaco/recepcao.webp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -248,6 +253,13 @@ const equipe = [
         foto: mariaisabelfoto
     },
     {
+        nome: 'Maria Machado',
+        cargo: 'Estagiária - Societário',
+        departamentos: ['Legalização Empresarial'],
+        bio: 'Estagiária no departamento societário, auxiliando em processos de abertura, alteração e regularização de empresas.',
+        foto: mariasocietafoto
+    },
+    {
         nome: 'Miguel Oliveira de Sousa Coelho',
         cargo: 'Analista Societário',
         departamentos: ['Legalização Empresarial'],
@@ -313,10 +325,10 @@ const equipe = [
 ]
 
 const estruturaImages = [
-    'https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1551135049-8a33b5883817?w=700&h=500&fit=crop',
-    'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=700&h=500&fit=crop',
+    areaTrabalhoFoto,
+    lobbyFoto,
+    recepcaoFoto,
+    fotoComTodosFoto,
 ]
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
