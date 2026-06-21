@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
 import adrielefoto from '../assets/colaboradores/ADRIELE.webp'
