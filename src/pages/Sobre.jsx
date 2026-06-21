@@ -2,9 +2,34 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+
+// ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
+import adrielefoto from '../assets/colaboradores/ADRIELE.webp'
+import brunofoto from '../assets/colaboradores/BRUNO.webp'
+import cleonicefoto from '../assets/colaboradores/CLEONICE.webp'
+import danielecontafoto from '../assets/colaboradores/DANIELE CONTABIL.webp'
+import danielesilvafoto from '../assets/colaboradores/DANIELE SILVA.webp'
+import dayanefoto from '../assets/colaboradores/DAYANE.webp'
+import flaviafoto from '../assets/colaboradores/FLAVIA.webp'
+import gabifoto from '../assets/colaboradores/GABI.webp'
+import iasminfoto from '../assets/colaboradores/IASMIN.webp'
+import joaobryanfoto from '../assets/colaboradores/JOAO BRYAN.webp'
+import larissafoto from '../assets/colaboradores/LARISSA.webp'
+import laurafoto from '../assets/colaboradores/LAURA.webp'
+import lilianfoto from '../assets/colaboradores/LILIAN.webp'
 import lucimarafoto from '../assets/colaboradores/lucimara.webp'
-import dayanefoto from '../assets/colaboradores/Dayane Pasin.webp'
-import marcelofoto from '../assets/colaboradores/Marcelo 2.webp'
+import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
+import marciofoto from '../assets/colaboradores/MARCIO.webp'
+import mariaisabelfoto from '../assets/colaboradores/MARIA ISABEL.webp'
+import mariasocietafoto from '../assets/colaboradores/MARIA SOCIETARIO.webp'
+import miguelfoto from '../assets/colaboradores/MIGUEL.webp'
+import mikaelefoto from '../assets/colaboradores/MIKAELE.webp'
+import nelsonfoto from '../assets/colaboradores/NELSON.webp'
+import odairfoto from '../assets/colaboradores/ODAIR.webp'
+import pedrofoto from '../assets/colaboradores/PEDRO.webp'
+import taynarafoto from '../assets/colaboradores/TAYNARA.webp'
+import vanessafoto from '../assets/colaboradores/VANESSA.webp'
+import yasminfoto from '../assets/colaboradores/YASMIN.webp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -91,6 +116,7 @@ const departamentos = [
     'Consultoria',
     'Legalização Empresarial',
     'TI',
+    'Automatizações',
     'Administrativo',
     'Financeiro',
     'Comercial',
@@ -114,58 +140,58 @@ const equipe = [
     {
         nome: 'Maylon',
         cargo: 'Advogado Tributarista',
-        departamento: 'Fiscal / Tributário',
+        departamento: 'Administrativo',
         bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.',
         foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
     },
     {
         nome: 'Odair Domingos',
-        cargo: 'Gerente de DP',
-        departamento: 'Departamento Pessoal',
-        bio: 'Administrador com expertise em departamento pessoal, eSocial e legislação trabalhista.',
-        foto: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face'
+        cargo: 'Coordenador - Fiscal / Tributário',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Administrador com expertise em departamento fiscal e tributário, focado em organização, apuração de impostos e atendimento ao cliente.',
+        foto: odairfoto
     },
     {
         nome: 'Nelson Kayki',
-        cargo: 'Analista Fiscal',
-        departamento: 'Fiscal / Tributário',
-        bio: 'Especialista em apuração de impostos, obrigações acessórias e planejamento fiscal.',
-        foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face'
+        cargo: 'Coordenador - Contábil / TI',
+        departamento: 'Contabilidade / TI',
+        bio: 'Contador e especialista em tecnologia aplicada à contabilidade, responsável por liderar a equipe contábil e implementar soluções digitais para otimizar processos internos.',
+        foto: nelsonfoto
     },
     {
         nome: 'Gabriela Amabily',
-        cargo: 'Analista Contábil',
-        departamento: 'Contabilidade',
-        bio: 'Responsável pela escrituração contábil e elaboração de demonstrações financeiras.',
-        foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face'
+        cargo: 'Analista fiscal',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Atua com organização de documentos, apuração de impostos e atendimento a clientes, contribuindo para a eficiência do departamento fiscal.',
+        foto: gabifoto
     },
     {
         nome: 'Flávia Marques',
-        cargo: 'Consultora Comercial',
-        departamento: 'Comercial',
-        bio: 'Responsável pelo relacionamento com novos clientes e expansão do portfólio.',
-        foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face'
+        cargo: 'Recurso Humano',
+        departamento: 'Administrativo',
+        bio: 'Responsável por recrutamento, seleção, treinamento e desenvolvimento de colaboradores, garantindo um ambiente de trabalho positivo e produtivo.',
+        foto: flaviafoto
     },
     {
         nome: 'Adriely Maria de Oliveira',
         cargo: 'Financeiro',
         departamento: 'Financeiro',
         bio: 'Atua nas rotinas administrativas e financeiras, responsável por organização financeira, emissão de boletos, controle de pagamentos e atendimento aos clientes.',
-        foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face'
+        foto: adrielefoto
     },
     {
         nome: 'Daniele da Silva',
         cargo: 'Analista Fiscal',
         departamento: 'Fiscal / Tributário',
         bio: 'Experiência em apuração de empresas nos regimes MEI, Simples Nacional, Lucro Presumido e Lucro Real. Emissão de NF-e, CT-e, NFS e MDF-e, controle de planilhas e atendimento ao cliente.',
-        foto: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face'
+        foto: danielesilvafoto
     },
     {
         nome: 'Daniele Fátima Almeida de Oliveira',
         cargo: 'Auxiliar de Departamento Contábil',
         departamento: 'Contabilidade',
         bio: 'Atua com lançamentos contábeis, conferências, apurações e lançamentos rurais, com foco em organização, agilidade e atendimento ao cliente.',
-        foto: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face'
+        foto: danielecontafoto
     },
     {
         nome: 'Dayane Pasin de Almeida',
@@ -179,84 +205,112 @@ const equipe = [
         cargo: 'Estagiária – Departamento Pessoal',
         departamento: 'Departamento Pessoal',
         bio: 'Estagiária e estudante de Técnico em Administração. Atua com organização de documentos, atendimento e apoio nas rotinas administrativas.',
-        foto: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face'
+        foto: iasminfoto
     },
     {
         nome: 'João Brayan da Silva Fabricio',
-        cargo: 'Societário',
+        cargo: 'Analista societário',
         departamento: 'Legalização Empresarial',
         bio: 'Atua com abertura, alteração e baixa de empresas, elaboração de documentos societários, processos na Junta Comercial, Redesim e viabilidade.',
-        foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
+        foto: joaobryanfoto
     },
     {
         nome: 'Laura Cristina Chiara',
-        cargo: 'Assistente Fiscal',
+        cargo: 'Analista Fiscal',
         departamento: 'Fiscal / Tributário',
         bio: 'Experiência em rotinas fiscais, apuração de impostos, análise de documentos e interpretação de legislações federais, estaduais e municipais.',
-        foto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face'
+        foto: laurafoto
     },
     {
         nome: 'Lílian Maria de Souza',
         cargo: 'Coordenadora – Departamento Pessoal',
         departamento: 'Departamento Pessoal',
         bio: 'Experiência em rotinas de folha de pagamento, emissão de guias de FGTS, rescisões contratuais e suporte à equipe e clientes.',
-        foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face'
+        foto: lilianfoto
     },
     {
         nome: 'Lucimara Rondino de Oliveira',
-        cargo: 'Auxiliar – Departamento Pessoal',
+        cargo: 'Analista Departamento Pessoal',
         departamento: 'Departamento Pessoal',
         bio: 'Atua no fechamento da folha mensal e rotinas correlatas, com conhecimento em emissão de notas fiscais e demais processos do setor.',
         foto: lucimarafoto
     },
     {
         nome: 'Márcio José de Oliveira Junior',
-        cargo: 'Auxiliar – Departamento Fiscal',
+        cargo: 'Analista Fiscal',
         departamento: 'Fiscal / Tributário',
         bio: 'Auxilia nas rotinas fiscais, organização de documentos, apuração de impostos e atendimento a clientes, com foco em responsabilidade e eficiência.',
-        foto: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face'
+        foto: marciofoto
     },
     {
         nome: 'Maria Isabel Travassi Rodrigues',
-        cargo: 'Auxiliar Administrativo / Recepcionista',
+        cargo: 'Auxiliar Financeiro / Recepcionista',
         departamento: 'Administrativo',
         bio: 'Atua com rotinas administrativas e fiscais, organização de documentos e recepção de clientes, prezando pelo atendimento com simpatia e eficiência.',
-        foto: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face'
+        foto: mariaisabelfoto
     },
     {
         nome: 'Miguel Oliveira de Sousa Coelho',
-        cargo: 'Assistente de Legalização',
+        cargo: 'Analista Societário',
         departamento: 'Legalização Empresarial',
         bio: 'Executa todo o processo de constituição de empresas do início ao fim, incluindo Holdings e Consórcios. Também atua com IR, declarações de MEI, planejamentos personalizados e regularização de empresas.',
-        foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
+        foto: miguelfoto
     },
     {
         nome: 'Pedro Henrique Campos de Camargo',
-        cargo: 'Coordenador de Legalização',
+        cargo: 'Coordenador - Societário',
         departamento: 'Legalização Empresarial',
         bio: 'Quase 5 anos de experiência societária e empresarial. Coordena equipe e processos junto à JUCESP, Receita Federal, cartórios e órgãos de registro, além de regularização de Produtores Rurais.',
-        foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face'
+        foto: pedrofoto
     },
     {
         nome: 'Taynara Cristina de Oliveira',
-        cargo: 'Auxiliar – Departamento Societário',
+        cargo: 'Analista Societário',
         departamento: 'Legalização Empresarial',
         bio: 'Atua com abertura, alteração e regularização de empresas, licenças, enquadramentos e acompanhamento de demandas junto a órgãos públicos.',
-        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
+        foto: taynarafoto
     },
     {
         nome: 'Vanessa Leonidia de Almeida',
-        cargo: 'Analista – Departamento Pessoal',
+        cargo: 'Analista Departamento Pessoal',
         departamento: 'Departamento Pessoal',
         bio: 'Experiência em rotinas trabalhistas, folha de pagamento, controle de ponto, admissões, demissões e atendimento aos colaboradores.',
-        foto: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face'
+        foto: vanessafoto
     },
     {
         nome: 'Yasmin Christine Melo dos Santos',
         cargo: 'Estagiária – Departamento Contábil',
         departamento: 'Contabilidade',
         bio: 'Estagiária na área contábil, atuando com lançamentos contábeis e rurais. Cursa o ensino médio conciliando estudos e experiência profissional.',
-        foto: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&crop=face'
+        foto: yasminfoto
+    },
+    {
+        nome: 'Cleonice',
+        cargo: 'Analista Departamento Pessoal',
+        departamento: 'Departamento Pessoal',
+        bio: 'Atua na área de Departamento Pessoal, contribuindo com as rotinas do setor e atendimento aos clientes.',
+        foto: cleonicefoto
+    },
+    {
+        nome: 'Bruno David Martins',
+        cargo: 'Analista Fiscal / Automatizações',
+        departamento: 'Fiscal / Tributário e Automatizações',
+        bio: 'Atua no departamento fiscal com foco em automatizações de processos, otimizando rotinas e ganhando eficiência no dia a dia da equipe.',
+        foto: brunofoto
+    },
+    {
+        nome: 'Mikaele',
+        cargo: 'Estágiaria - Fiscal / Tributário',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
+        foto: mikaelefoto
+    },
+    {
+        nome: 'Larissa',
+        cargo: 'Estágiaria - Fiscal / Tributário',
+        departamento: 'Fiscal / Tributário',
+        bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
+        foto: larissafoto
     },
 ]
 
