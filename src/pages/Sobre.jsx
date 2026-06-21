@@ -113,7 +113,6 @@ const departamentos = [
     'Contabilidade',
     'Fiscal / Tributário',
     'Departamento Pessoal',
-    'Consultoria',
     'Legalização Empresarial',
     'TI',
     'Automatizações',
@@ -121,194 +120,193 @@ const departamentos = [
     'Financeiro',
     'Comercial',
 ]
-
 const equipe = [
     {
         nome: 'Marcelo Domingos',
         cargo: 'Sócio Fundador e Contador',
-        departamento: 'Administrativo',
+        departamentos: ['Administrativo'],
         bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.',
         foto: marcelofoto
     },
     {
         nome: 'Ágata',
         cargo: 'Contadora e Consultora',
-        departamento: 'Administrativo',
+        departamentos: ['Administrativo'],
         bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.',
         foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
     },
     {
         nome: 'Maylon',
-        cargo: 'Advogado Tributarista',
-        departamento: 'Administrativo',
+        cargo: 'Contador e Consultor',
+        departamentos: ['Administrativo', 'Fiscal / Tributário', 'Contabilidade'],
         bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.',
         foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
     },
     {
         nome: 'Odair Domingos',
         cargo: 'Coordenador - Fiscal / Tributário',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Administrador com expertise em departamento fiscal e tributário, focado em organização, apuração de impostos e atendimento ao cliente.',
         foto: odairfoto
     },
     {
         nome: 'Nelson Kayki',
         cargo: 'Coordenador - Contábil / TI',
-        departamento: 'Contabilidade / TI',
+        departamentos: ['Contabilidade', 'TI'],
         bio: 'Contador e especialista em tecnologia aplicada à contabilidade, responsável por liderar a equipe contábil e implementar soluções digitais para otimizar processos internos.',
         foto: nelsonfoto
     },
     {
         nome: 'Gabriela Amabily',
         cargo: 'Analista fiscal',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Atua com organização de documentos, apuração de impostos e atendimento a clientes, contribuindo para a eficiência do departamento fiscal.',
         foto: gabifoto
     },
     {
         nome: 'Flávia Marques',
         cargo: 'Recurso Humano',
-        departamento: 'Administrativo',
+        departamentos: ['Administrativo'],
         bio: 'Responsável por recrutamento, seleção, treinamento e desenvolvimento de colaboradores, garantindo um ambiente de trabalho positivo e produtivo.',
         foto: flaviafoto
     },
     {
         nome: 'Adriely Maria de Oliveira',
         cargo: 'Financeiro',
-        departamento: 'Financeiro',
+        departamentos: ['Financeiro'],
         bio: 'Atua nas rotinas administrativas e financeiras, responsável por organização financeira, emissão de boletos, controle de pagamentos e atendimento aos clientes.',
         foto: adrielefoto
     },
     {
         nome: 'Daniele da Silva',
         cargo: 'Analista Fiscal',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Experiência em apuração de empresas nos regimes MEI, Simples Nacional, Lucro Presumido e Lucro Real. Emissão de NF-e, CT-e, NFS e MDF-e, controle de planilhas e atendimento ao cliente.',
         foto: danielesilvafoto
     },
     {
         nome: 'Daniele Fátima Almeida de Oliveira',
-        cargo: 'Auxiliar de Departamento Contábil',
-        departamento: 'Contabilidade',
+        cargo: 'Analista Departamento Contábil',
+        departamentos: ['Contabilidade'],
         bio: 'Atua com lançamentos contábeis, conferências, apurações e lançamentos rurais, com foco em organização, agilidade e atendimento ao cliente.',
         foto: danielecontafoto
     },
     {
         nome: 'Dayane Pasin de Almeida',
         cargo: 'Gerente de Relacionamento',
-        departamento: 'Administrativo',
+        departamentos: ['Administrativo', 'Legalização Empresarial'],
         bio: 'Oferece suporte e atendimento personalizado aos clientes, fortalecendo relações de confiança e garantindo a melhor experiência no atendimento.',
         foto: dayanefoto
     },
     {
         nome: 'Iasmin Sthefania Antunes de Oliveira',
         cargo: 'Estagiária – Departamento Pessoal',
-        departamento: 'Departamento Pessoal',
+        departamentos: ['Departamento Pessoal'],
         bio: 'Estagiária e estudante de Técnico em Administração. Atua com organização de documentos, atendimento e apoio nas rotinas administrativas.',
         foto: iasminfoto
     },
     {
         nome: 'João Brayan da Silva Fabricio',
         cargo: 'Analista societário',
-        departamento: 'Legalização Empresarial',
+        departamentos: ['Legalização Empresarial'],
         bio: 'Atua com abertura, alteração e baixa de empresas, elaboração de documentos societários, processos na Junta Comercial, Redesim e viabilidade.',
         foto: joaobryanfoto
     },
     {
         nome: 'Laura Cristina Chiara',
         cargo: 'Analista Fiscal',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Experiência em rotinas fiscais, apuração de impostos, análise de documentos e interpretação de legislações federais, estaduais e municipais.',
         foto: laurafoto
     },
     {
         nome: 'Lílian Maria de Souza',
         cargo: 'Coordenadora – Departamento Pessoal',
-        departamento: 'Departamento Pessoal',
+        departamentos: ['Departamento Pessoal'],
         bio: 'Experiência em rotinas de folha de pagamento, emissão de guias de FGTS, rescisões contratuais e suporte à equipe e clientes.',
         foto: lilianfoto
     },
     {
         nome: 'Lucimara Rondino de Oliveira',
         cargo: 'Analista Departamento Pessoal',
-        departamento: 'Departamento Pessoal',
+        departamentos: ['Departamento Pessoal'],
         bio: 'Atua no fechamento da folha mensal e rotinas correlatas, com conhecimento em emissão de notas fiscais e demais processos do setor.',
         foto: lucimarafoto
     },
     {
         nome: 'Márcio José de Oliveira Junior',
         cargo: 'Analista Fiscal',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Auxilia nas rotinas fiscais, organização de documentos, apuração de impostos e atendimento a clientes, com foco em responsabilidade e eficiência.',
         foto: marciofoto
     },
     {
         nome: 'Maria Isabel Travassi Rodrigues',
         cargo: 'Auxiliar Financeiro / Recepcionista',
-        departamento: 'Administrativo',
+        departamentos: ['Administrativo'],
         bio: 'Atua com rotinas administrativas e fiscais, organização de documentos e recepção de clientes, prezando pelo atendimento com simpatia e eficiência.',
         foto: mariaisabelfoto
     },
     {
         nome: 'Miguel Oliveira de Sousa Coelho',
         cargo: 'Analista Societário',
-        departamento: 'Legalização Empresarial',
+        departamentos: ['Legalização Empresarial'],
         bio: 'Executa todo o processo de constituição de empresas do início ao fim, incluindo Holdings e Consórcios. Também atua com IR, declarações de MEI, planejamentos personalizados e regularização de empresas.',
         foto: miguelfoto
     },
     {
         nome: 'Pedro Henrique Campos de Camargo',
         cargo: 'Coordenador - Societário',
-        departamento: 'Legalização Empresarial',
+        departamentos: ['Legalização Empresarial'],
         bio: 'Quase 5 anos de experiência societária e empresarial. Coordena equipe e processos junto à JUCESP, Receita Federal, cartórios e órgãos de registro, além de regularização de Produtores Rurais.',
         foto: pedrofoto
     },
     {
         nome: 'Taynara Cristina de Oliveira',
         cargo: 'Analista Societário',
-        departamento: 'Legalização Empresarial',
+        departamentos: ['Legalização Empresarial'],
         bio: 'Atua com abertura, alteração e regularização de empresas, licenças, enquadramentos e acompanhamento de demandas junto a órgãos públicos.',
         foto: taynarafoto
     },
     {
         nome: 'Vanessa Leonidia de Almeida',
         cargo: 'Analista Departamento Pessoal',
-        departamento: 'Departamento Pessoal',
+        departamentos: ['Departamento Pessoal'],
         bio: 'Experiência em rotinas trabalhistas, folha de pagamento, controle de ponto, admissões, demissões e atendimento aos colaboradores.',
         foto: vanessafoto
     },
     {
         nome: 'Yasmin Christine Melo dos Santos',
         cargo: 'Estagiária – Departamento Contábil',
-        departamento: 'Contabilidade',
+        departamentos: ['Contabilidade'],
         bio: 'Estagiária na área contábil, atuando com lançamentos contábeis e rurais. Cursa o ensino médio conciliando estudos e experiência profissional.',
         foto: yasminfoto
     },
     {
         nome: 'Cleonice',
         cargo: 'Analista Departamento Pessoal',
-        departamento: 'Departamento Pessoal',
+        departamentos: ['Departamento Pessoal'],
         bio: 'Atua na área de Departamento Pessoal, contribuindo com as rotinas do setor e atendimento aos clientes.',
         foto: cleonicefoto
     },
     {
         nome: 'Bruno David Martins',
         cargo: 'Analista Fiscal / Automatizações',
-        departamento: 'Fiscal / Tributário e Automatizações',
+        departamentos: ['Fiscal / Tributário', 'Automatizações'],
         bio: 'Atua no departamento fiscal com foco em automatizações de processos, otimizando rotinas e ganhando eficiência no dia a dia da equipe.',
         foto: brunofoto
     },
     {
         nome: 'Mikaele',
         cargo: 'Estágiaria - Fiscal / Tributário',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
         foto: mikaelefoto
     },
     {
         nome: 'Larissa',
         cargo: 'Estágiaria - Fiscal / Tributário',
-        departamento: 'Fiscal / Tributário',
+        departamentos: ['Fiscal / Tributário'],
         bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
         foto: larissafoto
     },
@@ -328,7 +326,7 @@ export default function Sobre() {
 
     const equipeFiltrada = filtro === 'Todos'
         ? equipe
-        : equipe.filter(m => m.departamento === filtro)
+        : equipe.filter(m => m.departamentos.includes(filtro))
 
     return (
         <div className="bg-black">
@@ -575,7 +573,7 @@ export default function Sobre() {
                                     {dep}
                                     {dep !== 'Todos' && (
                                         <span className="ml-1.5 opacity-50">
-                                            {equipe.filter(m => m.departamento === dep).length}
+                                            {equipe.filter(m => m.departamentos.includes(dep)).length}
                                         </span>
                                     )}
                                 </button>
@@ -602,9 +600,16 @@ export default function Sobre() {
                                             loading="lazy"
                                             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <span className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm text-orange-400 text-xs font-bold px-2.5 py-1 rounded-full border border-orange-500/20">
-                                            {membro.departamento}
-                                        </span>
+                                        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[calc(100%-1.5rem)]">
+                                            {membro.departamentos.map((dep) => (
+                                                <span
+                                                    key={dep}
+                                                    className="bg-black/70 backdrop-blur-sm text-orange-400 text-xs font-bold px-2.5 py-1 rounded-full border border-orange-500/20"
+                                                >
+                                                    {dep}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
                                     <div className="p-5">
                                         <h3 className="text-white font-bold text-sm mb-0.5">{membro.nome}</h3>
