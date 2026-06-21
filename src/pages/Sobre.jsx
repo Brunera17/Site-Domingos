@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
 import adrielefoto from '../assets/colaboradores/ADRIELE.webp'
@@ -19,7 +19,7 @@ import laurafoto from '../assets/colaboradores/LAURA.webp'
 import lilianfoto from '../assets/colaboradores/LILIAN.webp'
 import lucimarafoto from '../assets/colaboradores/lucimara.webp'
 import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
-import marciofoto from '../assets/colaboradores/MARCIO.webp'
+import marciofoto from '../assets/colaboradores/Marcio.webp'
 import mariaisabelfoto from '../assets/colaboradores/MARIA ISABEL.webp'
 import mariasocietafoto from '../assets/colaboradores/MARIA SOCIETARIO.webp'
 import miguelfoto from '../assets/colaboradores/MIGUEL.webp'
