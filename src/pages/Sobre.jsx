@@ -31,6 +31,7 @@ import taynarafoto from '../assets/colaboradores/otimizadas/TAYNARA.webp'
 import vanessafoto from '../assets/colaboradores/otimizadas/VANESSA.webp'
 import yasminfoto from '../assets/colaboradores/otimizadas/YASMIN.webp'
 import fotoComTodosFoto from '../assets/colaboradores/otimizadas/FOTO COM TODOS.webp'
+import fotoComTodosFotoGrande from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 
 import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
 import lobbyFoto from '../assets/espaco/lobby.webp'
@@ -248,7 +249,7 @@ const equipe = [
     {
         nome: 'Maria Isabel Travassi Rodrigues',
         cargo: 'Auxiliar Financeiro / Recepcionista',
-        departamentos: ['Administrativo'],
+        departamentos: ['Administrativo', 'Financeiro'],
         bio: 'Atua com rotinas administrativas e fiscais, organização de documentos e recepção de clientes, prezando pelo atendimento com simpatia e eficiência.',
         foto: mariaisabelfoto
     },
@@ -262,7 +263,7 @@ const equipe = [
     {
         nome: 'Miguel Oliveira de Sousa Coelho',
         cargo: 'Analista Societário',
-        departamentos: ['Legalização Empresarial'],
+        departamentos: ['Legalização Empresarial', 'Comercial'],
         bio: 'Executa todo o processo de constituição de empresas do início ao fim, incluindo Holdings e Consórcios. Também atua com IR, declarações de MEI, planejamentos personalizados e regularização de empresas.',
         foto: miguelfoto
     },
@@ -349,12 +350,14 @@ export default function Sobre() {
                 style={{ height: '70vh', minHeight: '500px' }}
             >
                 <img
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=900&fit=crop"
+                    src={fotoComTodosFotoGrande}
                     alt="Equipe Domingos Assessoria"
                     className="absolute inset-0 w-full h-full object-cover"
+                    style={{ objectPosition: 'center 30%' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
+                <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
 
                 <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
