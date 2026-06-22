@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
 import adrielefoto from '../assets/colaboradores/otimizadas/ADRIELE.webp'
+import agatafoto from '../assets/colaboradores/AGATA.webp'
 import brunofoto from '../assets/colaboradores/otimizadas/BRUNO.webp'
 import cleonicefoto from '../assets/colaboradores/otimizadas/CLEONICE.webp'
 import danielecontafoto from '../assets/colaboradores/otimizadas/DANIELE CONTABIL.webp'
@@ -139,7 +140,7 @@ const equipe = [
         cargo: 'Contadora e Consultora',
         departamentos: ['Administrativo'],
         bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.',
-        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
+        foto: agatafoto
     },
     {
         nome: 'Maylon',
