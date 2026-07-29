@@ -6,7 +6,7 @@ const diferenciais = [
     {
         icon: HeadphonesIcon,
         title: 'Atendimento de Excelência',
-        desc: 'Atendimento humano, personalizado e ágil. Você não é apenas um número — cada cliente tem um consultor dedicado ao seu negócio.',
+        desc: 'Atendimento humano, personalizado e ágil. Você não é apenas um número, cada cliente tem um consultor dedicado ao seu negócio.',
         stat: '98%',
         statLabel: 'de satisfação dos clientes',
     },
@@ -18,18 +18,11 @@ const diferenciais = [
         statLabel: 'de redução média em impostos',
     },
     {
-        icon: Users,
-        title: 'Equipe Multidisciplinar',
-        desc: 'Contadores, advogados, administradores e profissionais de TI trabalhando em conjunto pelo seu sucesso.',
-        stat: '30+',
-        statLabel: 'especialistas na equipe',
-    },
-    {
         icon: Clock,
-        title: 'Agilidade e Prazo Zero',
+        title: 'Agilidade e Prazos Cumpridos',
         desc: 'Cumprimos todos os prazos fiscais e trabalhistas com antecedência. Sua empresa nunca paga multa por atraso.',
-        stat: '0',
-        statLabel: 'multas por atraso em 10 anos',
+        stat: '+450',
+        statLabel: 'guias enviadas por mês',
     },
     {
         icon: Shield,

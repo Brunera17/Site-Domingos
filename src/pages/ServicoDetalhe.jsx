@@ -5,7 +5,7 @@ import {
     ArrowLeft, ArrowRight, CheckCircle, ChevronRight,
     Calculator, FileText, Users, TrendingUp, DollarSign,
     Building2, Shield, Leaf, Key, RefreshCw, TreePine,
-    ClipboardList, Search, Home, Flag,
+    ClipboardList, Search, Home, Flag, Target, Clock, BadgeCheck,
 } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import { services as rawServices } from '../data/data'
@@ -47,33 +47,38 @@ const categoriaMap = {
     'prestacao-contas-partidaria':     'Especialidades',
 }
 
-// ── Partículas do ícone ───────────────────────────────────────────────────────
-function Particles() {
-    const particles = Array.from({ length: 8 }, (_, i) => ({
-        id: i,
-        angle: (i / 8) * 360,
-        distance: 38 + Math.random() * 14,
-    }))
-    return (
-        <>
-            {particles.map((p) => {
-                const rad = (p.angle * Math.PI) / 180
-                const x = Math.cos(rad) * p.distance
-                const y = Math.sin(rad) * p.distance
-                return (
-                    <motion.span
-                        key={p.id}
-                        className="absolute w-1 h-1 rounded-full bg-orange-500"
-                        style={{ top: '50%', left: '50%', marginTop: -2, marginLeft: -2 }}
-                        initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
-                        animate={{ x, y, opacity: [0, 1, 0], scale: [0, 1.5, 0] }}
-                        transition={{ duration: 0.6, delay: 0.2 + p.id * 0.04, ease: 'easeOut' }}
-                    />
-                )
-            })}
-        </>
-    )
+// ── Valor por categoria (o "porquê", não o "o quê") ──────────────────────────
+const categoryBenefits = {
+    'Contábil e Fiscal': [
+        { icon: Shield,     text: 'Sua empresa sempre em dia com o Fisco, sem risco de multas ou autuações surpresa.' },
+        { icon: TrendingUp, text: 'Planejamento tributário que reduz a carga de impostos de forma inteiramente legal.' },
+        { icon: FileText,   text: 'Relatórios claros, sem jargão contábil, pra você decidir com segurança.' },
+    ],
+    'Gestão Empresarial': [
+        { icon: Target,     text: 'Decisões baseadas em números reais da sua empresa, não em achismo.' },
+        { icon: Clock,      text: 'Menos tempo apagando incêndio operacional, mais tempo pra pensar em crescimento.' },
+        { icon: DollarSign, text: 'Visão clara do caixa e da lucratividade de cada parte do negócio.' },
+    ],
+    'Legalização': [
+        { icon: BadgeCheck, text: 'Documentação 100% regularizada, sem risco de interdição ou embargo.' },
+        { icon: Clock,      text: 'Processos conduzidos de ponta a ponta, sem fila e sem retrabalho.' },
+        { icon: Shield,     text: 'Segurança jurídica pra fechar contratos maiores e participar de licitações.' },
+    ],
+    'Especialidades': [
+        { icon: Target,     text: 'Atendimento especializado nas particularidades do seu segmento.' },
+        { icon: BadgeCheck, text: 'Conformidade com as exigências específicas da sua atividade.' },
+        { icon: Clock,      text: 'Suporte ágil de quem já resolveu esse tipo de demanda centenas de vezes.' },
+    ],
 }
+
+// ── Como funciona — processo genérico, mesma lógica para qualquer serviço ────
+const processSteps = [
+    { icon: Search,        title: 'Diagnóstico',      desc: 'Entendemos a situação atual da sua empresa e mapeamos exatamente o que precisa ser feito.' },
+    { icon: ClipboardList, title: 'Execução',          desc: 'Nossa equipe assume as rotinas, coloca tudo em conformidade e mantém prazos claros com você.' },
+    { icon: TrendingUp,    title: 'Acompanhamento',    desc: 'Relatórios periódicos e suporte contínuo, pra você sempre saber onde a empresa está.' },
+]
+
+// ── Partículas do ícone ───────────────────────────────────────────────────────
 
 // ── Descrições das features ───────────────────────────────────────────────────
 const featureDescs = {
@@ -133,30 +138,22 @@ const featureDescs = {
     'Suporte completo':                     'Assistência na instalação, configuração e uso do certificado digital nos principais sistemas contábeis.',
 }
 
-// ── Feature row com accordion + line-draw ────────────────────────────────────
+// ── Feature row com accordion ────────────────────────────────────────────────
 function FeatureRow({ f, i, total, isOpen, onToggle }) {
     const ref = useRef(null)
-    const { scrollYProgress } = useScroll({ target: ref, offset: ['start 95%', 'start 60%'] })
-    const lineWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-    const opacity   = useTransform(scrollYProgress, [0, 0.3], [0, 1])
-    const x         = useTransform(scrollYProgress, [0, 1], [-12, 0])
+    const { scrollYProgress } = useScroll({ target: ref, offset: ['start 95%', 'start 70%'] })
+    const opacity = useTransform(scrollYProgress, [0, 1], [0, 1])
 
     const desc = featureDescs[f]
 
     return (
         <motion.div
             ref={ref}
-            style={{ opacity, x }}
+            style={{ opacity }}
             className={`relative overflow-hidden transition-colors ${
                 i < total - 1 ? 'border-b border-zinc-800' : ''
             } ${isOpen ? 'bg-zinc-800/40' : ''}`}
         >
-            {/* line-draw laranja na parte inferior */}
-            <motion.span
-                style={{ width: lineWidth }}
-                className="absolute bottom-0 left-0 h-px bg-orange-500/40 origin-left pointer-events-none"
-            />
-
             {/* Header clicável */}
             <button
                 onClick={onToggle}
@@ -218,21 +215,17 @@ export default function ServicoDetalhe() {
     const heroY       = useTransform(heroScroll, [0, 1], [0, 60])
     const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0])
 
-    // 2. Partículas do ícone
-    const [showParticles, setShowParticles] = useState(false)
     // Accordion de features
     const [openFeature, setOpenFeature] = useState(null)
     useEffect(() => {
-        setShowParticles(false)
-        const t = setTimeout(() => setShowParticles(true), 300)
-        return () => clearTimeout(t)
+        setOpenFeature(null)
     }, [id])
 
     // 404
     if (!service) {
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white gap-6">
-                <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-2">
+                <div className="w-20 h-20 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-2">
                     <Search size={32} className="text-zinc-600" />
                 </div>
                 <h2 className="text-3xl font-black">Serviço não encontrado</h2>
@@ -260,12 +253,6 @@ export default function ServicoDetalhe() {
                 keywords={`${service.title}, ${categoria}, assessoria, consultoria, domingos`}
             />
 
-            {/* ── 1. BARRA DE PROGRESSO DE LEITURA ── */}
-            <motion.div
-                style={{ scaleX }}
-                className="fixed top-0 left-0 right-0 h-0.5 bg-orange-500 origin-left z-50"
-            />
-
             {/* ── HERO com PARALLAX (3) ── */}
             <section ref={heroRef} className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
                 <div
@@ -274,17 +261,8 @@ export default function ServicoDetalhe() {
                 />
                 <motion.div
                     style={{ y: heroY, opacity: heroOpacity }}
-                    className="max-w-4xl mx-auto relative z-10"
+                    className="max-w-7xl mx-auto relative z-10"
                 >
-                    {/* Breadcrumb */}
-                    <nav className="flex items-center gap-2 text-xs text-zinc-600 mb-10">
-                        <Link to="/" className="hover:text-zinc-400 transition-colors">Início</Link>
-                        <ChevronRight size={12} />
-                        <Link to="/servicos" className="hover:text-zinc-400 transition-colors">Serviços</Link>
-                        <ChevronRight size={12} />
-                        <span className="text-zinc-400">{service.title}</span>
-                    </nav>
-
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -294,24 +272,16 @@ export default function ServicoDetalhe() {
                             {categoria}
                         </span>
 
-                        {/* ── 2. ÍCONE COM POP + PARTÍCULAS ── */}
+                        {/* ── ÍCONE ── */}
                         <div className="relative w-16 h-16 mb-6">
                             <motion.div
-                                initial={{ scale: 0.4, opacity: 0 }}
+                                initial={{ scale: 0.9, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
-                                transition={{ type: 'spring', stiffness: 400, damping: 18, delay: 0.15 }}
-                                className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center"
+                                transition={{ duration: 0.35, ease: 'easeOut', delay: 0.1 }}
+                                className="w-16 h-16 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center"
                             >
-                                <motion.div
-                                    animate={{ rotate: [0, -8, 8, -4, 4, 0] }}
-                                    transition={{ delay: 0.35, duration: 0.5 }}
-                                >
-                                    <Icon size={28} className="text-orange-500" />
-                                </motion.div>
+                                <Icon size={28} className="text-orange-500" />
                             </motion.div>
-                            <AnimatePresence>
-                                {showParticles && <Particles key={id} />}
-                            </AnimatePresence>
                         </div>
 
                         <h1
@@ -328,10 +298,60 @@ export default function ServicoDetalhe() {
                 </motion.div>
             </section>
 
+            {/* ── BARRA DE CONFIANÇA ── */}
+            <section className="py-8 px-6 bg-black border-y border-zinc-900">
+                <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
+                    {[
+                        { value: '530+', label: 'Empresas atendidas' },
+                        { value: '10+', label: 'Anos de experiência' },
+                        { value: '30+', label: 'Especialistas no time' },
+                    ].map((s) => (
+                        <div key={s.label} className="text-center px-2">
+                            <div className="text-2xl md:text-3xl font-black text-white mb-1">{s.value}</div>
+                            <div className="text-zinc-600 text-[11px] md:text-xs uppercase tracking-wider">{s.label}</div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* ── POR QUE TER ESSE SERVIÇO (valor, não recurso) ── */}
+            <section className="py-20 px-6 bg-black">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-10">
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
+                            Valor real pro seu negócio
+                        </span>
+                        <h2 className="text-3xl font-black text-white">
+                            Por que ter isso <span className="text-orange-500">na sua empresa</span>
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        {(categoryBenefits[categoria] ?? categoryBenefits['Contábil e Fiscal']).map((b, i) => {
+                            const BIcon = b.icon
+                            return (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 16 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.3, delay: i * 0.08 }}
+                                    className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-4">
+                                        <BIcon size={17} className="text-orange-500" />
+                                    </div>
+                                    <p className="text-zinc-300 text-sm leading-relaxed">{b.text}</p>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
+
             {/* ── FEATURES com LINE-DRAW (4) ── */}
             {service.features.length > 0 && (
                 <section className="py-20 px-6 bg-zinc-950">
-                    <div className="max-w-4xl mx-auto">
+                    <div className="max-w-7xl mx-auto">
                         <div className="mb-10">
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                                 Cobertura completa
@@ -340,7 +360,7 @@ export default function ServicoDetalhe() {
                                 O que está <span className="text-orange-500">incluso</span>
                             </h2>
                         </div>
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
                             {service.features.map((f, i) => (
                                 <FeatureRow
                                     key={f}
@@ -356,15 +376,55 @@ export default function ServicoDetalhe() {
                 </section>
             )}
 
-            {/* ── CTA ── */}
+            {/* ── COMO FUNCIONA ── */}
             <section className="py-20 px-6 bg-black">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-7xl mx-auto">
+                    <div className="mb-12">
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
+                            Do primeiro contato à rotina
+                        </span>
+                        <h2 className="text-3xl font-black text-white">
+                            Como <span className="text-orange-500">funciona</span>
+                        </h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 relative">
+                        {/* linha conectora (desktop) */}
+                        <div className="hidden md:block absolute top-6 left-[16.5%] right-[16.5%] h-px bg-zinc-800" />
+                        {processSteps.map((step, i) => {
+                            const SIcon = step.icon
+                            return (
+                                <motion.div
+                                    key={step.title}
+                                    initial={{ opacity: 0, y: 16 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.3, delay: i * 0.1 }}
+                                    className="relative md:px-6 md:text-center flex md:flex-col gap-4 md:gap-0 items-start md:items-center"
+                                >
+                                    <div className="relative z-10 w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center shrink-0 md:mb-5">
+                                        <SIcon size={18} className="text-orange-500" />
+                                    </div>
+                                    <div>
+                                        <span className="text-zinc-600 text-xs font-mono block mb-1">0{i + 1}</span>
+                                        <h3 className="text-white font-bold text-base mb-1.5">{step.title}</h3>
+                                        <p className="text-zinc-500 text-sm leading-relaxed">{step.desc}</p>
+                                    </div>
+                                </motion.div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ── CTA ── */}
+            <section className="py-20 px-6 bg-zinc-950">
+                <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
-                        className="bg-zinc-900 border border-zinc-800 rounded-2xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden"
+                        className="bg-zinc-900 border border-zinc-800 rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden"
                     >
                         <div
                             className="absolute inset-0 opacity-5 pointer-events-none"
@@ -402,8 +462,8 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── OUTROS SERVIÇOS ── */}
-            <section className="py-20 px-6 bg-zinc-950">
-                <div className="max-w-4xl mx-auto">
+            <section className="py-20 px-6 bg-black">
+                <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-10">
                         <div>
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -431,7 +491,7 @@ export default function ServicoDetalhe() {
                                 >
                                     <Link
                                         to={`/servicos/${s.id}`}
-                                        className="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/30 rounded-2xl p-6 flex flex-col transition-all duration-300 hover:bg-zinc-800/60 h-full"
+                                        className="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/30 rounded-xl p-6 flex flex-col transition-all duration-300 hover:bg-zinc-800/60 h-full"
                                     >
                                         <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/20 flex items-center justify-center mb-4 transition-all duration-300">
                                             <OtherIcon size={17} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />

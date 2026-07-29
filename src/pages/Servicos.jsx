@@ -17,6 +17,13 @@ const categorias = [
     'Especialidades',
 ]
 
+const categoryAbbr = {
+    'Contábil e Fiscal': 'CF',
+    'Gestão Empresarial': 'GE',
+    'Legalização': 'LG',
+    'Especialidades': 'ES',
+}
+
 const services = [
     {
         id: 'assessoria-contabil',
@@ -142,50 +149,42 @@ export default function Servicos() {
         return matchCategoria && matchBusca
     })
 
+    const stats = [
+        { label: 'Serviços', value: '15+' },
+        { label: 'Clientes', value: '530+' },
+        { label: 'Anos', value: '10+' },
+    ]
+
     return (
         <div className="bg-black">
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
-                {/* Elemento decorativo */}
                 <div className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{
                         backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)',
                     }}
                 />
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Soluções completas
+                    <span className="font-mono text-orange-500 text-xs uppercase tracking-widest mb-3 block">
+                        
                     </span>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
+                    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-end">
                         <div>
                             <h1
                                 className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(42px, 5.5vw, 72px)' }}
+                                style={{ fontSize: 'clamp(42px, 5.5vw, 68px)' }}
                             >
-                                Tudo que sua empresa
+                                Cada serviço,
                                 <br />
-                                <span className="text-orange-500">precisa aqui.</span>
+                                <span className="text-orange-500">catalogado.</span>
                             </h1>
-                            <p className="text-zinc-400 text-lg leading-relaxed">
+                            <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
                                 15+ serviços especializados para empresas de todos os
                                 portes e segmentos. Do essencial ao estratégico.
                             </p>
                         </div>
 
-                        {/* Stats rápidos */}
-                        <div className="flex gap-8 md:justify-end">
-                            {[
-                                { value: '15+', label: 'Serviços' },
-                                { value: '530+', label: 'Clientes' },
-                                { value: '10+', label: 'Anos' },
-                            ].map(s => (
-                                <div key={s.label} className="text-center">
-                                    <div className="text-3xl font-black text-white mb-1">{s.value}</div>
-                                    <div className="text-zinc-600 text-xs uppercase tracking-wider">{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </section>
@@ -230,86 +229,87 @@ export default function Servicos() {
                 </div>
             </section>
 
-            {/* ── GRID DE SERVIÇOS ── */}
+            {/* ── ÍNDICE DE SERVIÇOS ── */}
             <section className="py-16 px-6 bg-black">
                 <div className="max-w-7xl mx-auto">
 
-                    {/* Resultado */}
-                    <div className="flex items-center justify-between mb-8">
-                        <p className="text-zinc-500 text-sm">
-                            <span className="text-white font-semibold">{servicosFiltrados.length}</span> serviços encontrados
+                    <div className="flex items-center justify-between mb-2">
+                        <p className="text-zinc-600 text-xs font-mono uppercase tracking-wider">
+                            {servicosFiltrados.length} {servicosFiltrados.length === 1 ? 'registro' : 'registros'}
                         </p>
                         {(filtro !== 'Todos' || busca) && (
                             <button
                                 onClick={() => { setFiltro('Todos'); setBusca('') }}
-                                className="text-zinc-500 hover:text-white text-xs transition-colors"
+                                className="text-zinc-500 hover:text-white text-xs font-mono transition-colors"
                             >
                                 Limpar filtros ×
                             </button>
                         )}
                     </div>
 
-                    <motion.div layout className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div className="border-t border-zinc-800">
                         <AnimatePresence mode="popLayout">
                             {servicosFiltrados.map((service) => {
                                 const Icon = service.icon
+                                const originalIndex = services.findIndex(s => s.id === service.id)
+                                const code = String(originalIndex + 1).padStart(2, '0')
+                                const abbr = categoryAbbr[service.categoria]
+
                                 return (
                                     <motion.div
                                         key={service.id}
                                         layout
-                                        initial={{ opacity: 0, scale: 0.96 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        exit={{ opacity: 0, scale: 0.96 }}
-                                        transition={{ duration: 0.2 }}
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.15 }}
                                     >
                                         <Link
                                             to={`/servicos/${service.id}`}
-                                            className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-6 flex flex-col h-full overflow-hidden transition-all duration-300 hover:bg-zinc-800/60 block"
+                                            className="group relative flex items-center gap-4 md:gap-6 border-b border-zinc-800 py-5 px-2 md:px-3 hover:bg-zinc-900/40 transition-colors"
                                         >
-                                            {/* Glow */}
-                                            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                                            {/* Barra de destaque */}
+                                            <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-orange-500 scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-200" />
 
-                                            {/* Tag destaque */}
-                                            {service.tag && (
-                                                <span className="absolute top-4 right-4 bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                                                    <Star size={9} className="fill-orange-400" />
-                                                    {service.tag}
-                                                </span>
-                                            )}
+                                            {/* Código de registro */}
+                                            <span className="hidden sm:block font-mono text-xs text-zinc-600 group-hover:text-orange-500 transition-colors w-14 shrink-0 tracking-wider">
+                                                {code}·{abbr}
+                                            </span>
 
-                                            <div className="relative z-10 flex flex-col h-full">
-                                                {/* Categoria */}
-                                                <span className="text-zinc-600 text-xs uppercase tracking-wider mb-4">
-                                                    {service.categoria}
-                                                </span>
+                                            {/* Ícone */}
+                                            <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 group-hover:border-orange-500/40 flex items-center justify-center shrink-0 transition-colors">
+                                                <Icon size={16} className="text-zinc-500 group-hover:text-orange-500 transition-colors" />
+                                            </div>
 
-                                                {/* Ícone */}
-                                                <div className="w-11 h-11 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/30 flex items-center justify-center mb-4 transition-all duration-300">
-                                                    <Icon size={19} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
+                                            {/* Conteúdo */}
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-2 mb-0.5">
+                                                    <h3 className="text-white font-bold text-base md:text-lg truncate">
+                                                        {service.title}
+                                                    </h3>
+                                                    {service.tag && (
+                                                        <span className="hidden md:inline-flex items-center gap-1 font-mono text-[10px] text-orange-400 uppercase tracking-wider shrink-0">
+                                                            <Star size={9} className="fill-orange-400" />
+                                                            {service.tag}
+                                                        </span>
+                                                    )}
                                                 </div>
-
-                                                <h3 className="text-white font-bold text-lg mb-2 leading-snug">
-                                                    {service.title}
-                                                </h3>
-                                                <p className="text-zinc-500 text-sm leading-relaxed flex-1">
+                                                <p className="text-zinc-500 text-sm leading-relaxed truncate md:whitespace-normal md:line-clamp-1">
                                                     {service.description}
                                                 </p>
-
-                                                <div className="flex items-center gap-2 text-zinc-600 group-hover:text-orange-500 text-sm font-semibold mt-5 transition-all duration-200">
-                                                    Ver detalhes
-                                                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                                                </div>
                                             </div>
+
+                                            <ArrowRight size={16} className="text-zinc-700 group-hover:text-orange-500 group-hover:translate-x-1 transition-all shrink-0" />
                                         </Link>
                                     </motion.div>
                                 )
                             })}
                         </AnimatePresence>
-                    </motion.div>
+                    </div>
 
                     {servicosFiltrados.length === 0 && (
-                        <div className="text-center py-24">
-                            <p className="text-zinc-600 text-lg mb-2">Nenhum serviço encontrado.</p>
+                        <div className="text-center py-24 border-b border-zinc-800">
+                            <p className="text-zinc-600 text-lg mb-2">Nenhum registro encontrado.</p>
                             <button
                                 onClick={() => { setFiltro('Todos'); setBusca('') }}
                                 className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"
@@ -325,7 +325,7 @@ export default function Servicos() {
             <section className="py-20 px-6 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                        <span className="font-mono text-orange-500 text-xs uppercase tracking-widest mb-3 block">
                             Não encontrou o que procura?
                         </span>
                         <h2 className="text-3xl font-black text-white mb-4">
