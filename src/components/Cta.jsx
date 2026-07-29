@@ -1,6 +1,6 @@
 import { ArrowRight, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import pessoas from '../assets/colaboradores/FOTO COM TODOS.webp'
+import pessoas from "../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp";
 
 export default function CTASection() {
     return (

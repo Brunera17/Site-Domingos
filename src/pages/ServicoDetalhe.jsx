@@ -7,6 +7,7 @@ import {
     Building2, Shield, Leaf, Key, RefreshCw, TreePine,
     ClipboardList, Search, Home, Flag,
 } from 'lucide-react'
+import SEOHead from '../components/SEOHead'
 import { services as rawServices } from '../data/data'
 
 // ── Mapa de ícones Lucide ─────────────────────────────────────────────────────
@@ -251,6 +252,13 @@ export default function ServicoDetalhe() {
 
     return (
         <div className="bg-black">
+
+            <SEOHead
+                title={`${service.title} | Domingos Assessoria Empresarial`}
+                description={service.description}
+                canonicalPath={`/servicos/${id}`}
+                keywords={`${service.title}, ${categoria}, assessoria, consultoria, domingos`}
+            />
 
             {/* ── 1. BARRA DE PROGRESSO DE LEITURA ── */}
             <motion.div

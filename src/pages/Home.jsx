@@ -1,3 +1,4 @@
+import SEOHead from '../components/SEOHead'
 import Hero from '../components/Hero'
 import ServicosSection from '../components/ServicosSection'
 import SetoresSection from '../components/SetoresSection'
@@ -10,6 +11,13 @@ const Spacer = () => <div className="h-24" />
 export default function Home() {
     return (
         <>
+            <SEOHead
+                title="Domingos Assessoria Empresarial | Contabilidade e Consultoria Fiscal"
+                description="Contabilidade, consultoria fiscal, tributária e assessoria empresarial para pequenas e médias empresas no interior paulista. Mais de 10 anos de expertise."
+                canonicalPath="/"
+                keywords="contabilidade, consultoria fiscal, tributário, planejamento fiscal, departamento pessoal, assessoria empresarial, interior paulista"
+            />
+            
             <Hero />
             <Spacer />
             <ServicosSection />

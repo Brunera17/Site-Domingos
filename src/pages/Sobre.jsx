@@ -1,36 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp, CheckCircle } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp } from 'lucide-react'
+import SEOHead from '../components/SEOHead'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
-import adrielefoto from '../assets/colaboradores/otimizadas/ADRIELE.webp'
-import brunofoto from '../assets/colaboradores/otimizadas/BRUNO.webp'
-import cleonicefoto from '../assets/colaboradores/otimizadas/CLEONICE.webp'
-import danielecontafoto from '../assets/colaboradores/otimizadas/DANIELE CONTABIL.webp'
-import danielesilvafoto from '../assets/colaboradores/otimizadas/DANIELE SILVA.webp'
-import dayanefoto from '../assets/colaboradores/otimizadas/DAYANE.webp'
-import flaviafoto from '../assets/colaboradores/otimizadas/FLAVIA.webp'
-import gabifoto from '../assets/colaboradores/otimizadas/GABI.webp'
-import iasminfoto from '../assets/colaboradores/otimizadas/IASMIN.webp'
-import joaobryanfoto from '../assets/colaboradores/otimizadas/JOAO BRYAN.webp'
-import larissafoto from '../assets/colaboradores/otimizadas/LARISSA.webp'
-import laurafoto from '../assets/colaboradores/otimizadas/LAURA.webp'
-import lilianfoto from '../assets/colaboradores/otimizadas/LILIAN.webp'
-import lucimarafoto from '../assets/colaboradores/otimizadas/lucimara.webp'
 import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
-import marciofoto from '../assets/colaboradores/otimizadas/Marcio.webp'
-import mariaisabelfoto from '../assets/colaboradores/otimizadas/MARIA ISABEL.webp'
-import mariasocietafoto from '../assets/colaboradores/otimizadas/MARIA SOCIETARIO.webp'
-import miguelfoto from '../assets/colaboradores/otimizadas/MIGUEL.webp'
-import mikaelefoto from '../assets/colaboradores/otimizadas/MIKAELE.webp'
-import nelsonfoto from '../assets/colaboradores/otimizadas/NELSON.webp'
-import odairfoto from '../assets/colaboradores/otimizadas/ODAIR.webp'
-import pedrofoto from '../assets/colaboradores/otimizadas/PEDRO.webp'
-import taynarafoto from '../assets/colaboradores/otimizadas/TAYNARA.webp'
-import vanessafoto from '../assets/colaboradores/otimizadas/VANESSA.webp'
-import yasminfoto from '../assets/colaboradores/otimizadas/YASMIN.webp'
-import fotoComTodosFoto from '../assets/colaboradores/otimizadas/FOTO COM TODOS.webp'
+import fotoComTodosFoto from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 import fotoComTodosFotoGrande from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 
 import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
@@ -114,235 +89,59 @@ const valores = [
     },
 ]
 
-const departamentos = [
-    'Todos',
-    'Contabilidade',
-    'Fiscal / Tributário',
-    'Departamento Pessoal',
-    'Legalização Empresarial',
-    'TI',
-    'Automatizações',
-    'Administrativo',
-    'Financeiro',
-    'Comercial',
-]
-const equipe = [
-    {
-        nome: 'Marcelo Domingos',
-        cargo: 'Sócio Fundador e Contador',
-        departamentos: ['Administrativo'],
-        bio: 'Contador com mais de 15 anos de experiência, especialista em planejamento tributário e gestão contábil.',
-        foto: marcelofoto
-    },
-    {
-        nome: 'Ágata',
-        cargo: 'Contadora e Consultora',
-        departamentos: ['Administrativo'],
-        bio: 'Especialista em consultoria empresarial e gestão financeira estratégica para empresas em crescimento.',
-        foto: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
-    },
-    {
-        nome: 'Maylon',
-        cargo: 'Contador e Consultor',
-        departamentos: ['Administrativo', 'Fiscal / Tributário', 'Contabilidade'],
-        bio: 'Especialista em direito tributário, recuperação de créditos e compliance fiscal.',
-        foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop&crop=face'
-    },
-    {
-        nome: 'Odair Domingos',
-        cargo: 'Coordenador - Fiscal / Tributário',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Administrador com expertise em departamento fiscal e tributário, focado em organização, apuração de impostos e atendimento ao cliente.',
-        foto: odairfoto
-    },
-    {
-        nome: 'Nelson Kayki',
-        cargo: 'Coordenador - Contábil / TI',
-        departamentos: ['Contabilidade', 'TI'],
-        bio: 'Contador e especialista em tecnologia aplicada à contabilidade, responsável por liderar a equipe contábil e implementar soluções digitais para otimizar processos internos.',
-        foto: nelsonfoto
-    },
-    {
-        nome: 'Gabriela Amabily',
-        cargo: 'Analista fiscal',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Atua com organização de documentos, apuração de impostos e atendimento a clientes, contribuindo para a eficiência do departamento fiscal.',
-        foto: gabifoto
-    },
-    {
-        nome: 'Flávia Marques',
-        cargo: 'Recurso Humano',
-        departamentos: ['Administrativo'],
-        bio: 'Responsável por recrutamento, seleção, treinamento e desenvolvimento de colaboradores, garantindo um ambiente de trabalho positivo e produtivo.',
-        foto: flaviafoto
-    },
-    {
-        nome: 'Adriely Maria de Oliveira',
-        cargo: 'Financeiro',
-        departamentos: ['Financeiro'],
-        bio: 'Atua nas rotinas administrativas e financeiras, responsável por organização financeira, emissão de boletos, controle de pagamentos e atendimento aos clientes.',
-        foto: adrielefoto
-    },
-    {
-        nome: 'Daniele da Silva',
-        cargo: 'Analista Fiscal',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Experiência em apuração de empresas nos regimes MEI, Simples Nacional, Lucro Presumido e Lucro Real. Emissão de NF-e, CT-e, NFS e MDF-e, controle de planilhas e atendimento ao cliente.',
-        foto: danielesilvafoto
-    },
-    {
-        nome: 'Daniele Fátima Almeida de Oliveira',
-        cargo: 'Analista Departamento Contábil',
-        departamentos: ['Contabilidade'],
-        bio: 'Atua com lançamentos contábeis, conferências, apurações e lançamentos rurais, com foco em organização, agilidade e atendimento ao cliente.',
-        foto: danielecontafoto
-    },
-    {
-        nome: 'Dayane Pasin de Almeida',
-        cargo: 'Gerente de Relacionamento',
-        departamentos: ['Administrativo', 'Legalização Empresarial'],
-        bio: 'Oferece suporte e atendimento personalizado aos clientes, fortalecendo relações de confiança e garantindo a melhor experiência no atendimento.',
-        foto: dayanefoto
-    },
-    {
-        nome: 'Iasmin Sthefania Antunes de Oliveira',
-        cargo: 'Estagiária – Departamento Pessoal',
-        departamentos: ['Departamento Pessoal'],
-        bio: 'Estagiária e estudante de Técnico em Administração. Atua com organização de documentos, atendimento e apoio nas rotinas administrativas.',
-        foto: iasminfoto
-    },
-    {
-        nome: 'João Brayan da Silva Fabricio',
-        cargo: 'Analista societário',
-        departamentos: ['Legalização Empresarial'],
-        bio: 'Atua com abertura, alteração e baixa de empresas, elaboração de documentos societários, processos na Junta Comercial, Redesim e viabilidade.',
-        foto: joaobryanfoto
-    },
-    {
-        nome: 'Laura Cristina Chiara',
-        cargo: 'Analista Fiscal',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Experiência em rotinas fiscais, apuração de impostos, análise de documentos e interpretação de legislações federais, estaduais e municipais.',
-        foto: laurafoto
-    },
-    {
-        nome: 'Lílian Maria de Souza',
-        cargo: 'Coordenadora – Departamento Pessoal',
-        departamentos: ['Departamento Pessoal'],
-        bio: 'Experiência em rotinas de folha de pagamento, emissão de guias de FGTS, rescisões contratuais e suporte à equipe e clientes.',
-        foto: lilianfoto
-    },
-    {
-        nome: 'Lucimara Rondino de Oliveira',
-        cargo: 'Analista Departamento Pessoal',
-        departamentos: ['Departamento Pessoal'],
-        bio: 'Atua no fechamento da folha mensal e rotinas correlatas, com conhecimento em emissão de notas fiscais e demais processos do setor.',
-        foto: lucimarafoto
-    },
-    {
-        nome: 'Márcio José de Oliveira Junior',
-        cargo: 'Analista Fiscal',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Auxilia nas rotinas fiscais, organização de documentos, apuração de impostos e atendimento a clientes, com foco em responsabilidade e eficiência.',
-        foto: marciofoto
-    },
-    {
-        nome: 'Maria Isabel Travassi Rodrigues',
-        cargo: 'Auxiliar Financeiro / Recepcionista',
-        departamentos: ['Administrativo', 'Financeiro'],
-        bio: 'Atua com rotinas administrativas e fiscais, organização de documentos e recepção de clientes, prezando pelo atendimento com simpatia e eficiência.',
-        foto: mariaisabelfoto
-    },
-    {
-        nome: 'Maria Machado',
-        cargo: 'Estagiária - Societário',
-        departamentos: ['Legalização Empresarial'],
-        bio: 'Estagiária no departamento societário, auxiliando em processos de abertura, alteração e regularização de empresas.',
-        foto: mariasocietafoto
-    },
-    {
-        nome: 'Miguel Oliveira de Sousa Coelho',
-        cargo: 'Analista Societário',
-        departamentos: ['Legalização Empresarial', 'Comercial'],
-        bio: 'Executa todo o processo de constituição de empresas do início ao fim, incluindo Holdings e Consórcios. Também atua com IR, declarações de MEI, planejamentos personalizados e regularização de empresas.',
-        foto: miguelfoto
-    },
-    {
-        nome: 'Pedro Henrique Campos de Camargo',
-        cargo: 'Coordenador - Societário',
-        departamentos: ['Legalização Empresarial'],
-        bio: 'Quase 5 anos de experiência societária e empresarial. Coordena equipe e processos junto à JUCESP, Receita Federal, cartórios e órgãos de registro, além de regularização de Produtores Rurais.',
-        foto: pedrofoto
-    },
-    {
-        nome: 'Taynara Cristina de Oliveira',
-        cargo: 'Analista Societário',
-        departamentos: ['Legalização Empresarial'],
-        bio: 'Atua com abertura, alteração e regularização de empresas, licenças, enquadramentos e acompanhamento de demandas junto a órgãos públicos.',
-        foto: taynarafoto
-    },
-    {
-        nome: 'Vanessa Leonidia de Almeida',
-        cargo: 'Analista Departamento Pessoal',
-        departamentos: ['Departamento Pessoal'],
-        bio: 'Experiência em rotinas trabalhistas, folha de pagamento, controle de ponto, admissões, demissões e atendimento aos colaboradores.',
-        foto: vanessafoto
-    },
-    {
-        nome: 'Yasmin Christine Melo dos Santos',
-        cargo: 'Estagiária – Departamento Contábil',
-        departamentos: ['Contabilidade'],
-        bio: 'Estagiária na área contábil, atuando com lançamentos contábeis e rurais. Cursa o ensino médio conciliando estudos e experiência profissional.',
-        foto: yasminfoto
-    },
-    {
-        nome: 'Cleonice',
-        cargo: 'Analista Departamento Pessoal',
-        departamentos: ['Departamento Pessoal'],
-        bio: 'Atua na área de Departamento Pessoal, contribuindo com as rotinas do setor e atendimento aos clientes.',
-        foto: cleonicefoto
-    },
-    {
-        nome: 'Bruno David Martins',
-        cargo: 'Analista Fiscal / Automatizações',
-        departamentos: ['Fiscal / Tributário', 'Automatizações'],
-        bio: 'Atua no departamento fiscal com foco em automatizações de processos, otimizando rotinas e ganhando eficiência no dia a dia da equipe.',
-        foto: brunofoto
-    },
-    {
-        nome: 'Mikaele',
-        cargo: 'Estágiaria - Fiscal / Tributário',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
-        foto: mikaelefoto
-    },
-    {
-        nome: 'Larissa',
-        cargo: 'Estágiaria - Fiscal / Tributário',
-        departamentos: ['Fiscal / Tributário'],
-        bio: 'Atua na equipe Domingos Assessoria, contribuindo com dedicação e responsabilidade nas rotinas do setor.',
-        foto: larissafoto
-    },
-]
+// ── ORGANOGRAMA ───────────────────────────────────────────────────────────────
+const orgData = {
+    diretor: 'Diretor Controller',
+    gerentes: ['Gerente de Relacionamento', 'Gerente de Operações', 'Gerente Tributário'],
+    departamentos: [
+        {
+            coord: 'Coord. Comercial',
+            cargos: ['Analista', 'Estagiário'],
+        },
+        {
+            coord: 'Coord. Depto. Pessoal',
+            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+        },
+        {
+            coord: 'Coord. Fiscal',
+            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+        },
+        {
+            coord: 'Coord. Contábil / TI',
+            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+        },
+        {
+            coord: 'Coord. Societário',
+            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+        },
+        {
+            coord: 'Coord. Financeiro',
+            cargos: ['Analista', 'Estagiário'],
+        },
+    ],
+}
 
 const estruturaImages = [
-    areaTrabalhoFoto,
-    lobbyFoto,
-    recepcaoFoto,
-    fotoComTodosFoto,
+    { src: areaTrabalhoFoto, alt: 'Área de trabalho' },
+    { src: lobbyFoto,        alt: 'Lobby' },
+    { src: recepcaoFoto,     alt: 'Recepção' },
+    // Para adicionar mais fotos: { src: novaFoto, alt: 'Descrição' }
 ]
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
 export default function Sobre() {
-    const [filtro, setFiltro] = useState('Todos')
-
-    const equipeFiltrada = filtro === 'Todos'
-        ? equipe
-        : equipe.filter(m => m.departamentos.includes(filtro))
+    const [destaque, setDestaque] = useState(0)
 
     return (
         <div className="bg-black">
+
+            <SEOHead
+                title="Sobre Domingos Assessoria | 10+ Anos de Expertise em Contabilidade"
+                description="Conheça a história, equipe e valores da Domingos Assessoria. 30 colaboradores especializados, presença em 14 estados e mais de 530 clientes ativos."
+                canonicalPath="/sobre"
+                keywords="sobre domingos, equipe contábil, história da empresa, valores, missão, contabilidade especializada"
+            />
 
             {/* ── 1. HERO ── */}
             <section
@@ -456,10 +255,7 @@ export default function Sobre() {
                         </div>
 
                         <div>
-                            <div
-                                className="text-zinc-700 font-black leading-none mb-6 select-none"
-                                style={{ fontSize: '120px' }}
-                            >
+                            <div className="text-zinc-700 font-black leading-none mb-6 select-none" style={{ fontSize: '120px' }}>
                                 "
                             </div>
                             <blockquote className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-8 -mt-16">
@@ -558,89 +354,111 @@ export default function Sobre() {
                 </div>
             </section>
 
-            {/* ── 6. EQUIPE ── */}
+            {/* ── 6. NOSSO TIME — foto + organograma ── */}
             <section className="py-24 px-6 bg-black">
                 <div className="max-w-7xl mx-auto">
-                    <div className="mb-10">
+
+                    {/* Cabeçalho */}
+                    <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Nosso time
                         </span>
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
-                            <h2 className="text-4xl font-black text-white">
-                                Conheça nossa <span className="text-orange-500">Equipe</span>
-                            </h2>
-                            <p className="text-zinc-500 text-sm">
-                                {equipe.length} profissionais · {departamentos.length - 1} departamentos
-                            </p>
-                        </div>
+                        <h2 className="text-4xl font-black text-white">
+                            Conheça nossa <span className="text-orange-500">Equipe</span>
+                        </h2>
+                    </div>
 
-                        {/* Filtros */}
-                        <div className="flex flex-wrap gap-2">
-                            {departamentos.map((dep) => (
-                                <button
-                                    key={dep}
-                                    onClick={() => setFiltro(dep)}
-                                    className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${filtro === dep
-                                        ? 'bg-orange-500 border-orange-500 text-white'
-                                        : 'bg-transparent border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white'
-                                        }`}
-                                >
-                                    {dep}
-                                    {dep !== 'Todos' && (
-                                        <span className="ml-1.5 opacity-50">
-                                            {equipe.filter(m => m.departamentos.includes(dep)).length}
-                                        </span>
-                                    )}
-                                </button>
-                            ))}
+                    {/* Foto da equipe */}
+                    <div className="relative rounded-2xl overflow-hidden mb-16" style={{ height: '420px' }}>
+                        <img
+                            src={fotoComTodosFotoGrande}
+                            alt="Equipe Domingos Assessoria"
+                            className="w-full h-full object-cover"
+                            style={{ objectPosition: 'center 30%' }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                        <div className="absolute bottom-8 left-8">
+                            <p className="text-white font-black text-2xl">30+ colaboradores</p>
+                            <p className="text-zinc-400 text-sm">dedicados ao sucesso do seu negócio</p>
                         </div>
                     </div>
 
-                    {/* ── Grid — SEM layout no container, SEM layout nos cards ── */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-                        <AnimatePresence mode="popLayout">
-                            {equipeFiltrada.map((membro) => (
-                                <motion.div
-                                    key={membro.nome}
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.95 }}
-                                    transition={{ duration: 0.2 }}
-                                    className="group bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300"
-                                >
-                                    <div className="relative overflow-hidden h-56">
-                                        <img
-                                            src={membro.foto}
-                                            alt={membro.nome}
-                                            loading="lazy"
-                                            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                                        />
-                                        <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 max-w-[calc(100%-1.5rem)]">
-                                            {membro.departamentos.map((dep) => (
-                                                <span
-                                                    key={dep}
-                                                    className="bg-black/70 backdrop-blur-sm text-orange-400 text-xs font-bold px-2.5 py-1 rounded-full border border-orange-500/20"
-                                                >
-                                                    {dep}
-                                                </span>
-                                            ))}
+                    {/* Organograma */}
+                    <div className="mb-4">
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
+                            Estrutura interna
+                        </span>
+                        <h3 className="text-2xl font-black text-white mb-10">
+                            Organograma
+                        </h3>
+                    </div>
+
+                    {/* Diretor */}
+                    <div className="flex justify-center mb-0">
+                        <div className="bg-orange-500 text-white font-black text-sm px-6 py-3 rounded-xl tracking-wide">
+                            {orgData.diretor}
+                        </div>
+                    </div>
+
+                    {/* Linha vertical */}
+                    <div className="flex justify-center">
+                        <div className="w-px h-8 bg-zinc-700" />
+                    </div>
+
+                    {/* Linha horizontal dos gerentes */}
+                    <div className="relative flex justify-center gap-6 mb-0">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px bg-zinc-700"
+                            style={{ width: `${(orgData.gerentes.length - 1) * 220}px` }} />
+                        {orgData.gerentes.map((g) => (
+                            <div key={g} className="flex flex-col items-center" style={{ width: '200px' }}>
+                                <div className="w-px h-8 bg-zinc-700" />
+                                <div className="bg-zinc-900 border border-orange-500/40 text-white font-semibold text-xs px-4 py-2.5 rounded-xl text-center w-full">
+                                    {g}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Linha vertical para coordenadores */}
+                    <div className="flex justify-center">
+                        <div className="w-px h-8 bg-zinc-700" />
+                    </div>
+
+                    {/* Label coordenadores */}
+                    <div className="flex items-center gap-3 mb-6 max-w-5xl mx-auto">
+                        <div className="flex-1 h-px bg-orange-500/20" />
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Coordenadores</span>
+                        <div className="flex-1 h-px bg-orange-500/20" />
+                    </div>
+
+                    {/* Grid de departamentos */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+                        {orgData.departamentos.map((dep) => (
+                            <div key={dep.coord} className="flex flex-col items-center gap-0">
+                                {/* Linha vertical até coord */}
+                                <div className="w-px h-6 bg-zinc-700" />
+                                {/* Card coordenador */}
+                                <div className="bg-zinc-900 border border-zinc-700 hover:border-orange-500/50 transition-colors rounded-xl px-3 py-2.5 text-center w-full">
+                                    <p className="text-white font-bold text-xs leading-snug">{dep.coord}</p>
+                                </div>
+                                {/* Cargos */}
+                                <div className="flex flex-col items-center w-full mt-0">
+                                    {dep.cargos.map((cargo, idx) => (
+                                        <div key={cargo} className="flex flex-col items-center w-full">
+                                            <div className="w-px h-4 bg-zinc-800" />
+                                            <div className={`w-full px-3 py-1.5 rounded-lg text-center text-xs border ${
+                                                idx === 0
+                                                    ? 'bg-zinc-900/50 border-zinc-700 text-zinc-300'
+                                                    : 'bg-transparent border-zinc-800 text-zinc-500'
+                                            }`}>
+                                                {cargo}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="p-5">
-                                        <h3 className="text-white font-bold text-sm mb-0.5">{membro.nome}</h3>
-                                        <p className="text-orange-500 text-xs font-medium mb-2">{membro.cargo}</p>
-                                        <p className="text-zinc-500 text-xs leading-relaxed">{membro.bio}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
                     </div>
-
-                    {equipeFiltrada.length === 0 && (
-                        <div className="text-center py-20 text-zinc-600 text-sm">
-                            Nenhum funcionário neste departamento ainda.
-                        </div>
-                    )}
                 </div>
             </section>
 
@@ -656,21 +474,43 @@ export default function Sobre() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {estruturaImages.map((img, i) => (
-                            <div
-                                key={i}
-                                className={`overflow-hidden rounded-2xl ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
-                            >
-                                <img
-                                    src={img}
-                                    alt={`Estrutura ${i + 1}`}
-                                    loading="lazy"
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                                    style={{ height: i === 0 ? '100%' : '200px' }}
-                                />
-                            </div>
-                        ))}
+                    {/* Galeria com destaque clicável */}
+                    <div className="flex flex-col md:flex-row gap-4">
+                        {/* Imagem em destaque (grande) */}
+                        <div className="flex-1 overflow-hidden rounded-2xl" style={{ height: '480px' }}>
+                            <img
+                                src={estruturaImages[destaque].src}
+                                alt={estruturaImages[destaque].alt}
+                                className="w-full h-full object-cover transition-all duration-500"
+                            />
+                        </div>
+
+                        {/* Miniaturas — todas exceto a em destaque */}
+                        <div className="flex md:flex-col flex-row gap-4">
+                            {estruturaImages
+                                .map((img, i) => ({ img, i }))
+                                .filter(({ i }) => i !== destaque)
+                                .map(({ img, i }) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setDestaque(i)}
+                                        className="overflow-hidden rounded-2xl relative group flex-1 md:flex-none"
+                                        style={{ width: '280px', height: '232px' }}
+                                    >
+                                        <img
+                                            src={img.src}
+                                            alt={img.alt}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-black/25 group-hover:bg-black/0 transition-colors duration-300" />
+                                        {/* Label ao hover */}
+                                        <span className="absolute bottom-3 left-3 text-white text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            {img.alt}
+                                        </span>
+                                    </button>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
             </section>

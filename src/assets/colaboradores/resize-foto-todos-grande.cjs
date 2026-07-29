@@ -12,7 +12,7 @@
 const sharp = require('sharp')
 const fs = require('fs')
 
-const ARQUIVO_ORIGEM = './FOTO_COM_TODOS_ORIGINAL.webp'
+const ARQUIVO_ORIGEM = './1.webp'
 const ARQUIVO_SAIDA = './FOTO_COM_TODOS_GRANDE.webp'
 const LADO_MAXIMO = 1600
 const QUALIDADE = 80
