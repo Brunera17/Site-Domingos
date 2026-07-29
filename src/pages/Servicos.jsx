@@ -41,6 +41,7 @@ const services = [
         description: 'Gestão de obrigações fiscais, apuração de impostos e recuperação de créditos.',
         categoria: 'Contábil e Fiscal',
         destaque: true,
+        tag: 'Mais procurado',
     },
     {
         id: 'assessoria-dp-pessoal',
@@ -49,6 +50,7 @@ const services = [
         description: 'Folha de pagamento, admissões, demissões e conformidade com eSocial.',
         categoria: 'Contábil e Fiscal',
         destaque: true,
+        tag: 'Mais procurado',
     },
     {
         id: 'consultoria-empresarial',
@@ -56,6 +58,7 @@ const services = [
         title: 'Consultoria Empresarial',
         description: 'Diagnóstico, planejamento estratégico e indicadores de desempenho.',
         categoria: 'Gestão Empresarial',
+        tag: 'Mais procurado',
     },
     {
         id: 'bpo-financeiro',
@@ -151,8 +154,8 @@ export default function Servicos() {
 
     const stats = [
         { label: 'Serviços', value: '15+' },
-        { label: 'Clientes atendidos', value: '530+' },
-        { label: 'Anos de experiência', value: '10+' },
+        { label: 'Setores', value: '4+' },
+        { label: 'Expecialistas', value: '10+' },
     ]
 
     return (
@@ -167,15 +170,15 @@ export default function Servicos() {
                 />
                 <div className="max-w-7xl mx-auto relative z-10">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Portfólio completo
+                        Soluções completas
                     </span>
                     <h1
                         className="font-black text-white leading-[0.95] mb-6"
                         style={{ fontSize: 'clamp(42px, 5.5vw, 68px)' }}
                     >
-                        Cada serviço,
+                        Tudo que sua empresa
                         <br />
-                        <span className="text-orange-500">catalogado.</span>
+                        <span className="text-orange-500">precisa para crescer</span>
                     </h1>
                     <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
                         15+ serviços especializados para empresas de todos os

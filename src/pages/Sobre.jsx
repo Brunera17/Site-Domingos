@@ -145,7 +145,7 @@ export default function Sobre() {
 
             {/* ── 1. HERO ── */}
             <section
-                className="relative flex items-end overflow-hidden"
+                className="relative flex items-end overflow-hidden px-6"
                 style={{ height: '70vh', minHeight: '500px' }}
             >
                 <img
@@ -158,7 +158,7 @@ export default function Sobre() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
 
-                <div className="relative z-10 max-w-7xl mx-auto px-6 pb-16 w-full">
+                <div className="relative z-10 max-w-7xl mx-auto pb-16 w-full">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Quem somos
                     </span>
@@ -184,7 +184,7 @@ export default function Sobre() {
                         const Icon = s.icon
                         return (
                             <div key={s.label} className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                                <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
                                     <Icon size={20} className="text-orange-500" />
                                 </div>
                                 <div>
@@ -218,14 +218,14 @@ export default function Sobre() {
                                         <span className="text-orange-500 font-black text-sm">{item.ano}</span>
                                     </div>
                                     <div className="shrink-0 hidden md:flex items-center justify-center w-5 h-5 rounded-full bg-orange-500 border-4 border-black mt-0.5 z-10" />
-                                    <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl p-5 hover:border-zinc-700 transition-colors">
+                                    <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg p-5 hover:border-zinc-700 transition-colors">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
                                             <h3 className="text-white font-bold">{item.titulo}</h3>
                                         </div>
                                         <p className="text-zinc-500 text-sm leading-relaxed mb-3">{item.desc}</p>
-                                        <p className="text-orange-400/80 text-xs font-medium italic border-l-2 border-orange-500/40 pl-3">
-                                            → {item.frase}
+                                        <p className="text-zinc-400 text-xs leading-relaxed border-l-2 border-orange-500/40 pl-3">
+                                            {item.frase}
                                         </p>
                                     </div>
                                 </div>
@@ -240,7 +240,7 @@ export default function Sobre() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="relative">
-                            <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+                            <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
                                 <img
                                     src={marcelofoto}
                                     alt="Marcelo Domingos"
@@ -248,18 +248,16 @@ export default function Sobre() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                             </div>
-                            <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-zinc-800 rounded-xl p-4 max-w-[200px]">
+                            <div className="absolute -bottom-6 -right-6 bg-zinc-900 border border-zinc-800 rounded-lg p-4 max-w-[200px]">
                                 <div className="text-2xl font-black text-orange-500">10+</div>
                                 <div className="text-zinc-400 text-xs">anos liderando a empresa</div>
                             </div>
                         </div>
 
                         <div>
-                            <div className="text-zinc-700 font-black leading-none mb-6 select-none" style={{ fontSize: '120px' }}>
-                                "
-                            </div>
-                            <blockquote className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-8 -mt-16">
-                                Fundei a Domingos Assessoria com um propósito simples: ser o parceiro que os empresários merecem. Não apenas um contador, mas alguém que realmente se importa com o sucesso do seu negócio.
+                            <div className="w-10 h-1 bg-orange-500 mb-6" />
+                            <blockquote className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-8">
+                                "Fundei a Domingos Assessoria com um propósito simples: ser o parceiro que os empresários merecem. Não apenas um contador, mas alguém que realmente se importa com o sucesso do seu negócio."
                             </blockquote>
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-px bg-orange-500" />
@@ -286,8 +284,8 @@ export default function Sobre() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                            <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Target size={22} className="text-orange-500" />
                             </div>
                             <h3 className="text-white font-bold text-xl mb-3">Missão</h3>
@@ -298,8 +296,8 @@ export default function Sobre() {
                             </p>
                         </div>
 
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                            <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Eye size={22} className="text-orange-500" />
                             </div>
                             <h3 className="text-white font-bold text-xl mb-3">Visão</h3>
@@ -311,9 +309,9 @@ export default function Sobre() {
                         </div>
                     </div>
 
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8">
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
                         <div className="flex items-center gap-3 mb-8">
-                            <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                                 <Heart size={22} className="text-orange-500" />
                             </div>
                             <h3 className="text-white font-bold text-xl">Valores</h3>
@@ -338,7 +336,7 @@ export default function Sobre() {
                 </div>
 
                 <div className="max-w-7xl mx-auto mt-10">
-                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <p className="text-white font-semibold text-sm">
                             Quer uma contabilidade assim? Fale com a Domingos.
                         </p>
@@ -369,7 +367,7 @@ export default function Sobre() {
                     </div>
 
                     {/* Foto da equipe */}
-                    <div className="relative rounded-2xl overflow-hidden mb-16" style={{ height: '420px' }}>
+                    <div className="relative rounded-xl overflow-hidden mb-16" style={{ height: '420px' }}>
                         <img
                             src={fotoComTodosFotoGrande}
                             alt="Equipe Domingos Assessoria"
@@ -395,7 +393,7 @@ export default function Sobre() {
 
                     {/* Diretor */}
                     <div className="flex justify-center mb-0">
-                        <div className="bg-orange-500 text-white font-black text-sm px-6 py-3 rounded-xl tracking-wide">
+                        <div className="bg-orange-500 text-white font-black text-sm px-6 py-3 rounded-lg tracking-wide">
                             {orgData.diretor}
                         </div>
                     </div>
@@ -412,7 +410,7 @@ export default function Sobre() {
                         {orgData.gerentes.map((g) => (
                             <div key={g} className="flex flex-col items-center" style={{ width: '200px' }}>
                                 <div className="w-px h-8 bg-zinc-700" />
-                                <div className="bg-zinc-900 border border-orange-500/40 text-white font-semibold text-xs px-4 py-2.5 rounded-xl text-center w-full">
+                                <div className="bg-zinc-900 border border-orange-500/40 text-white font-semibold text-xs px-4 py-2.5 rounded-lg text-center w-full">
                                     {g}
                                 </div>
                             </div>
@@ -438,7 +436,7 @@ export default function Sobre() {
                                 {/* Linha vertical até coord */}
                                 <div className="w-px h-6 bg-zinc-700" />
                                 {/* Card coordenador */}
-                                <div className="bg-zinc-900 border border-zinc-700 hover:border-orange-500/50 transition-colors rounded-xl px-3 py-2.5 text-center w-full">
+                                <div className="bg-zinc-900 border border-zinc-700 hover:border-orange-500/50 transition-colors rounded-lg px-3 py-2.5 text-center w-full">
                                     <p className="text-white font-bold text-xs leading-snug">{dep.coord}</p>
                                 </div>
                                 {/* Cargos */}
@@ -446,7 +444,7 @@ export default function Sobre() {
                                     {dep.cargos.map((cargo, idx) => (
                                         <div key={cargo} className="flex flex-col items-center w-full">
                                             <div className="w-px h-4 bg-zinc-800" />
-                                            <div className={`w-full px-3 py-1.5 rounded-lg text-center text-xs border ${
+                                            <div className={`w-full px-3 py-1.5 rounded-md text-center text-xs border ${
                                                 idx === 0
                                                     ? 'bg-zinc-900/50 border-zinc-700 text-zinc-300'
                                                     : 'bg-transparent border-zinc-800 text-zinc-500'
@@ -477,7 +475,7 @@ export default function Sobre() {
                     {/* Galeria com destaque clicável */}
                     <div className="flex flex-col md:flex-row gap-4">
                         {/* Imagem em destaque (grande) */}
-                        <div className="flex-1 overflow-hidden rounded-2xl" style={{ height: '480px' }}>
+                        <div className="flex-1 overflow-hidden rounded-xl" style={{ height: '480px' }}>
                             <img
                                 src={estruturaImages[destaque].src}
                                 alt={estruturaImages[destaque].alt}
@@ -494,7 +492,7 @@ export default function Sobre() {
                                     <button
                                         key={i}
                                         onClick={() => setDestaque(i)}
-                                        className="overflow-hidden rounded-2xl relative group flex-1 md:flex-none"
+                                        className="overflow-hidden rounded-xl relative group flex-1 md:flex-none"
                                         style={{ width: '280px', height: '232px' }}
                                     >
                                         <img
