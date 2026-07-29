@@ -151,8 +151,8 @@ export default function Servicos() {
 
     const stats = [
         { label: 'Serviços', value: '15+' },
-        { label: 'Clientes', value: '530+' },
-        { label: 'Anos', value: '10+' },
+        { label: 'Clientes atendidos', value: '530+' },
+        { label: 'Anos de experiência', value: '10+' },
     ]
 
     return (
@@ -166,26 +166,33 @@ export default function Servicos() {
                     }}
                 />
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <span className="font-mono text-orange-500 text-xs uppercase tracking-widest mb-3 block">
-                        
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                        Portfólio completo
                     </span>
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 items-end">
-                        <div>
-                            <h1
-                                className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(42px, 5.5vw, 68px)' }}
-                            >
-                                Cada serviço,
-                                <br />
-                                <span className="text-orange-500">catalogado.</span>
-                            </h1>
-                            <p className="text-zinc-400 text-lg leading-relaxed max-w-md">
-                                15+ serviços especializados para empresas de todos os
-                                portes e segmentos. Do essencial ao estratégico.
-                            </p>
-                        </div>
+                    <h1
+                        className="font-black text-white leading-[0.95] mb-6"
+                        style={{ fontSize: 'clamp(42px, 5.5vw, 68px)' }}
+                    >
+                        Cada serviço,
+                        <br />
+                        <span className="text-orange-500">catalogado.</span>
+                    </h1>
+                    <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
+                        15+ serviços especializados para empresas de todos os
+                        portes e segmentos. Do essencial ao estratégico.
+                    </p>
+                </div>
+            </section>
 
-                    </div>
+            {/* ── BARRA DE CONFIANÇA ── */}
+            <section className="py-8 px-6 bg-black border-y border-zinc-900">
+                <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
+                    {stats.map((s) => (
+                        <div key={s.label} className="text-center px-2">
+                            <div className="text-2xl md:text-3xl font-black text-white mb-1">{s.value}</div>
+                            <div className="text-zinc-600 text-[11px] md:text-xs uppercase tracking-wider">{s.label}</div>
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -234,13 +241,13 @@ export default function Servicos() {
                 <div className="max-w-7xl mx-auto">
 
                     <div className="flex items-center justify-between mb-2">
-                        <p className="text-zinc-600 text-xs font-mono uppercase tracking-wider">
-                            {servicosFiltrados.length} {servicosFiltrados.length === 1 ? 'registro' : 'registros'}
+                        <p className="text-zinc-600 text-xs uppercase tracking-wider">
+                            <span className="text-zinc-400 font-semibold">{servicosFiltrados.length}</span> {servicosFiltrados.length === 1 ? 'registro' : 'registros'}
                         </p>
                         {(filtro !== 'Todos' || busca) && (
                             <button
                                 onClick={() => { setFiltro('Todos'); setBusca('') }}
-                                className="text-zinc-500 hover:text-white text-xs font-mono transition-colors"
+                                className="text-zinc-500 hover:text-white text-xs transition-colors"
                             >
                                 Limpar filtros ×
                             </button>
@@ -288,7 +295,7 @@ export default function Servicos() {
                                                         {service.title}
                                                     </h3>
                                                     {service.tag && (
-                                                        <span className="hidden md:inline-flex items-center gap-1 font-mono text-[10px] text-orange-400 uppercase tracking-wider shrink-0">
+                                                        <span className="hidden md:inline-flex items-center gap-1 text-[10px] text-orange-400 font-semibold uppercase tracking-wider shrink-0">
                                                             <Star size={9} className="fill-orange-400" />
                                                             {service.tag}
                                                         </span>
@@ -325,7 +332,7 @@ export default function Servicos() {
             <section className="py-20 px-6 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span className="font-mono text-orange-500 text-xs uppercase tracking-widest mb-3 block">
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             Não encontrou o que procura?
                         </span>
                         <h2 className="text-3xl font-black text-white mb-4">
