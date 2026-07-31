@@ -5,10 +5,6 @@ import { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle } from
 // ── FAQ ────────────────────────────────────────────────────────────────────────
 const faqs = [
     {
-        q: 'Quanto tempo leva para minha empresa ser atendida?',
-        a: 'Após o primeiro contato, nossa equipe retorna em até 1 dia útil para agendar uma conversa inicial e entender as necessidades do seu negócio.',
-    },
-    {
         q: 'Vocês atendem empresas de outros municípios?',
         a: 'Sim! Atendemos empresas de toda a região e também de forma remota para clientes de outros estados. Nossa estrutura permite atendimento presencial e online.',
     },
@@ -79,19 +75,6 @@ export default function Contato() {
                                 Entre em contato e receba uma proposta personalizada, sem compromisso.
                             </p>
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            {[
-                                { value: '1 dia útil', label: 'Tempo de retorno' },
-                                { value: 'Grátis', label: 'Primeira consulta' },
-                                { value: '530+', label: 'Clientes atendidos' },
-                                { value: '10+', label: 'Anos de experiência' },
-                            ].map(s => (
-                                <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 text-center">
-                                    <div className="text-xl font-black text-white mb-1">{s.value}</div>
-                                    <div className="text-zinc-500 text-xs">{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </section>
@@ -135,7 +118,7 @@ export default function Contato() {
                                 icon: Clock,
                                 title: 'Horário de Atendimento',
                                 content: <div className="text-zinc-400 text-sm space-y-0.5">
-                                    <p>Segunda a Sexta: <span className="text-zinc-300">7h30 às 17h48</span></p>
+                                    <p>Segunda a Sexta: <span className="text-zinc-300">8h às 17h</span></p>
                                 </div>,
                             },
                         ].map(({ icon: Icon, title, content }) => (
