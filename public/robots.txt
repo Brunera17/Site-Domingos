@@ -1,0 +1,32 @@
+# Robots.txt for Domingos Assessoria Empresarial
+# Instruções para search engines (Google, Bing, etc)
+
+# Permitir todos os bots
+User-agent: *
+Allow: /
+
+# Disallow crawling de arquivos desnecessários
+Disallow: /node_modules/
+Disallow: /.next/
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /env.local
+Disallow: /.env*
+
+# Permitir crawling do sitemap
+Sitemap: https://domingosassessoria.com.br/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Delay para outros bots
+User-agent: *
+Crawl-delay: 1
+Request-rate: 30/60
