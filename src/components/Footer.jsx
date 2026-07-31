@@ -158,7 +158,7 @@ export default function Footer() {
                         {/* Horário */}
                         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
                             <p className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Horário de atendimento</p>
-                            <p className="text-zinc-300 text-xs">Seg – Sex: 7h30 às 17h48</p>
+                            <p className="text-zinc-300 text-xs">Seg – Sex: 8h às 17h</p>
                         </div>
                     </div>
                 </div>
