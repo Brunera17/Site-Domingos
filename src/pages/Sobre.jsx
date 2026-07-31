@@ -258,7 +258,7 @@ export default function Sobre() {
                         <div>
                             <div className="w-10 h-1 bg-orange-500 mb-6" />
                             <blockquote className="text-white text-xl md:text-2xl font-medium leading-relaxed mb-8">
-                                "Fundei a Domingos Assessoria com um propósito simples: ser o parceiro que os empresários merecem. Não apenas um contador, mas alguém que realmente se importa com o sucesso do seu negócio."
+                                "Desde o início, a Domingos Assessoria nasceu com um propósito: ser muito mais do que um escritório de contabilidade, ser o hub de negócios que o empresário precisa para crescer com segurança. Reunimos, em um único lugar, serviços de alta qualidade que geram economia de impostos e de tempo — liberando o empresário para focar no que realmente importa, o crescimento do seu negócio."
                             </blockquote>
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-px bg-orange-500" />
