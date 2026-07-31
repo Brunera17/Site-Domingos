@@ -353,8 +353,8 @@ export default function Sobre() {
                 </div>
             </section>
 
-            {/* ── 6. NOSSO TIME — foto + organograma ── */}
-            <section className="py-24 px-6 bg-black">
+            {/* ── 6. NOSSO TIME — foto + organograma (oculto no mobile) ── */}
+            <section className="hidden md:block py-24 px-6 bg-black">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Cabeçalho */}
