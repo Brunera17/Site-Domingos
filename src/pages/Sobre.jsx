@@ -90,36 +90,36 @@ const valores = [
 ]
 
 // ── ORGANOGRAMA ───────────────────────────────────────────────────────────────
-const orgData = {
-    diretor: 'Diretor Controller',
-    gerentes: ['Gerente de Relacionamento', 'Gerente de Operações', 'Gerente Tributário'],
-    departamentos: [
-        {
-            coord: 'Coord. Comercial',
-            cargos: ['Analista', 'Estagiário'],
-        },
-        {
-            coord: 'Coord. Depto. Pessoal',
-            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
-        },
-        {
-            coord: 'Coord. Fiscal',
-            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
-        },
-        {
-            coord: 'Coord. Contábil',
-            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
-        },
-        {
-            coord: 'Coord. Societário',
-            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
-        },
-        {
-            coord: 'Coord. Financeiro',
-            cargos: ['Analista', 'Estagiário'],
-        },
-    ],
-}
+//const orgData = {
+//    diretor: 'Diretor Controller',
+//    gerentes: ['Gerente de Relacionamento', 'Gerente de Operações', 'Gerente Tributário'],
+//    departamentos: [
+//        {
+//            coord: 'Coord. Comercial',
+//            cargos: ['Analista', 'Estagiário'],
+//        },
+//        {
+//            coord: 'Coord. Depto. Pessoal',
+//            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+//        },
+//        {
+//            coord: 'Coord. Fiscal',
+//            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+//        },
+//        {
+//            coord: 'Coord. Contábil',
+//            cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+//        },
+//        {
+//            coord: 'Coord. Societário',
+//             cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
+//         },
+//         {
+//             coord: 'Coord. Financeiro',
+//             cargos: ['Analista', 'Estagiário'],
+//         },
+//     ],
+// }
 
 const estruturaImages = [
     { src: areaTrabalhoFoto, alt: 'Área de trabalho' },
@@ -383,29 +383,29 @@ export default function Sobre() {
                     </div>
 
                     {/* Organograma */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Estrutura interna
                         </span>
                         <h3 className="text-2xl font-black text-white mb-10">
                             Organograma
                         </h3>
-                    </div>
+                    </div> */}
 
                     {/* Diretor */}
-                    <div className="flex justify-center mb-0">
+                    {/* <div className="flex justify-center mb-0">
                         <div className="bg-orange-500 text-white font-black text-sm px-6 py-3 rounded-lg tracking-wide">
                             {orgData.diretor}
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Linha vertical */}
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                         <div className="w-px h-8 bg-zinc-700" />
-                    </div>
+                    </div> */}
 
                     {/* Linha horizontal dos gerentes */}
-                    <div className="relative flex justify-center gap-6 mb-0">
+                    {/* <div className="relative flex justify-center gap-6 mb-0">
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 h-px bg-zinc-700"
                             style={{ width: `${(orgData.gerentes.length - 1) * 220}px` }} />
                         {orgData.gerentes.map((g) => (
@@ -416,31 +416,31 @@ export default function Sobre() {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
 
                     {/* Linha vertical para coordenadores */}
-                    <div className="flex justify-center">
+                    {/* <div className="flex justify-center">
                         <div className="w-px h-8 bg-zinc-700" />
-                    </div>
+                    </div> */}
 
                     {/* Label coordenadores */}
-                    <div className="flex items-center gap-3 mb-6 max-w-5xl mx-auto">
+                    {/* <div className="flex items-center gap-3 mb-6 max-w-5xl mx-auto">
                         <div className="flex-1 h-px bg-orange-500/20" />
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">Coordenadores</span>
                         <div className="flex-1 h-px bg-orange-500/20" />
-                    </div>
+                    </div> */}
 
                     {/* Grid de departamentos */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+                    {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
                         {orgData.departamentos.map((dep) => (
                             <div key={dep.coord} className="flex flex-col items-center gap-0">
-                                {/* Linha vertical até coord */}
+                                // Linha vertical até coord 
                                 <div className="w-px h-6 bg-zinc-700" />
-                                {/* Card coordenador */}
+                                // Card coordenador 
                                 <div className="bg-zinc-900 border border-zinc-700 hover:border-orange-500/50 transition-colors rounded-lg px-3 py-2.5 text-center w-full">
                                     <p className="text-white font-bold text-xs leading-snug">{dep.coord}</p>
                                 </div>
-                                {/* Cargos */}
+                                // Cargos
                                 <div className="flex flex-col items-center w-full mt-0">
                                     {dep.cargos.map((cargo, idx) => (
                                         <div key={cargo} className="flex flex-col items-center w-full">
@@ -457,7 +457,7 @@ export default function Sobre() {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
