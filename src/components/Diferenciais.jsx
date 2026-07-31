@@ -47,10 +47,9 @@ export default function DiferenciaisSection() {
 
     return (
         <section
-            className="px-6 bg-zinc-950 overflow-hidden"
-            style={{ height: '100vh' }}
+            className="px-6 bg-zinc-950 md:h-screen md:overflow-hidden py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto h-full flex flex-col py-8 gap-6">
+            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-6">
 
                 {/* Cabeçalho */}
                 <div>

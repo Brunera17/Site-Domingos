@@ -136,10 +136,9 @@ export default function ServicosSection() {
 
     return (
         <section
-            className="px-6 bg-black overflow-hidden"
-            style={{ height: '100vh' }}
+            className="px-6 bg-black md:h-screen md:overflow-hidden py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto h-full flex flex-col py-8 gap-4">
+            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-6 md:gap-4">
 
                 {/* Cabeçalho */}
                 <div className="mb-2">
@@ -234,8 +233,7 @@ export default function ServicosSection() {
 
                     {/* Cards menores — 7 colunas */}
                     <div
-                        className="md:col-span-7 grid grid-cols-2 gap-3 content-start"
-                        style={{ height: 'calc(100vh - 160px)' }}
+                        className="md:col-span-7 grid grid-cols-2 gap-3 content-start md:h-[calc(100vh-160px)]"
                     >
                         {otherServices.map((service, i) => {
                             const Icon = service.icon

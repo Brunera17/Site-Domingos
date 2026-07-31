@@ -27,37 +27,34 @@ export default defineConfig({
     // ── MANUAL CHUNKS (Code Splitting) ────────────────────────────────────
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Vendor principal - React ecosystem
-          'vendor-react': [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            'react-helmet-async',
-          ],
-
-          // Animações - Framer Motion (pesado)
-          'vendor-framer': [
-            'framer-motion',
-          ],
-
-          // Ícones - Lucide
-          'vendor-icons': [
-            'lucide-react',
-          ],
-
-          // Utilidades - Tailwind (gerado automaticamente, mas separar ajuda)
-          'vendor-utils': [
-            'clsx',
-            'classnames',
-          ],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (
+              id.includes('/react/') ||
+              id.includes('/react-dom/') ||
+              id.includes('/react-router-dom/') ||
+              id.includes('/react-helmet-async/')
+            ) {
+              return 'vendor-react'
+            }
+            if (id.includes('/framer-motion/')) {
+              return 'vendor-framer'
+            }
+            if (id.includes('/lucide-react/')) {
+              return 'vendor-icons'
+            }
+            if (id.includes('/clsx/') || id.includes('/classnames/')) {
+              return 'vendor-utils'
+            }
+          }
         },
 
         // ── PADRÃO DE NOMES DOS CHUNKS ────────────────────────────────────
         entryFileNames: 'js/[name]-[hash].js',
         chunkFileNames: 'js/[name]-[hash].js',
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
+          const name = assetInfo.name || assetInfo.names?.[0] || assetInfo.originalFileNames?.[0] || ''
+          const info = name.split('.')
           const ext = info[info.length - 1]
 
           if (/png|jpe?g|gif|svg|webp/.test(ext)) {

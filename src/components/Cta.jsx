@@ -5,13 +5,11 @@ import pessoas from "../assets/1.webp";
 export default function CTASection() {
     return (
         <section
-            className="relative overflow-hidden bg-zinc-950"
-            style={{ height: '100vh' }}
+            className="relative overflow-hidden bg-zinc-950 md:h-screen"
         >
-            {/* Imagem à esquerda com clip diagonal */}
+            {/* Imagem — em cima no mobile (altura fixa), à esquerda com clip diagonal no desktop */}
             <div
-                className="absolute left-0 top-0 bottom-0 w-[55%]"
-                style={{ clipPath: 'polygon(0 0, 85% 0, 100% 100%, 0 100%)' }}
+                className="relative h-64 sm:h-80 md:h-auto md:absolute md:left-0 md:top-0 md:bottom-0 md:w-[55%] md:[clip-path:polygon(0_0,85%_0,100%_100%,0_100%)]"
             >
                 <img
                     src={pessoas}
@@ -20,11 +18,13 @@ export default function CTASection() {
                 />
                 {/* Overlay escuro leve para não competir */}
                 <div className="absolute inset-0 bg-black/30" />
+                {/* Degradê para o texto respirar no mobile */}
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent md:hidden" />
             </div>
 
 
-            {/* Conteúdo à direita */}
-            <div className="absolute right-0 top-0 bottom-0 w-[45%] flex items-center px-14">
+            {/* Conteúdo */}
+            <div className="relative px-6 py-12 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[45%] md:flex md:items-center md:px-14 md:py-0">
                 <div className="w-full max-w-lg">
 
                     {/* Badge */}
@@ -78,7 +78,7 @@ export default function CTASection() {
                     </div>
 
                     {/* Stats */}
-                    <div className="flex gap-8 pt-6 border-t border-zinc-800">
+                    <div className="flex gap-6 md:gap-8 pt-6 border-t border-zinc-800">
                         {[
                             { value: '530+', label: 'Clientes ativos' },
                             { value: '10+', label: 'Anos de mercado' },

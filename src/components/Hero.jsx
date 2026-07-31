@@ -27,8 +27,7 @@ export default function Hero() {
     return (
         <section
             ref={heroRef}
-            className="relative flex flex-col justify-center overflow-hidden"
-            style={{ height: '100vh' }}
+            className="relative flex flex-col justify-center overflow-hidden min-h-[100dvh] md:h-screen"
         >
             {/* Background com parallax */}
             <div
@@ -57,7 +56,7 @@ export default function Hero() {
             />
 
             {/* Conteúdo */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col justify-between h-full py-12">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col justify-between h-full py-24 md:py-12 gap-12 md:gap-0">
                 <div className="max-w-3xl mt-8">
 
                     {/* Badge */}
@@ -108,7 +107,7 @@ export default function Hero() {
                 {/* Stats na base */}
                 <div className="opacity-0 animate-[fadeInUp_0.7s_ease_0.7s_forwards]">
                     <div className="w-10 h-px bg-zinc-700 mb-6" />
-                    <div className="flex flex-wrap gap-8">
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
                         {stats.map((s) => (
                             <div key={s.label} className="flex flex-col">
                                 <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>

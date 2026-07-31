@@ -88,10 +88,9 @@ export default function TestemunhosSection() {
 
     return (
         <section
-            className="px-6 bg-black overflow-hidden"
-            style={{ height: '100vh' }}
+            className="px-6 bg-black md:h-screen md:overflow-hidden py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto h-full flex flex-col py-8 gap-8">
+            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 
                 {/* Cabeçalho */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -128,7 +127,7 @@ export default function TestemunhosSection() {
                 </div>
 
                 {/* Carrossel principal */}
-                <div className="flex-1 min-h-0 relative">
+                <div className="md:flex-1 md:min-h-0 relative">
                     <AnimatePresence mode="wait" custom={direction}>
                         <motion.div
                             key={current}
@@ -142,7 +141,7 @@ export default function TestemunhosSection() {
                             animate="center"
                             exit="exit"
                             transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 gap-6"
+                            className="relative md:absolute md:inset-0 grid grid-cols-1 md:grid-cols-2 gap-6"
                         >
                             {/* Card principal — depoimento ativo */}
                             <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 flex flex-col justify-between overflow-hidden">
