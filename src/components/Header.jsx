@@ -88,7 +88,7 @@ export default function Header() {
                     {/* CTA + Área do Cliente + Hamburguer */}
                     <div className="flex items-center gap-3">
                         <a
-                            href="#"
+                            href="https://onvio.com.br/login/#/"
                             className="hidden md:flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm font-medium transition-colors duration-200"
                         >
                             Área do Cliente
