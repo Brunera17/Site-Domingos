@@ -5,19 +5,19 @@ import { Check, Minus, ArrowRight, Zap } from 'lucide-react'
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
 const features = [
-    { id: 'escrituracao',    label: 'Escrituração contábil' },
-    { id: 'balancete',       label: 'Balancete mensal' },
-    { id: 'sped',            label: 'SPED Contábil' },
-    { id: 'dp',              label: 'DP básico' },
-    { id: 'folha',           label: 'Folha de pagamento' },
-    { id: 'ferias',          label: 'Férias e 13º' },
-    { id: 'esocial',         label: 'eSocial' },
-    { id: 'fgts',            label: 'FGTS / INSS' },
-    { id: 'tributario',      label: 'Planejamento tributário' },
-    { id: 'bpo',             label: 'BPO Financeiro' },
-    { id: 'consultoria',     label: 'Consultoria mensal' },
-    { id: 'relatorios',      label: 'Relatórios gerenciais' },
-    { id: 'reunioes',        label: 'Participação em reuniões' },
+    { id: 'escrituracao', label: 'Escrituração contábil' },
+    { id: 'balancete',    label: 'Balancete mensal' },
+    { id: 'sped',         label: 'SPED Contábil' },
+    { id: 'dp',           label: 'DP básico' },
+    { id: 'folha',        label: 'Folha de pagamento' },
+    { id: 'ferias',       label: 'Férias e 13º' },
+    { id: 'esocial',      label: 'eSocial' },
+    { id: 'fgts',         label: 'FGTS / INSS' },
+    { id: 'tributario',   label: 'Planejamento tributário' },
+    { id: 'bpo',          label: 'BPO Financeiro' },
+    { id: 'consultoria',  label: 'Consultoria mensal' },
+    { id: 'relatorios',   label: 'Relatórios gerenciais' },
+    { id: 'reunioes',     label: 'Participação em reuniões' },
 ]
 
 const planos = [
@@ -25,23 +25,11 @@ const planos = [
         id: 'bronze',
         nome: 'Bronze',
         desc: 'Compliance essencial para empresas do Simples Nacional.',
-        precoMensal: 490,
-        precoAnual: 408,
-        destaque: false,
-        ctaLabel: 'Solicitar proposta',
         features: {
-            escrituracao: true,
-            balancete: true,
-            sped: true,
-            dp: true,
-            folha: false,
-            ferias: false,
-            esocial: false,
-            fgts: false,
-            tributario: false,
-            bpo: false,
-            consultoria: false,
-            relatorios: false,
+            escrituracao: true,  balancete: true,  sped: true,
+            dp: true,            folha: false,     ferias: false,
+            esocial: false,      fgts: false,      tributario: false,
+            bpo: false,          consultoria: false, relatorios: false,
             reunioes: false,
         },
     },
@@ -49,23 +37,11 @@ const planos = [
         id: 'prata',
         nome: 'Prata',
         desc: 'Estrutura completa para empresas em crescimento.',
-        precoMensal: 890,
-        precoAnual: 741,
-        destaque: false,
-        ctaLabel: 'Solicitar proposta',
         features: {
-            escrituracao: true,
-            balancete: true,
-            sped: true,
-            dp: true,
-            folha: true,
-            ferias: true,
-            esocial: true,
-            fgts: true,
-            tributario: false,
-            bpo: false,
-            consultoria: false,
-            relatorios: false,
+            escrituracao: true,  balancete: true,  sped: true,
+            dp: true,            folha: true,      ferias: true,
+            esocial: true,       fgts: true,       tributario: false,
+            bpo: false,          consultoria: false, relatorios: false,
             reunioes: false,
         },
     },
@@ -73,144 +49,61 @@ const planos = [
         id: 'ouro',
         nome: 'Ouro',
         desc: 'Gestão contábil completa com estratégia tributária.',
-        precoMensal: 1690,
-        precoAnual: 1408,
         destaque: true,
-        badge: 'Mais popular',
-        ctaLabel: 'Solicitar proposta',
         features: {
-            escrituracao: true,
-            balancete: true,
-            sped: true,
-            dp: true,
-            folha: true,
-            ferias: true,
-            esocial: true,
-            fgts: true,
-            tributario: true,
-            bpo: false,
-            consultoria: true,
-            relatorios: true,
+            escrituracao: true,  balancete: true,  sped: true,
+            dp: true,            folha: true,      ferias: true,
+            esocial: true,       fgts: true,       tributario: true,
+            bpo: false,          consultoria: true, relatorios: true,
             reunioes: false,
         },
     },
     {
         id: 'platina',
         nome: 'Platina',
-        desc: 'Solução estratégica completa para empresas de alto crescimento.',
-        precoMensal: null,
-        precoAnual: null,
-        destaque: false,
-        badge: 'Sob consulta',
-        ctaLabel: 'Falar com consultor',
+        desc: 'Solução estratégica completa para alto crescimento.',
         features: {
-            escrituracao: true,
-            balancete: true,
-            sped: true,
-            dp: true,
-            folha: true,
-            ferias: true,
-            esocial: true,
-            fgts: true,
-            tributario: true,
-            bpo: true,
-            consultoria: true,
-            relatorios: true,
+            escrituracao: true,  balancete: true,  sped: true,
+            dp: true,            folha: true,      ferias: true,
+            esocial: true,       fgts: true,       tributario: true,
+            bpo: true,           consultoria: true, relatorios: true,
             reunioes: true,
         },
     },
 ]
 
-// Cores por plano
-const cores = {
-    bronze:  {
-        ring:        'border-orange-700/40',
-        ringSelected:'border-orange-500 ring-1 ring-orange-500/40',
-        badge:       'bg-orange-900/30 text-orange-400 border-orange-700/40',
-        accent:      'text-orange-500',
-        btn:         'border border-orange-600/70 hover:border-orange-500 hover:bg-orange-900/20 text-orange-500',
-        glow:        '',
-        glowSelected:'bg-orange-500/5',
-    },
-    prata:   {
-        ring:        'border-zinc-500/40',
-        ringSelected:'border-zinc-300 ring-1 ring-zinc-300/20',
-        badge:       'bg-zinc-800 text-zinc-300 border-zinc-600/40',
-        accent:      'text-zinc-300',
-        btn:         'border border-zinc-500/60 hover:border-zinc-300 hover:bg-zinc-800/60 text-zinc-300',
-        glow:        '',
-        glowSelected:'bg-zinc-300/5',
-    },
-    ouro:    {
-        ring:        'border-yellow-500/60',
-        ringSelected:'border-yellow-400 ring-1 ring-yellow-400/30',
-        badge:       'bg-yellow-500/15 text-yellow-400 border-yellow-500/40',
-        accent:      'text-yellow-400',
-        btn:         'border border-yellow-500/60 hover:border-yellow-400 hover:bg-yellow-500/10 text-yellow-400',
-        glow:        'bg-yellow-500/5',
-        glowSelected:'bg-yellow-500/8',
-    },
-    platina: {
-        ring:        'border-sky-500/40',
-        ringSelected:'border-sky-400 ring-1 ring-sky-400/30',
-        badge:       'bg-sky-900/30 text-sky-400 border-sky-600/40',
-        accent:      'text-sky-400',
-        btn:         'border border-sky-600/60 hover:border-sky-400 hover:bg-sky-900/20 text-sky-400',
-        glow:        '',
-        glowSelected:'bg-sky-500/5',
-    },
-}
-
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
 export default function Planos() {
     const [annual, setAnnual] = useState(false)
-    const [selecionado, setSelecionado] = useState(null)
-
-    const getPreco = (plano) => {
-        if (!plano.precoMensal) return null
-        return annual ? plano.precoAnual : plano.precoMensal
-    }
 
     return (
         <div className="bg-black">
 
-            {/* ── HERO (mantido) ── */}
-            <section className="pt-36 pb-16 px-6 bg-black relative overflow-hidden">
-                <div
-                    className="absolute inset-0 opacity-5 pointer-events-none"
-                    style={{ backgroundImage: 'radial-gradient(circle at 60% 40%, #E8610A 0%, transparent 55%)' }}
-                />
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <div className="inline-flex items-center gap-3 mb-6">
-                        <span className="h-px w-8 bg-orange-500/50" />
-                        <span className="text-zinc-500 text-xs tracking-widest uppercase">
-                            Domingos Assessoria Empresarial · CRC Nº 2SP 037.257/O-8
-                        </span>
-                        <span className="h-px w-8 bg-orange-500/50" />
+            {/* ── 1. HERO ── */}
+            <section className="pt-36 pb-20 px-6 bg-black border-b border-zinc-900">
+                <div className="max-w-7xl mx-auto">
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                        Planos e preços
+                    </span>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <h1
+                            className="font-black text-white leading-[0.95]"
+                            style={{ fontSize: 'clamp(42px, 6vw, 80px)' }}
+                        >
+                            Escolha o plano
+                            <br />
+                            <span className="text-orange-500">certo</span> para sua empresa.
+                        </h1>
+                        <p className="text-zinc-400 text-lg max-w-md leading-relaxed md:text-right">
+                            Contabilidade consultiva, planejamento fiscal e compliance —
+                            do essencial ao estratégico.
+                        </p>
                     </div>
 
-                    <h1
-                        className="font-black text-white leading-[0.92] mb-6"
-                        style={{ fontSize: 'clamp(42px, 6vw, 80px)' }}
-                    >
-                        Escolha o plano{' '}
-                        <em className="not-italic text-orange-500">certo</em>{' '}para sua
-                        <br />empresa
-                    </h1>
-
-                    <p className="text-zinc-400 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Contabilidade consultiva, planejamento fiscal e compliance integrados
-                        em quatro níveis de cobertura — do essencial ao estratégico.
-                    </p>
-
-                    <div className="flex flex-wrap items-center justify-center gap-3">
-                        {[
-                            'Atendimento 100% digital',
-                            '+530 clientes ativos',
-                            '14 estados · 85 cidades',
-                            'Equipe multidisciplinar',
-                        ].map(b => (
+                    {/* Badges */}
+                    <div className="flex flex-wrap gap-2 mt-10">
+                        {['Atendimento 100% digital', '+530 clientes ativos', '14 estados · 85 cidades', 'Equipe multidisciplinar'].map(b => (
                             <div key={b} className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-full px-4 py-1.5 text-zinc-400 text-xs">
                                 <span className="w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
                                 {b}
@@ -220,118 +113,100 @@ export default function Planos() {
                 </div>
             </section>
 
-            {/* ── TOGGLE ── */}
-            <div className="flex items-center justify-center gap-4 py-8 px-6">
-                <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-600'}`}>
-                    Mensal
-                </span>
-                <button
-                    onClick={() => setAnnual(!annual)}
-                    className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${annual ? 'bg-orange-500' : 'bg-zinc-700'}`}
-                >
-                    <motion.div
-                        animate={{ x: annual ? 28 : 4 }}
-                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-                        className="absolute top-1 w-5 h-5 bg-white rounded-full shadow"
-                    />
-                </button>
-                <span className={`text-sm font-semibold transition-colors ${annual ? 'text-white' : 'text-zinc-600'}`}>
-                    Anual
-                </span>
-                <AnimatePresence>
-                    {annual && (
-                        <motion.span
-                            initial={{ opacity: 0, x: -8 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -8 }}
-                            className="flex items-center gap-1 bg-green-500/15 border border-green-500/30 text-green-400 text-xs font-bold px-3 py-1 rounded-full"
-                        >
-                            <Zap size={11} /> 2 meses grátis
-                        </motion.span>
-                    )}
-                </AnimatePresence>
-            </div>
+            {/* ── 2. TOGGLE MENSAL / ANUAL ── */}
+            <section className="py-10 px-6 bg-black">
+                <div className="max-w-7xl mx-auto flex items-center gap-4">
+                    <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-600'}`}>
+                        Mensal
+                    </span>
+                    <button
+                        onClick={() => setAnnual(!annual)}
+                        className={`relative w-12 h-6 rounded-full transition-colors duration-300 ${annual ? 'bg-orange-500' : 'bg-zinc-700'}`}
+                    >
+                        <motion.div
+                            animate={{ x: annual ? 24 : 2 }}
+                            transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                            className="absolute top-1 w-4 h-4 bg-white rounded-full shadow"
+                        />
+                    </button>
+                    <span className={`text-sm font-semibold transition-colors ${annual ? 'text-white' : 'text-zinc-600'}`}>
+                        Anual
+                    </span>
+                    <AnimatePresence>
+                        {annual && (
+                            <motion.span
+                                initial={{ opacity: 0, x: -8 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -8 }}
+                                className="flex items-center gap-1 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold px-3 py-1 rounded-full"
+                            >
+                                <Zap size={11} /> 2 meses grátis
+                            </motion.span>
+                        )}
+                    </AnimatePresence>
+                </div>
+            </section>
 
-            {/* ── CARDS ── */}
-            <section className="px-6 pb-20">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {/* ── 3. CARDS ── */}
+            <section className="pb-24 px-6 bg-black">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                     {planos.map((plano) => {
-                        const cor = cores[plano.id]
-                        const preco = getPreco(plano)
-                        const featuresAtivas = features.filter(f => plano.features[f.id])
-
-                        const selecionadoAtual = selecionado === plano.id
+                        const featAtivas = features.filter(f => plano.features[f.id]).length
+                        const total = features.length
 
                         return (
                             <div
                                 key={plano.id}
-                                onClick={() => setSelecionado(selecionadoAtual ? null : plano.id)}
-                                className={`relative flex flex-col bg-zinc-900 border rounded-2xl p-6 transition-all duration-300 cursor-pointer select-none
-                                    ${selecionadoAtual ? cor.ringSelected : cor.ring}`}
+                                className={`relative flex flex-col bg-zinc-900 border rounded-xl p-6 transition-all duration-300
+                                    ${plano.destaque
+                                        ? 'border-orange-500/50 ring-1 ring-orange-500/20'
+                                        : 'border-zinc-800 hover:border-zinc-700'
+                                    }`}
                             >
-                                {/* Glow */}
-                                {(cor.glow || selecionadoAtual) && (
-                                    <div className={`absolute inset-0 rounded-2xl pointer-events-none transition-all duration-300
-                                        ${selecionadoAtual ? cor.glowSelected : cor.glow}`} />
+                                {/* Badge destaque */}
+                                {plano.destaque && (
+                                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                                        <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                            Mais escolhido
+                                        </span>
+                                    </div>
                                 )}
 
                                 {/* Header */}
                                 <div className="mb-5">
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="text-white font-black text-xl">{plano.nome}</span>
-                                        <div className="flex items-center gap-2">
-                                            {selecionadoAtual && (
-                                                <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cor.badge}`}>
-                                                    Selecionado
-                                                </span>
-                                            )}
-                                            {plano.badge && !selecionadoAtual && (
-                                                <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full border ${cor.badge}`}>
-                                                    {plano.badge}
-                                                </span>
-                                            )}
-                                        </div>
-                                    </div>
+                                    <h3 className="text-white font-black text-xl mb-1">{plano.nome}</h3>
                                     <p className="text-zinc-500 text-sm leading-relaxed">{plano.desc}</p>
                                 </div>
 
                                 {/* Preço */}
                                 <div className="mb-6 pb-6 border-b border-zinc-800">
-                                    {preco ? (
-                                        <div className="flex items-end gap-1">
-                                            <span className="text-zinc-400 text-sm mb-1">R$</span>
-                                            <AnimatePresence mode="wait">
-                                                <motion.span
-                                                    key={preco}
-                                                    initial={{ opacity: 0, y: -8 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    exit={{ opacity: 0, y: 8 }}
-                                                    className={`font-black text-4xl ${cor.accent}`}
-                                                >
-                                                    {preco.toLocaleString('pt-BR')}
-                                                </motion.span>
-                                            </AnimatePresence>
-                                            <span className="text-zinc-500 text-sm mb-1">/mês</span>
-                                        </div>
-                                    ) : (
-                                        <div className={`font-black text-2xl ${cor.accent}`}>Sob consulta</div>
-                                    )}
-                                    {annual && preco && (
-                                        <p className="text-zinc-600 text-xs mt-1">
-                                            Equivale a R$ {(preco * 10).toLocaleString('pt-BR')}/ano
-                                        </p>
-                                    )}
+                                    <div className="text-orange-500 font-black text-xl">Sob consulta</div>
+                                    <p className="text-zinc-600 text-xs mt-1">Valor personalizado para seu negócio</p>
+                                </div>
+
+                                {/* Cobertura visual */}
+                                <div className="mb-5">
+                                    <div className="flex justify-between text-xs text-zinc-500 mb-1.5">
+                                        <span>Cobertura</span>
+                                        <span className="text-orange-500 font-bold">{featAtivas}/{total}</span>
+                                    </div>
+                                    <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
+                                        <div
+                                            className="h-full bg-orange-500 rounded-full transition-all duration-500"
+                                            style={{ width: `${(featAtivas / total) * 100}%` }}
+                                        />
+                                    </div>
                                 </div>
 
                                 {/* Features */}
-                                <ul className="space-y-2.5 flex-1 mb-6">
+                                <ul className="space-y-2 flex-1 mb-6">
                                     {features.map(f => {
                                         const ativo = plano.features[f.id]
                                         return (
-                                            <li key={f.id} className={`flex items-center gap-2.5 text-sm ${ativo ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                                            <li key={f.id} className={`flex items-center gap-2.5 text-xs ${ativo ? 'text-zinc-300' : 'text-zinc-700'}`}>
                                                 {ativo
-                                                    ? <Check size={14} className={cor.accent} />
-                                                    : <Minus size={14} className="text-zinc-800" />
+                                                    ? <Check size={13} className="text-orange-500 shrink-0" />
+                                                    : <Minus size={13} className="text-zinc-800 shrink-0" />
                                                 }
                                                 {f.label}
                                             </li>
@@ -342,10 +217,15 @@ export default function Planos() {
                                 {/* CTA */}
                                 <a
                                     href="https://wa.me/5514996580459"
-                                    target="_blank" rel="noopener noreferrer"
-                                    className={`flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 ${cor.btn}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`flex items-center justify-center gap-2 py-3 rounded-lg font-bold text-sm transition-all duration-200
+                                        ${plano.destaque
+                                            ? 'bg-orange-500 hover:bg-orange-600 text-white'
+                                            : 'border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white'
+                                        }`}
                                 >
-                                    {plano.ctaLabel} <ArrowRight size={15} />
+                                    Solicitar proposta <ArrowRight size={14} />
                                 </a>
                             </div>
                         )
@@ -353,10 +233,10 @@ export default function Planos() {
                 </div>
             </section>
 
-            {/* ── TABELA COMPARATIVA ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            {/* ── 4. TABELA COMPARATIVA ── */}
+            <section className="py-24 px-6 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
-                    <div className="mb-12 text-center">
+                    <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Comparativo completo
                         </span>
@@ -365,16 +245,16 @@ export default function Planos() {
                         </h2>
                     </div>
 
-                    <div className="overflow-x-auto rounded-2xl border border-zinc-800">
-                        <table className="w-full min-w-[640px]">
+                    <div className="overflow-x-auto rounded-xl border border-zinc-800">
+                        <table className="w-full min-w-[600px]">
                             <thead>
                                 <tr className="bg-zinc-900 border-b border-zinc-800">
-                                    <th className="text-left px-6 py-5 text-zinc-500 text-xs font-bold uppercase tracking-widest w-1/3">
+                                    <th className="text-left px-6 py-4 text-zinc-500 text-xs font-bold uppercase tracking-widest w-1/3">
                                         Recurso
                                     </th>
                                     {planos.map(p => (
-                                        <th key={p.id} className="px-4 py-5 text-center">
-                                            <span className={`font-black text-sm ${cores[p.id].accent}`}>
+                                        <th key={p.id} className="px-4 py-4 text-center">
+                                            <span className={`font-black text-sm ${p.destaque ? 'text-orange-500' : 'text-white'}`}>
                                                 {p.nome}
                                             </span>
                                         </th>
@@ -385,60 +265,39 @@ export default function Planos() {
                                 {features.map((f, i) => (
                                     <tr
                                         key={f.id}
-                                        className={`border-b border-zinc-800/50 transition-colors hover:bg-zinc-900/40 ${i % 2 === 0 ? 'bg-zinc-900/20' : ''}`}
+                                        className={`border-b border-zinc-800/50 hover:bg-zinc-900/40 transition-colors ${i % 2 === 0 ? 'bg-zinc-900/20' : ''}`}
                                     >
-                                        <td className="px-6 py-4 text-zinc-400 text-sm">{f.label}</td>
-                                        {planos.map(p => {
-                                            const ativo = p.features[f.id]
-                                            const cor = cores[p.id]
-                                            return (
-                                                <td key={p.id} className="px-4 py-4 text-center">
-                                                    {ativo
-                                                        ? <Check size={17} className={`${cor.accent} mx-auto`} />
-                                                        : <Minus size={17} className="text-zinc-800 mx-auto" />
-                                                    }
-                                                </td>
-                                            )
-                                        })}
+                                        <td className="px-6 py-3.5 text-zinc-400 text-sm">{f.label}</td>
+                                        {planos.map(p => (
+                                            <td key={p.id} className="px-4 py-3.5 text-center">
+                                                {p.features[f.id]
+                                                    ? <Check size={16} className="text-orange-500 mx-auto" />
+                                                    : <Minus size={16} className="text-zinc-800 mx-auto" />
+                                                }
+                                            </td>
+                                        ))}
                                     </tr>
                                 ))}
 
-                                {/* Linha de preço */}
+                                {/* Linha CTA */}
                                 <tr className="bg-zinc-900 border-t border-zinc-700">
-                                    <td className="px-6 py-5 text-white font-bold text-sm">
-                                        {annual ? 'Valor mensal (anual)' : 'Valor mensal'}
-                                    </td>
-                                    {planos.map(p => {
-                                        const preco = getPreco(p)
-                                        const cor = cores[p.id]
-                                        return (
-                                            <td key={p.id} className="px-4 py-5 text-center">
-                                                {preco
-                                                    ? <span className={`font-black text-sm ${cor.accent}`}>R$ {preco.toLocaleString('pt-BR')}</span>
-                                                    : <span className={`font-bold text-sm ${cor.accent}`}>Consulte</span>
-                                                }
-                                            </td>
-                                        )
-                                    })}
-                                </tr>
-
-                                {/* Linha de CTA */}
-                                <tr className="bg-zinc-900">
-                                    <td className="px-6 py-5" />
-                                    {planos.map(p => {
-                                        const cor = cores[p.id]
-                                        return (
-                                            <td key={p.id} className="px-4 py-5 text-center">
-                                                <a
-                                                    href="https://wa.me/5514996580459"
-                                                    target="_blank" rel="noopener noreferrer"
-                                                    className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-lg transition-all ${cor.btn}`}
-                                                >
-                                                    Contratar <ArrowRight size={12} />
-                                                </a>
-                                            </td>
-                                        )
-                                    })}
+                                    <td className="px-6 py-5 text-zinc-500 text-xs">Todos os planos sob consulta</td>
+                                    {planos.map(p => (
+                                        <td key={p.id} className="px-4 py-5 text-center">
+                                            <a
+                                                href="https://wa.me/5514996580459"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-lg transition-all
+                                                    ${p.destaque
+                                                        ? 'bg-orange-500 hover:bg-orange-600 text-white'
+                                                        : 'border border-zinc-700 hover:border-zinc-500 text-zinc-400 hover:text-white'
+                                                    }`}
+                                            >
+                                                Contratar <ArrowRight size={11} />
+                                            </a>
+                                        </td>
+                                    ))}
                                 </tr>
                             </tbody>
                         </table>
@@ -446,23 +305,24 @@ export default function Planos() {
                 </div>
             </section>
 
-            {/* ── CTA FINAL ── */}
-            <section className="py-20 px-6 bg-black">
-                <div className="max-w-2xl mx-auto text-center">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+            {/* ── 5. CTA FINAL ── */}
+            <section className="py-24 px-6 bg-black border-t border-zinc-900">
+                <div className="max-w-3xl mx-auto text-center">
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
                         Ainda com dúvidas?
                     </span>
                     <h2 className="text-4xl font-black text-white mb-4">
                         Fale com um <span className="text-orange-500">especialista</span>
                     </h2>
-                    <p className="text-zinc-400 mb-8 leading-relaxed">
+                    <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
                         Nosso time analisa o perfil da sua empresa e indica o plano ideal —
                         sem compromisso e sem enrolação.
                     </p>
                     <a
                         href="https://wa.me/5514996580459"
-                        target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"
                     >
                         Falar pelo WhatsApp <ArrowRight size={16} />
                     </a>
