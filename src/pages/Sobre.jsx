@@ -107,7 +107,7 @@ const orgData = {
             cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
         },
         {
-            coord: 'Coord. Contábil / TI',
+            coord: 'Coord. Contábil',
             cargos: ['Analista', 'Assistente', 'Auxiliar', 'Estagiário'],
         },
         {
