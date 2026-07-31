@@ -5,6 +5,8 @@ import SetoresSection from '../components/SetoresSection'
 import DiferenciaisSection from '../components/Diferenciais'
 import TestemunhosSection from '../components/Testemunho'
 import CTASection from '../components/Cta'
+import LocalBusinessSchema from '../components/LocalBusinessSchema'
+import OrganizationSchema from '../components/OrganizationSchema'
 
 const Spacer = () => <div className="h-24" />
 
@@ -17,6 +19,8 @@ export default function Home() {
                 canonicalPath="/"
                 keywords="contabilidade, consultoria fiscal, tributário, planejamento fiscal, departamento pessoal, assessoria empresarial, interior paulista"
             />
+            <LocalBusinessSchema />
+            <OrganizationSchema />
             
             <Hero />
             <Spacer />

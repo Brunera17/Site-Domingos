@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
+import OrganizationSchema from '../components/OrganizationSchema'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
 import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
-import fotoComTodosFoto from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 import fotoComTodosFotoGrande from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 
 import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
@@ -142,6 +142,7 @@ export default function Sobre() {
                 canonicalPath="/sobre"
                 keywords="sobre domingos, equipe contábil, história da empresa, valores, missão, contabilidade especializada"
             />
+            <OrganizationSchema />
 
             {/* ── 1. HERO ── */}
             <section

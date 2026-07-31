@@ -20,12 +20,10 @@ export default function SEOHead({
     ogType = 'website',
     keywords = 'contabilidade, fiscal, tributário, consultoria empresarial',
 }) {
-    // Construir URL canonical
-    const domínio = typeof window !== 'undefined' 
-        ? window.location.origin 
-        : 'https://domingosassessoria.com.br';
+    // Domínio oficial da empresa
+    const domínio = 'https://domingosassessoria.com.br';
     const canonicalUrl = `${domínio}${canonicalPath}`;
-    const imageUrl = ogImage || `${domínio}/og-image-default.png`;
+    const imageUrl = ogImage || `${domínio}/og-image.png`;
 
     return (
         <Helmet>
@@ -59,17 +57,17 @@ export default function SEOHead({
             {/* Canonical URL */}
             <link rel="canonical" href={canonicalUrl} />
 
-            {/* Viewport & Charset (já devem estar no index.html, mas reforçando) */}
+            {/* Viewport & Charset */}
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
             {/* Theme Color */}
             <meta name="theme-color" content="#000000" />
 
-            {/* Apple Touch Icon (quando houver favicon) */}
+            {/* Apple Touch Icon */}
             <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-            {/* Preconnect para melhorar performance */}
+            {/* Preconnect */}
             <link rel="preconnect" href="https://fonts.googleapis.com" />
             <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         </Helmet>

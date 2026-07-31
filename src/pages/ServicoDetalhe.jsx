@@ -8,74 +8,75 @@ import {
     ClipboardList, Search, Home, Flag, Target, Clock, BadgeCheck,
 } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
+import ServiceSchema from '../components/ServiceSchema'
 import { services as rawServices } from '../data/data'
 
 // ── Mapa de ícones Lucide ─────────────────────────────────────────────────────
 const iconMap = {
-    'assessoria-contabil':             Calculator,
-    'assessoria-fiscal':               FileText,
-    'assessoria-dp-pessoal':           Users,
-    'consultoria-empresarial':         TrendingUp,
-    'bpo-financeiro':                  DollarSign,
+    'assessoria-contabil': Calculator,
+    'assessoria-fiscal': FileText,
+    'assessoria-dp-pessoal': Users,
+    'consultoria-empresarial': TrendingUp,
+    'bpo-financeiro': DollarSign,
     'abertura-regularizacao-empresas': Building2,
-    'assessoria-avcb-clcb':            Shield,
-    'assessoria-produtores-rurais':    Leaf,
-    'certificado-digital':             Key,
-    'recuperacao-tributaria':          RefreshCw,
-    'licenciamento-ambiental':         TreePine,
-    'assessoria-licitacoes':           ClipboardList,
-    'revisao-tributaria-cadastros':    Search,
-    'holding-familiar':                Home,
-    'prestacao-contas-partidaria':     Flag,
+    'assessoria-avcb-clcb': Shield,
+    'assessoria-produtores-rurais': Leaf,
+    'certificado-digital': Key,
+    'recuperacao-tributaria': RefreshCw,
+    'licenciamento-ambiental': TreePine,
+    'assessoria-licitacoes': ClipboardList,
+    'revisao-tributaria-cadastros': Search,
+    'holding-familiar': Home,
+    'prestacao-contas-partidaria': Flag,
 }
 
 const categoriaMap = {
-    'assessoria-contabil':             'Contábil e Fiscal',
-    'assessoria-fiscal':               'Contábil e Fiscal',
-    'assessoria-dp-pessoal':           'Contábil e Fiscal',
-    'recuperacao-tributaria':          'Contábil e Fiscal',
-    'revisao-tributaria-cadastros':    'Contábil e Fiscal',
-    'consultoria-empresarial':         'Gestão Empresarial',
-    'bpo-financeiro':                  'Gestão Empresarial',
-    'holding-familiar':                'Gestão Empresarial',
+    'assessoria-contabil': 'Contábil e Fiscal',
+    'assessoria-fiscal': 'Contábil e Fiscal',
+    'assessoria-dp-pessoal': 'Contábil e Fiscal',
+    'recuperacao-tributaria': 'Contábil e Fiscal',
+    'revisao-tributaria-cadastros': 'Contábil e Fiscal',
+    'consultoria-empresarial': 'Gestão Empresarial',
+    'bpo-financeiro': 'Gestão Empresarial',
+    'holding-familiar': 'Gestão Empresarial',
     'abertura-regularizacao-empresas': 'Legalização',
-    'assessoria-avcb-clcb':            'Legalização',
-    'licenciamento-ambiental':         'Legalização',
-    'assessoria-produtores-rurais':    'Especialidades',
-    'certificado-digital':             'Especialidades',
-    'assessoria-licitacoes':           'Especialidades',
-    'prestacao-contas-partidaria':     'Especialidades',
+    'assessoria-avcb-clcb': 'Legalização',
+    'licenciamento-ambiental': 'Legalização',
+    'assessoria-produtores-rurais': 'Especialidades',
+    'certificado-digital': 'Especialidades',
+    'assessoria-licitacoes': 'Especialidades',
+    'prestacao-contas-partidaria': 'Especialidades',
 }
 
 // ── Valor por categoria (o "porquê", não o "o quê") ──────────────────────────
 const categoryBenefits = {
     'Contábil e Fiscal': [
-        { icon: Shield,     text: 'Sua empresa sempre em dia com o Fisco, sem risco de multas ou autuações surpresa.' },
+        { icon: Shield, text: 'Sua empresa sempre em dia com o Fisco, sem risco de multas ou autuações surpresa.' },
         { icon: TrendingUp, text: 'Planejamento tributário que reduz a carga de impostos de forma inteiramente legal.' },
-        { icon: FileText,   text: 'Relatórios claros, sem jargão contábil, pra você decidir com segurança.' },
+        { icon: FileText, text: 'Relatórios claros, sem jargão contábil, pra você decidir com segurança.' },
     ],
     'Gestão Empresarial': [
-        { icon: Target,     text: 'Decisões baseadas em números reais da sua empresa, não em achismo.' },
-        { icon: Clock,      text: 'Menos tempo apagando incêndio operacional, mais tempo pra pensar em crescimento.' },
+        { icon: Target, text: 'Decisões baseadas em números reais da sua empresa, não em achismo.' },
+        { icon: Clock, text: 'Menos tempo apagando incêndio operacional, mais tempo pra pensar em crescimento.' },
         { icon: DollarSign, text: 'Visão clara do caixa e da lucratividade de cada parte do negócio.' },
     ],
     'Legalização': [
         { icon: BadgeCheck, text: 'Documentação 100% regularizada, sem risco de interdição ou embargo.' },
-        { icon: Clock,      text: 'Processos conduzidos de ponta a ponta, sem fila e sem retrabalho.' },
-        { icon: Shield,     text: 'Segurança jurídica pra fechar contratos maiores e participar de licitações.' },
+        { icon: Clock, text: 'Processos conduzidos de ponta a ponta, sem fila e sem retrabalho.' },
+        { icon: Shield, text: 'Segurança jurídica pra fechar contratos maiores e participar de licitações.' },
     ],
     'Especialidades': [
-        { icon: Target,     text: 'Atendimento especializado nas particularidades do seu segmento.' },
+        { icon: Target, text: 'Atendimento especializado nas particularidades do seu segmento.' },
         { icon: BadgeCheck, text: 'Conformidade com as exigências específicas da sua atividade.' },
-        { icon: Clock,      text: 'Suporte ágil de quem já resolveu esse tipo de demanda centenas de vezes.' },
+        { icon: Clock, text: 'Suporte ágil de quem já resolveu esse tipo de demanda centenas de vezes.' },
     ],
 }
 
 // ── Como funciona — processo genérico, mesma lógica para qualquer serviço ────
 const processSteps = [
-    { icon: Search,        title: 'Diagnóstico',      desc: 'Entendemos a situação atual da sua empresa e mapeamos exatamente o que precisa ser feito.' },
-    { icon: ClipboardList, title: 'Execução',          desc: 'Nossa equipe assume as rotinas, coloca tudo em conformidade e mantém prazos claros com você.' },
-    { icon: TrendingUp,    title: 'Acompanhamento',    desc: 'Relatórios periódicos e suporte contínuo, pra você sempre saber onde a empresa está.' },
+    { icon: Search, title: 'Diagnóstico', desc: 'Entendemos a situação atual da sua empresa e mapeamos exatamente o que precisa ser feito.' },
+    { icon: ClipboardList, title: 'Execução', desc: 'Nossa equipe assume as rotinas, coloca tudo em conformidade e mantém prazos claros com você.' },
+    { icon: TrendingUp, title: 'Acompanhamento', desc: 'Relatórios periódicos e suporte contínuo, pra você sempre saber onde a empresa está.' },
 ]
 
 // ── Partículas do ícone ───────────────────────────────────────────────────────
@@ -83,59 +84,59 @@ const processSteps = [
 // ── Descrições das features ───────────────────────────────────────────────────
 const featureDescs = {
     // Contábil
-    'Escrituração contábil completa':       'Registro sistemático de todas as operações financeiras da empresa, garantindo conformidade com as normas contábeis brasileiras.',
+    'Escrituração contábil completa': 'Registro sistemático de todas as operações financeiras da empresa, garantindo conformidade com as normas contábeis brasileiras.',
     'Balanços e demonstrações financeiras': 'Elaboração do Balanço Patrimonial, DRE, DFC e demais demonstrações exigidas pela legislação, com clareza e precisão.',
-    'Planejamento tributário':              'Análise estratégica do enquadramento fiscal da sua empresa para reduzir legalmente a carga de impostos.',
-    'Controle patrimonial':                 'Gestão e controle de bens e ativos da empresa, com inventário atualizado e depreciação calculada corretamente.',
-    'Relatórios gerenciais':                'Relatórios personalizados que traduzem os números em informações claras para apoiar a tomada de decisão.',
+    'Planejamento tributário': 'Análise estratégica do enquadramento fiscal da sua empresa para reduzir legalmente a carga de impostos.',
+    'Controle patrimonial': 'Gestão e controle de bens e ativos da empresa, com inventário atualizado e depreciação calculada corretamente.',
+    'Relatórios gerenciais': 'Relatórios personalizados que traduzem os números em informações claras para apoiar a tomada de decisão.',
     // Fiscal
-    'Apuração de impostos':                 'Cálculo e apuração mensal de todos os impostos devidos (ICMS, PIS, COFINS, ISS, etc.) com segurança e conformidade.',
-    'Entrega de obrigações acessórias':     'Envio pontual de todas as obrigações acessórias: SPED, EFD, DCTF, REINF e demais declarações ao Fisco.',
-    'Recuperação de créditos fiscais':      'Identificação e recuperação de tributos pagos a maior ou indevidamente nos últimos 5 anos, com segurança jurídica.',
-    'Planejamento fiscal estratégico':      'Estruturação do calendário fiscal e estratégias para reduzir o impacto tributário no fluxo de caixa da empresa.',
-    'Compliance tributário':                'Monitoramento contínuo das obrigações fiscais para manter sua empresa em dia com o Fisco e evitar autuações.',
+    'Apuração de impostos': 'Cálculo e apuração mensal de todos os impostos devidos (ICMS, PIS, COFINS, ISS, etc.) com segurança e conformidade.',
+    'Entrega de obrigações acessórias': 'Envio pontual de todas as obrigações acessórias: SPED, EFD, DCTF, REINF e demais declarações ao Fisco.',
+    'Recuperação de créditos fiscais': 'Identificação e recuperação de tributos pagos a maior ou indevidamente nos últimos 5 anos, com segurança jurídica.',
+    'Planejamento fiscal estratégico': 'Estruturação do calendário fiscal e estratégias para reduzir o impacto tributário no fluxo de caixa da empresa.',
+    'Compliance tributário': 'Monitoramento contínuo das obrigações fiscais para manter sua empresa em dia com o Fisco e evitar autuações.',
     // DP
-    'Folha de pagamento':                   'Processamento mensal da folha com cálculo de salários, descontos, benefícios e encargos trabalhistas.',
-    'Admissões e demissões':                'Condução completa dos processos de entrada e saída de colaboradores, com geração de todos os documentos legais.',
-    'eSocial e obrigações trabalhistas':    'Envio de todos os eventos do eSocial dentro dos prazos, garantindo conformidade com a legislação trabalhista vigente.',
-    'Gestão de benefícios':                 'Administração de VR, VA, VT, plano de saúde e demais benefícios dos colaboradores com controle preciso.',
-    'FGTS e INSS':                          'Cálculo, geração de guias e controle de recolhimento do FGTS e INSS para todos os colaboradores.',
+    'Folha de pagamento': 'Processamento mensal da folha com cálculo de salários, descontos, benefícios e encargos trabalhistas.',
+    'Admissões e demissões': 'Condução completa dos processos de entrada e saída de colaboradores, com geração de todos os documentos legais.',
+    'eSocial e obrigações trabalhistas': 'Envio de todos os eventos do eSocial dentro dos prazos, garantindo conformidade com a legislação trabalhista vigente.',
+    'Gestão de benefícios': 'Administração de VR, VA, VT, plano de saúde e demais benefícios dos colaboradores com controle preciso.',
+    'FGTS e INSS': 'Cálculo, geração de guias e controle de recolhimento do FGTS e INSS para todos os colaboradores.',
     // Consultoria
-    'Diagnóstico empresarial':              'Análise completa da situação financeira, fiscal e operacional da empresa para identificar gargalos e oportunidades.',
-    'Planejamento estratégico':             'Desenvolvimento de um plano de ação estruturado com metas, indicadores e etapas para o crescimento do negócio.',
-    'Reestruturação organizacional':        'Reorganização de processos internos, estrutura societária e fluxos operacionais para aumentar a eficiência.',
-    'Gestão financeira':                    'Acompanhamento do fluxo de caixa, capital de giro e saúde financeira da empresa com orientação especializada.',
-    'Indicadores de desempenho':            'Definição e monitoramento de KPIs financeiros e operacionais alinhados aos objetivos do negócio.',
+    'Diagnóstico empresarial': 'Análise completa da situação financeira, fiscal e operacional da empresa para identificar gargalos e oportunidades.',
+    'Planejamento estratégico': 'Desenvolvimento de um plano de ação estruturado com metas, indicadores e etapas para o crescimento do negócio.',
+    'Reestruturação organizacional': 'Reorganização de processos internos, estrutura societária e fluxos operacionais para aumentar a eficiência.',
+    'Gestão financeira': 'Acompanhamento do fluxo de caixa, capital de giro e saúde financeira da empresa com orientação especializada.',
+    'Indicadores de desempenho': 'Definição e monitoramento de KPIs financeiros e operacionais alinhados aos objetivos do negócio.',
     // BPO
-    'Contas a pagar e receber':             'Gestão e controle de todas as obrigações financeiras e recebimentos, evitando inadimplências e atrasos.',
-    'Fluxo de caixa':                       'Projeção e controle diário do fluxo de caixa para garantir liquidez e planejamento financeiro eficiente.',
-    'Conciliação bancária':                 'Conferência e reconciliação entre os extratos bancários e os lançamentos contábeis da empresa.',
-    'Relatórios financeiros':               'Geração de relatórios periódicos com visão clara da situação financeira para suporte à gestão.',
-    'Gestão de cobrança':                   'Acompanhamento de títulos em aberto e estratégias de cobrança para reduzir a inadimplência.',
+    'Contas a pagar e receber': 'Gestão e controle de todas as obrigações financeiras e recebimentos, evitando inadimplências e atrasos.',
+    'Fluxo de caixa': 'Projeção e controle diário do fluxo de caixa para garantir liquidez e planejamento financeiro eficiente.',
+    'Conciliação bancária': 'Conferência e reconciliação entre os extratos bancários e os lançamentos contábeis da empresa.',
+    'Relatórios financeiros': 'Geração de relatórios periódicos com visão clara da situação financeira para suporte à gestão.',
+    'Gestão de cobrança': 'Acompanhamento de títulos em aberto e estratégias de cobrança para reduzir a inadimplência.',
     // Abertura
-    'Abertura de empresas':                 'Registro completo de novas empresas junto aos órgãos municipais, estaduais e federais com agilidade.',
-    'Alterações contratuais':               'Atualização de dados cadastrais, mudança de sócios, capital social ou atividades da empresa.',
-    'Regularização fiscal':                 'Resolução de pendências e irregularidades junto à Receita Federal, Estadual e Municipal.',
-    'Licenças e alvarás':                   'Obtenção de alvarás de funcionamento e licenças específicas junto às prefeituras e órgãos competentes.',
-    'Encerramento de empresas':             'Condução de todo o processo de distrato e baixa da empresa nos órgãos competentes.',
+    'Abertura de empresas': 'Registro completo de novas empresas junto aos órgãos municipais, estaduais e federais com agilidade.',
+    'Alterações contratuais': 'Atualização de dados cadastrais, mudança de sócios, capital social ou atividades da empresa.',
+    'Regularização fiscal': 'Resolução de pendências e irregularidades junto à Receita Federal, Estadual e Municipal.',
+    'Licenças e alvarás': 'Obtenção de alvarás de funcionamento e licenças específicas junto às prefeituras e órgãos competentes.',
+    'Encerramento de empresas': 'Condução de todo o processo de distrato e baixa da empresa nos órgãos competentes.',
     // AVCB
-    'AVCB - Auto de Vistoria':              'Obtenção do Auto de Vistoria do Corpo de Bombeiros para regularização do imóvel junto à Defesa Civil.',
-    'CLCB - Certificado de Licença':        'Emissão do Certificado de Licença do Corpo de Bombeiros para empresas de baixo risco de incêndio.',
-    'Laudos técnicos':                      'Elaboração de laudos técnicos de segurança contra incêndio e pânico por profissionais habilitados.',
-    'Projetos de combate a incêndio':       'Desenvolvimento de projetos de sistemas de combate a incêndio aprovados pelo Corpo de Bombeiros.',
-    'Acompanhamento de vistoria':           'Suporte e acompanhamento presencial durante todo o processo de vistoria do Corpo de Bombeiros.',
+    'AVCB - Auto de Vistoria': 'Obtenção do Auto de Vistoria do Corpo de Bombeiros para regularização do imóvel junto à Defesa Civil.',
+    'CLCB - Certificado de Licença': 'Emissão do Certificado de Licença do Corpo de Bombeiros para empresas de baixo risco de incêndio.',
+    'Laudos técnicos': 'Elaboração de laudos técnicos de segurança contra incêndio e pânico por profissionais habilitados.',
+    'Projetos de combate a incêndio': 'Desenvolvimento de projetos de sistemas de combate a incêndio aprovados pelo Corpo de Bombeiros.',
+    'Acompanhamento de vistoria': 'Suporte e acompanhamento presencial durante todo o processo de vistoria do Corpo de Bombeiros.',
     // Rural
-    'ITR - Imposto Territorial Rural':      'Elaboração e entrega da declaração do ITR com apuração correta da área tributável e isenções aplicáveis.',
-    'DAE - Declaração de Aptidão ao Pronaf':'Obtenção do DAP/CAF para acesso ao crédito rural e programas governamentais do agronegócio.',
-    'CAFIR e SNCR':                         'Inscrição, atualização e regularização do imóvel rural no CAFIR e no Sistema Nacional de Cadastro Rural.',
-    'Contabilidade rural':                  'Escrituração contábil especializada para propriedades rurais, com controle de safras e atividades agropecuárias.',
-    'Planejamento fiscal rural':            'Estratégias tributárias específicas para o produtor rural, explorando benefícios e isenções da legislação agrária.',
+    'ITR - Imposto Territorial Rural': 'Elaboração e entrega da declaração do ITR com apuração correta da área tributável e isenções aplicáveis.',
+    'DAE - Declaração de Aptidão ao Pronaf': 'Obtenção do DAP/CAF para acesso ao crédito rural e programas governamentais do agronegócio.',
+    'CAFIR e SNCR': 'Inscrição, atualização e regularização do imóvel rural no CAFIR e no Sistema Nacional de Cadastro Rural.',
+    'Contabilidade rural': 'Escrituração contábil especializada para propriedades rurais, com controle de safras e atividades agropecuárias.',
+    'Planejamento fiscal rural': 'Estratégias tributárias específicas para o produtor rural, explorando benefícios e isenções da legislação agrária.',
     // Certificado Digital
-    'Certificado A1 e A3':                  'Emissão de certificados digitais nos padrões A1 (armazenado em arquivo) e A3 (armazenado em token ou smartcard).',
-    'Pessoa Física e Jurídica':             'Certificados para CPF e CNPJ, habilitando a assinatura digital de documentos com validade jurídica.',
-    'NFe, NFSe e eSocial':                  'Habilitação para emissão de notas fiscais eletrônicas e envio de obrigações ao eSocial.',
-    'Validade de 1 a 3 anos':               'Opções de validade de 1, 2 ou 3 anos com renovação simplificada antes do vencimento.',
-    'Suporte completo':                     'Assistência na instalação, configuração e uso do certificado digital nos principais sistemas contábeis.',
+    'Certificado A1 e A3': 'Emissão de certificados digitais nos padrões A1 (armazenado em arquivo) e A3 (armazenado em token ou smartcard).',
+    'Pessoa Física e Jurídica': 'Certificados para CPF e CNPJ, habilitando a assinatura digital de documentos com validade jurídica.',
+    'NFe, NFSe e eSocial': 'Habilitação para emissão de notas fiscais eletrônicas e envio de obrigações ao eSocial.',
+    'Validade de 1 a 3 anos': 'Opções de validade de 1, 2 ou 3 anos com renovação simplificada antes do vencimento.',
+    'Suporte completo': 'Assistência na instalação, configuração e uso do certificado digital nos principais sistemas contábeis.',
 }
 
 // ── Feature row com accordion ────────────────────────────────────────────────
@@ -150,20 +151,18 @@ function FeatureRow({ f, i, total, isOpen, onToggle }) {
         <motion.div
             ref={ref}
             style={{ opacity }}
-            className={`relative overflow-hidden transition-colors ${
-                i < total - 1 ? 'border-b border-zinc-800' : ''
-            } ${isOpen ? 'bg-zinc-800/40' : ''}`}
+            className={`relative overflow-hidden transition-colors ${i < total - 1 ? 'border-b border-zinc-800' : ''
+                } ${isOpen ? 'bg-zinc-800/40' : ''}`}
         >
             {/* Header clicável */}
             <button
                 onClick={onToggle}
                 className="w-full flex items-center gap-4 px-6 py-4 text-left hover:bg-zinc-800/40 transition-colors group"
             >
-                <div className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 transition-all ${
-                    isOpen
+                <div className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 transition-all ${isOpen
                         ? 'bg-orange-500/10 border-orange-500/30'
                         : 'bg-zinc-800 border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/20'
-                }`}>
+                    }`}>
                     <CheckCircle size={13} className={`transition-colors ${isOpen ? 'text-orange-500' : 'text-zinc-500 group-hover:text-orange-500'}`} />
                 </div>
                 <span className={`font-medium text-sm transition-colors flex-1 ${isOpen ? 'text-white' : 'text-zinc-300 group-hover:text-white'}`}>
@@ -212,7 +211,7 @@ export default function ServicoDetalhe() {
     // 3. Parallax do hero
     const heroRef = useRef(null)
     const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
-    const heroY       = useTransform(heroScroll, [0, 1], [0, 60])
+    const heroY = useTransform(heroScroll, [0, 1], [0, 60])
     const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0])
 
     // Accordion de features
@@ -251,6 +250,12 @@ export default function ServicoDetalhe() {
                 description={service.description}
                 canonicalPath={`/servicos/${id}`}
                 keywords={`${service.title}, ${categoria}, assessoria, consultoria, domingos`}
+            />
+            <ServiceSchema
+                name={service.title}
+                description={service.description}
+                serviceType="ProfessionalService"
+                url={`https://domingosassessoria.com.br/servicos/${id}`}
             />
 
             {/* ── HERO com PARALLAX (3) ── */}

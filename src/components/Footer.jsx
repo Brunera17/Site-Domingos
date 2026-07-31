@@ -24,8 +24,8 @@ const quickLinks = [
     { to: '/', label: 'Início' },
     { to: '/sobre', label: 'Sobre' },
     { to: '/servicos', label: 'Serviços' },
-    { to: '/blog', label: 'Blog' },
-    { to: '/trabalhe-conosco', label: 'Trabalhe Conosco' },
+    //{ to: '/blog', label: 'Blog' },
+    //{ to: '/trabalhe-conosco', label: 'Trabalhe Conosco' },
     { to: '/contato', label: 'Contato' },
 ]
 
