@@ -96,7 +96,7 @@ export default function Planos() {
                             <span className="text-orange-500">certo</span> para sua empresa.
                         </h1>
                         <p className="text-zinc-400 text-lg max-w-md leading-relaxed md:text-right">
-                            Contabilidade consultiva, planejamento fiscal e compliance —
+                            Contabilidade consultiva, planejamento fiscal e compliance
                             do essencial ao estratégico.
                         </p>
                     </div>
