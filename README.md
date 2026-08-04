@@ -1,16 +1,43 @@
-# React + Vite
+# Site Domingos Assessoria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site institucional da Domingos Assessoria, desenvolvido em React com Vite, Tailwind CSS e Framer Motion.
 
-Currently, two official plugins are available:
+## Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este repositorio contem o codigo-fonte do site institucional da Domingos Assessoria. O site apresenta a empresa, seus servicos e planos, alem de contar com blog, formulario de contato e pagina para candidatos interessados em trabalhar na empresa.
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O site conta com pagina inicial, pagina Sobre, listagem de Servicos com pagina de detalhe para cada servico, pagina de Planos, pagina de Proposta comercial, Blog com listagem e pagina individual de cada post, pagina de Contato e pagina Trabalhe Conosco para candidatos. O conteudo das paginas tambem pode ser exportado em PDF, e o site utiliza SEO otimizado com metatags dinamicas.
 
-## Expanding the ESLint configuration
+## Tecnologias utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React 19, Vite, React Router DOM, Tailwind CSS, Framer Motion, Lucide React, React Helmet Async, html2pdf.js e ESLint.
+
+## Estrutura de pastas
+
+src/assets guarda imagens e arquivos estaticos.
+src/components guarda componentes reutilizaveis da interface.
+src/context guarda contextos globais da aplicacao.
+src/data guarda dados estaticos usados nas paginas.
+src/layouts guarda layouts compartilhados entre paginas.
+src/pages guarda as paginas da aplicacao, como Home, Sobre, Servicos, Planos, Proposta, Blog, Contato e Trabalhe Conosco.
+src/styles guarda os estilos globais.
+
+## Como executar o projeto localmente
+
+E necessario ter o Node.js instalado. Clone o repositorio, instale as dependencias com npm install e inicie o ambiente de desenvolvimento com npm run dev.
+
+Outros comandos disponiveis:
+
+npm run build gera a versao de producao.
+npm run preview pre visualiza a build de producao.
+npm run lint executa o linter.
+
+## Deploy
+
+O projeto esta configurado para deploy na Vercel.
+
+## Licenca
+
+Projeto privado, de uso exclusivo da Domingos Assessoria.
