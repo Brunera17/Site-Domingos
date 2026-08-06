@@ -6,6 +6,7 @@ import {
     Building2, Shield, Leaf, Key, RefreshCw, TreePine, ClipboardList,
     Search, Home, Flag, Star
 } from 'lucide-react'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -350,7 +351,7 @@ export default function Servicos() {
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink('Olá! Não encontrei o serviço que preciso no site. Vocês têm parceiros para isso?')}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"

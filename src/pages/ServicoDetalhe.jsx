@@ -10,6 +10,7 @@ import {
 import SEOHead from '../components/SEOHead'
 import ServiceSchema from '../components/ServiceSchema'
 import { services as rawServices } from '../data/data'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── Mapa de ícones Lucide ─────────────────────────────────────────────────────
 const iconMap = {
@@ -449,7 +450,7 @@ export default function ServicoDetalhe() {
                         </div>
                         <div className="relative z-10 flex flex-col gap-3">
                             <a
-                                href="https://wa.me/5514996580459"
+                                href={buildWhatsAppLink(`Olá! Vi a página de ${service.title} no site e gostaria de solicitar uma proposta.`)}
                                 target="_blank" rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-4 rounded-xl transition-colors"
                             >

@@ -1,6 +1,7 @@
 import { ArrowRight, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import pessoas from "../assets/1.webp";
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 export default function CTASection() {
     return (
@@ -56,7 +57,7 @@ export default function CTASection() {
                     {/* Botões */}
                     <div className="flex flex-wrap gap-3 mb-12">
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink('Olá! Vim pelo site e gostaria de agendar uma conversa sobre planejamento tributário para minha empresa.')}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group flex items-center gap-2 font-bold px-6 py-3 rounded-lg transition-all duration-200 text-sm text-white"

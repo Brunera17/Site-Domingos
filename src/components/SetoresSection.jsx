@@ -1,4 +1,5 @@
 import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart } from 'lucide-react'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 const sectors = [
     { label: 'Prestadores de Serviços', icon: Building, desc: 'Escritórios, clínicas, consultórios e profissionais liberais' },
@@ -73,7 +74,7 @@ export default function SetoresSection() {
                     <p className="text-zinc-500 text-sm">
                         Não encontrou seu setor?{' '}
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink('Olá! Não encontrei meu setor no site e gostaria de saber se vocês atendem minha área.')}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-orange-500 hover:text-orange-400 font-medium transition-colors"

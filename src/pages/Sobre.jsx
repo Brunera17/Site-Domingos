@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import OrganizationSchema from '../components/OrganizationSchema'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
 import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
@@ -342,7 +343,7 @@ export default function Sobre() {
                             Quer uma contabilidade assim? Fale com a Domingos.
                         </p>
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink('Olá! Conheci a história da Domingos Assessoria no site e quero saber mais.')}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap"
@@ -530,7 +531,7 @@ export default function Sobre() {
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink('Olá! Quero saber como o time da Domingos Assessoria pode trabalhar pela minha empresa.')}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"
