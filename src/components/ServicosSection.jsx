@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Calculator, FileText, Users, TrendingUp, DollarSign, Building2 } from 'lucide-react'
 
-const AUTOPLAY_DELAY = 4000      // tempo normal entre slides
-const INTERACTION_DELAY = 8000   // tempo maior após interação manual
+const AUTOPLAY_DELAY = 12000     // tempo normal entre slides — dá tempo de ler descrição + lista
+const INTERACTION_DELAY = 17000  // tempo maior após interação manual — usuário escolheu, merece mais tempo de leitura
 
 const services = [
     {
@@ -101,6 +101,7 @@ const services = [
 
 export default function ServicosSection() {
     const [selected, setSelected] = useState(0)
+    const [activeDelay, setActiveDelay] = useState(AUTOPLAY_DELAY)
     const timerRef = useRef(null)
     const selectedService = services[selected]
     const otherServices = services.filter((_, i) => i !== selected)
@@ -121,18 +122,19 @@ export default function ServicosSection() {
     // Ao clicar manualmente, pausa mais tempo
     const handleSelect = (index) => {
         setSelected(index)
+        setActiveDelay(INTERACTION_DELAY)
         startTimer(INTERACTION_DELAY)
     }
 
-    // Barra de progresso — recria ao trocar selected
+    // Barra de progresso — acompanha o delay realmente ativo (normal ou pós-interação)
     const [progress, setProgress] = useState(0)
     useEffect(() => {
         setProgress(0)
         const interval = setInterval(() => {
             setProgress(prev => Math.min(prev + 1, 100))
-        }, AUTOPLAY_DELAY / 100)
+        }, activeDelay / 100)
         return () => clearInterval(interval)
-    }, [selected])
+    }, [selected, activeDelay])
 
     return (
         <section
