@@ -3,51 +3,13 @@ import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'fra
 import { useRef, useState, useEffect } from 'react'
 import {
     ArrowLeft, ArrowRight, CheckCircle, ChevronRight,
-    Calculator, FileText, Users, TrendingUp, DollarSign,
-    Building2, Shield, Leaf, Key, RefreshCw, TreePine,
-    ClipboardList, Search, Home, Flag, Target, Clock, BadgeCheck,
+    FileText, TrendingUp, DollarSign, Shield,
+    Search, Target, Clock, BadgeCheck, ClipboardList,
 } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import ServiceSchema from '../components/ServiceSchema'
-import { services as rawServices } from '../data/data'
+import { services as rawServices, featureDescs } from '../data/services'
 import { buildWhatsAppLink } from '../utils/whatsapp'
-
-// ── Mapa de ícones Lucide ─────────────────────────────────────────────────────
-const iconMap = {
-    'assessoria-contabil': Calculator,
-    'assessoria-fiscal': FileText,
-    'assessoria-dp-pessoal': Users,
-    'consultoria-empresarial': TrendingUp,
-    'bpo-financeiro': DollarSign,
-    'abertura-regularizacao-empresas': Building2,
-    'assessoria-avcb-clcb': Shield,
-    'assessoria-produtores-rurais': Leaf,
-    'certificado-digital': Key,
-    'recuperacao-tributaria': RefreshCw,
-    'licenciamento-ambiental': TreePine,
-    'assessoria-licitacoes': ClipboardList,
-    'revisao-tributaria-cadastros': Search,
-    'holding-familiar': Home,
-    'prestacao-contas-partidaria': Flag,
-}
-
-const categoriaMap = {
-    'assessoria-contabil': 'Contábil e Fiscal',
-    'assessoria-fiscal': 'Contábil e Fiscal',
-    'assessoria-dp-pessoal': 'Contábil e Fiscal',
-    'recuperacao-tributaria': 'Contábil e Fiscal',
-    'revisao-tributaria-cadastros': 'Contábil e Fiscal',
-    'consultoria-empresarial': 'Gestão Empresarial',
-    'bpo-financeiro': 'Gestão Empresarial',
-    'holding-familiar': 'Gestão Empresarial',
-    'abertura-regularizacao-empresas': 'Legalização',
-    'assessoria-avcb-clcb': 'Legalização',
-    'licenciamento-ambiental': 'Legalização',
-    'assessoria-produtores-rurais': 'Especialidades',
-    'certificado-digital': 'Especialidades',
-    'assessoria-licitacoes': 'Especialidades',
-    'prestacao-contas-partidaria': 'Especialidades',
-}
 
 // ── Valor por categoria (o "porquê", não o "o quê") ──────────────────────────
 const categoryBenefits = {
@@ -79,66 +41,6 @@ const processSteps = [
     { icon: ClipboardList, title: 'Execução', desc: 'Nossa equipe assume as rotinas, coloca tudo em conformidade e mantém prazos claros com você.' },
     { icon: TrendingUp, title: 'Acompanhamento', desc: 'Relatórios periódicos e suporte contínuo, pra você sempre saber onde a empresa está.' },
 ]
-
-// ── Partículas do ícone ───────────────────────────────────────────────────────
-
-// ── Descrições das features ───────────────────────────────────────────────────
-const featureDescs = {
-    // Contábil
-    'Escrituração contábil completa': 'Registro sistemático de todas as operações financeiras da empresa, garantindo conformidade com as normas contábeis brasileiras.',
-    'Balanços e demonstrações financeiras': 'Elaboração do Balanço Patrimonial, DRE, DFC e demais demonstrações exigidas pela legislação, com clareza e precisão.',
-    'Planejamento tributário': 'Análise estratégica do enquadramento fiscal da sua empresa para reduzir legalmente a carga de impostos.',
-    'Controle patrimonial': 'Gestão e controle de bens e ativos da empresa, com inventário atualizado e depreciação calculada corretamente.',
-    'Relatórios gerenciais': 'Relatórios personalizados que traduzem os números em informações claras para apoiar a tomada de decisão.',
-    // Fiscal
-    'Apuração de impostos': 'Cálculo e apuração mensal de todos os impostos devidos (ICMS, PIS, COFINS, ISS, etc.) com segurança e conformidade.',
-    'Entrega de obrigações acessórias': 'Envio pontual de todas as obrigações acessórias: SPED, EFD, DCTF, REINF e demais declarações ao Fisco.',
-    'Recuperação de créditos fiscais': 'Identificação e recuperação de tributos pagos a maior ou indevidamente nos últimos 5 anos, com segurança jurídica.',
-    'Planejamento fiscal estratégico': 'Estruturação do calendário fiscal e estratégias para reduzir o impacto tributário no fluxo de caixa da empresa.',
-    'Compliance tributário': 'Monitoramento contínuo das obrigações fiscais para manter sua empresa em dia com o Fisco e evitar autuações.',
-    // DP
-    'Folha de pagamento': 'Processamento mensal da folha com cálculo de salários, descontos, benefícios e encargos trabalhistas.',
-    'Admissões e demissões': 'Condução completa dos processos de entrada e saída de colaboradores, com geração de todos os documentos legais.',
-    'eSocial e obrigações trabalhistas': 'Envio de todos os eventos do eSocial dentro dos prazos, garantindo conformidade com a legislação trabalhista vigente.',
-    'Gestão de benefícios': 'Administração de VR, VA, VT, plano de saúde e demais benefícios dos colaboradores com controle preciso.',
-    'FGTS e INSS': 'Cálculo, geração de guias e controle de recolhimento do FGTS e INSS para todos os colaboradores.',
-    // Consultoria
-    'Diagnóstico empresarial': 'Análise completa da situação financeira, fiscal e operacional da empresa para identificar gargalos e oportunidades.',
-    'Planejamento estratégico': 'Desenvolvimento de um plano de ação estruturado com metas, indicadores e etapas para o crescimento do negócio.',
-    'Reestruturação organizacional': 'Reorganização de processos internos, estrutura societária e fluxos operacionais para aumentar a eficiência.',
-    'Gestão financeira': 'Acompanhamento do fluxo de caixa, capital de giro e saúde financeira da empresa com orientação especializada.',
-    'Indicadores de desempenho': 'Definição e monitoramento de KPIs financeiros e operacionais alinhados aos objetivos do negócio.',
-    // BPO
-    'Contas a pagar e receber': 'Gestão e controle de todas as obrigações financeiras e recebimentos, evitando inadimplências e atrasos.',
-    'Fluxo de caixa': 'Projeção e controle diário do fluxo de caixa para garantir liquidez e planejamento financeiro eficiente.',
-    'Conciliação bancária': 'Conferência e reconciliação entre os extratos bancários e os lançamentos contábeis da empresa.',
-    'Relatórios financeiros': 'Geração de relatórios periódicos com visão clara da situação financeira para suporte à gestão.',
-    'Gestão de cobrança': 'Acompanhamento de títulos em aberto e estratégias de cobrança para reduzir a inadimplência.',
-    // Abertura
-    'Abertura de empresas': 'Registro completo de novas empresas junto aos órgãos municipais, estaduais e federais com agilidade.',
-    'Alterações contratuais': 'Atualização de dados cadastrais, mudança de sócios, capital social ou atividades da empresa.',
-    'Regularização fiscal': 'Resolução de pendências e irregularidades junto à Receita Federal, Estadual e Municipal.',
-    'Licenças e alvarás': 'Obtenção de alvarás de funcionamento e licenças específicas junto às prefeituras e órgãos competentes.',
-    'Encerramento de empresas': 'Condução de todo o processo de distrato e baixa da empresa nos órgãos competentes.',
-    // AVCB
-    'AVCB - Auto de Vistoria': 'Obtenção do Auto de Vistoria do Corpo de Bombeiros para regularização do imóvel junto à Defesa Civil.',
-    'CLCB - Certificado de Licença': 'Emissão do Certificado de Licença do Corpo de Bombeiros para empresas de baixo risco de incêndio.',
-    'Laudos técnicos': 'Elaboração de laudos técnicos de segurança contra incêndio e pânico por profissionais habilitados.',
-    'Projetos de combate a incêndio': 'Desenvolvimento de projetos de sistemas de combate a incêndio aprovados pelo Corpo de Bombeiros.',
-    'Acompanhamento de vistoria': 'Suporte e acompanhamento presencial durante todo o processo de vistoria do Corpo de Bombeiros.',
-    // Rural
-    'ITR - Imposto Territorial Rural': 'Elaboração e entrega da declaração do ITR com apuração correta da área tributável e isenções aplicáveis.',
-    'DAE - Declaração de Aptidão ao Pronaf': 'Obtenção do DAP/CAF para acesso ao crédito rural e programas governamentais do agronegócio.',
-    'CAFIR e SNCR': 'Inscrição, atualização e regularização do imóvel rural no CAFIR e no Sistema Nacional de Cadastro Rural.',
-    'Contabilidade rural': 'Escrituração contábil especializada para propriedades rurais, com controle de safras e atividades agropecuárias.',
-    'Planejamento fiscal rural': 'Estratégias tributárias específicas para o produtor rural, explorando benefícios e isenções da legislação agrária.',
-    // Certificado Digital
-    'Certificado A1 e A3': 'Emissão de certificados digitais nos padrões A1 (armazenado em arquivo) e A3 (armazenado em token ou smartcard).',
-    'Pessoa Física e Jurídica': 'Certificados para CPF e CNPJ, habilitando a assinatura digital de documentos com validade jurídica.',
-    'NFe, NFSe e eSocial': 'Habilitação para emissão de notas fiscais eletrônicas e envio de obrigações ao eSocial.',
-    'Validade de 1 a 3 anos': 'Opções de validade de 1, 2 ou 3 anos com renovação simplificada antes do vencimento.',
-    'Suporte completo': 'Assistência na instalação, configuração e uso do certificado digital nos principais sistemas contábeis.',
-}
 
 // ── Feature row com accordion ────────────────────────────────────────────────
 function FeatureRow({ f, i, total, isOpen, onToggle }) {
@@ -237,9 +139,9 @@ export default function ServicoDetalhe() {
         )
     }
 
-    const Icon = iconMap[service.id] ?? FileText
-    const categoria = categoriaMap[service.id] ?? 'Serviços'
-    const others = rawServices.filter((s) => s.id !== id && categoriaMap[s.id] === categoria).slice(0, 3)
+    const Icon = service.icon ?? FileText
+    const categoria = service.categoria ?? 'Serviços'
+    const others = rawServices.filter((s) => s.id !== id && s.categoria === categoria).slice(0, 3)
     const fallbackOthers = rawServices.filter((s) => s.id !== id).slice(0, 3)
     const relacionados = others.length >= 2 ? others : fallbackOthers
 
@@ -450,7 +352,7 @@ export default function ServicoDetalhe() {
                         </div>
                         <div className="relative z-10 flex flex-col gap-3">
                             <a
-                                href={buildWhatsAppLink(`Olá! Vi a página de ${service.title} no site e gostaria de solicitar uma proposta.`)}
+                                href={buildWhatsAppLink(`Olá! Estava vendo os serviços de ${service.title} da Domingos Assessoria no site e gostaria de solicitar uma proposta.`)}
                                 target="_blank" rel="noopener noreferrer"
                                 className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-4 rounded-xl transition-colors"
                             >
@@ -486,7 +388,7 @@ export default function ServicoDetalhe() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {relacionados.map((s, i) => {
-                            const OtherIcon = iconMap[s.id] ?? FileText
+                            const OtherIcon = s.icon ?? FileText
                             return (
                                 <motion.div
                                     key={s.id}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
 import logo from "../assets/logo_domingos_transparente.png"
+import { featuredServices } from '../data/services'
 
 const socialLinks = [
     {
@@ -29,14 +30,7 @@ const quickLinks = [
     { to: '/contato', label: 'Contato' },
 ]
 
-const serviceLinks = [
-    { id: 'assessoria-contabil', label: 'Assessoria Contábil' },
-    { id: 'assessoria-fiscal', label: 'Assessoria Fiscal' },
-    { id: 'consultoria-empresarial', label: 'Consultoria Empresarial' },
-    { id: 'assessoria-dp-pessoal', label: 'Departamento Pessoal' },
-    { id: 'bpo-financeiro', label: 'BPO Financeiro' },
-    { id: 'abertura-regularizacao-empresas', label: 'Abertura de Empresas' },
-]
+const serviceLinks = featuredServices.map((s) => ({ id: s.id, label: s.title }))
 
 export default function Footer() {
     return (
