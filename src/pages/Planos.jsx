@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Minus, ArrowRight, Zap } from 'lucide-react'
 import Card from '../components/Card'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -215,7 +216,7 @@ export default function Planos() {
 
                                 {/* CTA */}
                                 <a
-                                    href="https://wa.me/5514996580459"
+                                    href={buildWhatsAppLink(`Olá! Tenho interesse no plano ${plano.nome} e gostaria de solicitar uma proposta.`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`flex items-center justify-center gap-2 py-3 rounded-lg font-bold text-sm transition-all duration-200
@@ -284,7 +285,7 @@ export default function Planos() {
                                     {planos.map(p => (
                                         <td key={p.id} className="px-4 py-5 text-center">
                                             <a
-                                                href="https://wa.me/5514996580459"
+                                                href={buildWhatsAppLink(`Olá! Tenho interesse no plano ${p.nome} e gostaria de solicitar uma proposta.`)}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-lg transition-all
@@ -318,7 +319,7 @@ export default function Planos() {
                         sem compromisso e sem enrolação.
                     </p>
                     <a
-                        href="https://wa.me/5514996580459"
+                        href={buildWhatsAppLink('Olá! Ainda tenho dúvidas sobre os planos e gostaria de falar com um especialista.')}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-lg transition-colors"

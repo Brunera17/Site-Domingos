@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, User } from 'lucide-react'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 const testimonials = [
     {
@@ -245,7 +246,7 @@ export default function TestemunhosSection() {
                         que já confiam na Domingos Assessoria.
                     </p>
                     <a
-                        href="https://wa.me/5514996580459"
+                        href={buildWhatsAppLink('Olá! Vi os depoimentos de clientes no site e quero saber como a Domingos Assessoria pode ajudar minha empresa.')}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"

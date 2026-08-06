@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Calculator, FileText, Users, TrendingUp, DollarSign, Building2 } from 'lucide-react'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 const AUTOPLAY_DELAY = 12000     // tempo normal entre slides
 const INTERACTION_DELAY = 17000   // tempo maior após interação manual
@@ -222,7 +223,7 @@ export default function ServicosSection() {
                                     Saiba mais <ArrowRight size={13} />
                                 </Link>
                                 <a
-                                    href="https://wa.me/5514996580459"
+                                    href={buildWhatsAppLink(`Olá! Tenho interesse em ${selectedService.title} e gostaria de mais informações.`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold px-4 py-2 rounded-lg text-xs transition-colors"

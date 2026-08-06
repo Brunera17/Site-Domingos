@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag, Share2 } from 'lucide-react'
 import { blogPosts } from '../data/blogData'
+import { buildWhatsAppLink } from '../utils/whatsapp'
 
 export default function BlogPost() {
     const { id } = useParams()
@@ -131,7 +132,7 @@ export default function BlogPost() {
                             <p className="text-zinc-400 text-sm">Nosso time está pronto para orientar sua empresa.</p>
                         </div>
                         <a
-                            href="https://wa.me/5514996580459"
+                            href={buildWhatsAppLink(`Olá! Li o artigo "${post.title}" no blog e gostaria de saber mais sobre esse assunto.`)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-colors text-sm whitespace-nowrap shrink-0"
