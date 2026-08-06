@@ -17,12 +17,14 @@ import Proposta from "./pages/Proposta";
 import BlogPost from './pages/BlogPost'
 
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function App() {
   return (
     <HelmetProvider>
       <PlanProvider>
         <Analytics />
+        <SpeedInsights />
         <Routes>
 
           {/* 🔥 ROTAS COM HEADER */}
