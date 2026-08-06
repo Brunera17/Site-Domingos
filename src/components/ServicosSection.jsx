@@ -108,7 +108,6 @@ export default function ServicosSection() {
 
     const startTimer = useCallback((delay = AUTOPLAY_DELAY) => {
         clearInterval(timerRef.current)
-        setActiveDelay(delay)
         timerRef.current = setInterval(() => {
             setSelected(prev => (prev + 1) % services.length)
         }, delay)
