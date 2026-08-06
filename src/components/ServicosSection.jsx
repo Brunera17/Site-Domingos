@@ -1,104 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, Calculator, FileText, Users, TrendingUp, DollarSign, Building2 } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import { services as allServices } from '../data/services'
 
 const AUTOPLAY_DELAY = 12000     // tempo normal entre slides
 const INTERACTION_DELAY = 17000   // tempo maior após interação manual
 
-const services = [
-    {
-        id: 'assessoria-contabil',
-        icon: Calculator,
-        title: 'Assessoria Contábil',
-        description: 'Escrituração completa, balanços e planejamento tributário para sua empresa pagar menos impostos legalmente.',
-        detalhes: 'Cuidamos de toda a vida contábil da sua empresa com precisão e estratégia. Nosso time mantém seus registros em dia, garante conformidade e identifica oportunidades reais de economia fiscal.',
-        comoFazemos: [
-            'Escrituração contábil completa e atualizada',
-            'Elaboração de balanços e demonstrações financeiras',
-            'Planejamento tributário personalizado',
-            'Controle e gestão do patrimônio empresarial',
-            'Relatórios gerenciais para tomada de decisão',
-        ],
-        departamento: 'Contabilidade',
-    },
-    {
-        id: 'assessoria-fiscal',
-        icon: FileText,
-        title: 'Assessoria Fiscal',
-        description: 'Gestão completa de obrigações fiscais, apuração de impostos e recuperação de créditos tributários.',
-        detalhes: 'Garantimos que sua empresa esteja sempre em dia com o fisco, sem pagar um centavo a mais do que o necessário. Identificamos créditos tributários e oportunidades de recuperação.',
-        comoFazemos: [
-            'Apuração mensal de todos os impostos',
-            'Entrega de obrigações acessórias (SPED, EFD, etc.)',
-            'Recuperação de créditos fiscais pagos indevidamente',
-            'Planejamento fiscal estratégico',
-            'Auditoria e revisão de compliance tributário',
-        ],
-        departamento: 'Fiscal / Tributário',
-    },
-    {
-        id: 'assessoria-dp-pessoal',
-        icon: Users,
-        title: 'Departamento Pessoal',
-        description: 'Folha de pagamento, admissões, demissões e conformidade total com eSocial e legislação trabalhista.',
-        detalhes: 'Gerenciamos toda a relação trabalhista da sua empresa com segurança jurídica. Da admissão ao desligamento, passando por folha, férias, 13º e muito mais.',
-        comoFazemos: [
-            'Elaboração e processamento da folha de pagamento',
-            'Gestão de admissões e demissões',
-            'Envio de obrigações do eSocial',
-            'Cálculo de férias, 13º salário e rescisões',
-            'Gestão de benefícios e encargos (FGTS, INSS)',
-        ],
-        departamento: 'Departamento Pessoal',
-    },
-    {
-        id: 'consultoria-empresarial',
-        icon: TrendingUp,
-        title: 'Consultoria Empresarial',
-        description: 'Diagnóstico, planejamento estratégico e indicadores de desempenho para crescimento sustentável.',
-        detalhes: 'Atuamos como parceiros estratégicos do seu negócio, trazendo visão analítica e experiência de mercado para ajudar sua empresa a crescer com segurança e inteligência.',
-        comoFazemos: [
-            'Diagnóstico completo da situação empresarial',
-            'Definição de metas e indicadores de desempenho (KPIs)',
-            'Estruturação de planejamento estratégico',
-            'Reestruturação organizacional e de processos',
-            'Acompanhamento contínuo dos resultados',
-        ],
-        departamento: 'Consultoria',
-    },
-    {
-        id: 'bpo-financeiro',
-        icon: DollarSign,
-        title: 'BPO Financeiro',
-        description: 'Terceirização financeira completa: contas a pagar e receber, fluxo de caixa e conciliação bancária.',
-        detalhes: 'Assumimos a gestão financeira da sua empresa para que você foque no que realmente importa: crescer. Com processos organizados e relatórios claros, você toma decisões com confiança.',
-        comoFazemos: [
-            'Gestão de contas a pagar e a receber',
-            'Controle e projeção de fluxo de caixa',
-            'Conciliação bancária diária',
-            'Emissão e gestão de cobranças',
-            'Relatórios financeiros gerenciais mensais',
-        ],
-        departamento: 'Financeiro',
-    },
-    {
-        id: 'abertura-regularizacao-empresas',
-        icon: Building2,
-        title: 'Abertura de Empresas',
-        description: 'Abertura, alteração e regularização de empresas de forma rápida, segura e sem burocracia.',
-        detalhes: 'Cuidamos de todo o processo burocrático para que sua empresa nasça ou se regularize da forma certa, no regime tributário mais vantajoso para o seu perfil.',
-        comoFazemos: [
-            'Abertura de MEI, ME, EPP e demais tipos societários',
-            'Escolha do melhor regime tributário',
-            'Obtenção de licenças e alvarás de funcionamento',
-            'Alterações contratuais e societárias',
-            'Regularização de empresas com pendências fiscais',
-        ],
-        departamento: 'Legalização Empresarial',
-    },
-]
+// Só os serviços em destaque aparecem no carrossel da home (têm detalhes/comoFazemos)
+const services = allServices.filter((s) => s.destaque)
 
 export default function ServicosSection() {
     const [selected, setSelected] = useState(0)
@@ -223,7 +134,7 @@ export default function ServicosSection() {
                                     Saiba mais <ArrowRight size={13} />
                                 </Link>
                                 <a
-                                    href={buildWhatsAppLink(`Olá! Tenho interesse em ${selectedService.title} e gostaria de mais informações.`)}
+                                    href={buildWhatsAppLink(`Olá! Estava vendo os serviços de ${selectedService.title} da Domingos Assessoria no site e queria mais informações.`)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold px-4 py-2 rounded-lg text-xs transition-colors"
@@ -279,7 +190,7 @@ export default function ServicosSection() {
                                 Ver todos os serviços
                             </p>
                             <p className="text-zinc-700 text-xs text-center mt-1">
-                                15+ disponíveis
+                                {allServices.length}+ disponíveis
                             </p>
                         </Link>
                     </div>

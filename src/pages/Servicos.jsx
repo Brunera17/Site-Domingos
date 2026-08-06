@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-    ArrowRight, Calculator, FileText, Users, TrendingUp, DollarSign,
-    Building2, Shield, Leaf, Key, RefreshCw, TreePine, ClipboardList,
-    Search, Home, Flag, Star
-} from 'lucide-react'
+import { ArrowRight, Search, Star } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import { services } from '../data/services'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -25,121 +22,6 @@ const categoryAbbr = {
     'Especialidades': 'ES',
 }
 
-const services = [
-    {
-        id: 'assessoria-contabil',
-        icon: Calculator,
-        title: 'Assessoria Contábil',
-        description: 'Escrituração completa, balanços e planejamento tributário.',
-        categoria: 'Contábil e Fiscal',
-        destaque: true,
-        tag: 'Mais procurado',
-    },
-    {
-        id: 'assessoria-fiscal',
-        icon: FileText,
-        title: 'Assessoria Fiscal',
-        description: 'Gestão de obrigações fiscais, apuração de impostos e recuperação de créditos.',
-        categoria: 'Contábil e Fiscal',
-        destaque: true,
-        tag: 'Mais procurado',
-    },
-    {
-        id: 'assessoria-dp-pessoal',
-        icon: Users,
-        title: 'Departamento Pessoal',
-        description: 'Folha de pagamento, admissões, demissões e conformidade com eSocial.',
-        categoria: 'Contábil e Fiscal',
-        destaque: true,
-        tag: 'Mais procurado',
-    },
-    {
-        id: 'consultoria-empresarial',
-        icon: TrendingUp,
-        title: 'Consultoria Empresarial',
-        description: 'Diagnóstico, planejamento estratégico e indicadores de desempenho.',
-        categoria: 'Gestão Empresarial',
-        tag: 'Mais procurado',
-    },
-    {
-        id: 'bpo-financeiro',
-        icon: DollarSign,
-        title: 'BPO Financeiro',
-        description: 'Terceirização financeira: contas a pagar/receber, fluxo de caixa.',
-        categoria: 'Gestão Empresarial',
-    },
-    {
-        id: 'abertura-regularizacao-empresas',
-        icon: Building2,
-        title: 'Abertura de Empresas',
-        description: 'Abertura, alteração e regularização de empresas sem burocracia.',
-        categoria: 'Legalização',
-    },
-    {
-        id: 'assessoria-avcb-clcb',
-        icon: Shield,
-        title: 'AVCB e CLCB',
-        description: 'Obtenção e renovação do Auto de Vistoria do Corpo de Bombeiros.',
-        categoria: 'Legalização',
-    },
-    {
-        id: 'assessoria-produtores-rurais',
-        icon: Leaf,
-        title: 'Assessoria Rural',
-        description: 'ITR, DAE, CAFIR e contabilidade especializada para o agronegócio.',
-        categoria: 'Especialidades',
-    },
-    {
-        id: 'certificado-digital',
-        icon: Key,
-        title: 'Certificado Digital',
-        description: 'Emissão e renovação de certificados A1 e A3 para PF e PJ.',
-        categoria: 'Especialidades',
-    },
-    {
-        id: 'recuperacao-tributaria',
-        icon: RefreshCw,
-        title: 'Recuperação Tributária',
-        description: 'Identificação e recuperação de créditos tributários pagos indevidamente.',
-        categoria: 'Contábil e Fiscal',
-    },
-    {
-        id: 'licenciamento-ambiental',
-        icon: TreePine,
-        title: 'Licenciamento Ambiental',
-        description: 'Assessoria em licenciamento ambiental com parceiros especializados.',
-        categoria: 'Legalização',
-    },
-    {
-        id: 'assessoria-licitacoes',
-        icon: ClipboardList,
-        title: 'Assessoria em Licitações',
-        description: 'Apoio completo para participação em licitações públicas.',
-        categoria: 'Especialidades',
-    },
-    {
-        id: 'revisao-tributaria-cadastros',
-        icon: Search,
-        title: 'Revisão Tributária',
-        description: 'Análise de cadastros fiscais para identificar oportunidades de economia.',
-        categoria: 'Contábil e Fiscal',
-    },
-    {
-        id: 'holding-familiar',
-        icon: Home,
-        title: 'Holding Familiar',
-        description: 'Constituição de holdings para proteção patrimonial e planejamento sucessório.',
-        categoria: 'Gestão Empresarial',
-    },
-    {
-        id: 'prestacao-contas-partidaria',
-        icon: Flag,
-        title: 'Prestação de Contas Partidária',
-        description: 'Assessoria em prestação de contas para partidos e campanhas eleitorais.',
-        categoria: 'Especialidades',
-    },
-]
-
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
 export default function Servicos() {
@@ -154,7 +36,7 @@ export default function Servicos() {
     })
 
     const stats = [
-        { label: 'Serviços', value: '15+' },
+        { label: 'Serviços', value: `${services.length}+` },
         { label: 'Setores', value: '4+' },
         { label: 'Expecialistas', value: '10+' },
     ]
@@ -182,7 +64,7 @@ export default function Servicos() {
                         <span className="text-orange-500">precisa para crescer</span>
                     </h1>
                     <p className="text-zinc-400 text-lg leading-relaxed max-w-xl">
-                        15+ serviços especializados para empresas de todos os
+                        {services.length}+ serviços especializados para empresas de todos os
                         portes e segmentos. Do essencial ao estratégico.
                     </p>
                 </div>
