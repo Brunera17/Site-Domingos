@@ -1,7 +1,7 @@
 import {
     Calculator, FileText, Users, TrendingUp, DollarSign, Building2,
     Shield, Leaf, Key, RefreshCw, TreePine, ClipboardList, Search,
-    Home, Flag, Scale, Gavel, SearchCheck, GraduationCap, Copyright,
+    Home, Scale, Gavel, SearchCheck, GraduationCap, Copyright,
     Receipt, HardHat,
 } from 'lucide-react'
 
@@ -271,19 +271,6 @@ export const services = [
         ],
     },
     {
-        id: 'prestacao-contas-partidaria',
-        icon: Flag,
-        title: 'Prestação de Contas Partidária',
-        description: 'Assessoria em prestação de contas para partidos e campanhas eleitorais.',
-        categoria: 'Especialidades',
-        features: [
-            'Escrituração contábil de partidos e candidatos',
-            'Prestação de contas à Justiça Eleitoral',
-            'Controle de doações e gastos de campanha',
-            'Regularização de pendências junto ao TSE/TRE',
-        ],
-    },
-    {
         id: 'consultoria-reforma-tributaria',
         icon: Scale,
         title: 'Consultoria em Reforma Tributária',
@@ -458,11 +445,6 @@ export const featureDescs = {
     'Constituição societária da holding': 'Elaboração do contrato social e registro da holding nos órgãos competentes.',
     'Planejamento sucessório e patrimonial': 'Estruturação da sucessão de bens com segurança jurídica e redução de custos com inventário.',
     'Integralização de bens e imóveis': 'Transferência formal de bens e imóveis para a holding, com apuração dos impactos tributários.',
-    // Prestação de Contas Partidária
-    'Escrituração contábil de partidos e candidatos': 'Registro contábil das movimentações financeiras de partidos, comitês e campanhas.',
-    'Prestação de contas à Justiça Eleitoral': 'Elaboração e envio da prestação de contas dentro dos prazos exigidos pelo TSE/TRE.',
-    'Controle de doações e gastos de campanha': 'Acompanhamento e registro de doações recebidas e despesas de campanha conforme a legislação eleitoral.',
-    'Regularização de pendências junto ao TSE/TRE': 'Resolução de inconsistências e pendências identificadas pela Justiça Eleitoral.',
     // Reforma Tributária
     'Diagnóstico do impacto da reforma no seu negócio': 'Análise de como a Reforma Tributária (IBS/CBS) afeta a carga tributária e os processos da sua empresa.',
     'Simulação de cenários tributários (IBS/CBS)': 'Projeção de diferentes cenários para antecipar o impacto financeiro da transição do novo sistema.',

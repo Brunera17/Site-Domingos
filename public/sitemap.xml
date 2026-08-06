@@ -27,7 +27,7 @@
     <priority>0.9</priority>
   </url>
 
-  <!-- SERVIÇOS - DETALHE (22 serviços) -->
+  <!-- SERVIÇOS - DETALHE (21 serviços) -->
   <url>
     <loc>https://domingosassessoria.com.br/servicos/assessoria-contabil</loc>
     <lastmod>2026-01-31</lastmod>
@@ -122,13 +122,6 @@
   <url>
     <loc>https://domingosassessoria.com.br/servicos/holding-familiar</loc>
     <lastmod>2026-08-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://domingosassessoria.com.br/servicos/prestacao-contas-partidaria</loc>
-    <lastmod>2026-01-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
