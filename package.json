@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.38.0",
     "html2pdf.js": "^0.14.0",
     "lucide-react": "^1.7.0",
