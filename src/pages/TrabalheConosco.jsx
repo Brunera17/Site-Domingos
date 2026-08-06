@@ -5,6 +5,7 @@ import {
     ArrowRight, TrendingUp, Users, BookOpen, Coffee,
     CheckCircle, Upload, FileText, MessageSquare, ChevronDown
 } from 'lucide-react'
+import Card from '../components/Card'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -187,9 +188,9 @@ export default function TrabalheConosco() {
                         {beneficios.map((b, i) => {
                             const Icon = b.icon
                             return (
-                                <div
+                                <Card
                                     key={b.title}
-                                    className="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-6 transition-all duration-300 hover:bg-zinc-800/60 relative overflow-hidden"
+                                    className="group hover:bg-zinc-800/60 overflow-hidden"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                                     <span className="absolute top-4 right-4 text-zinc-800 font-black text-2xl select-none">
@@ -200,7 +201,7 @@ export default function TrabalheConosco() {
                                     </div>
                                     <h3 className="text-white font-bold mb-2">{b.title}</h3>
                                     <p className="text-zinc-500 text-sm leading-relaxed">{b.desc}</p>
-                                </div>
+                                </Card>
                             )
                         })}
                     </div>

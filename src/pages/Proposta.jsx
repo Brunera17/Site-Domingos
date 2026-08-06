@@ -1,13 +1,13 @@
 
 export default function Proposta() {
     return (
-        <div className="bg-[#111] text-white min-h-screen font-barlow">
+        <div className="bg-[#111] text-white min-h-screen">
             {/* HERO */}
             <section className="px-6 py-20 bg-black relative">
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
 
                     <div>
-                        <h1 className="font-condensed text-6xl font-black uppercase leading-none">
+                        <h1 className="text-6xl font-black uppercase leading-none">
                             Proposta de <span className="text-primary italic">Assessoria</span>
                         </h1>
 
@@ -32,7 +32,7 @@ export default function Proposta() {
             {/* DADOS */}
             <section className="max-w-6xl mx-auto px-6 py-10">
 
-                <h2 className="font-condensed text-3xl font-bold mb-6 uppercase">
+                <h2 className="text-3xl font-bold mb-6 uppercase">
                     Dados da Empresa
                 </h2>
 

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Minus, ArrowRight, Zap } from 'lucide-react'
+import Card from '../components/Card'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -155,13 +156,11 @@ export default function Planos() {
                         const total = features.length
 
                         return (
-                            <div
+                            <Card
                                 key={plano.id}
-                                className={`relative flex flex-col bg-zinc-900 border rounded-xl p-6 transition-all duration-300
-                                    ${plano.destaque
-                                        ? 'border-orange-500/50 ring-1 ring-orange-500/20'
-                                        : 'border-zinc-800 hover:border-zinc-700'
-                                    }`}
+                                variant={plano.destaque ? 'featured' : 'default'}
+                                hoverBorder={plano.destaque ? 'none' : 'zinc'}
+                                rounded="rounded-xl"
                             >
                                 {/* Badge destaque */}
                                 {plano.destaque && (
@@ -227,7 +226,7 @@ export default function Planos() {
                                 >
                                     Solicitar proposta <ArrowRight size={14} />
                                 </a>
-                            </div>
+                            </Card>
                         )
                     })}
                 </div>
