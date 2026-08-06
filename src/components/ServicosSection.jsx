@@ -233,7 +233,7 @@ export default function ServicosSection() {
 
                     {/* Cards menores — 7 colunas */}
                     <div
-                        className="md:col-span-7 grid grid-cols-2 gap-3 content-start md:h-[calc(100vh-160px)]"
+                        className="md:col-span-7 grid grid-cols-2 auto-rows-min gap-3 content-start md:max-h-full md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     >
                         {otherServices.map((service, i) => {
                             const Icon = service.icon
