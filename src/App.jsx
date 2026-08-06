@@ -16,6 +16,8 @@ import Planos from "./pages/Planos";
 import Proposta from "./pages/Proposta";
 import BlogPost from './pages/BlogPost'
 
+import { Analytics } from "@vercel/analytics/next"
+
 export default function App() {
   return (
     <HelmetProvider>
