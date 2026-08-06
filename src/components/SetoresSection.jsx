@@ -35,7 +35,7 @@ export default function SetoresSection() {
                 </div>
 
                 {/* Grid de setores */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 flex-1 min-h-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-min gap-4 flex-1 min-h-0 md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {sectors.map((sector, i) => {
                         const Icon = sector.icon
                         return (

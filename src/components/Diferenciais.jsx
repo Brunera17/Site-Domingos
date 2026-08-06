@@ -72,7 +72,7 @@ export default function DiferenciaisSection() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                            className="relative bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 flex flex-col justify-between overflow-hidden"
+                            className="relative bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 flex flex-col justify-between overflow-x-hidden overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                         >
                             {/* Glow de fundo */}
                             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/8 via-transparent to-transparent pointer-events-none" />
