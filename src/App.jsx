@@ -16,12 +16,13 @@ import Planos from "./pages/Planos";
 import Proposta from "./pages/Proposta";
 import BlogPost from './pages/BlogPost'
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   return (
     <HelmetProvider>
       <PlanProvider>
+        <Analytics />
         <Routes>
 
           {/* 🔥 ROTAS COM HEADER */}
