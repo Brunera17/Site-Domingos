@@ -33,10 +33,33 @@ const WhatsAppIcon = () => (
 export default function Contato() {
     const [form, setForm] = useState({ nome: '', email: '', telefone: '', empresa: '', assunto: '', mensagem: '' })
     const [enviado, setEnviado] = useState(false)
+    const [enviando, setEnviando] = useState(false)
+    const [erro, setErro] = useState(null)
     const [faqAberto, setFaqAberto] = useState(null)
 
     const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-    const submit = (e) => { e.preventDefault(); setEnviado(true) }
+
+    const submit = async (e) => {
+        e.preventDefault()
+        setErro(null)
+        setEnviando(true)
+        try {
+            const resp = await fetch('/api/contato', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            })
+            const data = await resp.json().catch(() => ({}))
+            if (!resp.ok) {
+                throw new Error(data.error || 'Não foi possível enviar sua mensagem.')
+            }
+            setEnviado(true)
+        } catch (err) {
+            setErro(err.message || 'Não foi possível enviar sua mensagem. Tente novamente.')
+        } finally {
+            setEnviando(false)
+        }
+    }
 
     const assuntos = [
         'Contabilidade',
@@ -163,7 +186,10 @@ export default function Contato() {
                                         Recebemos sua mensagem e retornaremos em até 1 dia útil. Obrigado pelo contato!
                                     </p>
                                     <button
-                                        onClick={() => setEnviado(false)}
+                                        onClick={() => {
+                                            setForm({ nome: '', email: '', telefone: '', empresa: '', assunto: '', mensagem: '' })
+                                            setEnviado(false)
+                                        }}
                                         className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"
                                     >
                                         Enviar outra mensagem
@@ -221,9 +247,15 @@ export default function Contato() {
                                                 className="w-full bg-zinc-800 border border-zinc-700 focus:border-zinc-500 text-white placeholder-zinc-600 rounded-xl px-4 py-3 outline-none transition-colors text-sm resize-none" />
                                         </div>
 
-                                        <button type="submit"
-                                            className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-colors text-sm">
-                                            Enviar Mensagem <ArrowRight size={16} />
+                                        {erro && (
+                                            <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                                                {erro}
+                                            </p>
+                                        )}
+
+                                        <button type="submit" disabled={enviando}
+                                            className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors text-sm">
+                                            {enviando ? 'Enviando...' : <>Enviar Mensagem <ArrowRight size={16} /></>}
                                         </button>
 
                                         <p className="text-zinc-600 text-xs text-center">
