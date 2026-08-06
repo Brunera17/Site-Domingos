@@ -14,10 +14,6 @@ export default {
         gold: "#D4AF37",
         diamond: "#38C4D8",
       },
-      fontFamily: {
-        barlow: ["Barlow", "sans-serif"],
-        condensed: ["Barlow Condensed", "sans-serif"],
-      },
     },
   },
 };
