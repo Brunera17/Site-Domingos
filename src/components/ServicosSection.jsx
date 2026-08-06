@@ -123,10 +123,11 @@ export default function ServicosSection() {
     // Ao clicar manualmente, pausa mais tempo
     const handleSelect = (index) => {
         setSelected(index)
+        setActiveDelay(INTERACTION_DELAY)
         startTimer(INTERACTION_DELAY)
     }
 
-    // Barra de progresso — recria ao trocar selected
+    // Barra de progresso — acompanha o delay realmente ativo (normal ou pós-interação)
     const [progress, setProgress] = useState(0)
     useEffect(() => {
         setProgress(0)
