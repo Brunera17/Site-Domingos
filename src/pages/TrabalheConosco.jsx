@@ -105,19 +105,71 @@ const disponibilidades = ['Imediata', 'Em 15 dias', 'Em 30 dias', 'Em mais de 30
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
+const MAX_RESUME_BYTES = 3 * 1024 * 1024 // 3MB — mesmo limite validado em api/trabalhe-conosco.js
+
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onload = () => resolve(reader.result)
+        reader.onerror = reject
+        reader.readAsDataURL(file)
+    })
+}
+
 export default function TrabalheConosco() {
     const [vagaAberta, setVagaAberta] = useState(null)
     const [vagaSelecionada, setVagaSelecionada] = useState('')
     const [arquivo, setArquivo] = useState(null)
     const [form, setForm] = useState({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '' })
     const [enviado, setEnviado] = useState(false)
+    const [enviando, setEnviando] = useState(false)
+    const [erro, setErro] = useState(null)
 
     const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value })
-    const handleArquivo = (e) => setArquivo(e.target.files[0])
 
-    const submit = (e) => {
+    const handleArquivo = (e) => {
+        const file = e.target.files[0]
+        if (!file) return
+        if (file.size > MAX_RESUME_BYTES) {
+            setErro('O arquivo do currículo deve ter no máximo 3MB.')
+            e.target.value = ''
+            return
+        }
+        setErro(null)
+        setArquivo(file)
+    }
+
+    const submit = async (e) => {
         e.preventDefault()
-        setEnviado(true)
+        if (!arquivo) {
+            setErro('Anexe seu currículo antes de enviar.')
+            return
+        }
+        setErro(null)
+        setEnviando(true)
+        try {
+            const resumeBase64 = await fileToBase64(arquivo)
+            const resp = await fetch('/api/trabalhe-conosco', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...form,
+                    vagaSelecionada,
+                    resumeBase64,
+                    resumeFilename: arquivo.name,
+                    resumeMimeType: arquivo.type,
+                }),
+            })
+            const data = await resp.json().catch(() => ({}))
+            if (!resp.ok) {
+                throw new Error(data.error || 'Não foi possível enviar sua candidatura.')
+            }
+            setEnviado(true)
+        } catch (err) {
+            setErro(err.message || 'Não foi possível enviar sua candidatura. Tente novamente.')
+        } finally {
+            setEnviando(false)
+        }
     }
 
     const candidatarVaga = (vaga) => {
@@ -351,7 +403,12 @@ export default function TrabalheConosco() {
                                 e entrará em contato em até 5 dias úteis.
                             </p>
                             <button
-                                onClick={() => setEnviado(false)}
+                                onClick={() => {
+                                    setForm({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '' })
+                                    setArquivo(null)
+                                    setVagaSelecionada('')
+                                    setEnviado(false)
+                                }}
                                 className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"
                             >
                                 Enviar outra candidatura
@@ -455,17 +512,24 @@ export default function TrabalheConosco() {
                                             <>
                                                 <Upload size={28} className="text-zinc-500 mb-2" />
                                                 <p className="text-zinc-400 text-sm">Clique para selecionar ou arraste o arquivo</p>
-                                                <p className="text-zinc-600 text-xs mt-1">PDF ou Word · máximo 5MB</p>
+                                                <p className="text-zinc-600 text-xs mt-1">PDF ou Word · máximo 3MB</p>
                                             </>
                                         )}
                                     </label>
                                 </div>
 
+                                {erro && (
+                                    <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                                        {erro}
+                                    </p>
+                                )}
+
                                 <button
                                     type="submit"
-                                    className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 rounded-xl transition-colors text-sm"
+                                    disabled={enviando}
+                                    className="w-full flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl transition-colors text-sm"
                                 >
-                                    Enviar Candidatura <ArrowRight size={16} />
+                                    {enviando ? 'Enviando...' : <>Enviar Candidatura <ArrowRight size={16} /></>}
                                 </button>
 
                                 <p className="text-zinc-600 text-xs text-center">
