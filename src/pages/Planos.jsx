@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Minus, ArrowRight, Zap } from 'lucide-react'
 import Card from '../components/Card'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SEOHead from '../components/SEOHead'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -81,6 +82,12 @@ export default function Planos() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title="Planos e Preços"
+                description="Escolha o plano ideal de contabilidade e assessoria empresarial para o seu negócio. Do essencial ao estratégico."
+                canonicalPath="/planos"
+                keywords="planos contabilidade, preços assessoria empresarial, pacotes contábeis"
+            />
 
             {/* ── 1. HERO ── */}
             <section className="pt-36 pb-20 px-6 bg-black border-b border-zinc-900">

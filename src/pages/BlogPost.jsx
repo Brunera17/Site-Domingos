@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag, Share2 } from 'lucide-react'
 import { blogPosts } from '../data/blogData'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SEOHead from '../components/SEOHead'
 
 export default function BlogPost() {
     const { id } = useParams()
@@ -68,6 +69,13 @@ export default function BlogPost() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title={post.title}
+                description={post.description}
+                canonicalPath={`/blog/${post.id}`}
+                keywords={`${post.category}, blog, contabilidade, domingos assessoria`}
+                ogImage={post.image}
+            />
 
             {/* ── HERO DO ARTIGO ── */}
             <section className="relative overflow-hidden" style={{ height: '50vh', minHeight: '380px' }}>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Search, Star } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import { services } from '../data/services'
+import SEOHead from '../components/SEOHead'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -43,6 +44,12 @@ export default function Servicos() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title="Serviços"
+                description={`Conheça os ${services.length}+ serviços especializados da Domingos Assessoria Empresarial: contabilidade, fiscal, departamento pessoal, consultoria e muito mais.`}
+                canonicalPath="/servicos"
+                keywords="serviços contábeis, assessoria fiscal, consultoria empresarial, departamento pessoal"
+            />
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">

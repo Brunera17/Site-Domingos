@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle } from 'lucide-react'
 import WhatsAppIcon from '../components/icons/WhatsAppIcon'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SEOHead from '../components/SEOHead'
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
 const faqs = [
@@ -67,6 +68,12 @@ export default function Contato() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title="Contato"
+                description="Fale com a Domingos Assessoria Empresarial. Atendimento presencial em Itaí/SP e remoto para empresas de todo o Brasil."
+                canonicalPath="/contato"
+                keywords="contato domingos assessoria, fale conosco, atendimento contábil"
+            />
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">

@@ -6,6 +6,7 @@ import {
     CheckCircle, Upload, FileText, MessageSquare, ChevronDown
 } from 'lucide-react'
 import Card from '../components/Card'
+import SEOHead from '../components/SEOHead'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -180,6 +181,12 @@ export default function TrabalheConosco() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title="Trabalhe Conosco"
+                description="Faça parte do time da Domingos Assessoria Empresarial. Confira as vagas abertas e envie seu currículo."
+                canonicalPath="/trabalhe-conosco"
+                keywords="vagas contabilidade, trabalhe conosco, emprego assessoria empresarial, carreira contábil"
+            />
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
