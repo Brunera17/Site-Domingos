@@ -75,6 +75,7 @@ export default function BlogPost() {
                 canonicalPath={`/blog/${post.id}`}
                 keywords={`${post.category}, blog, contabilidade, domingos assessoria`}
                 ogImage={post.image}
+                noIndex
             />
 
             {/* ── HERO DO ARTIGO ── */}
