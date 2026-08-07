@@ -65,21 +65,33 @@ export default function TestemunhosSection() {
     const [current, setCurrent] = useState(0)
     const [direction, setDirection] = useState(1)
     const intervalRef = useRef(null)
+    const currentRef = useRef(current)
+
+    // Mantém a ref sincronizada fora do corpo de render (React 19 não
+    // permite mutar refs durante a renderização)
+    useEffect(() => {
+        currentRef.current = current
+    })
 
     const go = (index, dir) => {
         setDirection(dir)
         setCurrent((index + testimonials.length) % testimonials.length)
     }
 
-    const next = () => go(current + 1, 1)
-    const prev = () => go(current - 1, -1)
+    const next = () => go(currentRef.current + 1, 1)
+    const prev = () => go(currentRef.current - 1, -1)
 
-    // Auto-play
+    // Auto-play — criado uma única vez ao montar. Usa currentRef (em vez de
+    // depender de `current`) pra pegar o índice mais recente dentro do
+    // callback do setInterval, sem precisar destruir/recriar o interval a
+    // cada troca de depoimento.
     useEffect(() => {
         intervalRef.current = setInterval(next, 5000)
         return () => clearInterval(intervalRef.current)
-    }, [current])
+    }, [])
 
+    // Qualquer interação manual (seta, bolinha ou card lateral) pausa o
+    // autoplay definitivamente — não volta a avançar sozinho depois.
     const resetTimer = (fn) => {
         clearInterval(intervalRef.current)
         fn()
