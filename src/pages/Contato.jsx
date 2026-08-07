@@ -111,7 +111,7 @@ export default function Contato() {
                             {
                                 icon: Phone,
                                 title: 'Telefone',
-                                content: <a href="tel:014996580459" className="text-zinc-400 hover:text-orange-500 transition-colors text-sm">(14) 9 9658-0459</a>,
+                                content: <a href="tel:+5514996580459" className="text-zinc-400 hover:text-orange-500 transition-colors text-sm">(14) 9 9658-0459</a>,
                             },
                             {
                                 icon: Mail,
