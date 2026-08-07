@@ -129,113 +129,116 @@ export default function TestemunhosSection() {
 
                 {/* Carrossel principal */}
                 <div className="md:flex-1 md:min-h-0 relative">
-                    <AnimatePresence mode="wait" custom={direction}>
-                        <motion.div
-                            key={current}
-                            custom={direction}
-                            variants={{
-                                enter: (d) => ({ opacity: 0, x: d > 0 ? 60 : -60 }),
-                                center: { opacity: 1, x: 0 },
-                                exit: (d) => ({ opacity: 0, x: d > 0 ? -60 : 60 }),
-                            }}
-                            initial="enter"
-                            animate="center"
-                            exit="exit"
-                            transition={{ duration: 0.4, ease: 'easeInOut' }}
-                            className="relative md:absolute md:inset-0 grid grid-cols-1 md:grid-cols-2 gap-6"
-                        >
-                            {/* Card principal — depoimento ativo */}
-                            <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 flex flex-col justify-between overflow-hidden">
+                    <div className="relative md:absolute md:inset-0 grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                                {/* Aspas decorativas */}
-                                <div
-                                    className="absolute top-4 right-6 text-zinc-800 font-black select-none leading-none"
-                                    style={{ fontSize: '120px' }}
+                        {/* Card principal — shell fica montado; só o depoimento interno troca */}
+                        <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 overflow-hidden">
+
+                            {/* Aspas decorativas */}
+                            <div
+                                className="absolute top-4 right-6 text-zinc-800 font-black select-none leading-none"
+                                style={{ fontSize: '120px' }}
+                            >
+                                "
+                            </div>
+
+                            <AnimatePresence mode="wait" custom={direction}>
+                                <motion.div
+                                    key={current}
+                                    custom={direction}
+                                    variants={{
+                                        enter: (d) => ({ opacity: 0, x: d > 0 ? 60 : -60 }),
+                                        center: { opacity: 1, x: 0 },
+                                        exit: (d) => ({ opacity: 0, x: d > 0 ? -60 : 60 }),
+                                    }}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    transition={{ duration: 0.4, ease: 'easeInOut' }}
+                                    className="relative z-10 h-full flex flex-col justify-between"
                                 >
-                                    "
-                                </div>
+                                    <div className="min-h-0 flex flex-col">
+                                        {/* Stars */}
+                                        <div className="flex gap-1 mb-6 shrink-0">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star key={i} size={16} className="text-orange-500 fill-orange-500" />
+                                            ))}
+                                        </div>
 
-                                <div className="relative z-10 min-h-0 flex flex-col">
-                                    {/* Stars */}
-                                    <div className="flex gap-1 mb-6 shrink-0">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star key={i} size={16} className="text-orange-500 fill-orange-500" />
-                                        ))}
+                                        <p className="text-white text-lg leading-relaxed font-medium overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
+                                            "{t.text}"
+                                        </p>
                                     </div>
 
-                                    <p className="text-white text-lg leading-relaxed font-medium overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
-                                        "{t.text}"
-                                    </p>
-                                </div>
-
-                                {/* Avatar */}
-                                <div className="relative z-10 flex items-center gap-4 mt-8 pt-6 border-t border-zinc-800 shrink-0">
-                                    <Avatar name={t.name} photo={t.avatar} />
-                                    <div>
-                                        <div className="text-white font-bold">{t.name}</div>
-                                        <div className="text-orange-500 text-xs font-medium">{t.meta}</div>
+                                    {/* Avatar */}
+                                    <div className="flex items-center gap-4 mt-8 pt-6 border-t border-zinc-800 shrink-0">
+                                        <Avatar name={t.name} photo={t.avatar} />
+                                        <div>
+                                            <div className="text-white font-bold">{t.name}</div>
+                                            <div className="text-orange-500 text-xs font-medium">{t.meta}</div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
 
-                            {/* Coluna direita — outros depoimentos em miniatura */}
-                            <div className="flex flex-col gap-3 justify-between">
-                                {testimonials
-                                    .filter((_, i) => i !== current)
-                                    .slice(0, 3)
-                                    .map((item) => (
+                        {/* Coluna direita — outros depoimentos em miniatura (persistente, sem remount) */}
+                        <div className="flex flex-col gap-3 justify-between">
+                            {testimonials
+                                .filter((_, i) => i !== current)
+                                .slice(0, 3)
+                                .map((item) => (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => {
+                                            const idx = testimonials.findIndex(t => t.id === item.id)
+                                            resetTimer(() => go(idx, idx > current ? 1 : -1))
+                                        }}
+                                        className="group text-left bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl p-5 flex items-start gap-4 transition-all duration-200"
+                                    >
+                                        <Avatar name={item.name} photo={item.avatar} size="w-10 h-10" iconSize={18} />
+                                        <div className="min-w-0">
+                                            <div className="text-white text-sm font-semibold mb-1">{item.name}</div>
+                                            <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2 group-hover:text-zinc-400 transition-colors">
+                                                "{item.text}"
+                                            </p>
+                                        </div>
+                                    </button>
+                                ))}
+
+                            {/* Controles */}
+                            <div className="flex items-center justify-between pt-2">
+                                <div className="flex gap-2">
+                                    {testimonials.map((_, i) => (
                                         <button
-                                            key={item.id}
-                                            onClick={() => {
-                                                const idx = testimonials.findIndex(t => t.id === item.id)
-                                                resetTimer(() => go(idx, idx > current ? 1 : -1))
-                                            }}
-                                            className="group text-left bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl p-5 flex items-start gap-4 transition-all duration-200"
-                                        >
-                                            <Avatar name={item.name} photo={item.avatar} size="w-10 h-10" iconSize={18} />
-                                            <div className="min-w-0">
-                                                <div className="text-white text-sm font-semibold mb-1">{item.name}</div>
-                                                <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2 group-hover:text-zinc-400 transition-colors">
-                                                    "{item.text}"
-                                                </p>
-                                            </div>
-                                        </button>
+                                            key={i}
+                                            onClick={() => resetTimer(() => go(i, i > current ? 1 : -1))}
+                                            className={`h-1.5 rounded-full transition-all duration-300 ${
+                                                i === current
+                                                    ? 'w-6 bg-orange-500'
+                                                    : 'w-1.5 bg-zinc-700 hover:bg-zinc-500'
+                                            }`}
+                                        />
                                     ))}
+                                </div>
 
-                                {/* Controles */}
-                                <div className="flex items-center justify-between pt-2">
-                                    <div className="flex gap-2">
-                                        {testimonials.map((_, i) => (
-                                            <button
-                                                key={i}
-                                                onClick={() => resetTimer(() => go(i, i > current ? 1 : -1))}
-                                                className={`h-1.5 rounded-full transition-all duration-300 ${
-                                                    i === current
-                                                        ? 'w-6 bg-orange-500'
-                                                        : 'w-1.5 bg-zinc-700 hover:bg-zinc-500'
-                                                }`}
-                                            />
-                                        ))}
-                                    </div>
-
-                                    <div className="flex gap-2">
-                                        <button
-                                            onClick={() => resetTimer(prev)}
-                                            className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
-                                        >
-                                            <ChevronLeft size={18} />
-                                        </button>
-                                        <button
-                                            onClick={() => resetTimer(next)}
-                                            className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
-                                        >
-                                            <ChevronRight size={18} />
-                                        </button>
-                                    </div>
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => resetTimer(prev)}
+                                        className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                                    >
+                                        <ChevronLeft size={18} />
+                                    </button>
+                                    <button
+                                        onClick={() => resetTimer(next)}
+                                        className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
+                                    >
+                                        <ChevronRight size={18} />
+                                    </button>
                                 </div>
                             </div>
-                        </motion.div>
-                    </AnimatePresence>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Rodapé */}
