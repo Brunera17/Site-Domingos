@@ -26,6 +26,7 @@ export default function Blog() {
                 description="Dicas, novidades e análises sobre contabilidade, gestão empresarial e legislação, escritos por quem entende do assunto."
                 canonicalPath="/blog"
                 keywords="blog contabilidade, dicas fiscais, gestão empresarial, legislação tributária"
+                noIndex
             />
 
             {/* ── HERO ── */}

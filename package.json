@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.js",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

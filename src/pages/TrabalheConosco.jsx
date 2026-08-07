@@ -186,6 +186,7 @@ export default function TrabalheConosco() {
                 description="Faça parte do time da Domingos Assessoria Empresarial. Confira as vagas abertas e envie seu currículo."
                 canonicalPath="/trabalhe-conosco"
                 keywords="vagas contabilidade, trabalhe conosco, emprego assessoria empresarial, carreira contábil"
+                noIndex
             />
 
             {/* ── HERO ── */}
