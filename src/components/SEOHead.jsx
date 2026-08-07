@@ -19,6 +19,7 @@ export default function SEOHead({
     ogImage = null,
     ogType = 'website',
     keywords = 'contabilidade, fiscal, tributário, consultoria empresarial',
+    noIndex = false,
 }) {
     // Domínio oficial da empresa
     const domínio = 'https://domingosassessoria.com.br';
@@ -31,7 +32,7 @@ export default function SEOHead({
             <title>{title} | Domingos Assessoria</title>
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
-            <meta name="robots" content="index, follow" />
+            <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
             <meta name="language" content="pt-br" />
             <meta name="revisit-after" content="7 days" />
             <meta name="author" content="Domingos Assessoria Empresarial" />
