@@ -199,4 +199,20 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- POLÍTICA DE PRIVACIDADE -->
+  <url>
+    <loc>https://domingosassessoria.com.br/politica-privacidade</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- TERMOS DE USO -->
+  <url>
+    <loc>https://domingosassessoria.com.br/termos-uso</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

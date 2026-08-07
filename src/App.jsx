@@ -15,6 +15,9 @@ import Contato from "./pages/Contato";
 import Planos from "./pages/Planos";
 import Proposta from "./pages/Proposta";
 import BlogPost from './pages/BlogPost'
+import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
+import TermosUso from "./pages/TermosUso";
+import NotFound from "./pages/NotFound";
 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -37,6 +40,9 @@ export default function App() {
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
+            <Route path="/termos-uso" element={<TermosUso />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* 🧼 ROTAS SEM HEADER */}
