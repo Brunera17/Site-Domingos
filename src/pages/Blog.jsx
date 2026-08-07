@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Search, Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { blogPosts, categories } from '../data/blogData'
+import SEOHead from '../components/SEOHead'
 
 export default function Blog() {
     const [search, setSearch] = useState('')
@@ -20,6 +21,12 @@ export default function Blog() {
 
     return (
         <div className="bg-black">
+            <SEOHead
+                title="Blog"
+                description="Dicas, novidades e análises sobre contabilidade, gestão empresarial e legislação, escritos por quem entende do assunto."
+                canonicalPath="/blog"
+                keywords="blog contabilidade, dicas fiscais, gestão empresarial, legislação tributária"
+            />
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-16 px-6 bg-black">

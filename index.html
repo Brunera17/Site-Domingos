@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Domingos Assessoria Empresarial</title>
+    <!-- O <title> é gerenciado pelo SEOHead.jsx (react-helmet-async) em cada página.
+         Não declarar um <title> estático aqui: no React 19, o react-helmet-async 3.x
+         não remove essa tag, criando um <title> duplicado no <head> — e como
+         document.title reflete a PRIMEIRA tag <title> do documento, o título da
+         aba fica vazio. Ver https://github.com/staylor/react-helmet-async/issues/266 -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body>

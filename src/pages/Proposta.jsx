@@ -1,7 +1,13 @@
+import SEOHead from '../components/SEOHead'
 
 export default function Proposta() {
     return (
         <div className="bg-[#111] text-white min-h-screen">
+            <SEOHead
+                title="Proposta de Assessoria"
+                description="Proposta comercial personalizada da Domingos Assessoria Empresarial."
+                canonicalPath="/proposta"
+            />
             {/* HERO */}
             <section className="px-6 py-20 bg-black relative">
                 <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">

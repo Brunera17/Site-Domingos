@@ -29,7 +29,7 @@ export default function SEOHead({
     return (
         <Helmet>
             {/* Meta tags básicas */}
-            <title>{title} | Domingos Assessoria</title>
+            <title>{`${title} | Domingos Assessoria`}</title>
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
             <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
