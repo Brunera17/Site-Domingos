@@ -69,81 +69,83 @@ export default function ServicosSection() {
                 {/* Grid expandido sempre ativo */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0">
 
-                    {/* Card expandido — 5 colunas */}
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={selected}
-                            className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-5 flex flex-col overflow-hidden relative"
-                            initial={{ opacity: 0, scale: 0.97 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.97 }}
-                            transition={{ duration: 0.3, ease: 'easeOut' }}
-                        >
-                            {/* Barra de progresso do autoplay */}
-                            <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl">
-                                <motion.div
-                                    className="h-full bg-orange-500 rounded-t-2xl"
-                                    style={{ width: `${progress}%` }}
-                                    transition={{ duration: 0.1 }}
-                                />
-                            </div>
+                    {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
+                    <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-5 flex flex-col overflow-hidden relative">
+                        {/* Barra de progresso do autoplay */}
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl">
+                            <motion.div
+                                className="h-full bg-orange-500 rounded-t-2xl"
+                                style={{ width: `${progress}%` }}
+                                transition={{ duration: 0.1 }}
+                            />
+                        </div>
 
-                            <div className="flex items-center gap-3 shrink-0 mb-2 mt-2">
-                                <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                                    <selectedService.icon size={18} className="text-orange-500" />
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={selected}
+                                className="flex flex-col flex-1 min-h-0"
+                                initial={{ opacity: 0, y: 6 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -6 }}
+                                transition={{ duration: 0.25, ease: 'easeOut' }}
+                            >
+                                <div className="flex items-center gap-3 shrink-0 mb-2 mt-2">
+                                    <div className="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
+                                        <selectedService.icon size={18} className="text-orange-500" />
+                                    </div>
+                                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">
+                                        {selectedService.departamento}
+                                    </span>
                                 </div>
-                                <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">
-                                    {selectedService.departamento}
-                                </span>
-                            </div>
 
-                            <h3 className="text-white font-black text-lg leading-tight shrink-0 mb-2">
-                                {selectedService.title}
-                            </h3>
+                                <h3 className="text-white font-black text-lg leading-tight shrink-0 mb-2">
+                                    {selectedService.title}
+                                </h3>
 
-                            <p className="text-zinc-400 text-xs leading-relaxed pb-3 border-b border-zinc-800 shrink-0">
-                                {selectedService.detalhes}
-                            </p>
+                                <p className="text-zinc-400 text-xs leading-relaxed pb-3 border-b border-zinc-800 shrink-0">
+                                    {selectedService.detalhes}
+                                </p>
 
-                            <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2 shrink-0 mt-3 mb-2">
-                                <span className="w-3 h-px bg-orange-500" />
-                                Como fazemos
-                                <span className="w-3 h-px bg-orange-500" />
-                            </h4>
+                                <h4 className="text-white font-bold text-xs uppercase tracking-widest flex items-center gap-2 shrink-0 mt-3 mb-2">
+                                    <span className="w-3 h-px bg-orange-500" />
+                                    Como fazemos
+                                    <span className="w-3 h-px bg-orange-500" />
+                                </h4>
 
-                            <ul className="space-y-1.5 flex-1 min-h-0 overflow-y-auto mb-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                                {selectedService.comoFazemos.map((item, i) => (
-                                    <motion.li
-                                        key={i}
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: 0.15 + i * 0.05 }}
-                                        className="flex items-start gap-2 text-zinc-500 text-xs leading-relaxed"
+                                <ul className="space-y-1.5 flex-1 min-h-0 overflow-y-auto mb-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                                    {selectedService.comoFazemos.map((item, i) => (
+                                        <motion.li
+                                            key={i}
+                                            initial={{ opacity: 0, x: -10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: 0.15 + i * 0.05 }}
+                                            className="flex items-start gap-2 text-zinc-500 text-xs leading-relaxed"
+                                        >
+                                            <span className="w-1 h-1 rounded-full bg-orange-500 mt-1.5 shrink-0" />
+                                            {item}
+                                        </motion.li>
+                                    ))}
+                                </ul>
+
+                                <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-800 shrink-0">
+                                    <Link
+                                        to={`/servicos/${selectedService.id}`}
+                                        className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors"
                                     >
-                                        <span className="w-1 h-1 rounded-full bg-orange-500 mt-1.5 shrink-0" />
-                                        {item}
-                                    </motion.li>
-                                ))}
-                            </ul>
-
-                            <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-800 shrink-0">
-                                <Link
-                                    to={`/servicos/${selectedService.id}`}
-                                    className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-4 py-2 rounded-lg text-xs transition-colors"
-                                >
-                                    Saiba mais <ArrowRight size={13} />
-                                </Link>
-                                <a
-                                    href={buildWhatsAppLink(`Olá! Estava vendo os serviços de ${selectedService.title} da Domingos Assessoria no site e queria mais informações.`)}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold px-4 py-2 rounded-lg text-xs transition-colors"
-                                >
-                                    Falar com especialista
-                                </a>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
+                                        Saiba mais <ArrowRight size={13} />
+                                    </Link>
+                                    <a
+                                        href={buildWhatsAppLink(`Olá! Estava vendo os serviços de ${selectedService.title} da Domingos Assessoria no site e queria mais informações.`)}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold px-4 py-2 rounded-lg text-xs transition-colors"
+                                    >
+                                        Falar com especialista
+                                    </a>
+                                </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
 
                     {/* Cards menores — 7 colunas */}
                     <div
