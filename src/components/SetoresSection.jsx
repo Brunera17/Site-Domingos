@@ -28,7 +28,7 @@ export default function SetoresSection() {
                         <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                             Setores que <span className="text-orange-500">Atendemos</span>
                         </h2>
-                        <p className="text-zinc-500 text-sm max-w-sm text-right">
+                        <p className="text-zinc-400 text-sm max-w-sm text-right">
                             Expertise especializada para cada segmento,<br />
                             com soluções sob medida para o seu negócio.
                         </p>
@@ -60,7 +60,7 @@ export default function SetoresSection() {
                                     <h3 className="text-white font-bold text-sm leading-snug mb-1">
                                         {sector.label}
                                     </h3>
-                                    <p className="text-zinc-600 text-xs leading-relaxed group-hover:text-zinc-500 transition-colors duration-300">
+                                    <p className="text-zinc-400 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
                                         {sector.desc}
                                     </p>
                                 </div>
@@ -71,7 +71,7 @@ export default function SetoresSection() {
 
                 {/* Rodapé */}
                 <div className="flex items-center justify-between shrink-0 pt-4 border-t border-zinc-800/60">
-                    <p className="text-zinc-500 text-sm">
+                    <p className="text-zinc-400 text-sm">
                         Não encontrou seu setor?{' '}
                         <a
                             href={buildWhatsAppLink('Olá! Não encontrei meu setor no site e gostaria de saber se vocês atendem minha área.')}
@@ -82,7 +82,7 @@ export default function SetoresSection() {
                             Fale conosco →
                         </a>
                     </p>
-                    <div className="flex items-center gap-2 text-zinc-600 text-xs">
+                    <div className="flex items-center gap-2 text-zinc-400 text-xs">
                         <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                         Atendemos 14 estados · 80+ cidades
                     </div>

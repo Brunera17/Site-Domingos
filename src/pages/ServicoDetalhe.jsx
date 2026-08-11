@@ -91,7 +91,7 @@ function FeatureRow({ f, i, total, isOpen, onToggle }) {
                         className="overflow-hidden"
                     >
                         <div className="px-6 pb-4 pl-[60px]">
-                            <p className="text-zinc-500 text-sm leading-relaxed border-l-2 border-orange-500/30 pl-4">
+                            <p className="text-zinc-400 text-sm leading-relaxed border-l-2 border-orange-500/30 pl-4">
                                 {desc}
                             </p>
                         </div>
@@ -131,7 +131,7 @@ export default function ServicoDetalhe() {
                     <Search size={32} className="text-zinc-600" />
                 </div>
                 <h2 className="text-2xl font-black">Serviço não encontrado</h2>
-                <p className="text-zinc-500">O serviço que você procura não existe ou foi removido.</p>
+                <p className="text-zinc-400">O serviço que você procura não existe ou foi removido.</p>
                 <Link to="/servicos" className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">
                     <ArrowLeft size={16} /> Ver todos os serviços
                 </Link>
@@ -218,7 +218,7 @@ export default function ServicoDetalhe() {
                         ].map((s) => (
                             <div key={s.label} className="flex flex-col">
                                 <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                             </div>
                         ))}
                     </div>
@@ -316,9 +316,9 @@ export default function ServicoDetalhe() {
                                         <SIcon size={18} className="text-orange-500" />
                                     </div>
                                     <div>
-                                        <span className="text-zinc-600 text-xs font-mono block mb-1">0{i + 1}</span>
+                                        <span className="text-zinc-400 text-xs font-mono block mb-1">0{i + 1}</span>
                                         <h3 className="text-white font-bold text-base mb-1.5">{step.title}</h3>
-                                        <p className="text-zinc-500 text-sm leading-relaxed">{step.desc}</p>
+                                        <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
                                     </div>
                                 </motion.div>
                             )
@@ -384,7 +384,7 @@ export default function ServicoDetalhe() {
                                 Outros <span className="text-orange-500">serviços</span>
                             </h2>
                         </div>
-                        <Link to="/servicos" className="hidden md:flex items-center gap-2 text-zinc-500 hover:text-white text-sm font-medium transition-colors">
+                        <Link to="/servicos" className="hidden md:flex items-center gap-2 text-zinc-400 hover:text-white text-sm font-medium transition-colors">
                             Ver todos <ArrowRight size={14} />
                         </Link>
                     </div>
@@ -408,8 +408,8 @@ export default function ServicoDetalhe() {
                                             <OtherIcon size={17} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
                                         <h3 className="text-white font-bold mb-2 text-sm leading-snug">{s.title}</h3>
-                                        <p className="text-zinc-500 text-xs leading-relaxed flex-1 mb-4">{s.description}</p>
-                                        <span className="flex items-center gap-1.5 text-zinc-600 group-hover:text-orange-500 text-xs font-semibold transition-all duration-200">
+                                        <p className="text-zinc-400 text-xs leading-relaxed flex-1 mb-4">{s.description}</p>
+                                        <span className="flex items-center gap-1.5 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold transition-all duration-200">
                                             Ver detalhes
                                             <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
                                         </span>

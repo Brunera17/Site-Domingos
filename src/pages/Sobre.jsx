@@ -187,7 +187,7 @@ export default function Sobre() {
                         {stats.map((s) => (
                             <div key={s.label} className="flex flex-col">
                                 <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                             </div>
                         ))}
                     </div>
@@ -220,7 +220,7 @@ export default function Sobre() {
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
                                             <h3 className="text-white font-bold">{item.titulo}</h3>
                                         </div>
-                                        <p className="text-zinc-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+                                        <p className="text-zinc-400 text-sm leading-relaxed mb-3">{item.desc}</p>
                                         <p className="text-zinc-400 text-xs leading-relaxed border-l-2 border-orange-500/40 pl-3">
                                             {item.frase}
                                         </p>
@@ -260,7 +260,7 @@ export default function Sobre() {
                                 <div className="w-12 h-px bg-orange-500" />
                                 <div>
                                     <div className="text-white font-bold">Marcelo Domingos</div>
-                                    <div className="text-zinc-500 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
+                                    <div className="text-zinc-400 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +323,7 @@ export default function Sobre() {
                                         </div>
                                         <div>
                                             <p className="text-white text-sm font-semibold mb-1">{v.label}</p>
-                                            <p className="text-zinc-500 text-xs leading-relaxed">{v.desc}</p>
+                                            <p className="text-zinc-400 text-xs leading-relaxed">{v.desc}</p>
                                         </div>
                                     </div>
                                 )
@@ -444,7 +444,7 @@ export default function Sobre() {
                                             <div className={`w-full px-3 py-1.5 rounded-md text-center text-xs border ${
                                                 idx === 0
                                                     ? 'bg-zinc-900/50 border-zinc-700 text-zinc-300'
-                                                    : 'bg-transparent border-zinc-800 text-zinc-500'
+                                                    : 'bg-transparent border-zinc-800 text-zinc-400'
                                             }`}>
                                                 {cargo}
                                             </div>

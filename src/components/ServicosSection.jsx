@@ -119,7 +119,7 @@ export default function ServicosSection() {
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.15 + i * 0.05 }}
-                                            className="flex items-start gap-2 text-zinc-500 text-xs leading-relaxed"
+                                            className="flex items-start gap-2 text-zinc-400 text-xs leading-relaxed"
                                         >
                                             <span className="w-1 h-1 rounded-full bg-orange-500 mt-1.5 shrink-0" />
                                             {item}
@@ -170,10 +170,10 @@ export default function ServicosSection() {
                                             <Icon size={16} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
                                         <h3 className="text-white font-bold text-sm mb-1 leading-snug">{service.title}</h3>
-                                        <p className="text-zinc-600 text-xs leading-relaxed line-clamp-2">{service.description}</p>
+                                        <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">{service.description}</p>
                                     </div>
 
-                                    <div className="relative z-10 flex items-center gap-1 text-zinc-600 group-hover:text-orange-500 text-xs font-semibold mt-3 transition-all duration-200">
+                                    <div className="relative z-10 flex items-center gap-1 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold mt-3 transition-all duration-200">
                                         Ver detalhes <ArrowRight size={11} />
                                     </div>
                                 </motion.div>
@@ -188,10 +188,10 @@ export default function ServicosSection() {
                             <div className="w-9 h-9 rounded-lg bg-zinc-800 group-hover:bg-orange-500/10 border border-zinc-700 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                 <ArrowRight size={16} className="text-zinc-500 group-hover:text-orange-500 transition-colors duration-300" />
                             </div>
-                            <p className="text-zinc-500 group-hover:text-white text-xs font-semibold text-center transition-colors duration-200">
+                            <p className="text-zinc-400 group-hover:text-white text-xs font-semibold text-center transition-colors duration-200">
                                 Ver todos os serviços
                             </p>
-                            <p className="text-zinc-700 text-xs text-center mt-1">
+                            <p className="text-zinc-400 text-xs text-center mt-1">
                                 {allServices.length}+ disponíveis
                             </p>
                         </Link>

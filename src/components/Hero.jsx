@@ -112,7 +112,7 @@ export default function Hero() {
                             {stats.map((s) => (
                                 <div key={s.label} className="flex flex-col">
                                     <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                    <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                    <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                                 </div>
                             ))}
                         </div>

@@ -125,7 +125,7 @@ export default function Planos() {
             {/* ── 2. TOGGLE MENSAL / ANUAL ── */}
             <section className="py-10 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto flex items-center gap-4">
-                    <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-600'}`}>
+                    <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-400'}`}>
                         Mensal
                     </span>
                     <button
@@ -138,7 +138,7 @@ export default function Planos() {
                             className="absolute top-1 w-4 h-4 bg-white rounded-full shadow"
                         />
                     </button>
-                    <span className={`text-sm font-semibold transition-colors ${annual ? 'text-white' : 'text-zinc-600'}`}>
+                    <span className={`text-sm font-semibold transition-colors ${annual ? 'text-white' : 'text-zinc-400'}`}>
                         Anual
                     </span>
                     <AnimatePresence>
@@ -182,18 +182,18 @@ export default function Planos() {
                                 {/* Header */}
                                 <div className="mb-5">
                                     <h3 className="text-white font-black text-xl mb-1">{plano.nome}</h3>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">{plano.desc}</p>
+                                    <p className="text-zinc-400 text-sm leading-relaxed">{plano.desc}</p>
                                 </div>
 
                                 {/* Preço */}
                                 <div className="mb-6 pb-6 border-b border-zinc-800">
                                     <div className="text-orange-500 font-black text-xl">Sob consulta</div>
-                                    <p className="text-zinc-600 text-xs mt-1">Valor personalizado para seu negócio</p>
+                                    <p className="text-zinc-400 text-xs mt-1">Valor personalizado para seu negócio</p>
                                 </div>
 
                                 {/* Cobertura visual */}
                                 <div className="mb-5">
-                                    <div className="flex justify-between text-xs text-zinc-500 mb-1.5">
+                                    <div className="flex justify-between text-xs text-zinc-400 mb-1.5">
                                         <span>Cobertura</span>
                                         <span className="text-orange-500 font-bold">{featAtivas}/{total}</span>
                                     </div>
@@ -210,7 +210,7 @@ export default function Planos() {
                                     {features.map(f => {
                                         const ativo = plano.features[f.id]
                                         return (
-                                            <li key={f.id} className={`flex items-center gap-2.5 text-xs ${ativo ? 'text-zinc-300' : 'text-zinc-700'}`}>
+                                            <li key={f.id} className={`flex items-center gap-2.5 text-xs ${ativo ? 'text-zinc-300' : 'text-zinc-400'}`}>
                                                 {ativo
                                                     ? <Check size={13} className="text-orange-500 shrink-0" />
                                                     : <Minus size={13} className="text-zinc-800 shrink-0" />
@@ -256,7 +256,7 @@ export default function Planos() {
                         <table className="w-full min-w-[600px]">
                             <thead>
                                 <tr className="bg-zinc-900 border-b border-zinc-800">
-                                    <th className="text-left px-6 py-4 text-zinc-500 text-xs font-bold uppercase tracking-widest w-1/3">
+                                    <th className="text-left px-6 py-4 text-zinc-400 text-xs font-bold uppercase tracking-widest w-1/3">
                                         Recurso
                                     </th>
                                     {planos.map(p => (
@@ -288,7 +288,7 @@ export default function Planos() {
 
                                 {/* Linha CTA */}
                                 <tr className="bg-zinc-900 border-t border-zinc-700">
-                                    <td className="px-6 py-5 text-zinc-500 text-xs">Todos os planos sob consulta</td>
+                                    <td className="px-6 py-5 text-zinc-400 text-xs">Todos os planos sob consulta</td>
                                     {planos.map(p => (
                                         <td key={p.id} className="px-4 py-5 text-center">
                                             <a

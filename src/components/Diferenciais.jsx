@@ -103,7 +103,7 @@ export default function DiferenciaisSection() {
                                 <div className="text-5xl font-black text-white mb-1">
                                     {current.stat}
                                 </div>
-                                <div className="text-zinc-500 text-xs uppercase tracking-widest">
+                                <div className="text-zinc-400 text-xs uppercase tracking-widest">
                                     {current.statLabel}
                                 </div>
                             </div>
@@ -146,7 +146,7 @@ export default function DiferenciaisSection() {
                                             <motion.div
                                                 initial={{ opacity: 0, height: 0 }}
                                                 animate={{ opacity: 1, height: 'auto' }}
-                                                className="text-zinc-500 text-xs mt-0.5 leading-relaxed line-clamp-1"
+                                                className="text-zinc-400 text-xs mt-0.5 leading-relaxed line-clamp-1"
                                             >
                                                 {item.stat} — {item.statLabel}
                                             </motion.div>
@@ -154,7 +154,7 @@ export default function DiferenciaisSection() {
                                     </div>
 
                                     {/* Stat à direita */}
-                                    <span className={`text-sm font-black shrink-0 transition-colors duration-200 ${isActive ? 'text-orange-500' : 'text-zinc-700 group-hover:text-zinc-500'}`}>
+                                    <span className={`text-sm font-black shrink-0 transition-colors duration-200 ${isActive ? 'text-orange-500' : 'text-zinc-400 group-hover:text-zinc-300'}`}>
                                         {item.stat}
                                     </span>
                                 </button>
@@ -165,13 +165,13 @@ export default function DiferenciaisSection() {
 
                 {/* Rodapé */}
                 <div className="flex items-center justify-between shrink-0 pt-4 border-t border-zinc-800/60">
-                    <p className="text-zinc-500 text-sm">
+                    <p className="text-zinc-400 text-sm">
                         Quer conhecer mais sobre nossa metodologia?{' '}
                         <a href="/sobre" className="text-orange-500 hover:text-orange-400 font-medium transition-colors">
                             Conheça nossa história →
                         </a>
                     </p>
-                    <div className="flex items-center gap-2 text-zinc-600 text-xs">
+                    <div className="flex items-center gap-2 text-zinc-400 text-xs">
                         <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                         530+ clientes satisfeitos
                     </div>
