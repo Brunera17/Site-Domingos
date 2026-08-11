@@ -24,8 +24,12 @@ export default function CTASection() {
             </div>
 
 
-            {/* Conteúdo */}
-            <div className="relative px-6 py-12 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[45%] md:flex md:items-center md:px-14 md:py-0">
+            {/* Conteúdo — pr no lg+ usa calc() pra acompanhar a mesma margem direita
+                que o resto do site tem via max-w-6xl + mx-auto (esse painel é
+                ancorado com right-0/w-45%, então não passa pelo centralizador
+                automático; sem o calc(), o conteúdo "vaza" além da margem em
+                telas largas, já que um padding fixo não cresce como o auto-margin) */}
+            <div className="relative px-6 md:px-8 py-12 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[45%] md:flex md:items-center md:py-0 lg:pl-10 lg:pr-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
                 <div className="w-full max-w-lg">
 
                     {/* Badge */}
