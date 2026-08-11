@@ -52,7 +52,7 @@ export default function Servicos() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
+            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{
                         backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)',
@@ -78,7 +78,7 @@ export default function Servicos() {
             </section>
 
             {/* ── BARRA DE CONFIANÇA ── */}
-            <section className="py-8 px-6 bg-black border-y border-zinc-900">
+            <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
                     {stats.map((s) => (
                         <div key={s.label} className="text-center px-2">
@@ -90,7 +90,7 @@ export default function Servicos() {
             </section>
 
             {/* ── FILTROS E BUSCA ── */}
-            <section className="px-6 py-6 bg-black border-b border-zinc-900">
+            <section className="px-6 md:px-8 lg:px-10 py-6 bg-black border-b border-zinc-900">
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
 
                     {/* Categorias */}
@@ -130,7 +130,7 @@ export default function Servicos() {
             </section>
 
             {/* ── ÍNDICE DE SERVIÇOS ── */}
-            <section className="py-16 px-6 bg-black">
+            <section className="py-16 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
 
                     <div className="flex items-center justify-between mb-2">
@@ -222,7 +222,7 @@ export default function Servicos() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-20 px-6 bg-zinc-950 border-t border-zinc-900">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">

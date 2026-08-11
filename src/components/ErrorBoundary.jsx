@@ -18,7 +18,7 @@ export default class ErrorBoundary extends Component {
     render() {
         if (this.state.hasError) {
             return (
-                <div className="bg-black min-h-screen flex items-center justify-center px-6">
+                <div className="bg-black min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-10">
                     <div className="max-w-md text-center">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             Erro inesperado

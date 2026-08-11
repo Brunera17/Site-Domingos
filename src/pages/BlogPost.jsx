@@ -83,7 +83,7 @@ export default function BlogPost() {
                 <img src={post.image} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30" />
 
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-10">
+                <div className="absolute bottom-0 left-0 right-0 px-6 md:px-8 lg:px-10 pb-10">
                     <div className="max-w-4xl mx-auto">
                         <Link to="/blog" className="inline-flex items-center gap-2 text-zinc-400 hover:text-white text-sm mb-6 transition-colors">
                             <ArrowLeft size={16} /> Voltar ao Blog
@@ -99,7 +99,7 @@ export default function BlogPost() {
             </section>
 
             {/* ── CONTEÚDO ── */}
-            <section className="px-6 py-16 bg-black">
+            <section className="px-6 md:px-8 lg:px-10 py-16 bg-black">
                 <div className="max-w-4xl mx-auto">
 
                     {/* Meta */}
@@ -154,7 +154,7 @@ export default function BlogPost() {
 
             {/* ── ARTIGOS RELACIONADOS ── */}
             {otherRelated.length > 0 && (
-                <section className="px-6 py-16 bg-zinc-950 border-t border-zinc-900">
+                <section className="px-6 md:px-8 lg:px-10 py-16 bg-zinc-950 border-t border-zinc-900">
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-2xl font-black text-white mb-8">
                             Artigos <span className="text-orange-500">relacionados</span>

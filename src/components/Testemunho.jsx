@@ -101,7 +101,7 @@ export default function TestemunhosSection() {
 
     return (
         <section
-            className="px-6 bg-black overflow-hidden md:h-screen py-16 md:py-0"
+            className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
         >
             <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 

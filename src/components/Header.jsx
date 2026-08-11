@@ -51,7 +51,7 @@ export default function Header() {
             <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${headerBg} ${
                 visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
             }`}>
-                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between gap-8">
+                <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 h-20 flex items-center justify-between gap-8">
 
                     {/* Logo */}
                     <Link to="/" className="flex-shrink-0 flex items-center">

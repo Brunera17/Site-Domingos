@@ -56,7 +56,7 @@ export default function Hero() {
             />
 
             {/* Conteúdo */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col justify-between h-full py-24 md:py-12 gap-12 md:gap-0">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-10 w-full flex flex-col justify-between h-full py-24 md:py-12 gap-12 md:gap-0">
                 <div className="max-w-3xl mt-8">
 
                     {/* Badge */}

@@ -190,7 +190,7 @@ export default function TrabalheConosco() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
+            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)' }}
@@ -233,7 +233,7 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── BENEFÍCIOS ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -269,7 +269,7 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── VAGAS ABERTAS ── */}
-            <section className="py-20 px-6 bg-black">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -358,7 +358,7 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── PROCESSO SELETIVO ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -394,7 +394,7 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── FORMULÁRIO ── */}
-            <section id="formulario" className="py-20 px-6 bg-black">
+            <section id="formulario" className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-2xl mx-auto">
                     {enviado ? (
                         <motion.div
