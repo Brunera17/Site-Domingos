@@ -160,13 +160,13 @@ export default function Sobre() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/40" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
 
-                <div className="relative z-10 max-w-7xl mx-auto pb-16 w-full">
+                <div className="relative z-10 max-w-6xl mx-auto pb-16 w-full">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Quem somos
                     </span>
                     <h1
                         className="font-black text-white leading-[0.95] mb-4"
-                        style={{ fontSize: 'clamp(42px, 6vw, 80px)' }}
+                        style={{ fontSize: 'clamp(36px, 5vw, 65px)' }}
                     >
                         Pessoas cuidando
                         <br />
@@ -181,7 +181,7 @@ export default function Sobre() {
 
             {/* ── 2. STATS ── */}
             <section className="py-16 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
-                <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
                     {stats.map((s) => {
                         const Icon = s.icon
                         return (
@@ -190,7 +190,7 @@ export default function Sobre() {
                                     <Icon size={20} className="text-orange-500" />
                                 </div>
                                 <div>
-                                    <div className="text-3xl font-black text-white leading-none">{s.value}</div>
+                                    <div className="text-2xl font-black text-white leading-none">{s.value}</div>
                                     <div className="text-zinc-500 text-xs mt-0.5">{s.label}</div>
                                 </div>
                             </div>
@@ -201,12 +201,12 @@ export default function Sobre() {
 
             {/* ── 3. HISTÓRIA / TIMELINE ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Nossa trajetória
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             10 anos de <span className="text-orange-500">história</span>
                         </h2>
                     </div>
@@ -220,7 +220,7 @@ export default function Sobre() {
                                         <span className="text-orange-500 font-black text-sm">{item.ano}</span>
                                     </div>
                                     <div className="shrink-0 hidden md:flex items-center justify-center w-5 h-5 rounded-full bg-orange-500 border-4 border-black mt-0.5 z-10" />
-                                    <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg p-5 hover:border-zinc-700 transition-colors">
+                                    <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg p-4 hover:border-zinc-700 transition-colors">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
                                             <h3 className="text-white font-bold">{item.titulo}</h3>
@@ -239,7 +239,7 @@ export default function Sobre() {
 
             {/* ── 4. CITAÇÃO DO FUNDADOR ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="relative">
                             <div className="relative rounded-xl overflow-hidden aspect-[4/5]">
@@ -275,18 +275,18 @@ export default function Sobre() {
 
             {/* ── 5. MISSÃO VISÃO VALORES ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Nossa essência
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Missão, Visão e <span className="text-orange-500">Valores</span>
                         </h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Target size={22} className="text-orange-500" />
                             </div>
@@ -298,7 +298,7 @@ export default function Sobre() {
                             </p>
                         </div>
 
-                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                        <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Eye size={22} className="text-orange-500" />
                             </div>
@@ -311,7 +311,7 @@ export default function Sobre() {
                         </div>
                     </div>
 
-                    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-8">
+                    <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
                         <div className="flex items-center gap-3 mb-8">
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                                 <Heart size={22} className="text-orange-500" />
@@ -337,7 +337,7 @@ export default function Sobre() {
                     </div>
                 </div>
 
-                <div className="max-w-7xl mx-auto mt-10">
+                <div className="max-w-6xl mx-auto mt-10">
                     <div className="bg-orange-500/10 border border-orange-500/20 rounded-xl px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                         <p className="text-white font-semibold text-sm">
                             Quer uma contabilidade assim? Fale com a Domingos.
@@ -356,14 +356,14 @@ export default function Sobre() {
 
             {/* ── 6. NOSSO TIME — foto + organograma (oculto no mobile) ── */}
             <section className="hidden md:block py-24 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
 
                     {/* Cabeçalho */}
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Nosso time
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Conheça nossa <span className="text-orange-500">Equipe</span>
                         </h2>
                     </div>
@@ -464,12 +464,12 @@ export default function Sobre() {
 
             {/* ── 7. ESTRUTURA ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Onde trabalhamos
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Nossa <span className="text-orange-500">Estrutura</span>
                         </h2>
                     </div>
@@ -521,7 +521,7 @@ export default function Sobre() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
                         Próximo passo
                     </span>
-                    <h2 className="text-4xl font-black text-white mb-4">
+                    <h2 className="text-3xl font-black text-white mb-4">
                         Pronto para ter esse time<br />
                         <span className="text-orange-500">trabalhando por você?</span>
                     </h2>

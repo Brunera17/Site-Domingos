@@ -91,14 +91,14 @@ export default function Planos() {
 
             {/* ── 1. HERO ── */}
             <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Planos e preços
                     </span>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <h1
                             className="font-black text-white leading-[0.95]"
-                            style={{ fontSize: 'clamp(42px, 6vw, 80px)' }}
+                            style={{ fontSize: 'clamp(36px, 5vw, 65px)' }}
                         >
                             Escolha o plano
                             <br />
@@ -124,7 +124,7 @@ export default function Planos() {
 
             {/* ── 2. TOGGLE MENSAL / ANUAL ── */}
             <section className="py-10 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto flex items-center gap-4">
+                <div className="max-w-6xl mx-auto flex items-center gap-4">
                     <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-600'}`}>
                         Mensal
                     </span>
@@ -158,7 +158,7 @@ export default function Planos() {
 
             {/* ── 3. CARDS ── */}
             <section className="pb-24 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                     {planos.map((plano) => {
                         const featAtivas = features.filter(f => plano.features[f.id]).length
                         const total = features.length
@@ -242,12 +242,12 @@ export default function Planos() {
 
             {/* ── 4. TABELA COMPARATIVA ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Comparativo completo
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             O que está <span className="text-orange-500">incluso</span> em cada plano
                         </h2>
                     </div>
@@ -318,7 +318,7 @@ export default function Planos() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
                         Ainda com dúvidas?
                     </span>
-                    <h2 className="text-4xl font-black text-white mb-4">
+                    <h2 className="text-3xl font-black text-white mb-4">
                         Fale com um <span className="text-orange-500">especialista</span>
                     </h2>
                     <p className="text-zinc-400 text-lg mb-10 leading-relaxed">

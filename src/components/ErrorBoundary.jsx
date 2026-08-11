@@ -23,7 +23,7 @@ export default class ErrorBoundary extends Component {
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             Erro inesperado
                         </span>
-                        <h1 className="font-black text-white text-4xl md:text-5xl leading-tight mb-6">
+                        <h1 className="font-black text-white text-3xl md:text-4xl leading-tight mb-6">
                             Algo deu <span className="text-orange-500">errado</span>
                         </h1>
                         <p className="text-zinc-400 text-base leading-relaxed mb-10">

@@ -17,7 +17,7 @@ export default function TermosUso() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Documento legal
                     </span>
-                    <h1 className="font-black text-white leading-[0.95] mb-4" style={{ fontSize: 'clamp(36px, 5vw, 56px)' }}>
+                    <h1 className="font-black text-white leading-[0.95] mb-4" style={{ fontSize: 'clamp(31px, 4.2vw, 45px)' }}>
                         Termos de <span className="text-orange-500">Uso</span>
                     </h1>
                     <p className="text-zinc-500 text-sm">Última atualização: agosto de 2026</p>

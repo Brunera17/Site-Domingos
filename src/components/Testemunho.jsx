@@ -103,7 +103,7 @@ export default function TestemunhosSection() {
         <section
             className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
+            <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 
                 {/* Cabeçalho */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -111,7 +111,7 @@ export default function TestemunhosSection() {
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             O que dizem sobre nós
                         </span>
-                        <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                             Clientes que <span className="text-orange-500">confiam</span>
                         </h2>
                     </div>
@@ -124,7 +124,7 @@ export default function TestemunhosSection() {
                         className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl px-5 py-3 transition-colors"
                     >
                         <div>
-                            <div className="text-3xl font-black text-white leading-none">5,0</div>
+                            <div className="text-2xl font-black text-white leading-none">5,0</div>
                             <div className="text-zinc-500 text-xs mt-0.5">média geral</div>
                         </div>
                         <div className="w-px h-10 bg-zinc-800" />
@@ -144,7 +144,7 @@ export default function TestemunhosSection() {
                     <div className="relative md:absolute md:inset-0 grid grid-cols-1 md:grid-cols-2 gap-6">
 
                         {/* Card principal — shell fica montado; só o depoimento interno troca */}
-                        <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-8 overflow-hidden">
+                        <div className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6 overflow-hidden">
 
                             {/* Aspas decorativas */}
                             <div
@@ -206,7 +206,7 @@ export default function TestemunhosSection() {
                                             const idx = testimonials.findIndex(t => t.id === item.id)
                                             resetTimer(() => go(idx, idx > current ? 1 : -1))
                                         }}
-                                        className="group text-left bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl p-5 flex items-start gap-4 transition-all duration-200"
+                                        className="group text-left bg-zinc-900/60 hover:bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl p-4 flex items-start gap-4 transition-all duration-200"
                                     >
                                         <Avatar name={item.name} photo={item.avatar} size="w-10 h-10" iconSize={18} />
                                         <div className="min-w-0">

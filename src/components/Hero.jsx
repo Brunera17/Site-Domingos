@@ -57,7 +57,7 @@ export default function Hero() {
 
             {/* Conteúdo */}
             <div className="relative z-10 w-full h-full px-6 md:px-8 lg:px-10">
-                <div className="max-w-7xl mx-auto h-full flex flex-col justify-between py-24 md:py-12 gap-12 md:gap-0">
+                <div className="max-w-6xl mx-auto h-full flex flex-col justify-between py-24 md:py-12 gap-12 md:gap-0">
                     <div className="max-w-3xl mt-8">
 
                         {/* Badge */}
@@ -71,7 +71,7 @@ export default function Hero() {
                         {/* Título principal */}
                         <h1
                             className="font-black text-white leading-[0.95] mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]"
-                            style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
+                            style={{ fontSize: 'clamp(32px, 4.5vw, 58px)' }}
                         >
                             Sua empresa
                             <br />

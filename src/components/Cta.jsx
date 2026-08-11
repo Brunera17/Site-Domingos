@@ -37,7 +37,7 @@ export default function CTASection() {
                     {/* Título */}
                     <h2
                         className="font-black text-white leading-[0.95] mb-5"
-                        style={{ fontSize: 'clamp(36px, 4vw, 58px)' }}
+                        style={{ fontSize: 'clamp(32px, 3.5vw, 50px)' }}
                     >
                         Vamos começar
                         <br />

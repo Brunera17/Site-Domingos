@@ -11,7 +11,7 @@ export default function BlogPost() {
     if (!post) {
         return (
             <div className="min-h-screen bg-black flex flex-col items-center justify-center gap-4 text-white">
-                <h2 className="text-3xl font-black">Artigo não encontrado</h2>
+                <h2 className="text-2xl font-black">Artigo não encontrado</h2>
                 <Link to="/blog" className="text-orange-500 hover:text-orange-400 flex items-center gap-2 transition-colors">
                     <ArrowLeft size={16} /> Voltar ao Blog
                 </Link>
@@ -91,7 +91,7 @@ export default function BlogPost() {
                         <span className="inline-flex items-center gap-1.5 text-orange-500 text-xs font-bold uppercase tracking-wider mb-3 block">
                             <Tag size={11} /> {post.category}
                         </span>
-                        <h1 className="text-white font-black text-3xl md:text-4xl leading-tight max-w-3xl">
+                        <h1 className="text-white font-black text-2xl md:text-3xl leading-tight max-w-3xl">
                             {post.title}
                         </h1>
                     </div>
@@ -135,7 +135,7 @@ export default function BlogPost() {
                     </article>
 
                     {/* CTA inline */}
-                    <div className="mt-16 bg-zinc-900 border border-zinc-800 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="mt-16 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
                             <h3 className="text-white font-bold text-lg mb-1">Precisa de ajuda com isso?</h3>
                             <p className="text-zinc-400 text-sm">Nosso time está pronto para orientar sua empresa.</p>
@@ -155,7 +155,7 @@ export default function BlogPost() {
             {/* ── ARTIGOS RELACIONADOS ── */}
             {otherRelated.length > 0 && (
                 <section className="px-6 md:px-8 lg:px-10 py-16 bg-zinc-950 border-t border-zinc-900">
-                    <div className="max-w-7xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
                         <h2 className="text-2xl font-black text-white mb-8">
                             Artigos <span className="text-orange-500">relacionados</span>
                         </h2>

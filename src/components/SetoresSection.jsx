@@ -17,7 +17,7 @@ export default function SetoresSection() {
         <section
             className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
+            <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 
                 {/* Cabeçalho */}
                 <div>
@@ -25,7 +25,7 @@ export default function SetoresSection() {
                         Onde atuamos
                     </span>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                             Setores que <span className="text-orange-500">Atendemos</span>
                         </h2>
                         <p className="text-zinc-500 text-sm max-w-sm text-right">
@@ -42,7 +42,7 @@ export default function SetoresSection() {
                         return (
                             <div
                                 key={sector.label}
-                                className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-5 flex flex-col justify-between cursor-default overflow-hidden transition-all duration-300 hover:bg-zinc-800/60"
+                                className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col justify-between cursor-default overflow-hidden transition-all duration-300 hover:bg-zinc-800/60"
                                 style={{ animationDelay: `${i * 60}ms` }}
                             >
                                 {/* Glow no hover */}
