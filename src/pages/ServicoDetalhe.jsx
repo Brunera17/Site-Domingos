@@ -162,7 +162,7 @@ export default function ServicoDetalhe() {
             />
 
             {/* ── HERO com PARALLAX (3) ── */}
-            <section ref={heroRef} className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
+            <section ref={heroRef} className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute left-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
@@ -207,7 +207,7 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── BARRA DE CONFIANÇA ── */}
-            <section className="py-8 px-6 bg-black border-y border-zinc-900">
+            <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
                     {[
                         { value: '530+', label: 'Empresas atendidas' },
@@ -223,7 +223,7 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── POR QUE TER ESSE SERVIÇO (valor, não recurso) ── */}
-            <section className="py-20 px-6 bg-black">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-10">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -258,7 +258,7 @@ export default function ServicoDetalhe() {
 
             {/* ── FEATURES com LINE-DRAW (4) ── */}
             {service.features.length > 0 && (
-                <section className="py-20 px-6 bg-zinc-950">
+                <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                     <div className="max-w-7xl mx-auto">
                         <div className="mb-10">
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -285,7 +285,7 @@ export default function ServicoDetalhe() {
             )}
 
             {/* ── COMO FUNCIONA ── */}
-            <section className="py-20 px-6 bg-black">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -325,7 +325,7 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -370,7 +370,7 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── OUTROS SERVIÇOS ── */}
-            <section className="py-20 px-6 bg-black">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center justify-between mb-10">
                         <div>

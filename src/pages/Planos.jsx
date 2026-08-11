@@ -90,7 +90,7 @@ export default function Planos() {
             />
 
             {/* ── 1. HERO ── */}
-            <section className="pt-36 pb-20 px-6 bg-black border-b border-zinc-900">
+            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
                 <div className="max-w-7xl mx-auto">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Planos e preços
@@ -123,7 +123,7 @@ export default function Planos() {
             </section>
 
             {/* ── 2. TOGGLE MENSAL / ANUAL ── */}
-            <section className="py-10 px-6 bg-black">
+            <section className="py-10 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto flex items-center gap-4">
                     <span className={`text-sm font-semibold transition-colors ${!annual ? 'text-white' : 'text-zinc-600'}`}>
                         Mensal
@@ -157,7 +157,7 @@ export default function Planos() {
             </section>
 
             {/* ── 3. CARDS ── */}
-            <section className="pb-24 px-6 bg-black">
+            <section className="pb-24 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
                     {planos.map((plano) => {
                         const featAtivas = features.filter(f => plano.features[f.id]).length
@@ -241,7 +241,7 @@ export default function Planos() {
             </section>
 
             {/* ── 4. TABELA COMPARATIVA ── */}
-            <section className="py-24 px-6 bg-zinc-950">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -313,7 +313,7 @@ export default function Planos() {
             </section>
 
             {/* ── 5. CTA FINAL ── */}
-            <section className="py-24 px-6 bg-black border-t border-zinc-900">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
                         Ainda com dúvidas?

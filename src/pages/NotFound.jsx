@@ -12,7 +12,7 @@ export default function NotFound() {
                 noIndex
             />
 
-            <div className="max-w-2xl mx-auto px-6 py-24 text-center">
+            <div className="max-w-2xl mx-auto px-6 md:px-8 lg:px-10 py-24 text-center">
                 <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                     Erro 404
                 </span>

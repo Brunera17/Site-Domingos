@@ -76,7 +76,7 @@ export default function Contato() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 bg-black relative overflow-hidden">
+            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute left-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
@@ -105,7 +105,7 @@ export default function Contato() {
             </section>
 
             {/* ── CONTATO + FORMULÁRIO ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
 
                     {/* Coluna esquerda: infos */}
@@ -272,7 +272,7 @@ export default function Contato() {
             </section>
 
             {/* ── MAPA ── */}
-            <section className="bg-black px-6 py-0">
+            <section className="bg-black px-6 md:px-8 lg:px-10 py-0">
                 <div className="max-w-7xl mx-auto">
                     <div className="rounded-2xl overflow-hidden border border-zinc-800" style={{ height: '400px' }}>
                         <iframe
@@ -296,7 +296,7 @@ export default function Contato() {
             </section>
 
             {/* ── FAQ ── */}
-            <section className="py-20 px-6 bg-zinc-950">
+            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-3xl mx-auto">
                     <div className="mb-12 text-center">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">

@@ -147,7 +147,7 @@ export default function Sobre() {
 
             {/* ── 1. HERO ── */}
             <section
-                className="relative flex items-end overflow-hidden px-6"
+                className="relative flex items-end overflow-hidden px-6 md:px-8 lg:px-10"
                 style={{ height: '70vh', minHeight: '500px' }}
             >
                 <img
@@ -180,7 +180,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 2. STATS ── */}
-            <section className="py-16 px-6 bg-black border-b border-zinc-900">
+            <section className="py-16 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
                 <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
                     {stats.map((s) => {
                         const Icon = s.icon
@@ -200,7 +200,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 3. HISTÓRIA / TIMELINE ── */}
-            <section className="py-24 px-6 bg-zinc-950">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -238,7 +238,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 4. CITAÇÃO DO FUNDADOR ── */}
-            <section className="py-24 px-6 bg-black">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="relative">
@@ -274,7 +274,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 5. MISSÃO VISÃO VALORES ── */}
-            <section className="py-24 px-6 bg-zinc-950">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-14">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -355,7 +355,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 6. NOSSO TIME — foto + organograma (oculto no mobile) ── */}
-            <section className="hidden md:block py-24 px-6 bg-black">
+            <section className="hidden md:block py-24 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-7xl mx-auto">
 
                     {/* Cabeçalho */}
@@ -463,7 +463,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 7. ESTRUTURA ── */}
-            <section className="py-24 px-6 bg-zinc-950">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -516,7 +516,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 8. CTA ── */}
-            <section className="py-24 px-6 bg-black border-t border-zinc-900">
+            <section className="py-24 px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
                         Próximo passo

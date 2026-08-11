@@ -37,7 +37,7 @@ export default function Footer() {
         <footer className="bg-zinc-950 border-t border-zinc-800/60">
 
             {/* Corpo principal */}
-            <div className="max-w-7xl mx-auto px-6 pt-12 pb-10">
+            <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 pt-12 pb-10">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
 
                     {/* Coluna da logo — mais larga */}
@@ -160,7 +160,7 @@ export default function Footer() {
 
             {/* Rodapé inferior */}
             <div className="border-t border-zinc-800/60">
-                <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-3">
+                <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-4 flex flex-col md:flex-row justify-between items-center gap-3">
                     <p className="text-zinc-600 text-xs">
                         © 2026 Domingos Assessoria Empresarial. Todos os direitos reservados.
                         <span className="mx-2 text-zinc-700">·</span>
