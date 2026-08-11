@@ -66,7 +66,7 @@ export default function CTASection() {
                             onMouseLeave={e => e.currentTarget.style.backgroundColor = '#E8610A'}
                         >
                             <Phone size={14} />
-                            Falar no WhatsApp
+                            Solicite uma análise da sua empresa
                             <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
                         </a>
                         <Link
