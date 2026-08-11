@@ -208,17 +208,20 @@ export default function ServicoDetalhe() {
 
             {/* ── BARRA DE CONFIANÇA ── */}
             <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
-                <div className="max-w-6xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
-                    {[
-                        { value: '530+', label: 'Empresas atendidas' },
-                        { value: '10+', label: 'Anos de experiência' },
-                        { value: '30+', label: 'Especialistas no time' },
-                    ].map((s) => (
-                        <div key={s.label} className="text-center px-2">
-                            <div className="text-xl md:text-2xl font-black text-white mb-1">{s.value}</div>
-                            <div className="text-zinc-600 text-[11px] md:text-xs uppercase tracking-wider">{s.label}</div>
-                        </div>
-                    ))}
+                <div className="max-w-6xl mx-auto">
+                    <div className="w-10 h-px bg-zinc-700 mb-6" />
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
+                        {[
+                            { value: '530+', label: 'Empresas atendidas' },
+                            { value: '10+', label: 'Anos de experiência' },
+                            { value: '30+', label: 'Especialistas no time' },
+                        ].map((s) => (
+                            <div key={s.label} className="flex flex-col">
+                                <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
+                                <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
