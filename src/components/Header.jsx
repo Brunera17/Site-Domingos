@@ -48,10 +48,10 @@ export default function Header() {
     return (
         <>
             {/* Header principal */}
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${headerBg} ${
+            <header className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-8 lg:px-10 transition-all duration-700 ease-in-out ${headerBg} ${
                 visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
             }`}>
-                <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10 h-20 flex items-center justify-between gap-8">
+                <div className="max-w-7xl mx-auto h-20 flex items-center justify-between gap-8">
 
                     {/* Logo */}
                     <Link to="/" className="flex-shrink-0 flex items-center">
@@ -123,7 +123,7 @@ export default function Header() {
                         menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                 >
-                    <div className="border-t border-zinc-800 px-6 py-4 flex flex-col gap-1">
+                    <div className="border-t border-zinc-800 py-4 flex flex-col gap-1">
                         {navLinks.map((link) => {
                             const isActive = location.pathname === link.to
                             return (
