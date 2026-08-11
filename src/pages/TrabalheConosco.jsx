@@ -216,15 +216,16 @@ export default function TrabalheConosco() {
                         </div>
 
                         {/* Stats rápidos */}
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="w-10 h-px bg-zinc-700 mb-6" />
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
                             {[
                                 { value: '30+', label: 'Colaboradores' },
                                 { value: '10+', label: 'Anos de empresa' },
                                 { value: '4', label: 'Vagas abertas' },
                             ].map(s => (
-                                <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-center">
-                                    <div className="text-2xl font-black text-white mb-1">{s.value}</div>
-                                    <div className="text-zinc-500 text-xs">{s.label}</div>
+                                <div key={s.label} className="flex flex-col">
+                                    <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
+                                    <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
                                 </div>
                             ))}
                         </div>
