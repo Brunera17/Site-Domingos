@@ -49,14 +49,14 @@ export default function DiferenciaisSection() {
         <section
             className="px-6 md:px-8 lg:px-10 bg-zinc-950 overflow-hidden md:h-screen py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-6">
+            <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-6">
 
                 {/* Cabeçalho */}
                 <div>
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                         Por que nos escolher
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                    <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                         Nossos <span className="text-orange-500">Diferenciais</span>
                     </h2>
                 </div>
@@ -72,14 +72,14 @@ export default function DiferenciaisSection() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -16 }}
                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                            className="relative bg-zinc-900 border border-orange-500/20 rounded-2xl p-8 flex flex-col justify-between overflow-x-hidden overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                            className="relative bg-zinc-900 border border-orange-500/20 rounded-2xl p-6 flex flex-col justify-between overflow-x-hidden overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                         >
                             {/* Glow de fundo */}
                             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/8 via-transparent to-transparent pointer-events-none" />
 
                             {/* Número grande decorativo */}
                             <span className="absolute bottom-6 right-8 text-zinc-800/80 font-black select-none"
-                                style={{ fontSize: 'clamp(80px, 12vw, 140px)', lineHeight: 1 }}>
+                                style={{ fontSize: 'clamp(65px, 10vw, 112px)', lineHeight: 1 }}>
                                 {String(active + 1).padStart(2, '0')}
                             </span>
 

@@ -38,7 +38,7 @@ export default function Proposta() {
             {/* DADOS */}
             <section className="max-w-6xl mx-auto px-6 md:px-8 lg:px-10 py-10">
 
-                <h2 className="text-3xl font-bold mb-6 uppercase">
+                <h2 className="text-2xl font-bold mb-6 uppercase">
                     Dados da Empresa
                 </h2>
 

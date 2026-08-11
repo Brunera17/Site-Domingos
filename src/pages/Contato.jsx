@@ -81,7 +81,7 @@ export default function Contato() {
                     className="absolute left-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
                 />
-                <div className="max-w-7xl mx-auto relative z-10">
+                <div className="max-w-6xl mx-auto relative z-10">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Fale com a gente
                     </span>
@@ -89,7 +89,7 @@ export default function Contato() {
                         <div>
                             <h1
                                 className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(40px, 5.5vw, 68px)' }}
+                                style={{ fontSize: 'clamp(34px, 4.5vw, 55px)' }}
                             >
                                 Estamos aqui
                                 <br />
@@ -106,7 +106,7 @@ export default function Contato() {
 
             {/* ── CONTATO + FORMULÁRIO ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
 
                     {/* Coluna esquerda: infos */}
                     <div className="lg:col-span-2 flex flex-col gap-4">
@@ -147,7 +147,7 @@ export default function Contato() {
                                 </div>,
                             },
                         ].map(({ icon: Icon, title, content }) => (
-                            <div key={title} className="group flex items-start gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-5 transition-colors">
+                            <div key={title} className="group flex items-start gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl p-4 transition-colors">
                                 <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/20 flex items-center justify-center shrink-0 transition-all">
                                     <Icon size={17} className="text-zinc-400 group-hover:text-orange-500 transition-colors" />
                                 </div>
@@ -183,7 +183,7 @@ export default function Contato() {
                                     <div className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mb-6">
                                         <CheckCircle size={36} className="text-green-500" />
                                     </div>
-                                    <h2 className="text-3xl font-black text-white mb-3">Mensagem Enviada!</h2>
+                                    <h2 className="text-2xl font-black text-white mb-3">Mensagem Enviada!</h2>
                                     <p className="text-zinc-400 text-lg mb-8 max-w-sm">
                                         Recebemos sua mensagem e retornaremos em até 1 dia útil. Obrigado pelo contato!
                                     </p>
@@ -202,7 +202,7 @@ export default function Contato() {
                                     key="form"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8"
+                                    className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6"
                                 >
                                     <h2 className="text-2xl font-black text-white mb-6">Envie sua Mensagem</h2>
                                     <form onSubmit={submit} className="space-y-5">
@@ -273,7 +273,7 @@ export default function Contato() {
 
             {/* ── MAPA ── */}
             <section className="bg-black px-6 md:px-8 lg:px-10 py-0">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="rounded-2xl overflow-hidden border border-zinc-800" style={{ height: '400px' }}>
                         <iframe
                             title="Domingos Assessoria Empresarial"
@@ -302,7 +302,7 @@ export default function Contato() {
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Dúvidas frequentes
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Perguntas <span className="text-orange-500">frequentes</span>
                         </h2>
                     </div>

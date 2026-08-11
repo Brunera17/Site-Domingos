@@ -58,13 +58,13 @@ export default function Servicos() {
                         backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)',
                     }}
                 />
-                <div className="max-w-7xl mx-auto relative z-10">
+                <div className="max-w-6xl mx-auto relative z-10">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Soluções completas
                     </span>
                     <h1
                         className="font-black text-white leading-[0.95] mb-6"
-                        style={{ fontSize: 'clamp(42px, 5.5vw, 68px)' }}
+                        style={{ fontSize: 'clamp(36px, 4.6vw, 55px)' }}
                     >
                         Tudo que sua empresa
                         <br />
@@ -79,10 +79,10 @@ export default function Servicos() {
 
             {/* ── BARRA DE CONFIANÇA ── */}
             <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
-                <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
+                <div className="max-w-6xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
                     {stats.map((s) => (
                         <div key={s.label} className="text-center px-2">
-                            <div className="text-2xl md:text-3xl font-black text-white mb-1">{s.value}</div>
+                            <div className="text-xl md:text-2xl font-black text-white mb-1">{s.value}</div>
                             <div className="text-zinc-600 text-[11px] md:text-xs uppercase tracking-wider">{s.label}</div>
                         </div>
                     ))}
@@ -91,7 +91,7 @@ export default function Servicos() {
 
             {/* ── FILTROS E BUSCA ── */}
             <section className="px-6 md:px-8 lg:px-10 py-6 bg-black border-b border-zinc-900">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
 
                     {/* Categorias */}
                     <div className="flex flex-wrap gap-2">
@@ -131,7 +131,7 @@ export default function Servicos() {
 
             {/* ── ÍNDICE DE SERVIÇOS ── */}
             <section className="py-16 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
 
                     <div className="flex items-center justify-between mb-2">
                         <p className="text-zinc-600 text-xs uppercase tracking-wider">
@@ -223,7 +223,7 @@ export default function Servicos() {
 
             {/* ── CTA ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             Não encontrou o que procura?

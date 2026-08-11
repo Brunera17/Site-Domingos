@@ -195,7 +195,7 @@ export default function TrabalheConosco() {
                     className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)' }}
                 />
-                <div className="max-w-7xl mx-auto relative z-10">
+                <div className="max-w-6xl mx-auto relative z-10">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Faça parte do time
                     </span>
@@ -203,7 +203,7 @@ export default function TrabalheConosco() {
                         <div>
                             <h1
                                 className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(40px, 5.5vw, 68px)' }}
+                                style={{ fontSize: 'clamp(34px, 4.5vw, 55px)' }}
                             >
                                 Venha crescer
                                 <br />
@@ -222,7 +222,7 @@ export default function TrabalheConosco() {
                                 { value: '10+', label: 'Anos de empresa' },
                                 { value: '4', label: 'Vagas abertas' },
                             ].map(s => (
-                                <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-5 text-center">
+                                <div key={s.label} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 text-center">
                                     <div className="text-2xl font-black text-white mb-1">{s.value}</div>
                                     <div className="text-zinc-500 text-xs">{s.label}</div>
                                 </div>
@@ -234,12 +234,12 @@ export default function TrabalheConosco() {
 
             {/* ── BENEFÍCIOS ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Por que trabalhar conosco
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             O que oferecemos a <span className="text-orange-500">você</span>
                         </h2>
                     </div>
@@ -270,12 +270,12 @@ export default function TrabalheConosco() {
 
             {/* ── VAGAS ABERTAS ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Oportunidades
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Vagas <span className="text-orange-500">abertas</span>
                         </h2>
                     </div>
@@ -359,12 +359,12 @@ export default function TrabalheConosco() {
 
             {/* ── PROCESSO SELETIVO ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Como funciona
                         </span>
-                        <h2 className="text-4xl font-black text-white">
+                        <h2 className="text-3xl font-black text-white">
                             Processo <span className="text-orange-500">Seletivo</span>
                         </h2>
                     </div>
@@ -373,8 +373,8 @@ export default function TrabalheConosco() {
                         {processo.map((etapa, i) => {
                             const Icon = etapa.icon
                             return (
-                                <div key={etapa.numero} className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-7">
-                                    <span className="absolute top-5 right-6 text-zinc-800 font-black text-4xl select-none leading-none">
+                                <div key={etapa.numero} className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6">
+                                    <span className="absolute top-5 right-6 text-zinc-800 font-black text-3xl select-none leading-none">
                                         {etapa.numero}
                                     </span>
                                     <div className="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5">
@@ -405,7 +405,7 @@ export default function TrabalheConosco() {
                             <div className="w-20 h-20 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center mx-auto mb-6">
                                 <CheckCircle size={36} className="text-green-500" />
                             </div>
-                            <h2 className="text-3xl font-black text-white mb-3">Candidatura Enviada!</h2>
+                            <h2 className="text-2xl font-black text-white mb-3">Candidatura Enviada!</h2>
                             <p className="text-zinc-400 text-lg mb-8">
                                 Recebemos sua candidatura. Nossa equipe vai analisar seu perfil
                                 e entrará em contato em até 5 dias úteis.
@@ -428,7 +428,7 @@ export default function TrabalheConosco() {
                                 <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                                     Candidatura
                                 </span>
-                                <h2 className="text-4xl font-black text-white">
+                                <h2 className="text-3xl font-black text-white">
                                     {vagaSelecionada
                                         ? <>Candidatura para<br /><span className="text-orange-500">{vagaSelecionada}</span></>
                                         : <>Banco de <span className="text-orange-500">Talentos</span></>
@@ -441,7 +441,7 @@ export default function TrabalheConosco() {
                                 )}
                             </div>
 
-                            <form onSubmit={submit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 space-y-5">
+                            <form onSubmit={submit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
 
                                 {/* Nome + Email */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

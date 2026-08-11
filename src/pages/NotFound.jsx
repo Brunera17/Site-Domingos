@@ -18,7 +18,7 @@ export default function NotFound() {
                 </span>
                 <h1
                     className="font-black text-white leading-[0.95] mb-6"
-                    style={{ fontSize: 'clamp(48px, 8vw, 96px)' }}
+                    style={{ fontSize: 'clamp(40px, 6.5vw, 78px)' }}
                 >
                     Página não <span className="text-orange-500">encontrada</span>
                 </h1>

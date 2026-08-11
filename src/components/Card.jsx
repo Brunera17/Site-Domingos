@@ -19,7 +19,7 @@ export default function Card({
     variant = 'default',
     hoverBorder = 'orange',
     rounded = 'rounded-2xl',
-    padding = 'p-6',
+    padding = 'p-5',
     className = '',
     children,
     ...props

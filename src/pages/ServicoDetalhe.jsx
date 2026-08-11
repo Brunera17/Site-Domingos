@@ -130,7 +130,7 @@ export default function ServicoDetalhe() {
                 <div className="w-20 h-20 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mb-2">
                     <Search size={32} className="text-zinc-600" />
                 </div>
-                <h2 className="text-3xl font-black">Serviço não encontrado</h2>
+                <h2 className="text-2xl font-black">Serviço não encontrado</h2>
                 <p className="text-zinc-500">O serviço que você procura não existe ou foi removido.</p>
                 <Link to="/servicos" className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl transition-colors">
                     <ArrowLeft size={16} /> Ver todos os serviços
@@ -169,7 +169,7 @@ export default function ServicoDetalhe() {
                 />
                 <motion.div
                     style={{ y: heroY, opacity: heroOpacity }}
-                    className="max-w-7xl mx-auto relative z-10"
+                    className="max-w-6xl mx-auto relative z-10"
                 >
                     <motion.div
                         initial={{ opacity: 0, y: 24 }}
@@ -194,7 +194,7 @@ export default function ServicoDetalhe() {
 
                         <h1
                             className="font-black text-white leading-[0.95] mb-6"
-                            style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
+                            style={{ fontSize: 'clamp(31px, 4.2vw, 52px)' }}
                         >
                             {service.title}
                         </h1>
@@ -208,14 +208,14 @@ export default function ServicoDetalhe() {
 
             {/* ── BARRA DE CONFIANÇA ── */}
             <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
-                <div className="max-w-7xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
+                <div className="max-w-6xl mx-auto grid grid-cols-3 divide-x divide-zinc-900">
                     {[
                         { value: '530+', label: 'Empresas atendidas' },
                         { value: '10+', label: 'Anos de experiência' },
                         { value: '30+', label: 'Especialistas no time' },
                     ].map((s) => (
                         <div key={s.label} className="text-center px-2">
-                            <div className="text-2xl md:text-3xl font-black text-white mb-1">{s.value}</div>
+                            <div className="text-xl md:text-2xl font-black text-white mb-1">{s.value}</div>
                             <div className="text-zinc-600 text-[11px] md:text-xs uppercase tracking-wider">{s.label}</div>
                         </div>
                     ))}
@@ -224,7 +224,7 @@ export default function ServicoDetalhe() {
 
             {/* ── POR QUE TER ESSE SERVIÇO (valor, não recurso) ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-10">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Valor real pro seu negócio
@@ -243,7 +243,7 @@ export default function ServicoDetalhe() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.3, delay: i * 0.08 }}
-                                    className="bg-zinc-900 border border-zinc-800 rounded-xl p-6"
+                                    className="bg-zinc-900 border border-zinc-800 rounded-xl p-5"
                                 >
                                     <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-4">
                                         <BIcon size={17} className="text-orange-500" />
@@ -259,7 +259,7 @@ export default function ServicoDetalhe() {
             {/* ── FEATURES com LINE-DRAW (4) ── */}
             {service.features.length > 0 && (
                 <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                    <div className="max-w-7xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
                         <div className="mb-10">
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                                 Cobertura completa
@@ -286,7 +286,7 @@ export default function ServicoDetalhe() {
 
             {/* ── COMO FUNCIONA ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
                             Do primeiro contato à rotina
@@ -326,13 +326,13 @@ export default function ServicoDetalhe() {
 
             {/* ── CTA ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4 }}
-                        className="bg-zinc-900 border border-zinc-800 rounded-xl p-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden"
+                        className="bg-zinc-900 border border-zinc-800 rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative overflow-hidden"
                     >
                         <div
                             className="absolute inset-0 opacity-5 pointer-events-none"
@@ -342,7 +342,7 @@ export default function ServicoDetalhe() {
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                                 Pronto para começar?
                             </span>
-                            <h2 className="text-3xl font-black text-white mb-3">
+                            <h2 className="text-2xl font-black text-white mb-3">
                                 Solicite uma proposta <span className="text-orange-500">gratuita</span>
                             </h2>
                             <p className="text-zinc-400 text-sm leading-relaxed">
@@ -371,7 +371,7 @@ export default function ServicoDetalhe() {
 
             {/* ── OUTROS SERVIÇOS ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="flex items-center justify-between mb-10">
                         <div>
                             <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
@@ -399,7 +399,7 @@ export default function ServicoDetalhe() {
                                 >
                                     <Link
                                         to={`/servicos/${s.id}`}
-                                        className="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/30 rounded-xl p-6 flex flex-col transition-all duration-300 hover:bg-zinc-800/60 h-full"
+                                        className="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/30 rounded-xl p-5 flex flex-col transition-all duration-300 hover:bg-zinc-800/60 h-full"
                                     >
                                         <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/20 flex items-center justify-center mb-4 transition-all duration-300">
                                             <OtherIcon size={17} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />

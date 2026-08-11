@@ -31,7 +31,7 @@ export default function Blog() {
 
             {/* ── HERO ── */}
             <section className="pt-36 pb-16 px-6 md:px-8 lg:px-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Conhecimento gratuito
                     </span>
@@ -39,7 +39,7 @@ export default function Blog() {
                         <div>
                             <h1
                                 className="font-black text-white leading-[0.95] mb-4"
-                                style={{ fontSize: 'clamp(40px, 5vw, 64px)' }}
+                                style={{ fontSize: 'clamp(34px, 4.2vw, 52px)' }}
                             >
                                 Blog e
                                 <br />
@@ -68,7 +68,7 @@ export default function Blog() {
 
             {/* ── FILTROS ── */}
             <section className="px-6 md:px-8 lg:px-10 pb-10 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <div className="flex flex-wrap gap-2">
                         {categories.map((cat) => (
                             <button
@@ -95,7 +95,7 @@ export default function Blog() {
             {/* ── POST EM DESTAQUE ── */}
             {featured && activeCategory === 'Todos' && !search && (
                 <section className="px-6 md:px-8 lg:px-10 pb-10 bg-black">
-                    <div className="max-w-7xl mx-auto">
+                    <div className="max-w-6xl mx-auto">
                         <Link
                             to={`/blog/${featured.id}`}
                             className="group grid grid-cols-1 md:grid-cols-2 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-2xl overflow-hidden transition-all duration-300"
@@ -160,7 +160,7 @@ export default function Blog() {
 
             {/* ── GRID DE POSTS ── */}
             <section className="px-6 md:px-8 lg:px-10 pb-20 bg-black">
-                <div className="max-w-7xl mx-auto">
+                <div className="max-w-6xl mx-auto">
 
                     {/* Contador */}
                     <div className="flex items-center justify-between mb-8">
@@ -252,12 +252,12 @@ export default function Blog() {
 
             {/* ── NEWSLETTER ── */}
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
                         <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             Newsletter
                         </span>
-                        <h2 className="text-3xl font-black text-white mb-3">
+                        <h2 className="text-2xl font-black text-white mb-3">
                             Receba conteúdos
                             <br />
                             <span className="text-orange-500">exclusivos no e-mail</span>

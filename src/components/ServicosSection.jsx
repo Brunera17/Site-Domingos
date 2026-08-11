@@ -52,7 +52,7 @@ export default function ServicosSection() {
         <section
             className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
         >
-            <div className="max-w-7xl mx-auto md:h-full flex flex-col md:py-8 gap-6 md:gap-4">
+            <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-6 md:gap-4">
 
                 {/* Cabeçalho */}
                 <div className="mb-2">
@@ -60,7 +60,7 @@ export default function ServicosSection() {
                         O que fazemos
                     </span>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                             Nossos <span className="text-orange-500">Serviços</span>
                         </h2>
                     </div>
@@ -70,7 +70,7 @@ export default function ServicosSection() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0">
 
                     {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
-                    <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-5 flex flex-col overflow-hidden relative">
+                    <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col overflow-hidden relative">
                         {/* Barra de progresso do autoplay */}
                         <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl">
                             <motion.div
@@ -157,7 +157,7 @@ export default function ServicosSection() {
                                 <motion.div
                                     key={service.id}
                                     onClick={() => handleSelect(services.findIndex(s => s.id === service.id))}
-                                    className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-5 flex flex-col cursor-pointer overflow-hidden"
+                                    className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col cursor-pointer overflow-hidden"
                                     initial={{ opacity: 0, y: 12 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.04, duration: 0.25 }}
@@ -183,7 +183,7 @@ export default function ServicosSection() {
                         {/* Botão ver todos os serviços no espaço vazio */}
                         <Link
                             to="/servicos"
-                            className="group relative bg-zinc-900/40 border border-dashed border-zinc-700 hover:border-orange-500/40 rounded-2xl p-5 flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 hover:bg-zinc-900"
+                            className="group relative bg-zinc-900/40 border border-dashed border-zinc-700 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 hover:bg-zinc-900"
                         >
                             <div className="w-9 h-9 rounded-lg bg-zinc-800 group-hover:bg-orange-500/10 border border-zinc-700 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                 <ArrowRight size={16} className="text-zinc-500 group-hover:text-orange-500 transition-colors duration-300" />
