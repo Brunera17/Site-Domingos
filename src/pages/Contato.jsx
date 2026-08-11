@@ -260,7 +260,7 @@ export default function Contato() {
                                             {enviando ? 'Enviando...' : <>Enviar Mensagem <ArrowRight size={16} /></>}
                                         </button>
 
-                                        <p className="text-zinc-600 text-xs text-center">
+                                        <p className="text-zinc-400 text-xs text-center">
                                             Retornamos em até 1 dia útil. Seus dados são tratados com total sigilo.
                                         </p>
                                     </form>
@@ -286,7 +286,7 @@ export default function Contato() {
                             referrerPolicy="no-referrer-when-downgrade"
                         />
                     </div>
-                    <p className="text-zinc-600 text-xs text-center py-3">
+                    <p className="text-zinc-400 text-xs text-center py-3">
                         Av. Antônio Justino Viera, 350 — Jardim Planalto, Itaí/SP ·{' '}
                         <a href="https://maps.google.com/?q=Av.+Antônio+Justino+Viera,+350,+Itaí,+SP" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-400 transition-colors">
                             Abrir no Google Maps
@@ -340,7 +340,7 @@ export default function Contato() {
                     </div>
 
                     <div className="mt-10 text-center">
-                        <p className="text-zinc-500 text-sm mb-4">Ainda tem dúvidas? Fale diretamente com a nossa equipe.</p>
+                        <p className="text-zinc-400 text-sm mb-4">Ainda tem dúvidas? Fale diretamente com a nossa equipe.</p>
                         <a
                             href={buildWhatsAppLink('Olá! Tenho uma dúvida e gostaria de falar com a equipe da Domingos Assessoria.')}
                             target="_blank" rel="noopener noreferrer"

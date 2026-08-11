@@ -225,7 +225,7 @@ export default function TrabalheConosco() {
                             ].map(s => (
                                 <div key={s.label} className="flex flex-col">
                                     <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                    <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                    <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                                 </div>
                             ))}
                         </div>
@@ -261,7 +261,7 @@ export default function TrabalheConosco() {
                                         <Icon size={19} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                     </div>
                                     <h3 className="text-white font-bold mb-2">{b.title}</h3>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">{b.desc}</p>
+                                    <p className="text-zinc-400 text-sm leading-relaxed">{b.desc}</p>
                                 </Card>
                             )
                         })}
@@ -301,7 +301,7 @@ export default function TrabalheConosco() {
                                                     {vaga.tipo}
                                                 </span>
                                             </div>
-                                            <div className="flex items-center gap-4 text-zinc-500 text-sm">
+                                            <div className="flex items-center gap-4 text-zinc-400 text-sm">
                                                 <span>{vaga.departamento}</span>
                                                 <span>·</span>
                                                 <span>{vaga.modelo}</span>
@@ -336,7 +336,7 @@ export default function TrabalheConosco() {
                                                 </h4>
                                                 <ul className="space-y-2 mb-6">
                                                     {vaga.requisitos.map((r, i) => (
-                                                        <li key={i} className="flex items-start gap-2 text-zinc-500 text-sm">
+                                                        <li key={i} className="flex items-start gap-2 text-zinc-400 text-sm">
                                                             <CheckCircle size={14} className="text-orange-500 mt-0.5 shrink-0" />
                                                             {r}
                                                         </li>
@@ -382,14 +382,14 @@ export default function TrabalheConosco() {
                                         <Icon size={19} className="text-orange-500" />
                                     </div>
                                     <h3 className="text-white font-bold text-lg mb-2">{etapa.titulo}</h3>
-                                    <p className="text-zinc-500 text-sm leading-relaxed">{etapa.desc}</p>
+                                    <p className="text-zinc-400 text-sm leading-relaxed">{etapa.desc}</p>
                                 </div>
                             )
                         })}
                     </div>
 
-                    <p className="text-zinc-600 text-sm mt-6">
-                        ⏱ Prazo médio de retorno: <span className="text-zinc-400">até 5 dias úteis</span> após o envio da candidatura.
+                    <p className="text-zinc-400 text-sm mt-6">
+                        ⏱ Prazo médio de retorno: <span className="text-white">até 5 dias úteis</span> após o envio da candidatura.
                     </p>
                 </div>
             </section>
@@ -436,7 +436,7 @@ export default function TrabalheConosco() {
                                     }
                                 </h2>
                                 {!vagaSelecionada && (
-                                    <p className="text-zinc-500 text-sm mt-3">
+                                    <p className="text-zinc-400 text-sm mt-3">
                                         Não encontrou a vaga ideal? Envie seu currículo e entraremos em contato quando surgir uma oportunidade para o seu perfil.
                                     </p>
                                 )}
@@ -515,13 +515,13 @@ export default function TrabalheConosco() {
                                             <>
                                                 <CheckCircle size={28} className="text-orange-500 mb-2" />
                                                 <p className="text-white text-sm font-medium">{arquivo.name}</p>
-                                                <p className="text-zinc-500 text-xs mt-1">Clique para trocar o arquivo</p>
+                                                <p className="text-zinc-400 text-xs mt-1">Clique para trocar o arquivo</p>
                                             </>
                                         ) : (
                                             <>
                                                 <Upload size={28} className="text-zinc-500 mb-2" />
                                                 <p className="text-zinc-400 text-sm">Clique para selecionar ou arraste o arquivo</p>
-                                                <p className="text-zinc-600 text-xs mt-1">PDF ou Word · máximo 3MB</p>
+                                                <p className="text-zinc-400 text-xs mt-1">PDF ou Word · máximo 3MB</p>
                                             </>
                                         )}
                                     </label>
@@ -541,7 +541,7 @@ export default function TrabalheConosco() {
                                     {enviando ? 'Enviando...' : <>Enviar Candidatura <ArrowRight size={16} /></>}
                                 </button>
 
-                                <p className="text-zinc-600 text-xs text-center">
+                                <p className="text-zinc-400 text-xs text-center">
                                     Seus dados são tratados com confidencialidade e usados apenas para fins de recrutamento.
                                 </p>
                             </form>

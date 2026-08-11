@@ -109,10 +109,10 @@ export default function BlogPost() {
                                 className="w-12 h-12 rounded-full object-cover ring-2 ring-orange-500/30" />
                             <div>
                                 <div className="text-white font-semibold">{post.author}</div>
-                                <div className="text-zinc-500 text-sm">{post.authorRole}</div>
+                                <div className="text-zinc-400 text-sm">{post.authorRole}</div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-5 text-zinc-500 text-sm">
+                        <div className="flex items-center gap-5 text-zinc-400 text-sm">
                             <span className="flex items-center gap-1.5"><Calendar size={14} /> {post.date}</span>
                             <span className="flex items-center gap-1.5"><Clock size={14} /> {post.readTime} de leitura</span>
                             <button
@@ -173,7 +173,7 @@ export default function BlogPost() {
                                     <div className="p-5">
                                         <span className="text-orange-500 text-xs font-bold uppercase tracking-wider">{p.category}</span>
                                         <h3 className="text-white font-bold mt-2 mb-2 leading-snug text-sm">{p.title}</h3>
-                                        <div className="flex items-center gap-3 text-zinc-600 text-xs">
+                                        <div className="flex items-center gap-3 text-zinc-400 text-xs">
                                             <Calendar size={11} /> {p.date}
                                             <Clock size={11} /> {p.readTime}
                                         </div>

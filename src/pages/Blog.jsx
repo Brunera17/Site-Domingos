@@ -128,7 +128,7 @@ export default function Blog() {
                                 </div>
 
                                 <div>
-                                    <div className="flex items-center gap-4 text-zinc-600 text-xs mb-6">
+                                    <div className="flex items-center gap-4 text-zinc-400 text-xs mb-6">
                                         <span className="flex items-center gap-1.5">
                                             <Calendar size={12} /> {featured.date}
                                         </span>
@@ -144,7 +144,7 @@ export default function Blog() {
                                                 className="w-9 h-9 rounded-full object-cover" />
                                             <div>
                                                 <div className="text-white text-sm font-semibold">{featured.author}</div>
-                                                <div className="text-zinc-500 text-xs">{featured.authorRole}</div>
+                                                <div className="text-zinc-400 text-xs">{featured.authorRole}</div>
                                             </div>
                                         </div>
                                         <span className="flex items-center gap-1.5 text-orange-500 text-sm font-semibold group-hover:gap-2.5 transition-all">
@@ -164,13 +164,13 @@ export default function Blog() {
 
                     {/* Contador */}
                     <div className="flex items-center justify-between mb-8">
-                        <p className="text-zinc-500 text-sm">
+                        <p className="text-zinc-400 text-sm">
                             <span className="text-white font-semibold">{filtered.length}</span> artigos encontrados
                         </p>
                         {(activeCategory !== 'Todos' || search) && (
                             <button
                                 onClick={() => { setActiveCategory('Todos'); setSearch('') }}
-                                className="text-zinc-500 hover:text-white text-xs transition-colors"
+                                className="text-zinc-400 hover:text-white text-xs transition-colors"
                             >
                                 Limpar filtros ×
                             </button>
@@ -179,7 +179,7 @@ export default function Blog() {
 
                     {filtered.length === 0 ? (
                         <div className="text-center py-24">
-                            <p className="text-zinc-600 text-lg mb-2">Nenhum artigo encontrado.</p>
+                            <p className="text-zinc-400 text-lg mb-2">Nenhum artigo encontrado.</p>
                             <button
                                 onClick={() => { setActiveCategory('Todos'); setSearch('') }}
                                 className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"
@@ -221,7 +221,7 @@ export default function Blog() {
                                                 <h3 className="text-white font-bold text-lg mb-2 leading-snug flex-1">
                                                     {post.title}
                                                 </h3>
-                                                <p className="text-zinc-500 text-sm leading-relaxed mb-4 line-clamp-2">
+                                                <p className="text-zinc-400 text-sm leading-relaxed mb-4 line-clamp-2">
                                                     {post.description}
                                                 </p>
 
@@ -231,7 +231,7 @@ export default function Blog() {
                                                             className="w-7 h-7 rounded-full object-cover" />
                                                         <div>
                                                             <div className="text-zinc-300 text-xs font-medium">{post.author}</div>
-                                                            <div className="flex items-center gap-2 text-zinc-600 text-xs">
+                                                            <div className="flex items-center gap-2 text-zinc-400 text-xs">
                                                                 <Calendar size={10} /> {post.date}
                                                                 <span>·</span>
                                                                 <Clock size={10} /> {post.readTime}

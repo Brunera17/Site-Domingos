@@ -85,7 +85,7 @@ export default function Servicos() {
                         {stats.map((s) => (
                             <div key={s.label} className="flex flex-col">
                                 <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                             </div>
                         ))}
                     </div>
@@ -137,13 +137,13 @@ export default function Servicos() {
                 <div className="max-w-6xl mx-auto">
 
                     <div className="flex items-center justify-between mb-2">
-                        <p className="text-zinc-600 text-xs uppercase tracking-wider">
+                        <p className="text-zinc-400 text-xs uppercase tracking-wider">
                             <span className="text-zinc-400 font-semibold">{servicosFiltrados.length}</span> {servicosFiltrados.length === 1 ? 'registro' : 'registros'}
                         </p>
                         {(filtro !== 'Todos' || busca) && (
                             <button
                                 onClick={() => { setFiltro('Todos'); setBusca('') }}
-                                className="text-zinc-500 hover:text-white text-xs transition-colors"
+                                className="text-zinc-400 hover:text-white text-xs transition-colors"
                             >
                                 Limpar filtros ×
                             </button>
@@ -175,7 +175,7 @@ export default function Servicos() {
                                             <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-orange-500 scale-y-0 group-hover:scale-y-100 origin-center transition-transform duration-200" />
 
                                             {/* Código de registro */}
-                                            <span className="hidden sm:block font-mono text-xs text-zinc-600 group-hover:text-orange-500 transition-colors w-14 shrink-0 tracking-wider">
+                                            <span className="hidden sm:block font-mono text-xs text-zinc-400 group-hover:text-orange-500 transition-colors w-14 shrink-0 tracking-wider">
                                                 {code}·{abbr}
                                             </span>
 
@@ -197,7 +197,7 @@ export default function Servicos() {
                                                         </span>
                                                     )}
                                                 </div>
-                                                <p className="text-zinc-500 text-sm leading-relaxed truncate md:whitespace-normal md:line-clamp-1">
+                                                <p className="text-zinc-400 text-sm leading-relaxed truncate md:whitespace-normal md:line-clamp-1">
                                                     {service.description}
                                                 </p>
                                             </div>
@@ -212,7 +212,7 @@ export default function Servicos() {
 
                     {servicosFiltrados.length === 0 && (
                         <div className="text-center py-24 border-b border-zinc-800">
-                            <p className="text-zinc-600 text-lg mb-2">Nenhum registro encontrado.</p>
+                            <p className="text-zinc-400 text-lg mb-2">Nenhum registro encontrado.</p>
                             <button
                                 onClick={() => { setFiltro('Todos'); setBusca('') }}
                                 className="text-orange-500 hover:text-orange-400 text-sm font-medium transition-colors"

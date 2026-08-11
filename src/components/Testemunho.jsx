@@ -125,7 +125,7 @@ export default function TestemunhosSection() {
                     >
                         <div>
                             <div className="text-2xl font-black text-white leading-none">5,0</div>
-                            <div className="text-zinc-500 text-xs mt-0.5">média geral</div>
+                            <div className="text-zinc-400 text-xs mt-0.5">média geral</div>
                         </div>
                         <div className="w-px h-10 bg-zinc-800" />
                         <div>
@@ -134,7 +134,7 @@ export default function TestemunhosSection() {
                                     <Star key={i} size={14} className="text-orange-500 fill-orange-500" />
                                 ))}
                             </div>
-                            <div className="text-zinc-500 text-xs">63 avaliações no Google</div>
+                            <div className="text-zinc-400 text-xs">63 avaliações no Google</div>
                         </div>
                     </a>
                 </div>
@@ -211,7 +211,7 @@ export default function TestemunhosSection() {
                                         <Avatar name={item.name} photo={item.avatar} size="w-10 h-10" iconSize={18} />
                                         <div className="min-w-0">
                                             <div className="text-white text-sm font-semibold mb-1">{item.name}</div>
-                                            <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2 group-hover:text-zinc-400 transition-colors">
+                                            <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2 group-hover:text-zinc-300 transition-colors">
                                                 "{item.text}"
                                             </p>
                                         </div>
@@ -255,7 +255,7 @@ export default function TestemunhosSection() {
 
                 {/* Rodapé */}
                 <div className="flex items-center justify-between shrink-0 pt-4 border-t border-zinc-800/60">
-                    <p className="text-zinc-500 text-sm">
+                    <p className="text-zinc-400 text-sm">
                         Junte-se a mais de{' '}
                         <span className="text-white font-semibold">530 empresas</span>{' '}
                         que já confiam na Domingos Assessoria.
