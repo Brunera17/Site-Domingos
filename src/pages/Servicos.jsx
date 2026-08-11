@@ -78,7 +78,7 @@ export default function Servicos() {
             </section>
 
             {/* ── BARRA DE CONFIANÇA ── */}
-            <section className="py-8 px-6 md:px-8 lg:px-10 bg-black border-y border-zinc-900">
+            <section className="py-8 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <div className="w-10 h-px bg-zinc-700 mb-6" />
                     <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
