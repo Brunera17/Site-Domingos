@@ -56,64 +56,66 @@ export default function Hero() {
             />
 
             {/* Conteúdo */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 lg:px-10 w-full flex flex-col justify-between h-full py-24 md:py-12 gap-12 md:gap-0">
-                <div className="max-w-3xl mt-8">
+            <div className="relative z-10 w-full h-full px-6 md:px-8 lg:px-10">
+                <div className="max-w-7xl mx-auto h-full flex flex-col justify-between py-24 md:py-12 gap-12 md:gap-0">
+                    <div className="max-w-3xl mt-8">
 
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-2 mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                        <span className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full tracking-wider uppercase">
-                            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
-                            Mais de 10 anos de experiência
-                        </span>
+                        {/* Badge */}
+                        <div className="inline-flex items-center gap-2 mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
+                            <span className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full tracking-wider uppercase">
+                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                                Mais de 10 anos de experiência
+                            </span>
+                        </div>
+
+                        {/* Título principal */}
+                        <h1
+                            className="font-black text-white leading-[0.95] mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]"
+                            style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
+                        >
+                            Sua empresa
+                            <br />
+                            <span className="text-orange-500 italic">pagando menos</span>
+                            <br />
+                            e lucrando mais.
+                        </h1>
+
+                        {/* Subtítulo */}
+                        <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
+                            Hub completo de soluções empresariais com atendimento
+                            humanizado e ágil. Contabilidade, fiscal, DP e consultoria. Tudo em um só lugar.
+                        </p>
+
+                        {/* Botões */}
+                        <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.7s_ease_0.5s_forwards]">
+                            <Link
+                                to="/planos"
+                                className="group flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm hover:shadow-[0_0_30px_rgba(234,88,12,0.4)]"
+                            >
+                                Solicitar Proposta
+                                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                            </Link>
+                            <Link
+                                to="/planos"
+                                className="group flex items-center gap-2 border border-zinc-600 text-zinc-300 hover:border-white hover:text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm backdrop-blur-sm"
+                            >
+                                Ver Planos
+                                <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                            </Link>
+                        </div>
                     </div>
 
-                    {/* Título principal */}
-                    <h1
-                        className="font-black text-white leading-[0.95] mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]"
-                        style={{ fontSize: 'clamp(36px, 5.5vw, 72px)' }}
-                    >
-                        Sua empresa
-                        <br />
-                        <span className="text-orange-500 italic">pagando menos</span>
-                        <br />
-                        e lucrando mais.
-                    </h1>
-
-                    {/* Subtítulo */}
-                    <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
-                        Hub completo de soluções empresariais com atendimento
-                        humanizado e ágil. Contabilidade, fiscal, DP e consultoria. Tudo em um só lugar.
-                    </p>
-
-                    {/* Botões */}
-                    <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.7s_ease_0.5s_forwards]">
-                        <Link
-                            to="/planos"
-                            className="group flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm hover:shadow-[0_0_30px_rgba(234,88,12,0.4)]"
-                        >
-                            Solicitar Proposta
-                            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                        </Link>
-                        <Link
-                            to="/planos"
-                            className="group flex items-center gap-2 border border-zinc-600 text-zinc-300 hover:border-white hover:text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm backdrop-blur-sm"
-                        >
-                            Ver Planos
-                            <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Stats na base */}
-                <div className="opacity-0 animate-[fadeInUp_0.7s_ease_0.7s_forwards]">
-                    <div className="w-10 h-px bg-zinc-700 mb-6" />
-                    <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
-                        {stats.map((s) => (
-                            <div key={s.label} className="flex flex-col">
-                                <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
-                                <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
-                            </div>
-                        ))}
+                    {/* Stats na base */}
+                    <div className="opacity-0 animate-[fadeInUp_0.7s_ease_0.7s_forwards]">
+                        <div className="w-10 h-px bg-zinc-700 mb-6" />
+                        <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
+                            {stats.map((s) => (
+                                <div key={s.label} className="flex flex-col">
+                                    <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
+                                    <span className="text-zinc-500 text-xs uppercase tracking-widest">{s.label}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
