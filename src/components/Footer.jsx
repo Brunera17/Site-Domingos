@@ -1,5 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
+import { Phone, Mail, MapPin, ChevronRight, ArrowRight } from 'lucide-react'
 import logo from "../assets/logo_domingos_transparente.png"
 import { featuredServices } from '../data/services'
 
@@ -33,8 +34,90 @@ const quickLinks = [
 const serviceLinks = featuredServices.map((s) => ({ id: s.id, label: s.title }))
 
 export default function Footer() {
+    const [email, setEmail] = useState('')
+    const [status, setStatus] = useState('idle') // idle | loading | success | error
+    const [erro, setErro] = useState(null)
+
+    const submitNewsletter = async (e) => {
+        e.preventDefault()
+        setErro(null)
+        setStatus('loading')
+        try {
+            const resp = await fetch('/api/newsletter', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            })
+            const data = await resp.json().catch(() => ({}))
+            if (!resp.ok) {
+                throw new Error(data.error || 'Não foi possível concluir sua inscrição.')
+            }
+            setStatus('success')
+            setEmail('')
+        } catch (err) {
+            setErro(err.message || 'Não foi possível concluir sua inscrição. Tente novamente.')
+            setStatus('error')
+        }
+    }
+
     return (
         <footer className="bg-zinc-950 border-t border-zinc-800/60 px-6 md:px-8 lg:px-10">
+
+            {/* Newsletter — captação de leads */}
+            <div className="border-b border-zinc-800/60">
+                <div className="max-w-6xl mx-auto py-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="max-w-md">
+                        <h4 className="text-white font-black text-lg mb-1">
+                            Receba novidades por <span className="text-orange-500">e-mail</span>
+                        </h4>
+                        <p className="text-zinc-400 text-sm leading-relaxed">
+                            Dicas de gestão, prazos fiscais e novidades da Domingos direto na sua caixa de entrada.
+                        </p>
+                    </div>
+
+                    <div className="w-full md:w-auto md:min-w-[380px]">
+                        {status === 'success' ? (
+                            <p className="text-green-400 text-sm font-medium">
+                                Inscrição confirmada! Obrigado por acompanhar a gente.
+                            </p>
+                        ) : (
+                            <form onSubmit={submitNewsletter} className="flex flex-col sm:flex-row gap-3">
+                                <label htmlFor="newsletter-email" className="sr-only">Seu e-mail</label>
+                                <input
+                                    id="newsletter-email"
+                                    type="email"
+                                    name="email"
+                                    required
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="seu@email.com"
+                                    className="flex-1 bg-zinc-900 border border-zinc-700 focus:border-orange-500/60 text-white placeholder-zinc-600 rounded-xl px-4 py-3 outline-none transition-colors text-sm"
+                                />
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold px-5 py-3 rounded-xl transition-colors text-sm whitespace-nowrap"
+                                >
+                                    {status === 'loading' ? 'Enviando...' : <>Inscrever-se <ArrowRight size={15} /></>}
+                                </button>
+                            </form>
+                        )}
+
+                        {status === 'error' && (
+                            <p className="text-red-400 text-xs mt-2">{erro}</p>
+                        )}
+
+                        {status !== 'success' && (
+                            <p className="text-zinc-500 text-xs mt-2">
+                                Você pode cancelar quando quiser. Consulte nossa{' '}
+                                <Link to="/politica-privacidade" className="text-zinc-400 hover:text-orange-500 transition-colors">
+                                    Política de Privacidade
+                                </Link>.
+                            </p>
+                        )}
+                    </div>
+                </div>
+            </div>
 
             {/* Corpo principal */}
             <div className="max-w-6xl mx-auto pt-12 pb-10">
