@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart } from 'lucide-react'
+import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart, ArrowRight } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import { sectorImages } from './Setores/sectorImages'
 
@@ -14,22 +14,24 @@ const sectors = [
     { label: 'Hospitais', icon: Heart, desc: 'Clínicas, hospitais e operadoras de saúde' },
 ]
 
-const CLIP = "polygon(12% 0, 100% 0, 100% 100%, 0 100%)"
+const CLIP_CLASS = "lg:[clip-path:polygon(18%_0,100%_0,100%_100%,0_100%)]"
 
 export default function SetoresSection() {
     const [active, setActive] = useState(0)
 
     return (
-        <section className="relative overflow-hidden bg-black text-white">
-            <div className="grid lg:grid-cols-2">
+        <section className="relative overflow-hidden bg-black text-white lg:h-screen">
+            <div className="grid lg:h-full lg:grid-cols-[58%_42%]">
 
                 {/* Conteúdo — esquerda */}
-                <div className="order-2 flex flex-col justify-center px-6 py-16 md:px-10 lg:order-1 lg:py-20 lg:pr-14">
-                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-[11px] font-bold tracking-widest text-orange-400 uppercase">
+                <div className="order-2 flex flex-col justify-center px-6 md:px-8 py-12 lg:order-1 lg:pr-14 lg:pl-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
                         <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Onde atuamos
                     </span>
-<<<<<<< HEAD
-                    <h2 className="mt-6 text-4xl leading-[0.95] font-black tracking-tight md:text-5xl">
+                    <h2
+                        className="mt-6 font-black tracking-tight leading-[0.95]"
+                        style={{ fontSize: 'clamp(32px, 3.5vw, 50px)' }}
+                    >
                         Setores que
                         <br />
                         <span className="text-orange-500">atendemos.</span>
@@ -38,18 +40,6 @@ export default function SetoresSection() {
                     <p className="mt-5 max-w-md text-sm leading-relaxed text-white/60">
                         Expertise especializada para cada segmento, com soluções sob medida para o seu negócio.
                     </p>
-=======
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                            Setores que <span className="text-orange-500">Atendemos</span>
-                        </h2>
-                        <p className="text-zinc-400 text-sm max-w-sm text-right">
-                            Expertise especializada para cada segmento,<br />
-                            com soluções sob medida para o seu negócio.
-                        </p>
-                    </div>
-                </div>
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
 
                     {/* Grid 2 colunas — interativo, troca a imagem no hover/click */}
                     <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2">
@@ -80,48 +70,29 @@ export default function SetoresSection() {
                                         }`}>
                                             {sector.label}
                                         </h3>
-                                        <p className="mt-0.5 text-xs leading-relaxed text-white/40">{sector.desc}</p>
+                                        <p className="mt-0.5 text-xs leading-relaxed text-white/50">{sector.desc}</p>
                                     </div>
-<<<<<<< HEAD
                                 </button>
                             )
                         })}
                     </div>
 
                     <div className="mt-10 flex flex-wrap items-center gap-4">
-=======
-                                    <h3 className="text-white font-bold text-sm leading-snug mb-1">
-                                        {sector.label}
-                                    </h3>
-                                    <p className="text-zinc-400 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
-                                        {sector.desc}
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* Rodapé */}
-                <div className="flex items-center justify-between shrink-0 pt-4 border-t border-zinc-800/60">
-                    <p className="text-zinc-400 text-sm">
-                        Não encontrou seu setor?{' '}
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
                         <a
                             href={buildWhatsAppLink('Olá! Não encontrei meu setor no site e gostaria de saber se vocês atendem minha área.')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+                            className="group inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-600"
                         >
-                            Não encontrou seu setor? Fale conosco →
+                            <span>Não encontrou seu setor? Fale conosco</span>
+                            <ArrowRight size={14} className="shrink-0 transition-transform group-hover:translate-x-1" />
                         </a>
-<<<<<<< HEAD
-                        <span className="text-xs text-white/40">Atendemos 14 estados · 80+ cidades</span>
+                        <span className="text-xs text-white/50">Atendemos 14 estados · 80+ cidades</span>
                     </div>
                 </div>
 
-                {/* Imagem — direita, diagonal, troca conforme setor ativo */}
-                <div className="relative order-1 min-h-[320px] lg:order-2 lg:min-h-[720px]">
+                {/* Imagem — banner no mobile, diagonal à direita no desktop, troca conforme setor ativo */}
+                <div className="relative order-1 h-64 sm:h-80 lg:order-2 lg:h-full">
                     {sectors.map((sector, i) => (
                         <img
                             key={sector.label}
@@ -132,26 +103,18 @@ export default function SetoresSection() {
                             height={1600}
                             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
                                 i === active ? "opacity-100" : "opacity-0"
-                            }`}
-                            style={{ clipPath: CLIP }}
+                            } ${CLIP_CLASS}`}
                         />
                     ))}
                     <div
-                        className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/10 to-transparent"
-                        style={{ clipPath: CLIP }}
+                        className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent lg:bg-gradient-to-l lg:from-black/60 lg:via-black/10 lg:to-transparent ${CLIP_CLASS}`}
                     />
                     {/* Legenda do setor ativo */}
-                    <div className="pointer-events-none absolute right-6 bottom-6 left-[15%] flex flex-col gap-1">
+                    <div className="pointer-events-none absolute right-6 bottom-6 left-6 flex flex-col gap-1 lg:left-[22%]">
                         <span className="text-[11px] font-bold tracking-[0.2em] text-orange-400 uppercase">
                             {String(active + 1).padStart(2, "0")} / {String(sectors.length).padStart(2, "0")}
                         </span>
                         <span className="text-lg font-black">{sectors[active]?.label}</span>
-=======
-                    </p>
-                    <div className="flex items-center gap-2 text-zinc-400 text-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                        Atendemos 14 estados · 80+ cidades
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
                     </div>
                 </div>
             </div>
