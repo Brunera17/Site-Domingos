@@ -25,8 +25,8 @@ export default function SetoresSection() {
 
                 {/* Conteúdo — esquerda */}
                 <div className="order-2 flex flex-col justify-center px-6 md:px-8 py-12 lg:order-1 lg:pr-14 lg:pl-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
-                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Onde atuamos
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest block">
+                        Onde atuamos
                     </span>
                     <h2
                         className="mt-6 font-black tracking-tight leading-[0.95]"

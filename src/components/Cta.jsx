@@ -33,8 +33,7 @@ export default function CTASection() {
                 <div className="w-full max-w-lg">
 
                     {/* Badge */}
-                    <span className="inline-flex items-center gap-2 bg-[#E8610A]/15 border border-[#E8610A]/30 text-orange-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-7">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E8610A] animate-pulse" />
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-7 block">
                         Fale com um especialista
                     </span>
 
