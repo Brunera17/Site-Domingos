@@ -38,16 +38,6 @@ export default function ServicosSection() {
         startTimer(INTERACTION_DELAY)
     }
 
-    // Barra de progresso — acompanha o delay realmente ativo (normal ou pós-interação)
-    const [progress, setProgress] = useState(0)
-    useEffect(() => {
-        setProgress(0)
-        const interval = setInterval(() => {
-            setProgress(prev => Math.min(prev + 1, 100))
-        }, activeDelay / 100)
-        return () => clearInterval(interval)
-    }, [selected, activeDelay])
-
     return (
         <section
             className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
@@ -71,12 +61,16 @@ export default function ServicosSection() {
 
                     {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
                     <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col overflow-hidden relative">
-                        {/* Barra de progresso do autoplay */}
-                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl">
+                        {/* Barra de progresso do autoplay — anima de 0% a 100% de uma vez
+                            (via rAF do Framer Motion) em vez de saltar em incrementos de 1%
+                            por setInterval, o que causava um efeito de "travamento" visual */}
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl overflow-hidden">
                             <motion.div
+                                key={`${selected}-${activeDelay}`}
                                 className="h-full bg-orange-500 rounded-t-2xl"
-                                style={{ width: `${progress}%` }}
-                                transition={{ duration: 0.1 }}
+                                initial={{ width: '0%' }}
+                                animate={{ width: '100%' }}
+                                transition={{ duration: activeDelay / 1000, ease: 'linear' }}
                             />
                         </div>
 
