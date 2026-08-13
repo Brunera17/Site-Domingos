@@ -13,8 +13,8 @@ export default function NotFound() {
             />
 
             <div className="max-w-2xl mx-auto px-6 md:px-8 lg:px-10 py-24 text-center">
-                <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Erro 404
+                <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                    Erro 404
                 </span>
                 <h1
                     className="font-black text-white leading-[0.95] mb-6"

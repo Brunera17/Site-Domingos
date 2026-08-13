@@ -20,8 +20,8 @@ export default class ErrorBoundary extends Component {
             return (
                 <div className="bg-black min-h-screen flex items-center justify-center px-6 md:px-8 lg:px-10">
                     <div className="max-w-md text-center">
-                        <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Erro inesperado
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                            Erro inesperado
                         </span>
                         <h1 className="font-black text-white text-3xl md:text-4xl leading-tight mb-6">
                             Algo deu <span className="text-orange-500">errado</span>

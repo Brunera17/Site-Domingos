@@ -32,8 +32,8 @@ export default function Blog() {
             {/* ── HERO ── */}
             <section className="pt-36 pb-16 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
-                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Conhecimento gratuito
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                        Conhecimento gratuito
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
                         <div>
@@ -254,8 +254,8 @@ export default function Blog() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Newsletter
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                            Newsletter
                         </span>
                         <h2 className="text-2xl font-black text-white mb-3">
                             Receba conteúdos

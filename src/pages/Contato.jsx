@@ -82,8 +82,8 @@ export default function Contato() {
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
                 />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Fale com a gente
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
+                        Fale com a gente
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
                         <div>
@@ -299,8 +299,8 @@ export default function Contato() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-3xl mx-auto">
                     <div className="mb-12 text-center">
-                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
-                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Dúvidas frequentes
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
+                            Dúvidas frequentes
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Perguntas <span className="text-orange-500">frequentes</span>
