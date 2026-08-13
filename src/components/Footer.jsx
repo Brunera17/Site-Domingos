@@ -56,7 +56,7 @@ export default function Footer() {
                         </p>
 
                         {/* Endereço */}
-                        <div className="flex items-start gap-2.5 text-zinc-500 text-xs mb-6">
+                        <div className="flex items-start gap-2.5 text-zinc-400 text-xs mb-6">
                             <MapPin size={14} className="mt-0.5 shrink-0 text-orange-500" />
                             <span>Av. Antônio Justino Viera, 350 — Jardim Planalto,<br />Itaí - SP, 18730-136</span>
                         </div>
@@ -88,7 +88,7 @@ export default function Footer() {
                                 <li key={l.to}>
                                     <Link
                                         to={l.to}
-                                        className="text-zinc-500 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 group"
+                                        className="text-zinc-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 group"
                                     >
                                         <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-orange-500">›</span>
                                         {l.label}
@@ -108,7 +108,7 @@ export default function Footer() {
                                 <li key={s.id}>
                                     <Link
                                         to={`/servicos/${s.id}`}
-                                        className="text-zinc-500 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 group"
+                                        className="text-zinc-400 hover:text-white text-sm transition-colors duration-200 flex items-center gap-1 group"
                                     >
                                         <span className="w-0 group-hover:w-3 overflow-hidden transition-all duration-200 text-orange-500">›</span>
                                         {s.label}
@@ -128,7 +128,7 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="tel:+5514996580459"
-                                    className="flex items-center gap-2.5 text-zinc-500 hover:text-white text-sm transition-colors duration-200 group"
+                                    className="flex items-center gap-2.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200 group"
                                 >
                                     <span className="w-7 h-7 rounded-md bg-zinc-800 group-hover:bg-orange-500 flex items-center justify-center transition-colors duration-200 shrink-0">
                                         <Phone size={13} className="text-orange-500 group-hover:text-white transition-colors" />
@@ -139,7 +139,7 @@ export default function Footer() {
                             <li>
                                 <a
                                     href="mailto:sucessodocliente@domingosassessoria.com.br"
-                                    className="flex items-start gap-2.5 text-zinc-500 hover:text-white text-sm transition-colors duration-200 group"
+                                    className="flex items-start gap-2.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200 group"
                                 >
                                     <span className="w-7 h-7 rounded-md bg-zinc-800 group-hover:bg-orange-500 flex items-center justify-center transition-colors duration-200 shrink-0 mt-0.5">
                                         <Mail size={13} className="text-orange-500 group-hover:text-white transition-colors" />
@@ -161,16 +161,16 @@ export default function Footer() {
             {/* Rodapé inferior */}
             <div className="border-t border-zinc-800/60">
                 <div className="max-w-6xl mx-auto py-4 flex flex-col md:flex-row justify-between items-center gap-3">
-                    <p className="text-zinc-600 text-xs">
+                    <p className="text-zinc-400 text-xs">
                         © 2026 Domingos Assessoria Empresarial. Todos os direitos reservados.
                         <span className="mx-2 text-zinc-700">·</span>
                         CRC Nº 2SP 037.257/O-8
                     </p>
                     <div className="flex gap-5">
-                        <Link to="/politica-privacidade" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors">
+                        <Link to="/politica-privacidade" className="text-zinc-400 hover:text-white text-xs transition-colors">
                             Política de Privacidade
                         </Link>
-                        <Link to="/termos-uso" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors">
+                        <Link to="/termos-uso" className="text-zinc-400 hover:text-white text-xs transition-colors">
                             Termos de Uso
                         </Link>
                     </div>

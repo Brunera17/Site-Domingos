@@ -83,15 +83,16 @@ export default function CTASection() {
                     </div>
 
                     {/* Stats */}
-                    <div className="flex gap-6 md:gap-8 pt-6 border-t border-zinc-800">
+                    <div className="w-10 h-px bg-zinc-700 mb-6" />
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
                         {[
                             { value: '530+', label: 'Clientes ativos' },
                             { value: '10+', label: 'Anos de mercado' },
                             { value: '30%', label: 'Economia média' },
                         ].map((s) => (
-                            <div key={s.label}>
-                                <div className="text-xl font-black text-white leading-none mb-1">{s.value}</div>
-                                <div className="text-zinc-600 text-xs uppercase tracking-wider">{s.label}</div>
+                            <div key={s.label} className="flex flex-col">
+                                <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
+                                <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                             </div>
                         ))}
                     </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, Target, Eye, Heart, Users, MapPin, Award, TrendingUp } from 'lucide-react'
+import { ArrowRight, Target, Eye, Heart, Award, TrendingUp } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import OrganizationSchema from '../components/OrganizationSchema'
 import { buildWhatsAppLink } from '../utils/whatsapp'
@@ -16,10 +16,10 @@ import recepcaoFoto from '../assets/espaco/recepcao.webp'
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
 const stats = [
-    { value: '10+', label: 'Anos de mercado', icon: Award },
-    { value: '530+', label: 'Clientes ativos', icon: Users },
-    { value: '14', label: 'Estados', icon: MapPin },
-    { value: '30+', label: 'Colaboradores', icon: TrendingUp },
+    { value: '10+', label: 'Anos de mercado' },
+    { value: '530+', label: 'Clientes ativos' },
+    { value: '14', label: 'Estados' },
+    { value: '30+', label: 'Colaboradores' },
 ]
 
 const timeline = [
@@ -181,21 +181,16 @@ export default function Sobre() {
 
             {/* ── 2. STATS ── */}
             <section className="py-16 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
-                <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {stats.map((s) => {
-                        const Icon = s.icon
-                        return (
-                            <div key={s.label} className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center shrink-0">
-                                    <Icon size={20} className="text-orange-500" />
-                                </div>
-                                <div>
-                                    <div className="text-2xl font-black text-white leading-none">{s.value}</div>
-                                    <div className="text-zinc-500 text-xs mt-0.5">{s.label}</div>
-                                </div>
+                <div className="max-w-6xl mx-auto">
+                    <div className="w-10 h-px bg-zinc-700 mb-6" />
+                    <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
+                        {stats.map((s) => (
+                            <div key={s.label} className="flex flex-col">
+                                <span className="text-2xl font-black text-white leading-none mb-1">{s.value}</span>
+                                <span className="text-zinc-400 text-xs uppercase tracking-widest">{s.label}</span>
                             </div>
-                        )
-                    })}
+                        ))}
+                    </div>
                 </div>
             </section>
 
@@ -225,7 +220,7 @@ export default function Sobre() {
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
                                             <h3 className="text-white font-bold">{item.titulo}</h3>
                                         </div>
-                                        <p className="text-zinc-500 text-sm leading-relaxed mb-3">{item.desc}</p>
+                                        <p className="text-zinc-400 text-sm leading-relaxed mb-3">{item.desc}</p>
                                         <p className="text-zinc-400 text-xs leading-relaxed border-l-2 border-orange-500/40 pl-3">
                                             {item.frase}
                                         </p>
@@ -265,7 +260,7 @@ export default function Sobre() {
                                 <div className="w-12 h-px bg-orange-500" />
                                 <div>
                                     <div className="text-white font-bold">Marcelo Domingos</div>
-                                    <div className="text-zinc-500 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
+                                    <div className="text-zinc-400 text-sm">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
                                 </div>
                             </div>
                         </div>
@@ -328,7 +323,7 @@ export default function Sobre() {
                                         </div>
                                         <div>
                                             <p className="text-white text-sm font-semibold mb-1">{v.label}</p>
-                                            <p className="text-zinc-500 text-xs leading-relaxed">{v.desc}</p>
+                                            <p className="text-zinc-400 text-xs leading-relaxed">{v.desc}</p>
                                         </div>
                                     </div>
                                 )
@@ -449,7 +444,7 @@ export default function Sobre() {
                                             <div className={`w-full px-3 py-1.5 rounded-md text-center text-xs border ${
                                                 idx === 0
                                                     ? 'bg-zinc-900/50 border-zinc-700 text-zinc-300'
-                                                    : 'bg-transparent border-zinc-800 text-zinc-500'
+                                                    : 'bg-transparent border-zinc-800 text-zinc-400'
                                             }`}>
                                                 {cargo}
                                             </div>

@@ -38,16 +38,6 @@ export default function ServicosSection() {
         startTimer(INTERACTION_DELAY)
     }
 
-    // Barra de progresso — acompanha o delay realmente ativo (normal ou pós-interação)
-    const [progress, setProgress] = useState(0)
-    useEffect(() => {
-        setProgress(0)
-        const interval = setInterval(() => {
-            setProgress(prev => Math.min(prev + 1, 100))
-        }, activeDelay / 100)
-        return () => clearInterval(interval)
-    }, [selected, activeDelay])
-
     return (
         <section
             className="px-6 md:px-8 lg:px-10 bg-black overflow-hidden md:h-screen py-16 md:py-0"
@@ -67,16 +57,20 @@ export default function ServicosSection() {
                 </div>
 
                 {/* Grid expandido sempre ativo */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0 md:items-start">
 
                     {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
                     <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col overflow-hidden relative">
-                        {/* Barra de progresso do autoplay */}
-                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl">
+                        {/* Barra de progresso do autoplay — anima de 0% a 100% de uma vez
+                            (via rAF do Framer Motion) em vez de saltar em incrementos de 1%
+                            por setInterval, o que causava um efeito de "travamento" visual */}
+                        <div className="absolute top-0 left-0 right-0 h-0.5 bg-zinc-800 rounded-t-2xl overflow-hidden">
                             <motion.div
+                                key={`${selected}-${activeDelay}`}
                                 className="h-full bg-orange-500 rounded-t-2xl"
-                                style={{ width: `${progress}%` }}
-                                transition={{ duration: 0.1 }}
+                                initial={{ width: '0%' }}
+                                animate={{ width: '100%' }}
+                                transition={{ duration: activeDelay / 1000, ease: 'linear' }}
                             />
                         </div>
 
@@ -119,7 +113,7 @@ export default function ServicosSection() {
                                             initial={{ opacity: 0, x: -10 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.15 + i * 0.05 }}
-                                            className="flex items-start gap-2 text-zinc-500 text-xs leading-relaxed"
+                                            className="flex items-start gap-2 text-zinc-400 text-xs leading-relaxed"
                                         >
                                             <span className="w-1 h-1 rounded-full bg-orange-500 mt-1.5 shrink-0" />
                                             {item}
@@ -170,10 +164,10 @@ export default function ServicosSection() {
                                             <Icon size={16} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
                                         <h3 className="text-white font-bold text-sm mb-1 leading-snug">{service.title}</h3>
-                                        <p className="text-zinc-600 text-xs leading-relaxed line-clamp-2">{service.description}</p>
+                                        <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">{service.description}</p>
                                     </div>
 
-                                    <div className="relative z-10 flex items-center gap-1 text-zinc-600 group-hover:text-orange-500 text-xs font-semibold mt-3 transition-all duration-200">
+                                    <div className="relative z-10 flex items-center gap-1 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold mt-3 transition-all duration-200">
                                         Ver detalhes <ArrowRight size={11} />
                                     </div>
                                 </motion.div>
@@ -188,10 +182,10 @@ export default function ServicosSection() {
                             <div className="w-9 h-9 rounded-lg bg-zinc-800 group-hover:bg-orange-500/10 border border-zinc-700 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                 <ArrowRight size={16} className="text-zinc-500 group-hover:text-orange-500 transition-colors duration-300" />
                             </div>
-                            <p className="text-zinc-500 group-hover:text-white text-xs font-semibold text-center transition-colors duration-200">
+                            <p className="text-zinc-400 group-hover:text-white text-xs font-semibold text-center transition-colors duration-200">
                                 Ver todos os serviços
                             </p>
-                            <p className="text-zinc-700 text-xs text-center mt-1">
+                            <p className="text-zinc-400 text-xs text-center mt-1">
                                 {allServices.length}+ disponíveis
                             </p>
                         </Link>

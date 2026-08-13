@@ -42,7 +42,7 @@ export default function NotFound() {
                     </Link>
                 </div>
 
-                <div className="flex items-center justify-center gap-2 text-zinc-500 text-sm">
+                <div className="flex items-center justify-center gap-2 text-zinc-400 text-sm">
                     <Phone size={14} className="text-orange-500" />
                     Precisa de ajuda? Fale com a gente pelo{' '}
                     <a
