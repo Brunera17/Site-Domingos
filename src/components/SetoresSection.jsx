@@ -14,7 +14,7 @@ const sectors = [
     { label: 'Hospitais', icon: Heart, desc: 'Clínicas, hospitais e operadoras de saúde' },
 ]
 
-const CLIP = "polygon(18% 0, 100% 0, 100% 100%, 0 100%)"
+const CLIP_CLASS = "lg:[clip-path:polygon(18%_0,100%_0,100%_100%,0_100%)]"
 
 export default function SetoresSection() {
     const [active, setActive] = useState(0)
@@ -24,7 +24,7 @@ export default function SetoresSection() {
             <div className="grid lg:h-full lg:grid-cols-[58%_42%]">
 
                 {/* Conteúdo — esquerda */}
-                <div className="order-2 flex flex-col justify-center px-6 md:px-8 py-16 lg:order-1 lg:py-12 lg:pr-14 lg:pl-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
+                <div className="order-2 flex flex-col justify-center px-6 md:px-8 py-12 lg:order-1 lg:pr-14 lg:pl-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
                     <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
                         <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Onde atuamos
                     </span>
@@ -90,8 +90,8 @@ export default function SetoresSection() {
                     </div>
                 </div>
 
-                {/* Imagem — direita, diagonal, troca conforme setor ativo */}
-                <div className="relative order-1 min-h-[320px] lg:order-2 lg:h-full">
+                {/* Imagem — banner no mobile, diagonal à direita no desktop, troca conforme setor ativo */}
+                <div className="relative order-1 h-64 sm:h-80 lg:order-2 lg:h-full">
                     {sectors.map((sector, i) => (
                         <img
                             key={sector.label}
@@ -102,16 +102,14 @@ export default function SetoresSection() {
                             height={1600}
                             className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
                                 i === active ? "opacity-100" : "opacity-0"
-                            }`}
-                            style={{ clipPath: CLIP }}
+                            } ${CLIP_CLASS}`}
                         />
                     ))}
                     <div
-                        className="absolute inset-0 bg-gradient-to-l from-black/60 via-black/10 to-transparent"
-                        style={{ clipPath: CLIP }}
+                        className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent lg:bg-gradient-to-l lg:from-black/60 lg:via-black/10 lg:to-transparent ${CLIP_CLASS}`}
                     />
                     {/* Legenda do setor ativo */}
-                    <div className="pointer-events-none absolute right-6 bottom-6 left-[22%] flex flex-col gap-1">
+                    <div className="pointer-events-none absolute right-6 bottom-6 left-6 flex flex-col gap-1 lg:left-[22%]">
                         <span className="text-[11px] font-bold tracking-[0.2em] text-orange-400 uppercase">
                             {String(active + 1).padStart(2, "0")} / {String(sectors.length).padStart(2, "0")}
                         </span>
