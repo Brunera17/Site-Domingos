@@ -32,7 +32,7 @@ export default function PoliticaPrivacidade() {
                         <h2 className="text-white font-bold text-xl mb-3">1. Quem somos</h2>
                         <p>
                             Esta Política de Privacidade se aplica ao site da <strong className="text-white">Domingos Assessoria Empresarial</strong>,
-                            inscrita sob CNPJ [preencher], com sede na Av. Antônio Justino Viera, 350 — Jardim Planalto, Itaí/SP, 18730-136.
+                            inscrita sob CNPJ 27.723.343/0001-30, com sede na Av. Antônio Justino Viera, 350 — Jardim Planalto, Itaí/SP, 18730-136.
                             Somos os controladores dos dados pessoais tratados por meio deste site, nos termos da Lei nº 13.709/2018
                             (Lei Geral de Proteção de Dados — LGPD).
                         </p>
