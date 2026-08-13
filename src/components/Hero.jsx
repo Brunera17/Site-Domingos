@@ -61,9 +61,8 @@ export default function Hero() {
                     <div className="max-w-3xl mt-8">
 
                         {/* Badge */}
-                        <div className="inline-flex items-center gap-2 mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                            <span className="flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-semibold px-4 py-1.5 rounded-full tracking-wider uppercase">
-                                <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse" />
+                        <div className="mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
+                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">
                                 Mais de 10 anos de experiência
                             </span>
                         </div>
