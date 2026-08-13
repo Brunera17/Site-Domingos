@@ -176,8 +176,8 @@ export default function ServicoDetalhe() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.45, ease: 'easeOut' }}
                     >
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
-                            {categoria}
+                        <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> {categoria}
                         </span>
 
                         {/* ── ÍCONE ── */}
@@ -229,8 +229,8 @@ export default function ServicoDetalhe() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-10">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Valor real pro seu negócio
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Valor real pro seu negócio
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Por que ter isso <span className="text-orange-500">na sua empresa</span>
@@ -264,8 +264,8 @@ export default function ServicoDetalhe() {
                 <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                     <div className="max-w-6xl mx-auto">
                         <div className="mb-10">
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                Cobertura completa
+                            <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                                <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Cobertura completa
                             </span>
                             <h2 className="text-3xl font-black text-white">
                                 O que está <span className="text-orange-500">incluso</span>
@@ -291,8 +291,8 @@ export default function ServicoDetalhe() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Do primeiro contato à rotina
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Do primeiro contato à rotina
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Como <span className="text-orange-500">funciona</span>
@@ -342,8 +342,8 @@ export default function ServicoDetalhe() {
                             style={{ backgroundImage: 'radial-gradient(circle at 80% 50%, #E8610A 0%, transparent 60%)' }}
                         />
                         <div className="relative z-10">
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                                Pronto para começar?
+                            <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                                <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Pronto para começar?
                             </span>
                             <h2 className="text-2xl font-black text-white mb-3">
                                 Solicite uma proposta <span className="text-orange-500">gratuita</span>
@@ -377,8 +377,8 @@ export default function ServicoDetalhe() {
                 <div className="max-w-6xl mx-auto">
                     <div className="flex items-center justify-between mb-10">
                         <div>
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                Continue explorando
+                            <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                                <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Continue explorando
                             </span>
                             <h2 className="text-3xl font-black text-white">
                                 Outros <span className="text-orange-500">serviços</span>

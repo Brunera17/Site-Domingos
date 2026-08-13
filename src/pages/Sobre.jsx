@@ -161,8 +161,8 @@ export default function Sobre() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent" />
 
                 <div className="relative z-10 max-w-6xl mx-auto pb-16 w-full">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Quem somos
+                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Quem somos
                     </span>
                     <h1
                         className="font-black text-white leading-[0.95] mb-4"
@@ -198,8 +198,8 @@ export default function Sobre() {
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nossa trajetória
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Nossa trajetória
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             10 anos de <span className="text-orange-500">história</span>
@@ -272,8 +272,8 @@ export default function Sobre() {
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nossa essência
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Nossa essência
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Missão, Visão e <span className="text-orange-500">Valores</span>
@@ -355,8 +355,8 @@ export default function Sobre() {
 
                     {/* Cabeçalho */}
                     <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nosso time
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Nosso time
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Conheça nossa <span className="text-orange-500">Equipe</span>
@@ -461,8 +461,8 @@ export default function Sobre() {
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Onde trabalhamos
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Onde trabalhamos
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Nossa <span className="text-orange-500">Estrutura</span>
@@ -513,8 +513,8 @@ export default function Sobre() {
             {/* ── 8. CTA ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
                 <div className="max-w-3xl mx-auto text-center">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
-                        Próximo passo
+                    <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Próximo passo
                     </span>
                     <h2 className="text-3xl font-black text-white mb-4">
                         Pronto para ter esse time<br />

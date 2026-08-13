@@ -92,8 +92,8 @@ export default function Planos() {
             {/* ── 1. HERO ── */}
             <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
                 <div className="max-w-6xl mx-auto">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Planos e preços
+                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Planos e preços
                     </span>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
                         <h1
@@ -244,8 +244,8 @@ export default function Planos() {
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Comparativo completo
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Comparativo completo
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             O que está <span className="text-orange-500">incluso</span> em cada plano
@@ -315,8 +315,8 @@ export default function Planos() {
             {/* ── 5. CTA FINAL ── */}
             <section className="py-24 px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
                 <div className="max-w-3xl mx-auto text-center">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
-                        Ainda com dúvidas?
+                    <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Ainda com dúvidas?
                     </span>
                     <h2 className="text-3xl font-black text-white mb-4">
                         Fale com um <span className="text-orange-500">especialista</span>

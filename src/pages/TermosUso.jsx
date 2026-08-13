@@ -14,8 +14,8 @@ export default function TermosUso() {
             {/* ── HERO ── */}
             <section className="pt-36 pb-16 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
                 <div className="max-w-3xl mx-auto">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Documento legal
+                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Documento legal
                     </span>
                     <h1 className="font-black text-white leading-[0.95] mb-4" style={{ fontSize: 'clamp(31px, 4.2vw, 45px)' }}>
                         Termos de <span className="text-orange-500">Uso</span>

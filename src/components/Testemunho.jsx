@@ -108,8 +108,8 @@ export default function TestemunhosSection() {
                 {/* Cabeçalho */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                     <div>
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            O que dizem sobre nós
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> O que dizem sobre nós
                         </span>
                         <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
                             Clientes que <span className="text-orange-500">confiam</span>

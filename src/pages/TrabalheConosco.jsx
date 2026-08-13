@@ -196,8 +196,8 @@ export default function TrabalheConosco() {
                     style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)' }}
                 />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                        Faça parte do time
+                    <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Faça parte do time
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
                         <div>
@@ -237,8 +237,8 @@ export default function TrabalheConosco() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Por que trabalhar conosco
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Por que trabalhar conosco
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             O que oferecemos a <span className="text-orange-500">você</span>
@@ -273,8 +273,8 @@ export default function TrabalheConosco() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Oportunidades
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Oportunidades
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Vagas <span className="text-orange-500">abertas</span>
@@ -362,8 +362,8 @@ export default function TrabalheConosco() {
             <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Como funciona
+                        <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                            <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Como funciona
                         </span>
                         <h2 className="text-3xl font-black text-white">
                             Processo <span className="text-orange-500">Seletivo</span>
@@ -426,8 +426,8 @@ export default function TrabalheConosco() {
                     ) : (
                         <>
                             <div className="mb-10">
-                                <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                    Candidatura
+                                <span className="mb-2 inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
+                                    <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Candidatura
                                 </span>
                                 <h2 className="text-3xl font-black text-white">
                                     {vagaSelecionada
