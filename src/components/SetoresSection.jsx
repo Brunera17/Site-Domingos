@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart } from 'lucide-react'
+import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart, ArrowRight } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import { sectorImages } from './Setores/sectorImages'
 
@@ -82,9 +82,10 @@ export default function SetoresSection() {
                             href={buildWhatsAppLink('Olá! Não encontrei meu setor no site e gostaria de saber se vocês atendem minha área.')}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+                            className="group inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-orange-600"
                         >
-                            Não encontrou seu setor? Fale conosco →
+                            <span>Não encontrou seu setor? Fale conosco</span>
+                            <ArrowRight size={14} className="shrink-0 transition-transform group-hover:translate-x-1" />
                         </a>
                         <span className="text-xs text-white/50">Atendemos 14 estados · 80+ cidades</span>
                     </div>
