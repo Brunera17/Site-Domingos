@@ -24,12 +24,14 @@ export default function SetoresSection() {
             <div className="grid lg:grid-cols-2">
 
                 {/* Conteúdo — esquerda */}
-                <div className="order-2 flex flex-col justify-center px-6 py-16 md:px-10 lg:order-1 lg:py-20 lg:pr-14">
-                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-[11px] font-bold tracking-widest text-orange-400 uppercase">
+                <div className="order-2 flex flex-col justify-center px-6 md:px-8 py-16 lg:order-1 lg:py-20 lg:pr-14 lg:pl-[max(2.5rem,calc((100vw-1232px)/2+2.5rem))]">
+                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-bold tracking-widest text-orange-400 uppercase">
                         <span className="h-1.5 w-1.5 rounded-full bg-orange-500" /> Onde atuamos
                     </span>
-<<<<<<< HEAD
-                    <h2 className="mt-6 text-4xl leading-[0.95] font-black tracking-tight md:text-5xl">
+                    <h2
+                        className="mt-6 font-black tracking-tight leading-[0.95]"
+                        style={{ fontSize: 'clamp(32px, 3.5vw, 50px)' }}
+                    >
                         Setores que
                         <br />
                         <span className="text-orange-500">atendemos.</span>
@@ -38,18 +40,6 @@ export default function SetoresSection() {
                     <p className="mt-5 max-w-md text-sm leading-relaxed text-white/60">
                         Expertise especializada para cada segmento, com soluções sob medida para o seu negócio.
                     </p>
-=======
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                            Setores que <span className="text-orange-500">Atendemos</span>
-                        </h2>
-                        <p className="text-zinc-400 text-sm max-w-sm text-right">
-                            Expertise especializada para cada segmento,<br />
-                            com soluções sob medida para o seu negócio.
-                        </p>
-                    </div>
-                </div>
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
 
                     {/* Grid 2 colunas — interativo, troca a imagem no hover/click */}
                     <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-2">
@@ -80,33 +70,14 @@ export default function SetoresSection() {
                                         }`}>
                                             {sector.label}
                                         </h3>
-                                        <p className="mt-0.5 text-xs leading-relaxed text-white/40">{sector.desc}</p>
+                                        <p className="mt-0.5 text-xs leading-relaxed text-white/50">{sector.desc}</p>
                                     </div>
-<<<<<<< HEAD
                                 </button>
                             )
                         })}
                     </div>
 
                     <div className="mt-10 flex flex-wrap items-center gap-4">
-=======
-                                    <h3 className="text-white font-bold text-sm leading-snug mb-1">
-                                        {sector.label}
-                                    </h3>
-                                    <p className="text-zinc-400 text-xs leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
-                                        {sector.desc}
-                                    </p>
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                {/* Rodapé */}
-                <div className="flex items-center justify-between shrink-0 pt-4 border-t border-zinc-800/60">
-                    <p className="text-zinc-400 text-sm">
-                        Não encontrou seu setor?{' '}
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
                         <a
                             href={buildWhatsAppLink('Olá! Não encontrei meu setor no site e gostaria de saber se vocês atendem minha área.')}
                             target="_blank"
@@ -115,8 +86,7 @@ export default function SetoresSection() {
                         >
                             Não encontrou seu setor? Fale conosco →
                         </a>
-<<<<<<< HEAD
-                        <span className="text-xs text-white/40">Atendemos 14 estados · 80+ cidades</span>
+                        <span className="text-xs text-white/50">Atendemos 14 estados · 80+ cidades</span>
                     </div>
                 </div>
 
@@ -146,12 +116,6 @@ export default function SetoresSection() {
                             {String(active + 1).padStart(2, "0")} / {String(sectors.length).padStart(2, "0")}
                         </span>
                         <span className="text-lg font-black">{sectors[active]?.label}</span>
-=======
-                    </p>
-                    <div className="flex items-center gap-2 text-zinc-400 text-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                        Atendemos 14 estados · 80+ cidades
->>>>>>> c4ed3106a61a5e008ff1f0e56860728d1361a6dd
                     </div>
                 </div>
             </div>
