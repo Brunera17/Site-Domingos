@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { HeadphonesIcon, TrendingDown, Users, Clock, Shield, Award } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import SectionHeading from './SectionHeading'
 
 const diferenciais = [
     {
@@ -52,14 +53,11 @@ export default function DiferenciaisSection() {
             <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-6">
 
                 {/* Cabeçalho */}
-                <div>
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                        Por que nos escolher
-                    </span>
-                    <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                        Nossos <span className="text-orange-500">Diferenciais</span>
-                    </h2>
-                </div>
+                <SectionHeading
+                    eyebrow="Por que nos escolher"
+                    title={<>Nossos <span className="text-orange-500">Diferenciais</span></>}
+                    variant="compact"
+                />
 
                 {/* Layout principal */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1 min-h-0">

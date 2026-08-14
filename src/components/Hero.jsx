@@ -68,10 +68,7 @@ export default function Hero() {
                         </div>
 
                         {/* Título principal */}
-                        <h1
-                            className="font-black text-white leading-[0.95] mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]"
-                            style={{ fontSize: 'clamp(32px, 4.5vw, 58px)' }}
-                        >
+                        <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                             Sua empresa
                             <br />
                             <span className="text-orange-500 italic">pagando menos</span>

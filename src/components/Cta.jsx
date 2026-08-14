@@ -38,10 +38,7 @@ export default function CTASection() {
                     </span>
 
                     {/* Título */}
-                    <h2
-                        className="font-black text-white leading-[0.95] mb-5"
-                        style={{ fontSize: 'clamp(32px, 3.5vw, 50px)' }}
-                    >
+                    <h2 className="text-h2-compact text-white mb-5">
                         Vamos começar
                         <br />
                         <span style={{ color: '#E8610A' }}>hoje mesmo.</span>

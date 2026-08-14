@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SectionHeading from './SectionHeading'
 import { services as allServices } from '../data/services'
 
 const AUTOPLAY_DELAY = 12000     // tempo normal entre slides
@@ -45,16 +46,12 @@ export default function ServicosSection() {
             <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-6 md:gap-4">
 
                 {/* Cabeçalho */}
-                <div className="mb-2">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                        O que fazemos
-                    </span>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                            Nossos <span className="text-orange-500">Serviços</span>
-                        </h2>
-                    </div>
-                </div>
+                <SectionHeading
+                    eyebrow="O que fazemos"
+                    title={<>Nossos <span className="text-orange-500">Serviços</span></>}
+                    variant="compact"
+                    className="mb-2"
+                />
 
                 {/* Grid expandido sempre ativo */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0 md:items-start">

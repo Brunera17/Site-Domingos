@@ -28,10 +28,7 @@ export default function SetoresSection() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest block">
                         Onde atuamos
                     </span>
-                    <h2
-                        className="mt-6 font-black tracking-tight leading-[0.95]"
-                        style={{ fontSize: 'clamp(32px, 3.5vw, 50px)' }}
-                    >
+                    <h2 className="text-h2-compact mt-6 tracking-tight">
                         Setores que
                         <br />
                         <span className="text-orange-500">atendemos.</span>
