@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import ServiceSchema from '../components/ServiceSchema'
+import SectionHeading from '../components/SectionHeading'
 import { services as rawServices, featureDescs } from '../data/services'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 
@@ -162,7 +163,7 @@ export default function ServicoDetalhe() {
             />
 
             {/* ── HERO com PARALLAX (3) ── */}
-            <section ref={heroRef} className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
+            <section ref={heroRef} className="pt-hero-top pb-section px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute left-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
@@ -192,10 +193,7 @@ export default function ServicoDetalhe() {
                             </motion.div>
                         </div>
 
-                        <h1
-                            className="font-black text-white leading-[0.95] mb-6"
-                            style={{ fontSize: 'clamp(31px, 4.2vw, 52px)' }}
-                        >
+                        <h1 className="text-display text-white mb-6">
                             {service.title}
                         </h1>
 
@@ -226,16 +224,13 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── POR QUE TER ESSE SERVIÇO (valor, não recurso) ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-10">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Valor real pro seu negócio
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Por que ter isso <span className="text-orange-500">na sua empresa</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Valor real pro seu negócio"
+                        title={<>Por que ter isso <span className="text-orange-500">na sua empresa</span></>}
+                        className="mb-10"
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {(categoryBenefits[categoria] ?? categoryBenefits['Contábil e Fiscal']).map((b, i) => {
                             const BIcon = b.icon
@@ -261,16 +256,13 @@ export default function ServicoDetalhe() {
 
             {/* ── FEATURES com LINE-DRAW (4) ── */}
             {service.features.length > 0 && (
-                <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+                <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                     <div className="max-w-6xl mx-auto">
-                        <div className="mb-10">
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                Cobertura completa
-                            </span>
-                            <h2 className="text-3xl font-black text-white">
-                                O que está <span className="text-orange-500">incluso</span>
-                            </h2>
-                        </div>
+                        <SectionHeading
+                            eyebrow="Cobertura completa"
+                            title={<>O que está <span className="text-orange-500">incluso</span></>}
+                            className="mb-10"
+                        />
                         <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden">
                             {service.features.map((f, i) => (
                                 <FeatureRow
@@ -288,16 +280,13 @@ export default function ServicoDetalhe() {
             )}
 
             {/* ── COMO FUNCIONA ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Do primeiro contato à rotina
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Como <span className="text-orange-500">funciona</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Do primeiro contato à rotina"
+                        title={<>Como <span className="text-orange-500">funciona</span></>}
+                        className="mb-12"
+                    />
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 relative">
                         {/* linha conectora (desktop) */}
                         <div className="hidden md:block absolute top-6 left-[16.5%] right-[16.5%] h-px bg-zinc-800" />
@@ -328,7 +317,7 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -373,21 +362,18 @@ export default function ServicoDetalhe() {
             </section>
 
             {/* ── OUTROS SERVIÇOS ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
-                    <div className="flex items-center justify-between mb-10">
-                        <div>
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                Continue explorando
-                            </span>
-                            <h2 className="text-3xl font-black text-white">
-                                Outros <span className="text-orange-500">serviços</span>
-                            </h2>
-                        </div>
-                        <Link to="/servicos" className="hidden md:flex items-center gap-2 text-zinc-400 hover:text-white text-sm font-medium transition-colors">
-                            Ver todos <ArrowRight size={14} />
-                        </Link>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Continue explorando"
+                        title={<>Outros <span className="text-orange-500">serviços</span></>}
+                        action={
+                            <Link to="/servicos" className="hidden md:flex items-center gap-2 text-zinc-400 hover:text-white text-sm font-medium transition-colors">
+                                Ver todos <ArrowRight size={14} />
+                            </Link>
+                        }
+                        className="mb-10"
+                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                         {relacionados.map((s, i) => {

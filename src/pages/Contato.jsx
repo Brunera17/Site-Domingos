@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle } from
 import WhatsAppIcon from '../components/icons/WhatsAppIcon'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import SEOHead from '../components/SEOHead'
+import SectionHeading from '../components/SectionHeading'
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
 const faqs = [
@@ -76,7 +77,7 @@ export default function Contato() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
+            <section className="pt-hero-top pb-section px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute left-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 30% 50%, #E8610A 0%, transparent 60%)' }}
@@ -87,10 +88,7 @@ export default function Contato() {
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
                         <div>
-                            <h1
-                                className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(34px, 4.5vw, 55px)' }}
-                            >
+                            <h1 className="text-display text-white mb-6">
                                 Estamos aqui
                                 <br />
                                 <span className="text-orange-500">para ajudar.</span>
@@ -105,12 +103,12 @@ export default function Contato() {
             </section>
 
             {/* ── CONTATO + FORMULÁRIO ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10">
 
                     {/* Coluna esquerda: infos */}
                     <div className="lg:col-span-2 flex flex-col gap-4">
-                        <h2 className="text-3xl font-black text-white mb-2">
+                        <h2 className="text-h2 text-white mb-2">
                             Nossos <span className="text-orange-500">canais</span>
                         </h2>
 
@@ -296,16 +294,14 @@ export default function Contato() {
             </section>
 
             {/* ── FAQ ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-3xl mx-auto">
-                    <div className="mb-12 text-center">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Dúvidas frequentes
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Perguntas <span className="text-orange-500">frequentes</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Dúvidas frequentes"
+                        title={<>Perguntas <span className="text-orange-500">frequentes</span></>}
+                        align="center"
+                        className="mb-12"
+                    />
 
                     <div className="flex flex-col gap-3">
                         {faqs.map((faq, i) => (

@@ -2,6 +2,7 @@ export default function SectionHeading({
     eyebrow,
     title,
     subtitle,
+    subtitleSize = 'lg',
     align = 'left',
     action,
     variant = 'default',
@@ -9,6 +10,7 @@ export default function SectionHeading({
 }) {
     const isCenter = align === 'center'
     const titleSize = variant === 'compact' ? 'text-h2-compact' : 'text-h2'
+    const subtitleTextSize = subtitleSize === 'sm' ? 'text-body' : 'text-body-lg'
 
     return (
         <div className={`${isCenter ? 'text-center' : ''} ${className}`}>
@@ -23,7 +25,7 @@ export default function SectionHeading({
                         {title}
                     </h2>
                     {subtitle && (
-                        <p className={`text-body-lg text-zinc-400 mt-3 ${isCenter ? 'mx-auto max-w-xl' : 'max-w-xl'}`}>
+                        <p className={`${subtitleTextSize} text-zinc-400 mt-3 ${isCenter ? 'mx-auto max-w-xl' : 'max-w-xl'}`}>
                             {subtitle}
                         </p>
                     )}
