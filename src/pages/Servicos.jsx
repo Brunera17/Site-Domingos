@@ -185,7 +185,7 @@ export default function Servicos() {
                                             {/* Conteúdo */}
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2 mb-0.5">
-                                                    <h3 className="text-white font-bold text-base md:text-lg truncate">
+                                                    <h3 className="text-card-title text-white truncate">
                                                         {service.title}
                                                     </h3>
                                                     {service.tag && (

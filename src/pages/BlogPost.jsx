@@ -35,7 +35,7 @@ export default function BlogPost() {
                 return <h2 key={i} className="text-white font-black text-2xl mt-10 mb-4">{block.replace('## ', '')}</h2>
             }
             if (block.startsWith('### ')) {
-                return <h3 key={i} className="text-white font-bold text-xl mt-8 mb-3">{block.replace('### ', '')}</h3>
+                return <h3 key={i} className="text-h3 text-white mt-8 mb-3">{block.replace('### ', '')}</h3>
             }
             if (block.startsWith('- ')) {
                 const items = block.split('\n').filter(l => l.startsWith('- '))
@@ -137,7 +137,7 @@ export default function BlogPost() {
                     {/* CTA inline */}
                     <div className="mt-16 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 className="text-white font-bold text-lg mb-1">Precisa de ajuda com isso?</h3>
+                            <h3 className="text-card-title text-white mb-1">Precisa de ajuda com isso?</h3>
                             <p className="text-zinc-400 text-sm">Nosso time está pronto para orientar sua empresa.</p>
                         </div>
                         <a
@@ -172,7 +172,7 @@ export default function BlogPost() {
                                     </div>
                                     <div className="p-5">
                                         <span className="text-orange-500 text-xs font-bold uppercase tracking-wider">{p.category}</span>
-                                        <h3 className="text-white font-bold mt-2 mb-2 leading-snug text-sm">{p.title}</h3>
+                                        <h3 className="text-card-title text-white mt-2 mb-2 leading-snug">{p.title}</h3>
                                         <div className="flex items-center gap-3 text-zinc-400 text-xs">
                                             <Calendar size={11} /> {p.date}
                                             <Clock size={11} /> {p.readTime}

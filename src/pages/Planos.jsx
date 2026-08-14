@@ -179,7 +179,7 @@ export default function Planos() {
 
                                 {/* Header */}
                                 <div className="mb-5">
-                                    <h3 className="text-white font-black text-xl mb-1">{plano.nome}</h3>
+                                    <h3 className="text-h3 text-white mb-1">{plano.nome}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{plano.desc}</p>
                                 </div>
 

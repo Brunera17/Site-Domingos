@@ -255,7 +255,7 @@ export default function TrabalheConosco() {
                                     <div className="w-11 h-11 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/30 flex items-center justify-center mb-5 transition-all duration-300">
                                         <Icon size={19} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                     </div>
-                                    <h3 className="text-white font-bold mb-2">{b.title}</h3>
+                                    <h3 className="text-card-title text-white mb-2">{b.title}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{b.desc}</p>
                                 </Card>
                             )
@@ -285,7 +285,7 @@ export default function TrabalheConosco() {
                                     <div className="flex items-center gap-4">
                                         <div>
                                             <div className="flex items-center gap-3 mb-1">
-                                                <h3 className="text-white font-bold text-lg">{vaga.titulo}</h3>
+                                                <h3 className="text-h3 text-white">{vaga.titulo}</h3>
                                                 <span className="bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold px-2.5 py-0.5 rounded-full">
                                                     {vaga.nivel}
                                                 </span>
@@ -370,7 +370,7 @@ export default function TrabalheConosco() {
                                     <div className="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5">
                                         <Icon size={19} className="text-orange-500" />
                                     </div>
-                                    <h3 className="text-white font-bold text-lg mb-2">{etapa.titulo}</h3>
+                                    <h3 className="text-card-title text-white mb-2">{etapa.titulo}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{etapa.desc}</p>
                                 </div>
                             )

@@ -216,7 +216,7 @@ export default function Blog() {
                                                     <Tag size={10} />
                                                     {post.category}
                                                 </span>
-                                                <h3 className="text-white font-bold text-lg mb-2 leading-snug flex-1">
+                                                <h3 className="text-card-title text-white mb-2 leading-snug flex-1">
                                                     {post.title}
                                                 </h3>
                                                 <p className="text-zinc-400 text-sm leading-relaxed mb-4 line-clamp-2">

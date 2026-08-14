@@ -213,7 +213,7 @@ export default function Sobre() {
                                     <div className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg p-4 hover:border-zinc-700 transition-colors">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-orange-500 font-black text-xs md:hidden">{item.ano}</span>
-                                            <h3 className="text-white font-bold">{item.titulo}</h3>
+                                            <h3 className="text-card-title text-white">{item.titulo}</h3>
                                         </div>
                                         <p className="text-zinc-400 text-sm leading-relaxed mb-3">{item.desc}</p>
                                         <p className="text-zinc-400 text-xs leading-relaxed border-l-2 border-orange-500/40 pl-3">
@@ -277,7 +277,7 @@ export default function Sobre() {
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Target size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-white font-bold text-xl mb-3">Missão</h3>
+                            <h3 className="text-h3 text-white mb-3">Missão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
                                 Entregar clareza fiscal, segurança jurídica e vantagem tributária para empresas do
                                 agronegócio, comércio, serviço e indústria — com atendimento humano, próximo e
@@ -289,7 +289,7 @@ export default function Sobre() {
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Eye size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-white font-bold text-xl mb-3">Visão</h3>
+                            <h3 className="text-h3 text-white mb-3">Visão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
                                 Ser o escritório contábil mais recomendado pelos empresários do Brasil — reconhecido
                                 pela excelência técnica, pela clareza na comunicação e pelo impacto financeiro real
@@ -303,7 +303,7 @@ export default function Sobre() {
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
                                 <Heart size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-white font-bold text-xl">Valores</h3>
+                            <h3 className="text-h3 text-white">Valores</h3>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {valores.map((v) => {

@@ -62,7 +62,7 @@ export default function SetoresSection() {
                                         }`}
                                     />
                                     <div className="min-w-0">
-                                        <h3 className={`text-sm leading-snug font-bold transition-colors ${
+                                        <h3 className={`text-card-title leading-snug transition-colors ${
                                             isActive ? "text-white" : "text-white/85"
                                         }`}>
                                             {sector.label}

@@ -306,7 +306,7 @@ export default function ServicoDetalhe() {
                                     </div>
                                     <div>
                                         <span className="text-zinc-400 text-xs font-mono block mb-1">0{i + 1}</span>
-                                        <h3 className="text-white font-bold text-base mb-1.5">{step.title}</h3>
+                                        <h3 className="text-card-title text-white mb-1.5">{step.title}</h3>
                                         <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
                                     </div>
                                 </motion.div>
@@ -393,7 +393,7 @@ export default function ServicoDetalhe() {
                                         <div className="w-10 h-10 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/20 flex items-center justify-center mb-4 transition-all duration-300">
                                             <OtherIcon size={17} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
-                                        <h3 className="text-white font-bold mb-2 text-sm leading-snug">{s.title}</h3>
+                                        <h3 className="text-card-title text-white mb-2 leading-snug">{s.title}</h3>
                                         <p className="text-zinc-400 text-xs leading-relaxed flex-1 mb-4">{s.description}</p>
                                         <span className="flex items-center gap-1.5 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold transition-all duration-200">
                                             Ver detalhes
