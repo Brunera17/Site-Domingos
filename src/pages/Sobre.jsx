@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Award, TrendingUp } from 'lucide-react'
 import SEOHead from '../components/SEOHead'
 import OrganizationSchema from '../components/OrganizationSchema'
+import SectionHeading from '../components/SectionHeading'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
@@ -164,10 +165,7 @@ export default function Sobre() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Quem somos
                     </span>
-                    <h1
-                        className="font-black text-white leading-[0.95] mb-4"
-                        style={{ fontSize: 'clamp(36px, 5vw, 65px)' }}
-                    >
+                    <h1 className="text-display text-white mb-4">
                         Pessoas cuidando
                         <br />
                         <span className="text-orange-500">do seu negócio.</span>
@@ -180,7 +178,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 2. STATS ── */}
-            <section className="py-16 px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black border-b border-zinc-900">
                 <div className="max-w-6xl mx-auto">
                     <div className="w-10 h-px bg-zinc-700 mb-6" />
                     <div className="grid grid-cols-2 gap-x-6 gap-y-5 sm:flex sm:flex-wrap sm:gap-8">
@@ -195,16 +193,13 @@ export default function Sobre() {
             </section>
 
             {/* ── 3. HISTÓRIA / TIMELINE ── */}
-            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nossa trajetória
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            10 anos de <span className="text-orange-500">história</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Nossa trajetória"
+                        title={<>10 anos de <span className="text-orange-500">história</span></>}
+                        className="mb-14"
+                    />
 
                     <div className="relative">
                         <div className="absolute left-[88px] top-0 bottom-0 w-px bg-zinc-800 hidden md:block" />
@@ -233,7 +228,7 @@ export default function Sobre() {
             </section>
 
             {/* ── 4. CITAÇÃO DO FUNDADOR ── */}
-            <section className="py-24 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                         <div className="relative">
@@ -269,16 +264,13 @@ export default function Sobre() {
             </section>
 
             {/* ── 5. MISSÃO VISÃO VALORES ── */}
-            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nossa essência
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Missão, Visão e <span className="text-orange-500">Valores</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Nossa essência"
+                        title={<>Missão, Visão e <span className="text-orange-500">Valores</span></>}
+                        className="mb-14"
+                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-6">
@@ -350,18 +342,15 @@ export default function Sobre() {
             </section>
 
             {/* ── 6. NOSSO TIME — foto + organograma (oculto no mobile) ── */}
-            <section className="hidden md:block py-24 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="hidden md:block py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Cabeçalho */}
-                    <div className="mb-14">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Nosso time
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Conheça nossa <span className="text-orange-500">Equipe</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Nosso time"
+                        title={<>Conheça nossa <span className="text-orange-500">Equipe</span></>}
+                        className="mb-14"
+                    />
 
                     {/* Foto da equipe */}
                     <div className="relative rounded-xl overflow-hidden mb-16" style={{ height: '420px' }}>
@@ -458,16 +447,13 @@ export default function Sobre() {
             </section>
 
             {/* ── 7. ESTRUTURA ── */}
-            <section className="py-24 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Onde trabalhamos
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Nossa <span className="text-orange-500">Estrutura</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Onde trabalhamos"
+                        title={<>Nossa <span className="text-orange-500">Estrutura</span></>}
+                        className="mb-12"
+                    />
 
                     {/* Galeria com destaque clicável */}
                     <div className="flex flex-col md:flex-row gap-4">
@@ -511,19 +497,15 @@ export default function Sobre() {
             </section>
 
             {/* ── 8. CTA ── */}
-            <section className="py-24 px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black border-t border-zinc-900">
                 <div className="max-w-3xl mx-auto text-center">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
-                        Próximo passo
-                    </span>
-                    <h2 className="text-3xl font-black text-white mb-4">
-                        Pronto para ter esse time<br />
-                        <span className="text-orange-500">trabalhando por você?</span>
-                    </h2>
-                    <p className="text-zinc-400 text-lg mb-10 leading-relaxed">
-                        Solicite uma proposta gratuita e descubra como podemos
-                        transformar a gestão da sua empresa.
-                    </p>
+                    <SectionHeading
+                        eyebrow="Próximo passo"
+                        title={<>Pronto para ter esse time<br /><span className="text-orange-500">trabalhando por você?</span></>}
+                        subtitle="Solicite uma proposta gratuita e descubra como podemos transformar a gestão da sua empresa."
+                        align="center"
+                        className="mb-10"
+                    />
                     <div className="flex flex-wrap justify-center gap-4">
                         <a
                             href={buildWhatsAppLink('Olá! Quero saber como o time da Domingos Assessoria pode trabalhar pela minha empresa.')}
