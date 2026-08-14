@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import Card from '../components/Card'
 import SEOHead from '../components/SEOHead'
+import SectionHeading from '../components/SectionHeading'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -190,7 +191,7 @@ export default function TrabalheConosco() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
+            <section className="pt-hero-top pb-section px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div
                     className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{ backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)' }}
@@ -201,10 +202,7 @@ export default function TrabalheConosco() {
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-end">
                         <div>
-                            <h1
-                                className="font-black text-white leading-[0.95] mb-6"
-                                style={{ fontSize: 'clamp(34px, 4.5vw, 55px)' }}
-                            >
+                            <h1 className="text-display text-white mb-6">
                                 Venha crescer
                                 <br />
                                 <span className="text-orange-500">com a gente.</span>
@@ -234,16 +232,13 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── BENEFÍCIOS ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Por que trabalhar conosco
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            O que oferecemos a <span className="text-orange-500">você</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Por que trabalhar conosco"
+                        title={<>O que oferecemos a <span className="text-orange-500">você</span></>}
+                        className="mb-12"
+                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                         {beneficios.map((b, i) => {
@@ -260,7 +255,7 @@ export default function TrabalheConosco() {
                                     <div className="w-11 h-11 rounded-xl bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/30 flex items-center justify-center mb-5 transition-all duration-300">
                                         <Icon size={19} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                     </div>
-                                    <h3 className="text-white font-bold mb-2">{b.title}</h3>
+                                    <h3 className="text-card-title text-white mb-2">{b.title}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{b.desc}</p>
                                 </Card>
                             )
@@ -270,16 +265,13 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── VAGAS ABERTAS ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Oportunidades
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Vagas <span className="text-orange-500">abertas</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Oportunidades"
+                        title={<>Vagas <span className="text-orange-500">abertas</span></>}
+                        className="mb-12"
+                    />
 
                     <div className="flex flex-col gap-4">
                         {vagas.map((vaga) => (
@@ -293,7 +285,7 @@ export default function TrabalheConosco() {
                                     <div className="flex items-center gap-4">
                                         <div>
                                             <div className="flex items-center gap-3 mb-1">
-                                                <h3 className="text-white font-bold text-lg">{vaga.titulo}</h3>
+                                                <h3 className="text-h3 text-white">{vaga.titulo}</h3>
                                                 <span className="bg-orange-500/15 border border-orange-500/30 text-orange-400 text-xs font-bold px-2.5 py-0.5 rounded-full">
                                                     {vaga.nivel}
                                                 </span>
@@ -359,16 +351,13 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── PROCESSO SELETIVO ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
                 <div className="max-w-6xl mx-auto">
-                    <div className="mb-12">
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            Como funciona
-                        </span>
-                        <h2 className="text-3xl font-black text-white">
-                            Processo <span className="text-orange-500">Seletivo</span>
-                        </h2>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Como funciona"
+                        title={<>Processo <span className="text-orange-500">Seletivo</span></>}
+                        className="mb-12"
+                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
                         {processo.map((etapa, i) => {
@@ -381,7 +370,7 @@ export default function TrabalheConosco() {
                                     <div className="w-11 h-11 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-5">
                                         <Icon size={19} className="text-orange-500" />
                                     </div>
-                                    <h3 className="text-white font-bold text-lg mb-2">{etapa.titulo}</h3>
+                                    <h3 className="text-card-title text-white mb-2">{etapa.titulo}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{etapa.desc}</p>
                                 </div>
                             )
@@ -395,7 +384,7 @@ export default function TrabalheConosco() {
             </section>
 
             {/* ── FORMULÁRIO ── */}
-            <section id="formulario" className="py-20 px-6 md:px-8 lg:px-10 bg-black">
+            <section id="formulario" className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-2xl mx-auto">
                     {enviado ? (
                         <motion.div
@@ -425,22 +414,16 @@ export default function TrabalheConosco() {
                         </motion.div>
                     ) : (
                         <>
-                            <div className="mb-10">
-                                <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                                    Candidatura
-                                </span>
-                                <h2 className="text-3xl font-black text-white">
-                                    {vagaSelecionada
-                                        ? <>Candidatura para<br /><span className="text-orange-500">{vagaSelecionada}</span></>
-                                        : <>Banco de <span className="text-orange-500">Talentos</span></>
-                                    }
-                                </h2>
-                                {!vagaSelecionada && (
-                                    <p className="text-zinc-400 text-sm mt-3">
-                                        Não encontrou a vaga ideal? Envie seu currículo e entraremos em contato quando surgir uma oportunidade para o seu perfil.
-                                    </p>
-                                )}
-                            </div>
+                            <SectionHeading
+                                eyebrow="Candidatura"
+                                title={vagaSelecionada
+                                    ? <>Candidatura para<br /><span className="text-orange-500">{vagaSelecionada}</span></>
+                                    : <>Banco de <span className="text-orange-500">Talentos</span></>
+                                }
+                                subtitle={!vagaSelecionada && 'Não encontrou a vaga ideal? Envie seu currículo e entraremos em contato quando surgir uma oportunidade para o seu perfil.'}
+                                subtitleSize="sm"
+                                className="mb-10"
+                            />
 
                             <form onSubmit={submit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
 

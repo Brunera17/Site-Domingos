@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, User } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SectionHeading from './SectionHeading'
 
 const testimonials = [
     {
@@ -106,38 +107,33 @@ export default function TestemunhosSection() {
             <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 
                 {/* Cabeçalho */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                    <div>
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                            O que dizem sobre nós
-                        </span>
-                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                            Clientes que <span className="text-orange-500">confiam</span>
-                        </h2>
-                    </div>
-
-                    {/* Rating geral */}
-                    <a
-                        href="https://www.google.com/search?q=Domingos+Assessoria+Empresarial+Itai+SP"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl px-5 py-3 transition-colors"
-                    >
-                        <div>
-                            <div className="text-2xl font-black text-white leading-none">5,0</div>
-                            <div className="text-zinc-400 text-xs mt-0.5">média geral</div>
-                        </div>
-                        <div className="w-px h-10 bg-zinc-800" />
-                        <div>
-                            <div className="flex gap-0.5 mb-1">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} size={14} className="text-orange-500 fill-orange-500" />
-                                ))}
+                <SectionHeading
+                    eyebrow="O que dizem sobre nós"
+                    title={<>Clientes que <span className="text-orange-500">confiam</span></>}
+                    variant="compact"
+                    action={
+                        <a
+                            href="https://www.google.com/search?q=Domingos+Assessoria+Empresarial+Itai+SP"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-zinc-700 rounded-xl px-5 py-3 transition-colors"
+                        >
+                            <div>
+                                <div className="text-2xl font-black text-white leading-none">5,0</div>
+                                <div className="text-zinc-400 text-xs mt-0.5">média geral</div>
                             </div>
-                            <div className="text-zinc-400 text-xs">63 avaliações no Google</div>
-                        </div>
-                    </a>
-                </div>
+                            <div className="w-px h-10 bg-zinc-800" />
+                            <div>
+                                <div className="flex gap-0.5 mb-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <Star key={i} size={14} className="text-orange-500 fill-orange-500" />
+                                    ))}
+                                </div>
+                                <div className="text-zinc-400 text-xs">63 avaliações no Google</div>
+                            </div>
+                        </a>
+                    }
+                />
 
                 {/* Carrossel principal */}
                 <div className="md:flex-1 md:min-h-0 relative">

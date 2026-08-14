@@ -5,6 +5,7 @@ import { ArrowRight, Search, Star } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import { services } from '../data/services'
 import SEOHead from '../components/SEOHead'
+import SectionHeading from '../components/SectionHeading'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -52,7 +53,7 @@ export default function Servicos() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-20 px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
+            <section className="pt-hero-top pb-section px-6 md:px-8 lg:px-10 bg-black relative overflow-hidden">
                 <div className="absolute right-0 top-0 w-1/2 h-full opacity-5 pointer-events-none"
                     style={{
                         backgroundImage: 'radial-gradient(circle at 70% 50%, #E8610A 0%, transparent 60%)',
@@ -62,10 +63,7 @@ export default function Servicos() {
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Soluções completas
                     </span>
-                    <h1
-                        className="font-black text-white leading-[0.95] mb-6"
-                        style={{ fontSize: 'clamp(36px, 4.6vw, 55px)' }}
-                    >
+                    <h1 className="text-display text-white mb-6">
                         Tudo que sua empresa
                         <br />
                         <span className="text-orange-500">precisa para crescer</span>
@@ -133,7 +131,7 @@ export default function Servicos() {
             </section>
 
             {/* ── ÍNDICE DE SERVIÇOS ── */}
-            <section className="py-16 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
 
                     <div className="flex items-center justify-between mb-2">
@@ -187,7 +185,7 @@ export default function Servicos() {
                                             {/* Conteúdo */}
                                             <div className="flex-1 min-w-0">
                                                 <div className="flex items-center gap-2 mb-0.5">
-                                                    <h3 className="text-white font-bold text-base md:text-lg truncate">
+                                                    <h3 className="text-card-title text-white truncate">
                                                         {service.title}
                                                     </h3>
                                                     {service.tag && (
@@ -225,22 +223,13 @@ export default function Servicos() {
             </section>
 
             {/* ── CTA ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                            Não encontrou o que procura?
-                        </span>
-                        <h2 className="text-3xl font-black text-white mb-4">
-                            Temos parceiros para
-                            <br />
-                            <span className="text-orange-500">tudo que você precisa.</span>
-                        </h2>
-                        <p className="text-zinc-400 text-base leading-relaxed">
-                            Como um hub de soluções empresariais, contamos com uma rede de
-                            parceiros especializados para atender qualquer demanda da sua empresa.
-                        </p>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Não encontrou o que procura?"
+                        title={<>Temos parceiros para<br /><span className="text-orange-500">tudo que você precisa.</span></>}
+                        subtitle="Como um hub de soluções empresariais, contamos com uma rede de parceiros especializados para atender qualquer demanda da sua empresa."
+                    />
                     <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
                         <a
                             href={buildWhatsAppLink('Olá! Não encontrei o serviço que preciso no site. Vocês têm parceiros para isso?')}

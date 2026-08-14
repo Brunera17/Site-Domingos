@@ -4,6 +4,7 @@ import { Search, Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { blogPosts, categories } from '../data/blogData'
 import SEOHead from '../components/SEOHead'
+import SectionHeading from '../components/SectionHeading'
 
 export default function Blog() {
     const [search, setSearch] = useState('')
@@ -30,17 +31,14 @@ export default function Blog() {
             />
 
             {/* ── HERO ── */}
-            <section className="pt-36 pb-16 px-6 md:px-8 lg:px-10 bg-black">
+            <section className="pt-hero-top pb-section px-6 md:px-8 lg:px-10 bg-black">
                 <div className="max-w-6xl mx-auto">
                     <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Conhecimento gratuito
                     </span>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-end">
                         <div>
-                            <h1
-                                className="font-black text-white leading-[0.95] mb-4"
-                                style={{ fontSize: 'clamp(34px, 4.2vw, 52px)' }}
-                            >
+                            <h1 className="text-display text-white mb-4">
                                 Blog e
                                 <br />
                                 <span className="text-orange-500">Conteúdos</span>
@@ -159,7 +157,7 @@ export default function Blog() {
             )}
 
             {/* ── GRID DE POSTS ── */}
-            <section className="px-6 md:px-8 lg:px-10 pb-20 bg-black">
+            <section className="px-6 md:px-8 lg:px-10 pb-section bg-black">
                 <div className="max-w-6xl mx-auto">
 
                     {/* Contador */}
@@ -218,7 +216,7 @@ export default function Blog() {
                                                     <Tag size={10} />
                                                     {post.category}
                                                 </span>
-                                                <h3 className="text-white font-bold text-lg mb-2 leading-snug flex-1">
+                                                <h3 className="text-card-title text-white mb-2 leading-snug flex-1">
                                                     {post.title}
                                                 </h3>
                                                 <p className="text-zinc-400 text-sm leading-relaxed mb-4 line-clamp-2">
@@ -251,22 +249,14 @@ export default function Blog() {
             </section>
 
             {/* ── NEWSLETTER ── */}
-            <section className="py-20 px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
+            <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950 border-t border-zinc-900">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
-                            Newsletter
-                        </span>
-                        <h2 className="text-2xl font-black text-white mb-3">
-                            Receba conteúdos
-                            <br />
-                            <span className="text-orange-500">exclusivos no e-mail</span>
-                        </h2>
-                        <p className="text-zinc-400 text-sm leading-relaxed">
-                            Dicas tributárias, novidades legislativas e materiais
-                            exclusivos direto na sua caixa de entrada. Sem spam.
-                        </p>
-                    </div>
+                    <SectionHeading
+                        eyebrow="Newsletter"
+                        title={<>Receba conteúdos<br /><span className="text-orange-500">exclusivos no e-mail</span></>}
+                        subtitle="Dicas tributárias, novidades legislativas e materiais exclusivos direto na sua caixa de entrada. Sem spam."
+                        subtitleSize="sm"
+                    />
 
                     <form
                         onSubmit={e => { e.preventDefault(); alert('Inscrição realizada!') }}

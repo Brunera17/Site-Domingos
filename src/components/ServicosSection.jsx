@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
+import SectionHeading from './SectionHeading'
 import { services as allServices } from '../data/services'
 
 const AUTOPLAY_DELAY = 12000     // tempo normal entre slides
@@ -45,16 +46,12 @@ export default function ServicosSection() {
             <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-6 md:gap-4">
 
                 {/* Cabeçalho */}
-                <div className="mb-2">
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-2 block">
-                        O que fazemos
-                    </span>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-                        <h2 className="text-2xl md:text-3xl font-black text-white leading-tight">
-                            Nossos <span className="text-orange-500">Serviços</span>
-                        </h2>
-                    </div>
-                </div>
+                <SectionHeading
+                    eyebrow="O que fazemos"
+                    title={<>Nossos <span className="text-orange-500">Serviços</span></>}
+                    variant="compact"
+                    className="mb-2"
+                />
 
                 {/* Grid expandido sempre ativo */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0 md:items-start">
@@ -92,7 +89,7 @@ export default function ServicosSection() {
                                     </span>
                                 </div>
 
-                                <h3 className="text-white font-black text-lg leading-tight shrink-0 mb-2">
+                                <h3 className="text-h3 text-white leading-tight shrink-0 mb-2">
                                     {selectedService.title}
                                 </h3>
 
@@ -163,7 +160,7 @@ export default function ServicosSection() {
                                         <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                             <Icon size={16} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
-                                        <h3 className="text-white font-bold text-sm mb-1 leading-snug">{service.title}</h3>
+                                        <h3 className="text-card-title text-white mb-1 leading-snug">{service.title}</h3>
                                         <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">{service.description}</p>
                                     </div>
 
