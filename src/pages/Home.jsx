@@ -8,7 +8,7 @@ import CTASection from '../components/Cta'
 import LocalBusinessSchema from '../components/LocalBusinessSchema'
 import OrganizationSchema from '../components/OrganizationSchema'
 
-const Spacer = () => <div className="h-24" />
+const Spacer = () => <div className="hidden md:block h-24" />
 
 export default function Home() {
     return (
