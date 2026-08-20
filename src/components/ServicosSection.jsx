@@ -140,7 +140,7 @@ export default function ServicosSection() {
 
                     {/* Cards menores — 7 colunas */}
                     <div
-                        className="md:col-span-7 grid grid-cols-2 auto-rows-min gap-3 content-start md:content-center md:max-h-full md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                        className="md:col-span-7 grid grid-cols-2 auto-rows-min gap-3 content-start md:[grid-template-rows:auto_auto_minmax(0,1fr)] md:max-h-full md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     >
                         {otherServices.map((service, i) => {
                             const Icon = service.icon
@@ -148,7 +148,7 @@ export default function ServicosSection() {
                                 <motion.div
                                     key={service.id}
                                     onClick={() => handleSelect(services.findIndex(s => s.id === service.id))}
-                                    className="group relative bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col cursor-pointer overflow-hidden"
+                                    className="group relative md:self-start bg-zinc-900 border border-zinc-800 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col cursor-pointer overflow-hidden"
                                     initial={{ opacity: 0, y: 12 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: i * 0.04, duration: 0.25 }}
@@ -174,7 +174,7 @@ export default function ServicosSection() {
                         {/* Botão ver todos os serviços no espaço vazio */}
                         <Link
                             to="/servicos"
-                            className="group relative bg-zinc-900/40 border border-dashed border-zinc-700 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 hover:bg-zinc-900"
+                            className="group relative md:self-stretch bg-zinc-900/40 border border-dashed border-zinc-700 hover:border-orange-500/40 rounded-2xl p-4 flex flex-col items-center justify-center cursor-pointer overflow-hidden transition-all duration-300 hover:bg-zinc-900"
                         >
                             <div className="w-9 h-9 rounded-lg bg-zinc-800 group-hover:bg-orange-500/10 border border-zinc-700 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                 <ArrowRight size={16} className="text-zinc-500 group-hover:text-orange-500 transition-colors duration-300" />
