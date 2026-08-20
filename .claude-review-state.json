@@ -1,0 +1,12 @@
+{
+  "lastReviewedSha": "fe38949",
+  "lastReviewedAt": "2026-08-20",
+  "branch": "claude/cool-ptolemy-1jcn0m",
+  "runType": "baseline",
+  "checks": {
+    "tests": "inexistente (sem script `test` e sem runner instalado)",
+    "lint": "npm run lint — 17 erros, 1 aviso",
+    "build": "npm run build — sucesso",
+    "audit": "npm audit — 0 vulnerabilidades"
+  }
+}
