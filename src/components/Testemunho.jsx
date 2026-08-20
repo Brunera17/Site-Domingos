@@ -102,11 +102,8 @@ export default function TestemunhosSection() {
 
     return (
         <section
-            className="relative px-6 md:px-8 lg:px-10 bg-zinc-950 overflow-hidden md:h-screen md:max-h-[980px] py-16 md:py-0"
+            className="px-6 md:px-8 lg:px-10 bg-zinc-950 overflow-hidden md:h-screen md:max-h-[980px] py-16 md:py-0"
         >
-            {/* Degradês nas bordas — suaviza a transição com as seções pretas vizinhas */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-28 bg-gradient-to-b from-black to-transparent z-10" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 md:h-28 bg-gradient-to-t from-black to-transparent z-10" />
             <div className="max-w-6xl mx-auto md:h-full flex flex-col md:py-8 gap-8">
 
                 {/* Cabeçalho */}

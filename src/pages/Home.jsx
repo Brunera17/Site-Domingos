@@ -8,7 +8,16 @@ import CTASection from '../components/Cta'
 import LocalBusinessSchema from '../components/LocalBusinessSchema'
 import OrganizationSchema from '../components/OrganizationSchema'
 
-const Spacer = () => <div className="hidden md:block h-24" />
+// O gap entre seções h-screen (só existe no desktop; no mobile as seções já
+// têm padding próprio) -- variant aplica um degradê suave entre as cores das
+// seções vizinhas, evitando um corte seco quando elas alternam preto/cinza.
+const Spacer = ({ variant }) => {
+    const gradients = {
+        toGray: 'md:bg-gradient-to-b md:from-black md:to-zinc-950',
+        toBlack: 'md:bg-gradient-to-b md:from-zinc-950 md:to-black',
+    }
+    return <div className={`hidden md:block h-24 ${variant ? gradients[variant] : ''}`} />
+}
 
 export default function Home() {
     return (
@@ -25,15 +34,15 @@ export default function Home() {
             <Hero />
             <Spacer />
             <ServicosSection />
-            <Spacer />
+            <Spacer variant="toGray" />
             <SetoresSection />
-            <Spacer />
+            <Spacer variant="toBlack" />
             <DiferenciaisSection />
-            <Spacer />
+            <Spacer variant="toGray" />
             <TestemunhosSection />
-            <Spacer />
+            <Spacer variant="toBlack" />
             <CTASection />
-            <Spacer />
+            <Spacer variant="toGray" />
         </>
     )
 }

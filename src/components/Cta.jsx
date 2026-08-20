@@ -8,9 +8,6 @@ export default function CTASection() {
         <section
             className="relative overflow-hidden bg-black md:h-screen md:max-h-[980px]"
         >
-            {/* Degradê no rodapé da seção — suaviza a transição para o rodapé (cinza) do site */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 md:h-28 bg-gradient-to-b from-transparent to-zinc-950 z-10" />
-
             {/* Imagem — em cima no mobile (altura fixa), à esquerda com clip diagonal no desktop */}
             <div
                 className="relative h-64 sm:h-80 md:h-auto md:absolute md:left-0 md:top-0 md:bottom-0 md:w-[55%] md:[clip-path:polygon(0_0,85%_0,100%_100%,0_100%)]"
