@@ -1,0 +1,11 @@
+{
+  "lastReviewedSha": "e9b3e46c981c00dcf0432cb14007aa2f051bb7ff",
+  "lastReviewedAt": "2026-08-20",
+  "baseline": {
+    "build": "ok",
+    "tests": "nenhuma suite configurada",
+    "lintErrors": 17,
+    "lintWarnings": 1,
+    "npmAuditVulnerabilities": 0
+  }
+}
