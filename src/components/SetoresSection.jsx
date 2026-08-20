@@ -20,7 +20,7 @@ export default function SetoresSection() {
     const [active, setActive] = useState(0)
 
     return (
-        <section className="relative overflow-hidden bg-zinc-950 text-white lg:h-screen lg:max-h-[980px]">
+        <section className="relative overflow-hidden bg-zinc-950 text-white lg:h-screen lg:max-h-section-screen">
             <div className="grid lg:h-full lg:grid-cols-[58%_42%]">
 
                 {/* Conteúdo — esquerda */}
