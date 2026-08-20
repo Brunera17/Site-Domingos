@@ -21,6 +21,9 @@ export default function SetoresSection() {
 
     return (
         <section className="relative overflow-hidden bg-zinc-950 text-white lg:h-screen lg:max-h-[980px]">
+            {/* Degradês nas bordas — suaviza a transição com as seções pretas vizinhas */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-28 bg-gradient-to-b from-black to-transparent z-10" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 md:h-28 bg-gradient-to-t from-black to-transparent z-10" />
             <div className="grid lg:h-full lg:grid-cols-[58%_42%]">
 
                 {/* Conteúdo — esquerda */}
