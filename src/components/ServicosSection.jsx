@@ -54,7 +54,7 @@ export default function ServicosSection() {
                 />
 
                 {/* Grid expandido sempre ativo */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0 md:items-start">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0">
 
                     {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
                     <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col overflow-hidden relative">
