@@ -18,6 +18,9 @@ export default {
         "hero-top": "9rem", // pt-36 — offset do header fixo, só em seções de hero
         section: "5rem", // py-20 — ritmo vertical único de seções de conteúdo
       },
+      maxHeight: {
+        "section-screen": "61.25rem", // 980px — teto das seções h-screen da home, evita vazio em janelas muito altas
+      },
       fontSize: {
         display: ["clamp(2.125rem, 4.5vw, 3.4375rem)", { lineHeight: "0.95", fontWeight: "900" }], // H1
         h2: ["1.875rem", { lineHeight: "1.15", fontWeight: "900" }], // título de página (text-3xl)

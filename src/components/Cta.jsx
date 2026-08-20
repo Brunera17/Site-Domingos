@@ -6,7 +6,7 @@ import { buildWhatsAppLink } from '../utils/whatsapp'
 export default function CTASection() {
     return (
         <section
-            className="relative overflow-hidden bg-zinc-950 md:h-screen"
+            className="relative overflow-hidden bg-black md:h-screen md:max-h-section-screen"
         >
             {/* Imagem — em cima no mobile (altura fixa), à esquerda com clip diagonal no desktop */}
             <div
@@ -20,7 +20,7 @@ export default function CTASection() {
                 {/* Overlay escuro leve para não competir */}
                 <div className="absolute inset-0 bg-black/30" />
                 {/* Degradê para o texto respirar no mobile */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent md:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent md:hidden" />
             </div>
 
 
