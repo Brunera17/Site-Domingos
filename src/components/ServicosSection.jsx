@@ -54,7 +54,7 @@ export default function ServicosSection() {
                 />
 
                 {/* Grid expandido sempre ativo */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0 md:items-start">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-4 flex-1 min-h-0">
 
                     {/* Card expandido — 5 colunas (shell fica montado; só o conteúdo interno troca) */}
                     <div className="md:col-span-5 bg-zinc-900 border border-orange-500/30 rounded-2xl p-4 flex flex-col overflow-hidden relative">
@@ -140,7 +140,7 @@ export default function ServicosSection() {
 
                     {/* Cards menores — 7 colunas */}
                     <div
-                        className="md:col-span-7 grid grid-cols-2 auto-rows-min gap-3 content-start md:max-h-full md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                        className="md:col-span-7 grid grid-cols-2 auto-rows-min gap-3 content-start md:grid-rows-3 md:max-h-full md:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     >
                         {otherServices.map((service, i) => {
                             const Icon = service.icon
@@ -164,7 +164,7 @@ export default function ServicosSection() {
                                         <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">{service.description}</p>
                                     </div>
 
-                                    <div className="relative z-10 flex items-center gap-1 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold mt-3 transition-all duration-200">
+                                    <div className="relative z-10 flex items-center gap-1 text-zinc-400 group-hover:text-orange-500 text-xs font-semibold mt-auto pt-3 transition-all duration-200">
                                         Ver detalhes <ArrowRight size={11} />
                                     </div>
                                 </motion.div>
