@@ -1,12 +1,13 @@
 {
-  "lastReviewedSha": "fe38949",
-  "lastReviewedAt": "2026-08-20",
-  "branch": "claude/cool-ptolemy-1jcn0m",
-  "runType": "baseline",
+  "lastReviewedSha": "4e084a8",
+  "lastReviewedAt": "2026-08-21",
+  "branch": "claude/cool-ptolemy-myuwrg",
+  "runType": "incremental",
   "checks": {
     "tests": "inexistente (sem script `test` e sem runner instalado)",
-    "lint": "npm run lint — 17 erros, 1 aviso",
+    "lint": "npm run lint — 17 erros, 1 aviso (igual ao baseline)",
     "build": "npm run build — sucesso",
     "audit": "npm audit — 0 vulnerabilidades"
-  }
+  },
+  "notes": "Nenhuma alteração de código desde o baseline (fe38949) — o único commit no intervalo foi a criação do próprio arquivo de estado."
 }
