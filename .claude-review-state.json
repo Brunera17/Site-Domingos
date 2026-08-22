@@ -1,7 +1,7 @@
 {
-  "lastReviewedSha": "4e084a8",
-  "lastReviewedAt": "2026-08-21",
-  "branch": "claude/cool-ptolemy-myuwrg",
+  "lastReviewedSha": "890da15",
+  "lastReviewedAt": "2026-08-22",
+  "branch": "claude/cool-ptolemy-rrbsap",
   "runType": "incremental",
   "checks": {
     "tests": "inexistente (sem script `test` e sem runner instalado)",
@@ -9,5 +9,5 @@
     "build": "npm run build — sucesso",
     "audit": "npm audit — 0 vulnerabilidades"
   },
-  "notes": "Nenhuma alteração de código desde o baseline (fe38949) — o único commit no intervalo foi a criação do próprio arquivo de estado."
+  "notes": "Nenhuma alteração de código desde o baseline anterior (4e084a8) — os únicos commits no intervalo (60b2076, 890da15) foram a atualização do próprio arquivo de estado e o merge da PR correspondente. 8 issues auto:* seguem abertas e rastreadas (#100-#107), sem mudança de status."
 }
