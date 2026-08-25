@@ -8,6 +8,7 @@
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "vite build",
     "lint": "eslint .",
+    "test": "node --experimental-test-module-mocks --test api/_lib/__tests__/contact-security.test.mjs",
     "preview": "vite preview",
     "generate-sitemap": "node scripts/generate-sitemap.js"
   },
