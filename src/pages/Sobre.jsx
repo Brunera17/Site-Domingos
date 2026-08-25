@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Target, Eye, Heart, Award, TrendingUp } from 'lucide-react'
-import SEOHead from '../components/SEOHead'
-import OrganizationSchema from '../components/OrganizationSchema'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import OrganizationSchema from '../components/seo/OrganizationSchema'
+import SectionHeading from '../components/ui/SectionHeading'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────

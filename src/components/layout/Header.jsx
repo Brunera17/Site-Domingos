@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronRight, Phone } from 'lucide-react'
-import logo from "../assets/logo_domingos_transparente.png"
-import WhatsAppIcon from './icons/WhatsAppIcon'
-import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../utils/whatsapp'
+import logo from "../../assets/logo_domingos_transparente.png"
+import WhatsAppIcon from '../icons/WhatsAppIcon'
+import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../../utils/whatsapp'
 
 const navLinks = [
     { to: '/', label: 'Início' },

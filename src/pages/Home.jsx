@@ -1,12 +1,12 @@
-import SEOHead from '../components/SEOHead'
-import Hero from '../components/Hero'
-import ServicosSection from '../components/ServicosSection'
-import SetoresSection from '../components/SetoresSection'
-import DiferenciaisSection from '../components/Diferenciais'
-import TestemunhosSection from '../components/Testemunho'
-import CTASection from '../components/Cta'
-import LocalBusinessSchema from '../components/LocalBusinessSchema'
-import OrganizationSchema from '../components/OrganizationSchema'
+import SEOHead from '../components/seo/SEOHead'
+import Hero from '../components/sections/Hero'
+import ServicosSection from '../components/sections/ServicosSection'
+import SetoresSection from '../components/sections/SetoresSection'
+import DiferenciaisSection from '../components/sections/Diferenciais'
+import TestemunhosSection from '../components/sections/Testemunho'
+import CTASection from '../components/sections/Cta'
+import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
+import OrganizationSchema from '../components/seo/OrganizationSchema'
 
 // O gap entre seções h-screen (só existe no desktop; no mobile as seções já
 // têm padding próprio) -- variant aplica um degradê suave entre as cores das

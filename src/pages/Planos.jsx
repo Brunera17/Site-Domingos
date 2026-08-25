@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Minus, ArrowRight, Zap } from 'lucide-react'
-import Card from '../components/Card'
+import Card from '../components/ui/Card'
 import { buildWhatsAppLink } from '../utils/whatsapp'
-import SEOHead from '../components/SEOHead'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import SectionHeading from '../components/ui/SectionHeading'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 

@@ -1,4 +1,4 @@
-import SEOHead from '../components/SEOHead'
+import SEOHead from '../components/seo/SEOHead'
 
 export default function Proposta() {
     return (

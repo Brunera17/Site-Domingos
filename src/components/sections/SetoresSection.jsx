@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Building, ShoppingCart, Package, Leaf, Factory, ShoppingBag, Users, Heart, ArrowRight } from 'lucide-react'
-import { buildWhatsAppLink } from '../utils/whatsapp'
+import { buildWhatsAppLink } from '../../utils/whatsapp'
 import { sectorImages } from './Setores/sectorImages'
 
 const sectors = [

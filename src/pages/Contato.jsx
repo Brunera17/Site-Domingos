@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Mail, MapPin, Clock, ArrowRight, ChevronDown, CheckCircle } from 'lucide-react'
 import WhatsAppIcon from '../components/icons/WhatsAppIcon'
 import { buildWhatsAppLink } from '../utils/whatsapp'
-import SEOHead from '../components/SEOHead'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import SectionHeading from '../components/ui/SectionHeading'
 
 // ── FAQ ────────────────────────────────────────────────────────────────────────
 const faqs = [

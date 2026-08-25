@@ -5,9 +5,9 @@ import {
     ArrowRight, TrendingUp, Users, BookOpen, Coffee,
     CheckCircle, Upload, FileText, MessageSquare, ChevronDown
 } from 'lucide-react'
-import Card from '../components/Card'
-import SEOHead from '../components/SEOHead'
-import SectionHeading from '../components/SectionHeading'
+import Card from '../components/ui/Card'
+import SEOHead from '../components/seo/SEOHead'
+import SectionHeading from '../components/ui/SectionHeading'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 

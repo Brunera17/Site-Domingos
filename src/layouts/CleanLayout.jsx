@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Footer from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton";
+import Footer from "../components/layout/Footer";
+import WhatsAppButton from "../components/layout/WhatsAppButton";
 
 export default function CleanLayout() {
     return (
