@@ -137,7 +137,7 @@ export default function BlogPost() {
                     {/* CTA inline */}
                     <div className="mt-16 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 className="text-card-title text-white mb-1">Precisa de ajuda com isso?</h3>
+                            <h3 className="text-card-title text-white mb-2">Precisa de ajuda com isso?</h3>
                             <p className="text-zinc-400 text-sm">Nosso time está pronto para orientar sua empresa.</p>
                         </div>
                         <a

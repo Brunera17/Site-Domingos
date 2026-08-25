@@ -33,7 +33,7 @@ export default function CTASection() {
                 <div className="w-full max-w-lg">
 
                     {/* Badge */}
-                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-7 block">
+                    <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                         Fale com um especialista
                     </span>
 
