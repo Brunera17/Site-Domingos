@@ -157,6 +157,35 @@ test('isRateLimited: inundar com milhares de IPs distintos não reseta o contado
     )
 })
 
+test('isRateLimited: com a Map cheia de entradas ainda válidas, um IP novo é bloqueado (fail-closed), não liberado', async () => {
+    // Reproduz o segundo furo relatado: quando não há vaga pra rastrear um
+    // IP novo, deixar a requisição passar (fail-open) permite que um
+    // atacante varie o IP — ou o X-Forwarded-For — a cada chamada e nunca
+    // seja rastreado, logo nunca seja bloqueado, driblando o rate limit por
+    // completo assim que a Map estiver saturada.
+    const { isRateLimited } = await import('../rateLimit.js?v=' + Date.now())
+    const opts = { max: 5, windowMs: 60_000 } // janela longa: nada expira durante o teste
+
+    // Satura a Map com 5000 IPs distintos, cada um bem abaixo do próprio
+    // limite — a saturação vem da quantidade de IPs, não de nenhum deles
+    // individualmente estourado.
+    for (let i = 0; i < 5000; i++) {
+        isRateLimited(`filler-ip-${i}`, opts)
+    }
+
+    const neverSeenBefore = 'brand-new-ip-' + Date.now()
+    assert.equal(
+        isRateLimited(neverSeenBefore, opts),
+        true,
+        'IP nunca visto antes deveria ser bloqueado quando não há vaga pra rastreá-lo, não liberado por padrão'
+    )
+    // Confirma que continuar tentando com o mesmo IP (ou variando-o, como um
+    // atacante faria) não abre brecha: segue bloqueado enquanto a Map
+    // permanecer saturada.
+    assert.equal(isRateLimited(neverSeenBefore, opts), true, 'repetir a mesma checagem continua bloqueado')
+    assert.equal(isRateLimited('outro-ip-novo-' + Date.now(), opts), true, 'variar o IP não abre brecha enquanto a Map estiver saturada')
+})
+
 // ── 3. Rate limit — comportamento fim-a-fim no handler real (usa o default de 5/10min) ─
 
 test('contato.js: a 6ª requisição do mesmo IP em 10min volta 429, sem chamar o Resend', async () => {

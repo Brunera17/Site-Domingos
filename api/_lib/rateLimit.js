@@ -32,13 +32,17 @@ export function isRateLimited(ip, { max = 5, windowMs = 10 * 60 * 1000 } = {}) {
     recent.push(now)
 
     // Se ainda estiver no teto depois de descartar o que expirou de verdade,
-    // um IP nunca visto antes simplesmente não é rastreado (fail-open só
-    // pra ele) — em vez de despejar o contador de outro IP pra abrir vaga.
+    // não há como abrir uma vaga pra um IP nunca visto antes sem sacrificar
+    // o contador de outro IP — então a requisição é bloqueada (fail-closed)
+    // em vez de liberada. Deixar passar aqui (fail-open) reabriria o
+    // problema: como getClientIp confia em qualquer valor de
+    // X-Forwarded-For, bastaria variar o header a cada requisição pra nunca
+    // ser rastreado e nunca ser bloqueado.
     if (!isNewIp || hits.size < MAX_TRACKED_IPS) {
         hits.set(ip, recent)
+        return recent.length > max
     }
-
-    return recent.length > max
+    return true
 }
 
 // Descarta só entradas totalmente expiradas — nenhum timestamp dentro da
