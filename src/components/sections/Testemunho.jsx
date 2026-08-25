@@ -89,6 +89,7 @@ export default function TestemunhosSection() {
     useEffect(() => {
         intervalRef.current = setInterval(next, 5000)
         return () => clearInterval(intervalRef.current)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     // Qualquer interação manual (seta, bolinha ou card lateral) pausa o
@@ -147,7 +148,7 @@ export default function TestemunhosSection() {
                                 className="absolute top-4 right-6 text-zinc-800 font-black select-none leading-none"
                                 style={{ fontSize: '120px' }}
                             >
-                                "
+                                &quot;
                             </div>
 
                             <AnimatePresence mode="wait" custom={direction}>
@@ -174,7 +175,7 @@ export default function TestemunhosSection() {
                                         </div>
 
                                         <p className="text-white text-lg leading-relaxed font-medium overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:bg-zinc-700 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-transparent">
-                                            "{t.text}"
+                                            &quot;{t.text}&quot;
                                         </p>
                                     </div>
 
@@ -208,7 +209,7 @@ export default function TestemunhosSection() {
                                         <div className="min-w-0">
                                             <div className="text-white text-sm font-semibold mb-1">{item.name}</div>
                                             <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2 group-hover:text-zinc-300 transition-colors">
-                                                "{item.text}"
+                                                &quot;{item.text}&quot;
                                             </p>
                                         </div>
                                     </button>

@@ -17,15 +17,12 @@ const navLinks = [
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [visible, setVisible] = useState(true)
-    const [scrolled, setScrolled] = useState(false)
     const lastScrollY = useRef(0)
     const location = useLocation()
-    const isHome = location.pathname === '/'
 
     useEffect(() => {
         const handleScroll = () => {
             const currentY = window.scrollY
-            setScrolled(currentY > 10)
             if (currentY < 10) {
                 setVisible(true)
             } else if (currentY < lastScrollY.current) {
@@ -40,7 +37,10 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
-    // Fecha menu ao navegar
+    // Fecha menu ao navegar — precisa ser efeito porque reage a uma mudança
+    // de rota vinda de fora do componente, não de um valor calculado durante
+    // o render.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
     const headerBg = 'bg-black/20 backdrop-blur-md'
