@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { HeadphonesIcon, TrendingDown, Users, Clock, Shield, Award } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import SectionHeading from './SectionHeading'
+import SectionHeading from '../ui/SectionHeading'
 
 const diferenciais = [
     {

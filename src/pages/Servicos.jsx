@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Search, Star } from 'lucide-react'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 import { services } from '../data/services'
-import SEOHead from '../components/SEOHead'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import SectionHeading from '../components/ui/SectionHeading'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 

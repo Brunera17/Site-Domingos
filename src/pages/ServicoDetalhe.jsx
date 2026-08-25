@@ -6,9 +6,9 @@ import {
     FileText, TrendingUp, DollarSign, Shield,
     Search, Target, Clock, BadgeCheck, ClipboardList,
 } from 'lucide-react'
-import SEOHead from '../components/SEOHead'
-import ServiceSchema from '../components/ServiceSchema'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import ServiceSchema from '../components/seo/ServiceSchema'
+import SectionHeading from '../components/ui/SectionHeading'
 import { services as rawServices, featureDescs } from '../data/services'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 

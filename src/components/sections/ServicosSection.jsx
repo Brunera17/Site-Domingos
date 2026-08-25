@@ -2,9 +2,9 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { buildWhatsAppLink } from '../utils/whatsapp'
-import SectionHeading from './SectionHeading'
-import { services as allServices } from '../data/services'
+import { buildWhatsAppLink } from '../../utils/whatsapp'
+import SectionHeading from '../ui/SectionHeading'
+import { services as allServices } from '../../data/services'
 
 const AUTOPLAY_DELAY = 12000     // tempo normal entre slides
 const INTERACTION_DELAY = 17000   // tempo maior após interação manual

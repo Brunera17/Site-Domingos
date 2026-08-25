@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { Search, Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { blogPosts, categories } from '../data/blogData'
-import SEOHead from '../components/SEOHead'
-import SectionHeading from '../components/SectionHeading'
+import SEOHead from '../components/seo/SEOHead'
+import SectionHeading from '../components/ui/SectionHeading'
 
 export default function Blog() {
     const [search, setSearch] = useState('')
