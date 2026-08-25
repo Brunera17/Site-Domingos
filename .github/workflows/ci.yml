@@ -13,9 +13,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # 24, não 22: os testes de api/_lib usam `node --experimental-test-module-mocks`
+          # (mock.module), uma API ainda instável entre versões do Node — a opção
+          # `exports` do mock.module não é reconhecida em builds de Node 22 mais
+          # antigos, e o mock falha silenciosamente. Verificado localmente em 24.15.
+          node-version: 24
           cache: npm
 
       - run: npm ci
       - run: npm run lint
+      - run: npm run test:all
       - run: npm run build

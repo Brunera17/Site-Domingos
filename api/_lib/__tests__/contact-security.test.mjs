@@ -43,6 +43,12 @@ function mockReq(body, ip) {
 // vão falhar de propósito — é o sinal de que as asserções (e a intenção que
 // elas documentam) precisam ser atualizadas junto com o código.
 let sendCalls = []
+// mock.module ainda é uma API experimental cujo formato de opções mudou
+// entre versões do Node (releases mais antigas de Node 22 só reconheciam
+// `namedExports`; a partir de um certo ponto isso virou `exports`, com
+// `namedExports` deprecated — e passar os dois juntos é erro, não redundância
+// inofensiva). Por isso o workflow de CI fixa Node 24: é a versão verificada
+// aqui localmente, com a opção `exports` abaixo.
 mock.module('resend', {
     exports: {
         Resend: class {
