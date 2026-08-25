@@ -7,7 +7,7 @@
     "tests": "inexistente (sem script `test` e sem runner instalado)",
     "lint": "npm run lint — 17 erros, 1 aviso (igual ao baseline)",
     "build": "npm run build — sucesso",
-    "audit": "npm audit — 0 vulnerabilidades"
+    "audit": "não executado nesta rodada (sem mudanças de código)"
   },
   "notes": "Nenhuma alteração de código desde o baseline anterior (4e084a8) — git diff 4e084a8..890da15 não mostra mudanças fora de .claude-review-state.json. Atenção operacional: as 3 últimas execuções da rotina (PRs #109, #110, #111) abriram PRs de no-op que seguem abertos sem merge, todos baseados no mesmo main (890da15). A issue crítica #100 (relay de e-mail aberto em api/contato.js e api/trabalhe-conosco.js) segue aberta e sem correção desde 2026-08-20."
 }

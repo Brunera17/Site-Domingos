@@ -1,0 +1,7 @@
+{
+  "lastReviewedAt": "2026-08-22",
+  "lastReviewedIssueNumber": 107,
+  "runType": "baseline",
+  "reviewedIssues": [97, 100, 101, 102, 103, 104, 105, 106, 107],
+  "notes": "Primeira execução da rotina de triagem de issues (sem estado anterior encontrado). A próxima execução deve considerar como 'novas' as issues abertas com número maior que 107 ou created_at posterior a 2026-08-22."
+}
