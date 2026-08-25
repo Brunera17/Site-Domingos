@@ -122,7 +122,7 @@ export default function TrabalheConosco() {
     const [vagaAberta, setVagaAberta] = useState(null)
     const [vagaSelecionada, setVagaSelecionada] = useState('')
     const [arquivo, setArquivo] = useState(null)
-    const [form, setForm] = useState({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '' })
+    const [form, setForm] = useState({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '', site: '' })
     const [enviado, setEnviado] = useState(false)
     const [enviando, setEnviando] = useState(false)
     const [erro, setErro] = useState(null)
@@ -402,7 +402,7 @@ export default function TrabalheConosco() {
                             </p>
                             <button
                                 onClick={() => {
-                                    setForm({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '' })
+                                    setForm({ nome: '', email: '', telefone: '', area: '', nivel: '', disponibilidade: '', motivacao: '', site: '' })
                                     setArquivo(null)
                                     setVagaSelecionada('')
                                     setEnviado(false)
@@ -426,6 +426,17 @@ export default function TrabalheConosco() {
                             />
 
                             <form onSubmit={submit} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 space-y-5">
+                                {/* Honeypot anti-spam: invisível para pessoas, atrativo para bots que preenchem todo input */}
+                                <input
+                                    type="text"
+                                    name="site"
+                                    value={form.site}
+                                    onChange={handle}
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    aria-hidden="true"
+                                    className="absolute left-[-9999px] h-px w-px overflow-hidden"
+                                />
 
                                 {/* Nome + Email */}
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
