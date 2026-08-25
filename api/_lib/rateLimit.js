@@ -8,6 +8,8 @@
 
 const hits = new Map() // ip -> timestamps (ms) das requisições recentes
 const MAX_TRACKED_IPS = 5000
+const EVICTION_BATCH_SIZE = 100
+let evictionCursor = null // iterador retomado entre chamadas, ver evictExpired()
 
 export function getClientIp(req) {
     const forwarded = req.headers['x-forwarded-for']
@@ -56,8 +58,28 @@ export function isRateLimited(ip, { max = 5, windowMs = 10 * 60 * 1000 } = {}) {
 // temporariamente maior que o teto (até os próprios IPs do flood expirarem)
 // ou deixar de rastrear IPs novos enquanto durar a pressão — nunca perder a
 // proteção de um IP já rastreado.
+//
+// A varredura é incremental (custo amortizado), não completa a cada
+// chamada: com a Map no teto, um flood de IPs novos passa a chamar essa
+// função em toda requisição — enquanto a janela de 10min não vira, quase
+// nada está de fato expirado, então uma varredura completa (O(tamanho da
+// Map) por chamada) vira ela mesma um jeito barato do atacante gastar CPU
+// da function a cada requisição. Aqui só até EVICTION_BATCH_SIZE entradas
+// são checadas por chamada, retomando de onde parou da vez anterior — o
+// custo por requisição fica limitado a uma constante, independente de
+// quantos IPs estão rastreados, e o cursor cicla pela Map inteira ao longo
+// de chamadas sucessivas.
 function evictExpired(now, windowMs) {
-    for (const [key, timestamps] of hits) {
+    if (evictionCursor === null) {
+        evictionCursor = hits.entries()
+    }
+    for (let i = 0; i < EVICTION_BATCH_SIZE; i++) {
+        const next = evictionCursor.next()
+        if (next.done) {
+            evictionCursor = null
+            break
+        }
+        const [key, timestamps] = next.value
         if (timestamps.every((t) => now - t >= windowMs)) {
             hits.delete(key)
         }

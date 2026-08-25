@@ -186,6 +186,37 @@ test('isRateLimited: com a Map cheia de entradas ainda válidas, um IP novo é b
     assert.equal(isRateLimited('outro-ip-novo-' + Date.now(), opts), true, 'variar o IP não abre brecha enquanto a Map estiver saturada')
 })
 
+test('isRateLimited: varredura de expiração é incremental — entradas expiradas acabam liberando vaga sem custo de varrer a Map inteira numa chamada só', async () => {
+    // A varredura por lote (EVICTION_BATCH_SIZE) é o que evita que um flood
+    // de IPs novos, com a Map saturada, vire uma forma barata de gastar CPU
+    // da function (uma varredura completa por requisição). Este teste não
+    // mede CPU diretamente, mas confirma o comportamento que a varredura
+    // incremental precisa preservar: entradas realmente expiradas continuam
+    // sendo reclamadas mais cedo ou mais tarde, liberando vaga pra IPs
+    // novos — não é uma varredura que nunca avança.
+    const { isRateLimited } = await import('../rateLimit.js?v=' + Date.now())
+    const shortWindow = { max: 5, windowMs: 30 }
+
+    // Satura a Map com entradas que vão expirar em breve.
+    for (let i = 0; i < 5000; i++) {
+        isRateLimited(`expiring-filler-ip-${i}`, shortWindow)
+    }
+    await new Promise((r) => setTimeout(r, 60)) // espera a janela de 30ms expirar
+
+    // Com tudo expirado, mesmo uma varredura de só EVICTION_BATCH_SIZE
+    // entradas por chamada encontra vaga rapidamente — repete a checagem um
+    // número de vezes generoso (bem acima de 5000/tamanho do lote) pra não
+    // depender de nenhum detalhe interno do tamanho do lote.
+    let freedUp = false
+    for (let i = 0; i < 200; i++) {
+        if (isRateLimited('probe-ip-' + i, shortWindow) === false) {
+            freedUp = true
+            break
+        }
+    }
+    assert.equal(freedUp, true, 'depois das entradas expirarem, algum IP novo eventualmente consegue vaga pra ser rastreado')
+})
+
 // ── 3. Rate limit — comportamento fim-a-fim no handler real (usa o default de 5/10min) ─
 
 test('contato.js: a 6ª requisição do mesmo IP em 10min volta 429, sem chamar o Resend', async () => {
