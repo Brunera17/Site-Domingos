@@ -1,5 +1,7 @@
 import { Resend } from 'resend'
 import { escapeHtml, renderEmailShell, fieldRow } from './_lib/email.js'
+import { getClientIp, isRateLimited } from './_lib/rateLimit.js'
+import { isValidEmail, isWithinLength } from './_lib/validate.js'
 
 const TO_EMAIL = process.env.CONTACT_EMAIL_TO || 'sucessodocliente@domingosassessoria.com.br'
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Site Domingos Assessoria <onboarding@resend.dev>'
@@ -22,6 +24,10 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método não permitido.' })
     }
 
+    if (isRateLimited(getClientIp(req))) {
+        return res.status(429).json({ error: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.' })
+    }
+
     // `new Resend()` lança exceção de forma síncrona se não houver API key —
     // construir aqui dentro (não no escopo do módulo) evita derrubar a função
     // inteira num crash não tratado quando a env var não estiver configurada.
@@ -33,11 +39,34 @@ export default async function handler(req, res) {
 
     const {
         nome, email, telefone, area, nivel, disponibilidade, motivacao,
-        vagaSelecionada, resumeBase64, resumeFilename, resumeMimeType,
+        vagaSelecionada, resumeBase64, resumeFilename, resumeMimeType, site,
     } = req.body || {}
+
+    // Honeypot: campo invisível para gente, atrativo para bots que preenchem
+    // todo input do formulário. Resposta de sucesso sem enviar nada — não dá
+    // ao bot nenhum sinal de que foi barrado.
+    if (site) {
+        return res.status(200).json({ ok: true })
+    }
 
     if (!nome || !email || !telefone || !area || !nivel || !disponibilidade || !motivacao || !resumeBase64) {
         return res.status(400).json({ error: 'Preencha todos os campos obrigatórios e anexe o currículo.' })
+    }
+
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ error: 'Informe um e-mail válido.' })
+    }
+
+    if (
+        !isWithinLength(nome, 200) ||
+        !isWithinLength(telefone, 30) ||
+        !isWithinLength(area, 100) ||
+        !isWithinLength(nivel, 100) ||
+        !isWithinLength(disponibilidade, 100) ||
+        !isWithinLength(vagaSelecionada || '', 200) ||
+        !isWithinLength(motivacao, 5000)
+    ) {
+        return res.status(400).json({ error: 'Um dos campos excede o tamanho máximo permitido.' })
     }
 
     // resumeBase64 vem como data URL ("data:application/pdf;base64,....");
@@ -48,7 +77,6 @@ export default async function handler(req, res) {
         return res.status(413).json({ error: 'O arquivo do currículo é maior que o limite de 3MB.' })
     }
 
-    const primeiroNome = String(nome).trim().split(' ')[0]
     const tituloVaga = vagaSelecionada || 'Banco de Talentos'
 
     try {
@@ -88,24 +116,6 @@ export default async function handler(req, res) {
         if (notifyResult.error) {
             console.error('Resend recusou o e-mail de candidatura:', notifyResult.error)
             return res.status(502).json({ error: 'Não foi possível enviar sua candidatura agora. Tente novamente em instantes.' })
-        }
-
-        // Confirmação automática para quem se candidatou — best-effort, não bloqueia a resposta de sucesso.
-        const confirmResult = await resend.emails.send({
-            from: FROM_EMAIL,
-            to: email,
-            subject: 'Recebemos sua candidatura — Domingos Assessoria',
-            html: renderEmailShell({
-                title: `Olá, ${primeiroNome}!`,
-                preheader: 'Recebemos sua candidatura e entraremos em contato em breve.',
-                bodyHtml: `
-                    <p>Recebemos sua candidatura para <strong>${escapeHtml(tituloVaga)}</strong>. Nossa equipe vai analisar seu perfil com atenção.</p>
-                    <p>Entraremos em contato em até <strong>5 dias úteis</strong>. Obrigado pelo interesse em fazer parte do nosso time!</p>
-                `,
-            }),
-        })
-        if (confirmResult.error) {
-            console.error('Resend recusou o e-mail de confirmação (não crítico):', confirmResult.error)
         }
 
         return res.status(200).json({ ok: true })

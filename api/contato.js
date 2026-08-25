@@ -1,5 +1,7 @@
 import { Resend } from 'resend'
 import { escapeHtml, renderEmailShell, fieldRow } from './_lib/email.js'
+import { getClientIp, isRateLimited } from './_lib/rateLimit.js'
+import { isValidEmail, isWithinLength } from './_lib/validate.js'
 
 const TO_EMAIL = process.env.CONTACT_EMAIL_TO || 'sucessodocliente@domingosassessoria.com.br'
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Site Domingos Assessoria <onboarding@resend.dev>'
@@ -8,6 +10,10 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.setHeader('Allow', 'POST')
         return res.status(405).json({ error: 'Método não permitido.' })
+    }
+
+    if (isRateLimited(getClientIp(req))) {
+        return res.status(429).json({ error: 'Muitas tentativas. Aguarde alguns minutos e tente novamente.' })
     }
 
     // `new Resend()` lança exceção de forma síncrona se não houver API key —
@@ -19,13 +25,32 @@ export default async function handler(req, res) {
     }
     const resend = new Resend(process.env.RESEND_API_KEY)
 
-    const { nome, email, telefone, empresa, assunto, mensagem } = req.body || {}
+    const { nome, email, telefone, empresa, assunto, mensagem, site } = req.body || {}
+
+    // Honeypot: campo invisível para gente, atrativo para bots que preenchem
+    // todo input do formulário. Resposta de sucesso sem enviar nada — não dá
+    // ao bot nenhum sinal de que foi barrado.
+    if (site) {
+        return res.status(200).json({ ok: true })
+    }
 
     if (!nome || !email || !assunto || !mensagem) {
         return res.status(400).json({ error: 'Preencha nome, e-mail, assunto e mensagem.' })
     }
 
-    const primeiroNome = String(nome).trim().split(' ')[0]
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ error: 'Informe um e-mail válido.' })
+    }
+
+    if (
+        !isWithinLength(nome, 200) ||
+        !isWithinLength(telefone || '', 30) ||
+        !isWithinLength(empresa || '', 200) ||
+        !isWithinLength(assunto, 200) ||
+        !isWithinLength(mensagem, 5000)
+    ) {
+        return res.status(400).json({ error: 'Um dos campos excede o tamanho máximo permitido.' })
+    }
 
     try {
         const notifyResult = await resend.emails.send({
@@ -54,24 +79,6 @@ export default async function handler(req, res) {
         if (notifyResult.error) {
             console.error('Resend recusou o e-mail de notificação:', notifyResult.error)
             return res.status(502).json({ error: 'Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou fale pelo WhatsApp.' })
-        }
-
-        // Confirmação automática para quem enviou o formulário — best-effort, não bloqueia a resposta de sucesso.
-        const confirmResult = await resend.emails.send({
-            from: FROM_EMAIL,
-            to: email,
-            subject: 'Recebemos sua mensagem — Domingos Assessoria',
-            html: renderEmailShell({
-                title: `Olá, ${primeiroNome}!`,
-                preheader: 'Recebemos sua mensagem e retornaremos em até 1 dia útil.',
-                bodyHtml: `
-                    <p>Recebemos sua mensagem sobre <strong>${escapeHtml(assunto)}</strong> e nossa equipe já está de olho nela.</p>
-                    <p>Retornaremos em até <strong>1 dia útil</strong>. Se preferir uma resposta mais rápida, fale com a gente pelo WhatsApp: <a href="https://wa.me/5514996580459" style="color:#E8610A;">(14) 9 9658-0459</a>.</p>
-                `,
-            }),
-        })
-        if (confirmResult.error) {
-            console.error('Resend recusou o e-mail de confirmação (não crítico):', confirmResult.error)
         }
 
         return res.status(200).json({ ok: true })

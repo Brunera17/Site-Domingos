@@ -28,7 +28,7 @@ const faqs = [
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 export default function Contato() {
-    const [form, setForm] = useState({ nome: '', email: '', telefone: '', empresa: '', assunto: '', mensagem: '' })
+    const [form, setForm] = useState({ nome: '', email: '', telefone: '', empresa: '', assunto: '', mensagem: '', site: '' })
     const [enviado, setEnviado] = useState(false)
     const [enviando, setEnviando] = useState(false)
     const [erro, setErro] = useState(null)
@@ -204,6 +204,17 @@ export default function Contato() {
                                 >
                                     <h2 className="text-2xl font-black text-white mb-6">Envie sua Mensagem</h2>
                                     <form onSubmit={submit} className="space-y-5">
+                                        {/* Honeypot anti-spam: invisível para pessoas, atrativo para bots que preenchem todo input */}
+                                        <input
+                                            type="text"
+                                            name="site"
+                                            value={form.site}
+                                            onChange={handle}
+                                            tabIndex={-1}
+                                            autoComplete="off"
+                                            aria-hidden="true"
+                                            className="absolute left-[-9999px] h-px w-px overflow-hidden"
+                                        />
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                                             <div>
