@@ -360,7 +360,7 @@ export default function TrabalheConosco() {
                     />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl">
-                        {processo.map((etapa, i) => {
+                        {processo.map((etapa) => {
                             const Icon = etapa.icon
                             return (
                                 <div key={etapa.numero} className="relative bg-zinc-900 border border-zinc-800 rounded-2xl p-6">

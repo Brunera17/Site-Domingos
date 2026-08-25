@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom'
-import { motion, useScroll, useSpring, useTransform, AnimatePresence } from 'framer-motion'
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import {
     ArrowLeft, ArrowRight, CheckCircle, ChevronRight,
@@ -108,19 +108,17 @@ export default function ServicoDetalhe() {
     const { id } = useParams()
     const service = rawServices.find((s) => s.id === id)
 
-    // 1. Barra de progresso de leitura
-    const { scrollYProgress } = useScroll()
-    const scaleX = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
-
-    // 3. Parallax do hero
+    // Parallax do hero
     const heroRef = useRef(null)
     const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
     const heroY = useTransform(heroScroll, [0, 1], [0, 60])
     const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0])
 
-    // Accordion de features
+    // Accordion de features — precisa ser efeito porque reage à troca de
+    // serviço (id vindo da rota), não a um valor calculado durante o render.
     const [openFeature, setOpenFeature] = useState(null)
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setOpenFeature(null)
     }, [id])
 

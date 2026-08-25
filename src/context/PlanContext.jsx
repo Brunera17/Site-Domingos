@@ -1,6 +1,5 @@
-import { createContext, useContext, useState } from "react";
-
-const PlanContext = createContext();
+import { useState } from "react";
+import { PlanContext } from "./planContextInstance";
 
 export function PlanProvider({ children }) {
     const [selectedPlan, setSelectedPlan] = useState(null);
@@ -10,9 +9,4 @@ export function PlanProvider({ children }) {
             {children}
         </PlanContext.Provider>
     );
-}
-
-// 👇 ADICIONA ISSO
-export function usePlan() {
-    return useContext(PlanContext);
 }
