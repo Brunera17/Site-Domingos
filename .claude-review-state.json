@@ -7,7 +7,7 @@
     "tests": "inexistente (sem script `test` e sem runner instalado)",
     "lint": "npm run lint — 17 erros, 1 aviso (igual ao baseline)",
     "build": "npm run build — sucesso",
-    "audit": "npm audit — 0 vulnerabilidades"
+    "audit": "não executado nesta rodada (sem mudanças de código)"
   },
   "notes": "Nenhuma alteração de código desde o baseline (fe38949) — terceira execução seguida sem diff de código. Achados de lint permanecem cobertos pelas issues #100-#107 abertas na execução de baseline (2026-08-20)."
 }
