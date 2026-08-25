@@ -7,6 +7,7 @@
 // armazenamento compartilhado — ver a issue para o plano de migração.
 
 const hits = new Map() // ip -> timestamps (ms) das requisições recentes
+const MAX_TRACKED_IPS = 5000
 
 export function getClientIp(req) {
     const forwarded = req.headers['x-forwarded-for']
@@ -18,12 +19,43 @@ export function getClientIp(req) {
 
 export function isRateLimited(ip, { max = 5, windowMs = 10 * 60 * 1000 } = {}) {
     const now = Date.now()
+    const isNewIp = !hits.has(ip)
+
+    // Só tenta abrir espaço quando for preciso passar a rastrear um IP que
+    // ainda não está na Map e ela já estiver no teto — nunca mexe nas
+    // entradas de IPs já rastreados só porque a Map cresceu.
+    if (isNewIp && hits.size >= MAX_TRACKED_IPS) {
+        evictExpired(now, windowMs)
+    }
+
     const recent = (hits.get(ip) || []).filter((t) => now - t < windowMs)
     recent.push(now)
-    hits.set(ip, recent)
 
-    // Evita crescimento sem limite da Map ao longo da vida da instância.
-    if (hits.size > 5000) hits.clear()
+    // Se ainda estiver no teto depois de descartar o que expirou de verdade,
+    // um IP nunca visto antes simplesmente não é rastreado (fail-open só
+    // pra ele) — em vez de despejar o contador de outro IP pra abrir vaga.
+    if (!isNewIp || hits.size < MAX_TRACKED_IPS) {
+        hits.set(ip, recent)
+    }
 
     return recent.length > max
+}
+
+// Descarta só entradas totalmente expiradas — nenhum timestamp dentro da
+// janela restante. Nunca remove uma entrada que ainda importa, mesmo que a
+// Map esteja cheia. É a diferença central em relação ao bug corrigido aqui:
+// um `Map.clear()` (ou qualquer eviction por LRU/ordem de inserção) apagaria
+// também o contador de um IP legitimamente bloqueado assim que atacantes
+// suficientes — variando o IP, ou o cabeçalho X-Forwarded-For que
+// getClientIp confia sem validar — empurrassem a Map além do teto. Com essa
+// abordagem, o pior caso de um flood de IPs novos é a Map ficar
+// temporariamente maior que o teto (até os próprios IPs do flood expirarem)
+// ou deixar de rastrear IPs novos enquanto durar a pressão — nunca perder a
+// proteção de um IP já rastreado.
+function evictExpired(now, windowMs) {
+    for (const [key, timestamps] of hits) {
+        if (timestamps.every((t) => now - t >= windowMs)) {
+            hits.delete(key)
+        }
+    }
 }

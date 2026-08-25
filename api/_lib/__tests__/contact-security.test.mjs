@@ -130,6 +130,33 @@ test('isRateLimited: contadores de IPs diferentes não se misturam', async () =>
     assert.equal(isRateLimited(ipB, opts), false, 'IP B não deveria ser afetado pelo limite do IP A')
 })
 
+test('isRateLimited: inundar com milhares de IPs distintos não reseta o contador de um IP já bloqueado', async () => {
+    // Reproduz o ataque relatado: um atacante capaz de variar o IP (ou o
+    // cabeçalho X-Forwarded-For, que getClientIp confia sem validar) em
+    // milhares de valores distintos não deve conseguir resetar o contador
+    // de um IP que já estourou o limite, só por forçar a Map a crescer
+    // além do teto interno de entradas rastreadas.
+    const { isRateLimited } = await import('../rateLimit.js?v=' + Date.now())
+    const opts = { max: 2, windowMs: 60_000 }
+    const victimIp = 'victim-ip-' + Date.now()
+
+    assert.equal(isRateLimited(victimIp, opts), false, 'vítima: 1ª requisição, liberada')
+    assert.equal(isRateLimited(victimIp, opts), false, 'vítima: 2ª requisição, liberada (no limite)')
+    assert.equal(isRateLimited(victimIp, opts), true, 'vítima: 3ª requisição, bloqueada')
+
+    // Inunda com IPs distintos, bem acima do teto interno (5000) de
+    // entradas rastreadas pela Map.
+    for (let i = 0; i < 5500; i++) {
+        isRateLimited(`attacker-ip-${i}-` + Date.now(), opts)
+    }
+
+    assert.equal(
+        isRateLimited(victimIp, opts),
+        true,
+        'vítima continua bloqueada mesmo depois da inundação de IPs — o contador não pode ter sido resetado pela eviction'
+    )
+})
+
 // ── 3. Rate limit — comportamento fim-a-fim no handler real (usa o default de 5/10min) ─
 
 test('contato.js: a 6ª requisição do mesmo IP em 10min volta 429, sem chamar o Resend', async () => {
