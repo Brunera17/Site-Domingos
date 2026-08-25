@@ -43,12 +43,13 @@ export default function App() {
             <Route path="/politica-privacidade" element={<PoliticaPrivacidade />} />
             <Route path="/termos-uso" element={<TermosUso />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/planos" element={<Planos />} />
+            <Route path="/proposta" element={<Proposta />} />
           </Route>
 
           {/* 🧼 ROTAS SEM HEADER */}
           <Route element={<CleanLayout />}>
-            <Route path="/planos" element={<Planos />} />
-            <Route path="/proposta" element={<Proposta />} />
+
           </Route>
 
         </Routes>
