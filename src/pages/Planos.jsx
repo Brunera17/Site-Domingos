@@ -179,7 +179,7 @@ export default function Planos() {
 
                                 {/* Header */}
                                 <div className="mb-5">
-                                    <h3 className="text-h3 text-white mb-1">{plano.nome}</h3>
+                                    <h3 className="text-h3 text-white mb-2">{plano.nome}</h3>
                                     <p className="text-zinc-400 text-sm leading-relaxed">{plano.desc}</p>
                                 </div>
 
@@ -244,7 +244,7 @@ export default function Planos() {
                     <SectionHeading
                         eyebrow="Comparativo completo"
                         title={<>O que está <span className="text-orange-500">incluso</span> em cada plano</>}
-                        className="mb-14"
+                        className="mb-12"
                     />
 
                     <div className="overflow-x-auto rounded-xl border border-zinc-800">

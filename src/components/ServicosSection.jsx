@@ -160,7 +160,7 @@ export default function ServicosSection() {
                                         <div className="w-9 h-9 rounded-lg bg-zinc-800 border border-zinc-700 group-hover:bg-orange-500/10 group-hover:border-orange-500/30 flex items-center justify-center mb-3 transition-all duration-300">
                                             <Icon size={16} className="text-zinc-400 group-hover:text-orange-500 transition-colors duration-300" />
                                         </div>
-                                        <h3 className="text-card-title text-white mb-1 leading-snug">{service.title}</h3>
+                                        <h3 className="text-card-title text-white mb-2 leading-snug">{service.title}</h3>
                                         <p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">{service.description}</p>
                                     </div>
 

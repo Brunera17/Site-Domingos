@@ -198,7 +198,7 @@ export default function Sobre() {
                     <SectionHeading
                         eyebrow="Nossa trajetória"
                         title={<>10 anos de <span className="text-orange-500">história</span></>}
-                        className="mb-14"
+                        className="mb-12"
                     />
 
                     <div className="relative">
@@ -269,7 +269,7 @@ export default function Sobre() {
                     <SectionHeading
                         eyebrow="Nossa essência"
                         title={<>Missão, Visão e <span className="text-orange-500">Valores</span></>}
-                        className="mb-14"
+                        className="mb-12"
                     />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -277,7 +277,7 @@ export default function Sobre() {
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Target size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-h3 text-white mb-3">Missão</h3>
+                            <h3 className="text-h3 text-white mb-2">Missão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
                                 Entregar clareza fiscal, segurança jurídica e vantagem tributária para empresas do
                                 agronegócio, comércio, serviço e indústria — com atendimento humano, próximo e
@@ -289,7 +289,7 @@ export default function Sobre() {
                             <div className="w-12 h-12 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-6">
                                 <Eye size={22} className="text-orange-500" />
                             </div>
-                            <h3 className="text-h3 text-white mb-3">Visão</h3>
+                            <h3 className="text-h3 text-white mb-2">Visão</h3>
                             <p className="text-zinc-400 text-sm leading-relaxed">
                                 Ser o escritório contábil mais recomendado pelos empresários do Brasil — reconhecido
                                 pela excelência técnica, pela clareza na comunicação e pelo impacto financeiro real
@@ -349,7 +349,7 @@ export default function Sobre() {
                     <SectionHeading
                         eyebrow="Nosso time"
                         title={<>Conheça nossa <span className="text-orange-500">Equipe</span></>}
-                        className="mb-14"
+                        className="mb-12"
                     />
 
                     {/* Foto da equipe */}

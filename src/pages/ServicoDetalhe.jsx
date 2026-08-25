@@ -177,7 +177,7 @@ export default function ServicoDetalhe() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.45, ease: 'easeOut' }}
                     >
-                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4 block">
+                        <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-3 block">
                             {categoria}
                         </span>
 
@@ -231,7 +231,7 @@ export default function ServicoDetalhe() {
                         title={<>Por que ter isso <span className="text-orange-500">na sua empresa</span></>}
                         className="mb-10"
                     />
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {(categoryBenefits[categoria] ?? categoryBenefits['Contábil e Fiscal']).map((b, i) => {
                             const BIcon = b.icon
                             return (
@@ -306,7 +306,7 @@ export default function ServicoDetalhe() {
                                     </div>
                                     <div>
                                         <span className="text-zinc-400 text-xs font-mono block mb-1">0{i + 1}</span>
-                                        <h3 className="text-card-title text-white mb-1.5">{step.title}</h3>
+                                        <h3 className="text-card-title text-white mb-2">{step.title}</h3>
                                         <p className="text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
                                     </div>
                                 </motion.div>
@@ -375,7 +375,7 @@ export default function ServicoDetalhe() {
                         className="mb-10"
                     />
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {relacionados.map((s, i) => {
                             const OtherIcon = s.icon ?? FileText
                             return (
