@@ -92,4 +92,18 @@ export default defineConfig({
     strictPort: false,
     open: false,
   },
+
+  // ── TESTES DE COMPONENTE (Vitest + Testing Library) ─────────────────────────
+  // globals fica desligado de propósito: describe/it/expect são importados
+  // explicitamente de 'vitest' em cada arquivo de teste, pra não precisar
+  // ensinar o ESLint sobre mais um conjunto de globais.
+  // include restrito a src/: api/_lib/__tests__ usa o runner nativo do Node
+  // (node:test, rodado via `npm test`), não o Vitest — os dois usam a mesma
+  // convenção de nome (*.test.*) mas não são compatíveis entre si.
+  test: {
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.js'],
+    include: ['src/**/*.test.{js,jsx}'],
+    css: false,
+  },
 })

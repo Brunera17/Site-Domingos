@@ -3,45 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, User } from 'lucide-react'
 import { buildWhatsAppLink } from '../../utils/whatsapp'
 import SectionHeading from '../ui/SectionHeading'
-
-const testimonials = [
-    {
-        id: 1,
-        text: 'Atendimento diferenciado, muito atenciosos, totalmente focados nas reais necessidades do cliente. Só posso recomendar e agradecer a sempre simpática e pronta atenção.',
-        name: 'Silvio Adriano de Souza e Silva',
-        meta: 'Local Guide · 4 avaliações',
-    },
-    {
-        id: 2,
-        text: 'Com certeza deixo meu elogio sincero e profissional dedicado a esta equipe de peso. Dia após dia trabalham com destreza, trazendo excelentes resultados á muitos empresários. Sabemos que as contabilidades tem uma vida árdua, sempre cumprindo prazos e entregando obrigações assessoras, mas vocês em especial, possuem diferenciais incríveis, algumas delas são de manifestar toda a preocupação e esforço necessário, minimizando os custos fiscais de forma lícita e exercendo soluções que estruturam o negócio dos seus clientes e amigos. Merecem todo o sucesso, no mundo dos negócios; e tenho certeza que o trajeto que vocês vem trilhando, será sempre abençoado!! Contem comigo sempre!!',
-        name: 'Elaine Amaral',
-        meta: '4 avaliações',
-    },
-    {
-        id: 3,
-        text: 'Equipe nota 10 ! Sempre dispostos a ajudar, sempre muito prestativos ! Dificilmente vc encontrará uma assessoria como essa por um preço melhor que eles ! Ligue lá e comprove.',
-        name: 'Papellex Papelaria',
-        meta: '1 avaliação',
-    },
-    {
-        id: 4,
-        text: 'Um atendimento excelente. Todos atenciosos, auxilia a empresa em todos os sentidos e soluciona todos os problemas desde departamento fiscal, contábil, recursos humanos, impostos etc. Muito confiável, indico a todos.',
-        name: 'Magna Andreia Rodrigues da Costa',
-        meta: '1 avaliação',
-    },
-    {
-        id: 5,
-        text: 'Excelentes profissionais mesmo a distância conseguem dar assistência necessária! Sucesso que Deus abençoe sempre.',
-        name: 'Marilza Gabriel',
-        meta: '1 avaliação',
-    },
-    {
-        id: 6,
-        text: 'Vendemos uma propriedade em Avaré e contamos com essa acessória maravilhosa sem transtorno algum. Parabéns equipe.',
-        name: 'Sergio R Favarao',
-        meta: 'Local Guide · 12 avaliações',
-    },
-]
+import { testimonials } from '../../data/testimonials'
 
 function Avatar({ name, photo, size = 'w-14 h-14', iconSize = 24 }) {
     if (photo) {
@@ -222,6 +184,8 @@ export default function TestemunhosSection() {
                                         <button
                                             key={i}
                                             onClick={() => resetTimer(() => go(i, i > current ? 1 : -1))}
+                                            aria-label={`Ver depoimento ${i + 1}`}
+                                            aria-current={i === current}
                                             className={`h-1.5 rounded-full transition-all duration-300 ${
                                                 i === current
                                                     ? 'w-6 bg-orange-500'
@@ -234,12 +198,14 @@ export default function TestemunhosSection() {
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => resetTimer(prev)}
+                                        aria-label="Depoimento anterior"
                                         className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
                                     >
                                         <ChevronLeft size={18} />
                                     </button>
                                     <button
                                         onClick={() => resetTimer(next)}
+                                        aria-label="Próximo depoimento"
                                         className="w-9 h-9 rounded-lg bg-zinc-800 hover:bg-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white transition-colors"
                                     >
                                         <ChevronRight size={18} />
