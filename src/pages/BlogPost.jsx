@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Calendar, Clock, ArrowLeft, ArrowRight, Tag, Share2 } from 'lucide-react'
 import { blogPosts } from '../data/blogData'
 import { buildWhatsAppLink } from '../utils/whatsapp'
-import SEOHead from '../components/SEOHead'
+import SEOHead from '../components/seo/SEOHead'
 
 export default function BlogPost() {
     const { id } = useParams()

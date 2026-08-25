@@ -1,7 +1,7 @@
 import { ArrowRight, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import pessoas from "../assets/1.webp";
-import { buildWhatsAppLink } from '../utils/whatsapp'
+import pessoas from "../../assets/1.webp";
+import { buildWhatsAppLink } from '../../utils/whatsapp'
 
 export default function CTASection() {
     return (

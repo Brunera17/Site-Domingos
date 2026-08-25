@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import SEOHead from '../components/SEOHead'
+import SEOHead from '../components/seo/SEOHead'
 
 export default function TermosUso() {
     return (

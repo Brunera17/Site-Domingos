@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
-import logo from "../assets/logo_domingos_transparente.png"
-import { featuredServices } from '../data/services'
+import logo from "../../assets/logo_domingos_transparente.png"
+import { featuredServices } from '../../data/services'
 
 const socialLinks = [
     {

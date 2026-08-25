@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Star, User } from 'lucide-react'
-import { buildWhatsAppLink } from '../utils/whatsapp'
-import SectionHeading from './SectionHeading'
+import { buildWhatsAppLink } from '../../utils/whatsapp'
+import SectionHeading from '../ui/SectionHeading'
 
 const testimonials = [
     {

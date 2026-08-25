@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
-import WhatsAppIcon from './icons/WhatsAppIcon'
-import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../utils/whatsapp'
+import WhatsAppIcon from '../icons/WhatsAppIcon'
+import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../../utils/whatsapp'
 
 export default function WhatsAppButton() {
     const { pathname } = useLocation()
