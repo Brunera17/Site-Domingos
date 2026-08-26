@@ -1,13 +1,13 @@
 {
-  "lastReviewedSha": "890da15",
-  "lastReviewedAt": "2026-08-25",
-  "branch": "claude/cool-ptolemy-82h4y9",
+  "lastReviewedSha": "b51ed78",
+  "lastReviewedAt": "2026-08-26",
+  "branch": "claude/cool-ptolemy-ux4g0h",
   "runType": "incremental",
   "checks": {
-    "tests": "inexistente (sem script `test` e sem runner instalado)",
-    "lint": "npm run lint — 17 erros, 1 aviso (igual ao baseline)",
+    "tests": "npm run test (9/9) + npm run test:unit (22/22) — todos passando (Node 24 via nvm; ambiente do agente veio com Node 22, que não roda os testes de api/_lib por causa do mock.module)",
+    "lint": "npm run lint — 0 erros, 0 avisos",
     "build": "npm run build — sucesso",
-    "audit": "não executado nesta rodada (sem mudanças de código)"
+    "audit": "npm audit — 0 vulnerabilidades"
   },
-  "notes": "Nenhuma alteração de código desde o baseline (fe38949) — terceira execução seguida sem diff de código. Achados de lint permanecem cobertos pelas issues #100-#107 abertas na execução de baseline (2026-08-20)."
+  "notes": "Diff grande desde o baseline anterior (890da15, 21/08): reorganização de src/components por domínio, correção do relay aberto em contato/trabalhe-conosco (rate limit + honeypot + validação), remoção de eslint-plugin-react com 7 problemas reais de lint corrigidos, CI de lint+testes+build adicionado, suíte de testes de componente (Vitest) adicionada, padronização de espaçamento interno. Achados detalhados no relatório da execução de 2026-08-26."
 }
