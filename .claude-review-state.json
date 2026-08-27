@@ -1,13 +1,13 @@
 {
-  "lastReviewedSha": "e182746",
-  "lastReviewedAt": "2026-08-26",
-  "branch": "claude/cool-ptolemy-c4rdzn",
+  "lastReviewedSha": "8c8ff26",
+  "lastReviewedAt": "2026-08-27",
+  "branch": "claude/cool-ptolemy-luvjak",
   "runType": "incremental",
   "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Sem node24 disponível neste ambiente para confirmar localmente, mas nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes continuam sendo a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
     "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças, datas já estavam atualizadas)",
-    "audit": "npm audit (via npm ci) — 0 vulnerabilidades"
+    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças)",
+    "audit": "npm ci — 0 vulnerabilidades"
   },
-  "notes": "Diff desde o baseline anterior (b51ed78, 26/08) é só metadado: merge dos PRs #122 (atualização dos state files das rotinas) e #123 (regeneração de sitemap.xml com lastmod correto). Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova além da #115, já triada na mesma data pela rotina de issue-triage. Execução sem achados novos — apenas confirmação de saúde do repo."
+  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só metadado: merge do PR #124 (atualização do state file da própria rotina de revisão, sem novidades). Nenhum arquivo em api/ ou src/ mudou. 35 issues abertas no repositório, nenhuma com atividade posterior ao baseline anterior que indicasse necessidade de reclassificação. Execução sem achados novos — apenas confirmação de saúde do repo."
 }
