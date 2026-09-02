@@ -1,5 +1,15 @@
 {
   "lastReviewedSha": "8c8ff26",
+  "lastReviewedAt": "2026-08-28",
+  "branch": "claude/cool-ptolemy-0shn8w",
+  "runType": "incremental",
+  "checks": {
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a mesma limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "lint": "npm run lint — 0 erros, 0 avisos",
+    "build": "npm run build — sucesso (sitemap.xml regenerado, sem diferenças no working tree)",
+    "audit": "npm ci — instalação limpa, sem erros"
+  },
+  "notes": "Diff desde o baseline anterior (e182746, 26/08) é vazio em termos de código: o único commit no intervalo (ec13c27, mesclado via PR #124) só atualizava este próprio arquivo de estado da execução anterior. Nenhum arquivo em src/ ou api/ mudou. Nenhuma issue nova criada por esta rotina — as 35 issues abertas existentes (incluindo #115, #107, #106, #105, #104, #101 já rastreadas por execuções anteriores) permanecem sem mudança de status, já que não há diff de código para reavaliar consertado/quebrado. Execução sem achados novos — apenas confirmação de saúde do repo."
   "lastReviewedAt": "2026-08-29",
   "branch": "claude/cool-ptolemy-ueqofx",
   "runType": "incremental",
