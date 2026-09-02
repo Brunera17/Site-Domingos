@@ -10,4 +10,26 @@
     "audit": "não executado nesta rodada — sem alteração de dependências desde o baseline anterior"
   },
   "notes": "Diff desde o baseline anterior (e182746, 26/08) é só o próprio commit de estado da rotina (PR #124, ec13c27). Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova desde a #115 (25/08), já triada. Execução sem achados novos — apenas confirmação de saúde do repo."
+  "lastReviewedSha": "8c8ff265e9fe73d13d430fe8845408736dedf404",
+  "lastReviewedAt": "2026-08-30",
+  "branch": "claude/cool-ptolemy-k8bk42",
+  "runType": "incremental",
+  "checks": {
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a mesma limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "lint": "npm run lint — 0 erros, 0 avisos",
+    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças)",
+    "audit": "npm audit (via npm ci) — 0 vulnerabilidades"
+  },
+  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só metadado: merge do PR #124, que apenas atualizou este próprio arquivo de estado na execução anterior (sem novidades). Nenhum arquivo em api/ ou src/ mudou. Execução sem achados novos — apenas confirmação de saúde do repo."
+  "lastReviewedSha": "8c8ff26",
+  "lastReviewedAt": "2026-09-01",
+  "branch": "claude/cool-ptolemy-82f2ui",
+  "runType": "incremental",
+  "checks": {
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "lint": "npm run lint — 0 erros, 0 avisos",
+    "build": "npm run build — sucesso",
+    "audit": "npm ci — sem erros"
+  },
+  "notes": "Diff desde o baseline anterior (e182746) é só metadado: o único commit no intervalo é o merge do PR #124, que alterou apenas o próprio .claude-review-state.json. Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova além da #115 (já triada em 2026-08-25). ACHADO OPERACIONAL: main segue travado em 8c8ff26 porque as PRs #125, #126, #127, #128 e #129 — geradas pelas 5 execuções diárias anteriores desta mesma rotina (27/08 a 31/08), todas 'sem novidades' — nunca foram mescladas nem fechadas. Cada uma refaz o mesmo diff vazio contra 8c8ff26 de forma redundante. Recomenda-se mesclar a mais recente (#129) e fechar as demais (#125–#128) como duplicatas antes da próxima execução."
 }
