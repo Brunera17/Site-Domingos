@@ -1,4 +1,15 @@
 {
+  "lastReviewedSha": "8c8ff265e9fe73d13d430fe8845408736dedf404",
+  "lastReviewedAt": "2026-08-30",
+  "branch": "claude/cool-ptolemy-k8bk42",
+  "runType": "incremental",
+  "checks": {
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a mesma limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "lint": "npm run lint — 0 erros, 0 avisos",
+    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças)",
+    "audit": "npm audit (via npm ci) — 0 vulnerabilidades"
+  },
+  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só metadado: merge do PR #124, que apenas atualizou este próprio arquivo de estado na execução anterior (sem novidades). Nenhum arquivo em api/ ou src/ mudou. Execução sem achados novos — apenas confirmação de saúde do repo."
   "lastReviewedSha": "8c8ff26",
   "lastReviewedAt": "2026-09-01",
   "branch": "claude/cool-ptolemy-82f2ui",
