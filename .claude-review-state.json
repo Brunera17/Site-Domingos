@@ -1,4 +1,15 @@
 {
+  "lastReviewedSha": "8c8ff26",
+  "lastReviewedAt": "2026-08-29",
+  "branch": "claude/cool-ptolemy-ueqofx",
+  "runType": "incremental",
+  "checks": {
+    "tests": "npm run test:unit (22/22) — todos passando. api/_lib (Node 22, mock.module) segue com a limitação já documentada; nenhum arquivo em api/ mudou desde o baseline.",
+    "lint": "npm run lint — 0 erros, 0 avisos",
+    "build": "não executado nesta rodada — sem alteração de código-fonte desde o baseline anterior",
+    "audit": "não executado nesta rodada — sem alteração de dependências desde o baseline anterior"
+  },
+  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só o próprio commit de estado da rotina (PR #124, ec13c27). Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova desde a #115 (25/08), já triada. Execução sem achados novos — apenas confirmação de saúde do repo."
   "lastReviewedSha": "8c8ff265e9fe73d13d430fe8845408736dedf404",
   "lastReviewedAt": "2026-08-30",
   "branch": "claude/cool-ptolemy-k8bk42",
