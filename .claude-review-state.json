@@ -1,55 +1,15 @@
 {
-  "lastReviewedSha": "8c8ff26",
-  "lastReviewedAt": "2026-08-27",
-  "branch": "claude/cool-ptolemy-luvjak",
+  "lastReviewedSha": "b4cb27e4c5b3b1c13b8cdd8b2f712dcb94c890ca",
+  "lastReviewedShaShort": "b4cb27e",
+  "lastReviewedAt": "2026-09-07",
+  "branch": "claude/beautiful-newton-lht23o",
   "runType": "incremental",
   "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes continuam sendo a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
+    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes continuam sendo a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa.",
     "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças)",
-    "audit": "npm ci — 0 vulnerabilidades"
+    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças no working tree)",
+    "audit": "npm ci && npm audit — 4 vulnerabilidades NOVAS em dependências transitivas não alteradas pelo diff (browserslist alta, fflate moderada, postcss-selector-parser moderada/baixa, @humanfs/node moderada). package-lock.json não mudou desde o baseline; a mudança é só a base de advisories do npm avançando. Ver 'issue proposta' no relatório."
   },
-  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só metadado: merge do PR #124 (atualização do state file da própria rotina de revisão, sem novidades). Nenhum arquivo em api/ ou src/ mudou. 35 issues abertas no repositório, nenhuma com atividade posterior ao baseline anterior que indicasse necessidade de reclassificação. Execução sem achados novos — apenas confirmação de saúde do repo."
-  "lastReviewedAt": "2026-08-28",
-  "branch": "claude/cool-ptolemy-0shn8w",
-  "runType": "incremental",
-  "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a mesma limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
-    "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "npm run build — sucesso (sitemap.xml regenerado, sem diferenças no working tree)",
-    "audit": "npm ci — instalação limpa, sem erros"
-  },
-  "notes": "Diff desde o baseline anterior (e182746, 26/08) é vazio em termos de código: o único commit no intervalo (ec13c27, mesclado via PR #124) só atualizava este próprio arquivo de estado da execução anterior. Nenhum arquivo em src/ ou api/ mudou. Nenhuma issue nova criada por esta rotina — as 35 issues abertas existentes (incluindo #115, #107, #106, #105, #104, #101 já rastreadas por execuções anteriores) permanecem sem mudança de status, já que não há diff de código para reavaliar consertado/quebrado. Execução sem achados novos — apenas confirmação de saúde do repo."
-  "lastReviewedAt": "2026-08-29",
-  "branch": "claude/cool-ptolemy-ueqofx",
-  "runType": "incremental",
-  "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. api/_lib (Node 22, mock.module) segue com a limitação já documentada; nenhum arquivo em api/ mudou desde o baseline.",
-    "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "não executado nesta rodada — sem alteração de código-fonte desde o baseline anterior",
-    "audit": "não executado nesta rodada — sem alteração de dependências desde o baseline anterior"
-  },
-  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só o próprio commit de estado da rotina (PR #124, ec13c27). Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova desde a #115 (25/08), já triada. Execução sem achados novos — apenas confirmação de saúde do repo."
-  "lastReviewedSha": "8c8ff265e9fe73d13d430fe8845408736dedf404",
-  "lastReviewedAt": "2026-08-30",
-  "branch": "claude/cool-ptolemy-k8bk42",
-  "runType": "incremental",
-  "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a mesma limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
-    "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "npm run build — sucesso (sitemap.xml regenerado sem diferenças)",
-    "audit": "npm audit (via npm ci) — 0 vulnerabilidades"
-  },
-  "notes": "Diff desde o baseline anterior (e182746, 26/08) é só metadado: merge do PR #124, que apenas atualizou este próprio arquivo de estado na execução anterior (sem novidades). Nenhum arquivo em api/ ou src/ mudou. Execução sem achados novos — apenas confirmação de saúde do repo."
-  "lastReviewedSha": "8c8ff26",
-  "lastReviewedAt": "2026-09-01",
-  "branch": "claude/cool-ptolemy-82f2ui",
-  "runType": "incremental",
-  "checks": {
-    "tests": "npm run test:unit (22/22) — todos passando. npm run test (api/_lib, 5/9) — as 4 falhas restantes são a limitação já documentada do Node 22 do agente com `mock.module` (`ERR_TEST_FAILURE: does not provide an export named 'Resend'`); CI roda em Node 24 e passa. Nenhum arquivo em api/_lib mudou desde o baseline anterior.",
-    "lint": "npm run lint — 0 erros, 0 avisos",
-    "build": "npm run build — sucesso",
-    "audit": "npm ci — sem erros"
-  },
-  "notes": "Diff desde o baseline anterior (e182746) é só metadado: o único commit no intervalo é o merge do PR #124, que alterou apenas o próprio .claude-review-state.json. Nenhum arquivo em api/ ou src/ mudou. Nenhuma issue nova além da #115 (já triada em 2026-08-25). ACHADO OPERACIONAL: main segue travado em 8c8ff26 porque as PRs #125, #126, #127, #128 e #129 — geradas pelas 5 execuções diárias anteriores desta mesma rotina (27/08 a 31/08), todas 'sem novidades' — nunca foram mescladas nem fechadas. Cada uma refaz o mesmo diff vazio contra 8c8ff26 de forma redundante. Recomenda-se mesclar a mais recente (#129) e fechar as demais (#125–#128) como duplicatas antes da próxima execução."
+  "notes": "Diff de código desde o baseline anterior (8c8ff26, registrado em 2026-09-01) é vazio: nenhum arquivo em src/, api/ ou config mudou. O único diff no repositório era o próprio .claude-review-state.json sendo reescrito de forma inválida a cada execução anterior (objetos JSON concatenados sem vírgula/colchete, quebrando o parse) — corrigido nesta execução, reescrevendo o arquivo como JSON válido com o histórico bruto preservado em priorRawStateArchived. ACHADO OPERACIONAL ANTERIOR RESOLVIDO: as PRs #125–#130 (execuções 'sem novidades' de 27/08 a 01/09) já foram todas mescladas — main não está mais travada em 8c8ff26. Nenhuma issue nova desde a #115 (25/08, já triada); total de issues abertas seguem 35. Único achado novo desta execução: 4 vulnerabilidades reportadas por `npm audit` que não apareciam nas execuções anteriores (advisories novos para pacotes transitivos já pinados no lockfile), reportadas como issue proposta abaixo.",
+  "priorRawStateArchived": "Arquivo original (2026-08-27 a 2026-09-01) estava corrompido como JSON — múltiplos objetos top-level concatenados sem separador. Resumo do conteúdo: execuções de 27/08, 28/08, 29/08, 30/08 e 01/09, todas reportando testes 22/22 unit + 5/9 api/_lib (limitação Node 22 documentada), lint 0 erros, build ok, audit 0 vulnerabilidades, e 'sem achados novos'. A execução de 01/09 registrou o achado operacional (agora resolvido) de que as PRs #125-#129 das execuções diárias anteriores nunca tinham sido mescladas."
 }
