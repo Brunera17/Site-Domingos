@@ -1,7 +1,7 @@
 {
-  "lastReviewedAt": "2026-08-26",
-  "lastReviewedIssueNumber": 115,
+  "lastReviewedAt": "2026-09-12",
+  "lastReviewedIssueNumber": 120,
   "runType": "incremental",
-  "reviewedIssues": [97, 100, 101, 102, 103, 104, 105, 106, 107, 115],
-  "notes": "Execução incremental: única issue nova desde a baseline (2026-08-22, #107) foi a #115, aberta em 2026-08-25. Classificada como Melhoria/Média, sem duplicata (segue #100, já fechada). Comentário de triagem postado em https://github.com/Brunera17/Site-Domingos/issues/115#issuecomment-5425361975. A próxima execução deve considerar como 'novas' as issues abertas com número maior que 115 ou created_at posterior a 2026-08-25."
+  "reviewedIssues": [97, 100, 101, 102, 103, 104, 105, 106, 107, 115, 120],
+  "notes": "Execução incremental: nenhuma issue nova aberta e pendente de triagem desde a baseline anterior (#115, 2026-08-25). A única issue com número maior que 115 é a #120 ('Testes automatizados de componente (Vitest + Testing Library)'), aberta em 2026-08-25T19:00:45Z e já fechada no mesmo dia via PR #121 (merged) — não precisou de triagem por já ter sido resolvida antes desta execução. A próxima execução deve considerar como 'novas' as issues abertas com número maior que 120 ou created_at posterior a 2026-08-25T19:00:45Z."
 }
