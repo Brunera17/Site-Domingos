@@ -1,7 +1,7 @@
 {
-  "lastReviewedAt": "2026-08-26",
-  "lastReviewedIssueNumber": 115,
+  "lastReviewedAt": "2026-09-13",
+  "lastReviewedIssueNumber": 120,
   "runType": "incremental",
-  "reviewedIssues": [97, 100, 101, 102, 103, 104, 105, 106, 107, 115],
-  "notes": "Execução incremental: única issue nova desde a baseline (2026-08-22, #107) foi a #115, aberta em 2026-08-25. Classificada como Melhoria/Média, sem duplicata (segue #100, já fechada). Comentário de triagem postado em https://github.com/Brunera17/Site-Domingos/issues/115#issuecomment-5425361975. A próxima execução deve considerar como 'novas' as issues abertas com número maior que 115 ou created_at posterior a 2026-08-25."
+  "reviewedIssues": [97, 100, 101, 102, 103, 104, 105, 106, 107, 115, 120],
+  "notes": "Execução incremental: nenhuma issue nova aberta e pendente de triagem desde a baseline (2026-08-26, #115). A única issue criada depois disso foi a #120 (aberta e fechada em 2026-08-25, mesmo dia, via PR #121 mergeado) — sem necessidade de triagem. A próxima execução deve considerar como 'novas' as issues abertas com número maior que 120 ou created_at posterior a 2026-08-25."
 }
