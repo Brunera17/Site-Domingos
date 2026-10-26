@@ -8,7 +8,7 @@
     "prebuild": "node scripts/generate-sitemap.js",
     "build": "vite build",
     "lint": "eslint .",
-    "test": "node --experimental-test-module-mocks --test api/_lib/__tests__/contact-security.test.mjs",
+    "test": "node --experimental-test-module-mocks --test api/_lib/__tests__/contact-security.test.mjs api/_lib/__tests__/painel.test.mjs",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
     "test:all": "npm run test && npm run test:unit",
@@ -16,6 +16,7 @@
     "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
+    "@svg-maps/brazil": "^2.0.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.38.0",

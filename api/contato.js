@@ -2,6 +2,7 @@ import { Resend } from 'resend'
 import { escapeHtml, renderEmailShell, fieldRow } from './_lib/email.js'
 import { getClientIp, isRateLimited } from './_lib/rateLimit.js'
 import { isValidEmail, isWithinLength } from './_lib/validate.js'
+import { registrarConversao } from './_lib/analytics.js'
 
 const TO_EMAIL = process.env.CONTACT_EMAIL_TO || 'sucessodocliente@domingosassessoria.com.br'
 const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'Site Domingos Assessoria <onboarding@resend.dev>'
@@ -81,6 +82,7 @@ export default async function handler(req, res) {
             return res.status(502).json({ error: 'Não foi possível enviar sua mensagem agora. Tente novamente em instantes ou fale pelo WhatsApp.' })
         }
 
+        await registrarConversao(req, 'contatos')
         return res.status(200).json({ ok: true })
     } catch (err) {
         console.error('Erro ao enviar e-mail de contato:', err)
