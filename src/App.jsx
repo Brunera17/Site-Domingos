@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { PlanProvider } from "./context/PlanContext";
 
@@ -19,16 +19,17 @@ import BlogPost from './pages/BlogPost'
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosUso from "./pages/TermosUso";
 import NotFound from "./pages/NotFound";
-import Painel from "./pages/Painel";
-import { registrarVisita } from "./utils/registrarVisita";
+import Painel from "./pages/painel/Painel";
+import { registrarPagina } from "./utils/rastreamento";
 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function App() {
+  const { pathname } = useLocation();
   useEffect(() => {
-    registrarVisita();
-  }, []);
+    registrarPagina(pathname);
+  }, [pathname]);
 
   return (
     <HelmetProvider>
