@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
+import MapaBrasil from "./MapaBrasil";
 import { Cartao, GraficoBarras, Kpi, Ranking } from "./componentes";
 
 const DIAS_SEMANA = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
@@ -78,13 +80,47 @@ export function VisaoGeral({ dados }) {
 }
 
 export function Regioes({ dados }) {
+    const [medida, setMedida] = useState("visitas");
+    const itensMapa = medida === "visitas" ? dados.rankings.estados : dados.rankings.leadsEstados;
     return (
-        <div className="grid gap-6 lg:grid-cols-2">
-            <Cartao titulo="Estados" descricao="Visitas por estado. Acessos de fora do Brasil aparecem como “Exterior”.">
-                <Ranking itens={dados.rankings.estados} limite={27} />
-            </Cartao>
+        <div className="space-y-6">
+            <div className="grid gap-6 lg:grid-cols-5">
+                <Cartao className="lg:col-span-3">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                        <div>
+                            <h2 className="text-base font-semibold">Mapa do Brasil</h2>
+                            <p className="text-xs text-zinc-400 mt-0.5">Passe o mouse (ou toque) num estado para ver o número.</p>
+                        </div>
+                        <div className="flex items-center gap-1 bg-zinc-800 rounded-full p-1 text-xs">
+                            {[
+                                ["visitas", "Visitas"],
+                                ["contatos", "Contatos"],
+                            ].map(([id, rotulo]) => (
+                                <button
+                                    key={id}
+                                    onClick={() => setMedida(id)}
+                                    aria-pressed={medida === id}
+                                    className={`rounded-full px-3 py-1 ${medida === id ? "bg-amber-500 text-black font-semibold" : "text-zinc-300"}`}
+                                >
+                                    {rotulo}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                    <MapaBrasil itens={itensMapa} unidade={medida} />
+                </Cartao>
+                <Cartao
+                    className="lg:col-span-2"
+                    titulo="Estados"
+                    descricao="Visitas por estado. Acessos de fora do Brasil aparecem como “Exterior”."
+                >
+                    <Ranking itens={dados.rankings.estados} limite={27} />
+                </Cartao>
+            </div>
             <Cartao titulo="Cidades" descricao="Top 20 cidades por número de visitas.">
-                <Ranking itens={dados.rankings.cidades} limite={20} />
+                <div className="lg:columns-2 lg:gap-10 [&_li]:break-inside-avoid">
+                    <Ranking itens={dados.rankings.cidades} limite={20} />
+                </div>
             </Cartao>
         </div>
     );

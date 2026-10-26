@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { PlanProvider } from "./context/PlanContext";
@@ -19,8 +19,10 @@ import BlogPost from './pages/BlogPost'
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosUso from "./pages/TermosUso";
 import NotFound from "./pages/NotFound";
-import Painel from "./pages/painel/Painel";
 import { registrarPagina } from "./utils/rastreamento";
+
+// Carregado só quando alguém abre /painel — o mapa e os gráficos não pesam no site.
+const Painel = lazy(() => import("./pages/painel/Painel"));
 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -56,7 +58,14 @@ export default function App() {
           </Route>
 
           {/* Painel interno de acessos — fora dos layouts do site */}
-          <Route path="/painel" element={<Painel />} />
+          <Route
+            path="/painel"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-black" />}>
+                <Painel />
+              </Suspense>
+            }
+          />
 
           {/* 🧼 ROTAS SEM HEADER */}
           <Route element={<CleanLayout />}>
