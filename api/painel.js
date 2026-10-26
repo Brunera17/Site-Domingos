@@ -19,6 +19,11 @@ export default async function handler(req, res) {
         return res.status(405).json({ error: 'Método não permitido.' })
     }
 
+    // Sem a variável, nenhuma senha funcionaria — avisa em vez de dizer "senha incorreta".
+    if (!process.env.PAINEL_SENHA) {
+        return res.status(500).json({ error: 'Senha do painel não configurada no servidor (PAINEL_SENHA).' })
+    }
+
     const auth = req.headers.authorization || ''
     const senha = auth.startsWith('Bearer ') ? auth.slice(7) : ''
 
