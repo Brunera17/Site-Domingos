@@ -368,7 +368,8 @@ const PROTECOES = [
     "Bloqueio de 15 minutos após 5 tentativas de senha erradas",
     "Trocar PAINEL_SENHA na Vercel encerra todas as sessões abertas",
     "Página fora do Google (noindex) e sem cache no navegador",
-    "Contagem de visitas ignora robôs e limita abusos (120 eventos/hora por visitante)",
+    "Visitas só são contadas depois de uma interação humana (mouse, toque ou teclado), o que filtra a maioria dos robôs",
+    "Contagem de visitas ignora robôs identificados e limita abusos (120 eventos/hora por visitante)",
     "Nenhum IP ou dado pessoal guardado: só totais agregados",
 ];
 
