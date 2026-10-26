@@ -52,7 +52,9 @@ export default function PoliticaPrivacidade() {
                             <li>
                                 <strong className="text-white">Dados de navegação:</strong> páginas visitadas, tempo de sessão e informações
                                 técnicas do dispositivo, coletados de forma agregada e anônima por ferramentas de analytics
-                                (Vercel Analytics e Speed Insights).
+                                (Vercel Analytics e Speed Insights). Também contamos quantas visitas vêm de cada estado e
+                                cidade, a partir da localização aproximada fornecida pela hospedagem; guardamos apenas esses
+                                totais, sem IP ou qualquer dado que identifique o visitante.
                             </li>
                         </ul>
                     </div>

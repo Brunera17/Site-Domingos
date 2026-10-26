@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { PlanProvider } from "./context/PlanContext";
@@ -18,11 +19,17 @@ import BlogPost from './pages/BlogPost'
 import PoliticaPrivacidade from "./pages/PoliticaPrivacidade";
 import TermosUso from "./pages/TermosUso";
 import NotFound from "./pages/NotFound";
+import Painel from "./pages/Painel";
+import { registrarVisita } from "./utils/registrarVisita";
 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 
 export default function App() {
+  useEffect(() => {
+    registrarVisita();
+  }, []);
+
   return (
     <HelmetProvider>
       <PlanProvider>
@@ -46,6 +53,9 @@ export default function App() {
             <Route path="/planos" element={<Planos />} />
             <Route path="/proposta" element={<Proposta />} />
           </Route>
+
+          {/* Painel interno de acessos — fora dos layouts do site */}
+          <Route path="/painel" element={<Painel />} />
 
           {/* 🧼 ROTAS SEM HEADER */}
           <Route element={<CleanLayout />}>
