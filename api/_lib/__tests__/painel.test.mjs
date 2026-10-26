@@ -1,8 +1,9 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-    agruparDia, classificarOrigem, ehRobo, navegador, normalizarPagina,
-    ranking, regiaoDaRequisicao, tipoDispositivo, ultimosDias,
+    agruparDia, camposDeContato, classificarOrigem, coordenadasDaRequisicao, ehRobo, faixaDistancia,
+    localDaRequisicao, navegador, normalizarPagina, ranking, regiaoDaRequisicao, SEM_LOCALIZACAO,
+    tipoDispositivo, ultimosDias,
 } from '../analytics.js'
 import { criarToken, lerCookie, senhaCorreta, tokenValido } from '../painelAuth.js'
 
@@ -76,4 +77,33 @@ test('sessão do painel: senha, token assinado e expiração', () => {
 
     assert.equal(lerCookie({ headers: { cookie: 'a=1; painel_sessao=abc.def.ghi' } }), 'abc.def.ghi')
     delete process.env.PAINEL_SENHA
+})
+
+test('coordenadas: arredonda em 2 casas e rejeita valores inválidos', () => {
+    assert.deepEqual(coordenadasDaRequisicao({ 'x-vercel-ip-latitude': '-23.10567', 'x-vercel-ip-longitude': '-48.92591' }), { lat: -23.11, lon: -48.93 })
+    assert.equal(coordenadasDaRequisicao({ 'x-vercel-ip-latitude': 'abc', 'x-vercel-ip-longitude': '-48' }), null)
+    assert.equal(coordenadasDaRequisicao({ 'x-vercel-ip-latitude': '-123', 'x-vercel-ip-longitude': '-48' }), null)
+    assert.equal(coordenadasDaRequisicao({}), null)
+})
+
+test('faixaDistancia mede a partir do escritório em Itaí', () => {
+    assert.equal(faixaDistancia({ lat: -23.42, lon: -49.09 }), 'Até 50 km') // Itaí
+    assert.equal(faixaDistancia({ lat: -23.1, lon: -48.93 }), 'Até 50 km') // Avaré, ~39 km
+    assert.equal(faixaDistancia({ lat: -22.31, lon: -49.06 }), '50 a 150 km') // Bauru, ~123 km
+    assert.equal(faixaDistancia({ lat: -23.55, lon: -46.63 }), '150 a 400 km') // São Paulo, ~251 km
+    assert.equal(faixaDistancia({ lat: -19.92, lon: -43.94 }), '400 a 1.000 km') // BH
+    assert.equal(faixaDistancia({ lat: -8.05, lon: -34.88 }), 'Mais de 1.000 km') // Recife
+    assert.equal(faixaDistancia(null), SEM_LOCALIZACAO)
+})
+
+test('localDaRequisicao ignora coordenadas de fora do Brasil', () => {
+    const br = localDaRequisicao({
+        'x-vercel-ip-country': 'BR', 'x-vercel-ip-country-region': 'SP', 'x-vercel-ip-city': 'Avar%C3%A9',
+        'x-vercel-ip-latitude': '-23.1', 'x-vercel-ip-longitude': '-48.93',
+    })
+    assert.deepEqual(br, { estado: 'SP', cidade: 'Avaré - SP', coord: { lat: -23.1, lon: -48.93 }, faixa: 'Até 50 km' })
+    const fora = localDaRequisicao({ 'x-vercel-ip-country': 'PT', 'x-vercel-ip-latitude': '38.7', 'x-vercel-ip-longitude': '-9.1' })
+    assert.equal(fora.coord, null)
+    assert.equal(fora.faixa, SEM_LOCALIZACAO)
+    assert.deepEqual(camposDeContato('whatsapp', br), ['t:whatsapp', 'lead_estado:SP', 'lead_cidade:Avaré - SP', 'dist_lead:Até 50 km'])
 })

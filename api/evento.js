@@ -1,6 +1,6 @@
 import {
-    classificarOrigem, ehRobo, horaLocal, incrementar, navegador,
-    normalizarPagina, regiaoDaRequisicao, tipoDispositivo,
+    camposDeContato, classificarOrigem, comandoCoordenada, ehRobo, horaLocal, incrementar,
+    localDaRequisicao, navegador, normalizarPagina, tipoDispositivo,
 } from './_lib/analytics.js'
 import { excedeuLimite } from './_lib/seguranca.js'
 
@@ -24,27 +24,31 @@ export default async function handler(req, res) {
     const { tipo, pagina, origem } = req.body || {}
     const caminho = normalizarPagina(pagina)
     const campos = []
+    let extras = []
 
     if (tipo === 'sessao') {
-        const { estado, cidade } = regiaoDaRequisicao(req.headers)
+        const local = localDaRequisicao(req.headers)
+        const fonte = classificarOrigem(origem)
         campos.push(
             't:sessoes',
-            `estado:${estado}`,
-            `cidade:${cidade}`,
+            `estado:${local.estado}`,
+            `cidade:${local.cidade}`,
+            `cidade_origem:${local.cidade}|${fonte}`,
+            `dist:${local.faixa}`,
             `disp:${tipoDispositivo(ua)}`,
             `nav:${navegador(ua)}`,
-            `origem:${classificarOrigem(origem)}`,
+            `origem:${fonte}`,
             `hora:${horaLocal()}`,
         )
         if (caminho) campos.push(`entrada:${caminho}`)
+        extras = comandoCoordenada(local.cidade, local.coord)
     } else if (tipo === 'pagina' && caminho) {
         campos.push('t:paginas', `pagina:${caminho}`)
     } else if (CLIQUES.has(tipo)) {
-        const { estado } = regiaoDaRequisicao(req.headers)
-        campos.push(`t:${tipo}`, `lead_estado:${estado}`)
+        campos.push(...camposDeContato(tipo, localDaRequisicao(req.headers)))
         if (caminho) campos.push(`clique_pagina:${caminho}`)
     }
 
-    await incrementar(campos)
+    await incrementar(campos, { extras })
     return res.status(204).end()
 }

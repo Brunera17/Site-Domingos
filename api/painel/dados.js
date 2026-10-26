@@ -1,4 +1,7 @@
-import { agruparDia, chaveDia, ranking, ultimosDias } from '../_lib/analytics.js'
+import {
+    agruparDia, CHAVE_COORDENADAS, chaveDia, ESCRITORIO, FAIXAS_DISTANCIA, paresDoHash,
+    ranking, SEM_LOCALIZACAO, ultimosDias,
+} from '../_lib/analytics.js'
 import { autenticado } from '../_lib/painelAuth.js'
 import { isRedisConfigured, pipeline } from '../_lib/redis.js'
 import { ultimosAcessosPainel } from '../_lib/seguranca.js'
@@ -30,6 +33,49 @@ function somar(dias) {
     return acumulado
 }
 
+// Uma linha por cidade: visitas, contatos, origem principal e coordenada.
+function detalharCidades(atual, coordenadas) {
+    const visitas = atual.cidade || {}
+    const contatos = atual.lead_cidade || {}
+    const origens = {}
+    for (const [chave, n] of Object.entries(atual.cidade_origem || {})) {
+        const i = chave.lastIndexOf('|')
+        const cidade = chave.slice(0, i)
+        const origem = chave.slice(i + 1)
+        if (!origens[cidade] || n > origens[cidade].n) origens[cidade] = { origem, n }
+    }
+    const nomes = new Set([...Object.keys(visitas), ...Object.keys(contatos)])
+    return [...nomes]
+        .map((nome) => {
+            const [lat, lon] = (coordenadas[nome] || '').split(',').map(Number)
+            return {
+                nome,
+                visitas: visitas[nome] || 0,
+                contatos: contatos[nome] || 0,
+                origem: origens[nome]?.origem || null,
+                ...(Number.isFinite(lat) && Number.isFinite(lon) && coordenadas[nome] ? { lat, lon } : {}),
+            }
+        })
+        .sort((a, b) => b.visitas - a.visitas || b.contatos - a.contatos)
+        .slice(0, 500)
+}
+
+function porDistancia(atual, totalSessoes) {
+    const linhas = FAIXAS_DISTANCIA.map(([, faixa]) => ({
+        faixa,
+        visitas: atual.dist?.[faixa] || 0,
+        contatos: atual.dist_lead?.[faixa] || 0,
+    }))
+    // Visitas de fora do Brasil ou sem coordenada.
+    const comLocal = linhas.reduce((s, l) => s + l.visitas, 0)
+    linhas.push({
+        faixa: SEM_LOCALIZACAO,
+        visitas: Math.max(0, totalSessoes - comLocal),
+        contatos: atual.dist_lead?.[SEM_LOCALIZACAO] || 0,
+    })
+    return linhas
+}
+
 function totais(acumulado) {
     return Object.fromEntries(TOTAIS.map((t) => [t, acumulado.t?.[t] || 0]))
 }
@@ -53,8 +99,12 @@ export default async function handler(req, res) {
     const listaDias = ultimosDias(periodo * 2)
 
     try {
-        const hashes = await pipeline(listaDias.map((dia) => ['HGETALL', chaveDia(dia)]))
-        const grupos = hashes.map(agruparDia)
+        const resultados = await pipeline([
+            ...listaDias.map((dia) => ['HGETALL', chaveDia(dia)]),
+            ['HGETALL', CHAVE_COORDENADAS],
+        ])
+        const coordenadas = Object.fromEntries(paresDoHash(resultados.pop()))
+        const grupos = resultados.map(agruparDia)
         const atual = somar(grupos.slice(0, periodo))
         const anterior = somar(grupos.slice(periodo))
 
@@ -78,6 +128,9 @@ export default async function handler(req, res) {
             horas,
             semana,
             rankings,
+            cidades: detalharCidades(atual, coordenadas),
+            distancias: porDistancia(atual, totais(atual).sessoes),
+            escritorio: ESCRITORIO,
             seguranca: { acessos: await ultimosAcessosPainel(50) },
         })
     } catch (error) {

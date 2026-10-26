@@ -3,9 +3,9 @@ import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
 import {
     BarChart3, Clock, FileText, LogOut, Map, Menu, MonitorSmartphone,
-    MousePointerClick, RefreshCw, Share2, ShieldCheck, X,
+    MousePointerClick, Radar, RefreshCw, Share2, ShieldCheck, X,
 } from "lucide-react";
-import { Conversoes, Dispositivos, Horarios, Origens, Paginas, Regioes, Seguranca, VisaoGeral } from "./secoes";
+import { Conversoes, Dispositivos, Horarios, Origens, Paginas, RaioAtuacao, Regioes, Seguranca, VisaoGeral } from "./secoes";
 
 const GRUPOS = [
     {
@@ -13,6 +13,7 @@ const GRUPOS = [
         itens: [
             { id: "geral", rotulo: "Visão geral", icone: BarChart3, Componente: VisaoGeral },
             { id: "regioes", rotulo: "Regiões", icone: Map, Componente: Regioes },
+            { id: "raio", rotulo: "Raio de atuação", icone: Radar, Componente: RaioAtuacao },
             { id: "paginas", rotulo: "Páginas", icone: FileText, Componente: Paginas },
             { id: "origens", rotulo: "Origem do tráfego", icone: Share2, Componente: Origens },
             { id: "dispositivos", rotulo: "Dispositivos", icone: MonitorSmartphone, Componente: Dispositivos },

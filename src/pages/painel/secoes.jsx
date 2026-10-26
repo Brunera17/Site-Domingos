@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import MapaBrasil from "./MapaBrasil";
+import TabelaCidades from "./TabelaCidades";
+import { distanciaKm, nomeDoEstado, ufDaCidade } from "./geo";
 import { Cartao, GraficoBarras, Kpi, Ranking } from "./componentes";
 
 const DIAS_SEMANA = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
@@ -79,52 +81,188 @@ export function VisaoGeral({ dados }) {
     );
 }
 
+function Alternador({ opcoes, valor, aoMudar, rotulo }) {
+    return (
+        <div className="flex items-center gap-1 bg-zinc-800 rounded-full p-1 text-xs" role="group" aria-label={rotulo}>
+            {opcoes.map(([id, texto]) => (
+                <button
+                    key={id}
+                    onClick={() => aoMudar(id)}
+                    aria-pressed={valor === id}
+                    className={`rounded-full px-3 py-1 ${valor === id ? "bg-amber-500 text-black font-semibold" : "text-zinc-300"}`}
+                >
+                    {texto}
+                </button>
+            ))}
+        </div>
+    );
+}
+
 export function Regioes({ dados }) {
     const [medida, setMedida] = useState("visitas");
-    const itensMapa = medida === "visitas" ? dados.rankings.estados : dados.rankings.leadsEstados;
+    const [camada, setCamada] = useState("estados");
+    const [uf, setUf] = useState(null);
+    const { rankings, cidades, escritorio } = dados;
+
+    function selecionarUf(novaUf) {
+        setUf(novaUf);
+        if (novaUf) setCamada("cidades");
+    }
+
+    const estadosMapa = medida === "visitas" ? rankings.estados : rankings.leadsEstados;
+    const cidadesDoUf = (cidades || [])
+        .filter((c) => ufDaCidade(c.nome) === uf)
+        .map((c) => ({ nome: c.nome.replace(/ - [A-Z]{2}$/, ""), total: c[medida] }))
+        .filter((c) => c.total > 0)
+        .sort((a, b) => b.total - a.total);
+
     return (
         <div className="space-y-6">
             <div className="grid gap-6 lg:grid-cols-5">
                 <Cartao className="lg:col-span-3">
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                         <div>
-                            <h2 className="text-base font-semibold">Mapa do Brasil</h2>
-                            <p className="text-xs text-zinc-400 mt-0.5">Passe o mouse (ou toque) num estado para ver o número.</p>
+                            <h2 className="text-base font-semibold">
+                                {uf ? nomeDoEstado(uf) : "Mapa do Brasil"}
+                            </h2>
+                            <p className="text-xs text-zinc-400 mt-0.5">
+                                {uf ? (
+                                    <button onClick={() => selecionarUf(null)} className="text-amber-400 hover:text-amber-300">
+                                        ← Voltar ao Brasil
+                                    </button>
+                                ) : (
+                                    "Clique num estado para ver as cidades dele."
+                                )}
+                            </p>
                         </div>
-                        <div className="flex items-center gap-1 bg-zinc-800 rounded-full p-1 text-xs">
-                            {[
-                                ["visitas", "Visitas"],
-                                ["contatos", "Contatos"],
-                            ].map(([id, rotulo]) => (
-                                <button
-                                    key={id}
-                                    onClick={() => setMedida(id)}
-                                    aria-pressed={medida === id}
-                                    className={`rounded-full px-3 py-1 ${medida === id ? "bg-amber-500 text-black font-semibold" : "text-zinc-300"}`}
-                                >
-                                    {rotulo}
-                                </button>
-                            ))}
+                        <div className="flex flex-wrap gap-2">
+                            <Alternador
+                                rotulo="Mostrar por"
+                                opcoes={[["estados", "Estados"], ["cidades", "Cidades"]]}
+                                valor={camada}
+                                aoMudar={(v) => {
+                                    setCamada(v);
+                                    if (v === "estados") setUf(null);
+                                }}
+                            />
+                            <Alternador
+                                rotulo="Medida"
+                                opcoes={[["visitas", "Visitas"], ["contatos", "Contatos"]]}
+                                valor={medida}
+                                aoMudar={setMedida}
+                            />
                         </div>
                     </div>
-                    <MapaBrasil itens={itensMapa} unidade={medida} />
+                    <MapaBrasil
+                        estados={estadosMapa}
+                        cidades={cidades}
+                        medida={medida}
+                        camada={camada}
+                        uf={uf}
+                        aoSelecionarUf={selecionarUf}
+                        escritorio={escritorio}
+                    />
                 </Cartao>
-                <Cartao
-                    className="lg:col-span-2"
-                    titulo="Estados"
-                    descricao="Visitas por estado. Acessos de fora do Brasil aparecem como “Exterior”."
-                >
-                    <Ranking itens={dados.rankings.estados} limite={27} />
-                </Cartao>
+                {uf ? (
+                    <Cartao className="lg:col-span-2" titulo={`Cidades de ${nomeDoEstado(uf)}`} descricao={`Por ${medida}.`}>
+                        <Ranking itens={cidadesDoUf} limite={20} vazio={`Nenhuma cidade com ${medida} no período.`} />
+                    </Cartao>
+                ) : (
+                    <Cartao
+                        className="lg:col-span-2"
+                        titulo="Estados"
+                        descricao={`Por ${medida}. Acessos de fora do Brasil aparecem como “Exterior”.`}
+                    >
+                        <Ranking itens={estadosMapa} limite={27} />
+                    </Cartao>
+                )}
             </div>
-            <Cartao titulo="Cidades" descricao="Top 20 cidades por número de visitas.">
-                <div className="lg:columns-2 lg:gap-10 [&_li]:break-inside-avoid">
-                    <Ranking itens={dados.rankings.cidades} limite={20} />
-                </div>
+            <Cartao
+                titulo={uf ? `Todas as cidades de ${nomeDoEstado(uf)}` : "Todas as cidades"}
+                descricao="Clique no título de uma coluna para ordenar. Distância medida até o escritório, em linha reta."
+            >
+                <TabelaCidades cidades={cidades} escritorio={escritorio} filtroUf={uf} />
             </Cartao>
         </div>
     );
 }
+
+export function RaioAtuacao({ dados }) {
+    const { distancias, cidades, escritorio, totais } = dados;
+    const comLocal = distancias.filter((d) => d.faixa !== "Sem localização");
+    const ate150 = comLocal.slice(0, 2);
+    const somar = (lista, campo) => lista.reduce((s, d) => s + d[campo], 0);
+    const totalVisitasLocal = somar(comLocal, "visitas");
+    const totalContatosLocal = somar(comLocal, "contatos");
+    const pct = (parte, todo) => (todo ? `${Math.round((parte / todo) * 100)}%` : "—");
+    const fracao = (parte, todo) => (todo ? Math.round((parte / todo) * 100) : null);
+    const pctFmt = (v) => (v === null ? "—" : `${v}%`);
+    const maiorVisitas = Math.max(1, ...distancias.map((d) => d.visitas));
+
+    const proximas = (cidades || [])
+        .filter((c) => c.lat !== undefined)
+        .map((c) => ({ ...c, km: distanciaKm(escritorio, c) }))
+        .filter((c) => c.km <= 150)
+        .sort((a, b) => b.visitas - a.visitas)
+        .slice(0, 15)
+        .map((c) => ({ nome: `${c.nome} (${Math.round(c.km)} km)`, total: c.visitas }));
+
+    return (
+        <div className="space-y-6">
+            <div className="grid gap-4 grid-cols-2 xl:grid-cols-3">
+                <Kpi rotulo="Visitas até 150 km" valor={somar(ate150, "visitas")} ajuda="Até 150 km do escritório em Itaí" />
+                <Kpi rotulo="Parte das visitas até 150 km" valor={fracao(somar(ate150, "visitas"), totalVisitasLocal)} formato={pctFmt} ajuda="Entre as visitas com localização" />
+                <Kpi rotulo="Parte dos contatos até 150 km" valor={fracao(somar(ate150, "contatos"), totalContatosLocal)} formato={pctFmt} ajuda="Entre os contatos com localização" />
+            </div>
+
+            <Cartao
+                titulo={`Distância até o escritório (${escritorio.nome})`}
+                descricao="Em linha reta, a partir da localização aproximada da conexão."
+            >
+                <div className="overflow-x-auto -mx-5 px-5">
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b border-zinc-800 text-zinc-400 text-left">
+                                <th className="py-2 pr-4 font-medium">Faixa</th>
+                                <th className="py-2 pr-4 font-medium w-1/2">Visitas</th>
+                                <th className="py-2 pr-4 font-medium text-right">Contatos</th>
+                                <th className="py-2 font-medium text-right whitespace-nowrap">Taxa de contato</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {distancias.map((d) => (
+                                <tr key={d.faixa} className={`border-b border-zinc-800/60 ${d.faixa === "Sem localização" ? "text-zinc-500" : ""}`}>
+                                    <td className="py-3 pr-4 whitespace-nowrap">{d.faixa}</td>
+                                    <td className="py-3 pr-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="flex-1 h-2 bg-zinc-800 rounded-full overflow-hidden">
+                                                <div className="h-full bg-amber-500 rounded-full" style={{ width: `${(d.visitas / maiorVisitas) * 100}%` }} />
+                                            </div>
+                                            <span className="tabular-nums w-24 text-right whitespace-nowrap">
+                                                {numeroBr(d.visitas)} <span className="text-zinc-500">{pct(d.visitas, totais.sessoes)}</span>
+                                            </span>
+                                        </div>
+                                    </td>
+                                    <td className="py-3 pr-4 text-right tabular-nums">{numeroBr(d.contatos)}</td>
+                                    <td className="py-3 text-right tabular-nums">{d.visitas ? pct(d.contatos, d.visitas) : "—"}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <p className="text-xs text-zinc-500 mt-4">
+                    “Sem localização” reúne visitas de fora do Brasil ou sem coordenada informada pela conexão.
+                </p>
+            </Cartao>
+
+            <Cartao titulo="Cidades da região" descricao="Cidades até 150 km do escritório que mais visitaram o site.">
+                <Ranking itens={proximas} limite={15} vazio="Nenhuma visita de cidades até 150 km no período." />
+            </Cartao>
+        </div>
+    );
+}
+
+const numeroBr = (v) => new Intl.NumberFormat("pt-BR").format(v || 0);
 
 export function Paginas({ dados }) {
     return (

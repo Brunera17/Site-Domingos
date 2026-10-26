@@ -52,6 +52,52 @@ export function regiaoDaRequisicao(headers) {
     return { estado, cidade: cidade ? `${cidade} - ${estado}` : `Desconhecida - ${estado}` }
 }
 
+// Coordenadas aproximadas da conexão (nível de cidade), também enviadas pela
+// Vercel. Arredondadas em 2 casas (~1 km) e guardadas só por cidade, nunca
+// por visitante.
+export function coordenadasDaRequisicao(headers) {
+    const lat = Number(headers['x-vercel-ip-latitude'])
+    const lon = Number(headers['x-vercel-ip-longitude'])
+    if (!headers['x-vercel-ip-latitude'] || !headers['x-vercel-ip-longitude']) return null
+    if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null
+    return { lat: Math.round(lat * 100) / 100, lon: Math.round(lon * 100) / 100 }
+}
+
+// Escritório da Domingos Assessoria (Itaí - SP), referência do "raio de atuação".
+export const ESCRITORIO = { nome: 'Itaí - SP', lat: -23.42, lon: -49.09 }
+
+export function distanciaKm(a, b) {
+    const rad = (g) => (g * Math.PI) / 180
+    const dLat = rad(b.lat - a.lat)
+    const dLon = rad(b.lon - a.lon)
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(a.lat)) * Math.cos(rad(b.lat)) * Math.sin(dLon / 2) ** 2
+    return 2 * 6371 * Math.asin(Math.sqrt(h))
+}
+
+export const FAIXAS_DISTANCIA = [
+    [50, 'Até 50 km'],
+    [150, '50 a 150 km'],
+    [400, '150 a 400 km'],
+    [1000, '400 a 1.000 km'],
+    [Infinity, 'Mais de 1.000 km'],
+]
+export const SEM_LOCALIZACAO = 'Sem localização'
+
+export function faixaDistancia(coord) {
+    if (!coord) return SEM_LOCALIZACAO
+    const km = distanciaKm(ESCRITORIO, coord)
+    return FAIXAS_DISTANCIA.find(([limite]) => km <= limite)[1]
+}
+
+// Tudo que dá pra saber do lugar de onde veio a requisição. Coordenadas só
+// valem pra acessos do Brasil (o resto já é agrupado como "Exterior").
+export function localDaRequisicao(headers) {
+    const { estado, cidade } = regiaoDaRequisicao(headers)
+    const noBrasil = headers['x-vercel-ip-country'] === 'BR'
+    const coord = noBrasil ? coordenadasDaRequisicao(headers) : null
+    return { estado, cidade, coord, faixa: noBrasil ? faixaDistancia(coord) : SEM_LOCALIZACAO }
+}
+
 const BOT_UA = /bot|crawl|spider|slurp|headless|lighthouse|preview|facebookexternalhit|whatsapp\//i
 
 export function ehRobo(userAgent = '') {
@@ -117,28 +163,42 @@ export function normalizarPagina(caminho) {
 
 // ── Escrita ─────────────────────────────────────────────────────────────────
 
+export const CHAVE_COORDENADAS = 'geo:cidades'
+
 // Soma +1 em cada campo informado, no hash do dia. Nunca lança exceção:
 // métrica com problema não pode derrubar o site nem um formulário.
-export async function incrementar(campos, date = new Date()) {
+// `extras` são comandos a mais que vão no mesmo pipeline.
+export async function incrementar(campos, { extras = [], date = new Date() } = {}) {
     if (!isRedisConfigured() || campos.length === 0) return
     const chave = chaveDia(diaLocal(date))
     try {
-        await pipeline([...campos.map((campo) => ['HINCRBY', chave, campo, 1]), ['EXPIRE', chave, TTL_DIA]])
+        await pipeline([...campos.map((campo) => ['HINCRBY', chave, campo, 1]), ['EXPIRE', chave, TTL_DIA], ...extras])
     } catch (error) {
         console.error('Falha ao registrar métrica:', error)
     }
 }
 
+// Guarda a coordenada da cidade (uma por cidade, sobrescrita a cada visita)
+// pra desenhar as bolhas do mapa.
+export function comandoCoordenada(cidade, coord) {
+    return coord ? [['HSET', CHAVE_COORDENADAS, cidade, `${coord.lat},${coord.lon}`]] : []
+}
+
+// Campos de um contato (formulário ou clique em WhatsApp/telefone/e-mail).
+export function camposDeContato(tipo, local) {
+    return [`t:${tipo}`, `lead_estado:${local.estado}`, `lead_cidade:${local.cidade}`, `dist_lead:${local.faixa}`]
+}
+
 // Chamado pelos formulários quando o envio dá certo.
 export function registrarConversao(req, tipo) {
-    const { estado } = regiaoDaRequisicao(req.headers)
-    return incrementar([`t:${tipo}`, `lead_estado:${estado}`])
+    const local = localDaRequisicao(req.headers)
+    return incrementar(camposDeContato(tipo, local), { extras: comandoCoordenada(local.cidade, local.coord) })
 }
 
 // ── Leitura ─────────────────────────────────────────────────────────────────
 
 // A API REST do Upstash devolve HGETALL como array [campo, valor, ...].
-function paresDoHash(hash) {
+export function paresDoHash(hash) {
     if (!hash) return []
     if (!Array.isArray(hash)) return Object.entries(hash)
     const pares = []
