@@ -8,49 +8,91 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // Mostra quem atende o cliente — o parecer de SEO apontou que a home só tinha
 // fotos de banco de imagens e nenhuma da equipe ou dos sócios.
 //
-// O carrossel é uma faixa com scroll-snap: passa sozinho a cada poucos
-// segundos e volta ao início no fim. Pausa quando o visitante passa o mouse,
-// toca ou foca nos cards, quando a seção sai da tela e para quem pediu ao
-// sistema menos animação. No celular também dá para arrastar; no desktop há setas.
-const INTERVALO_MS = 3500
+// O carrossel anda sem parar, como uma esteira. A lista de pessoas é
+// repetida duas vezes: quando a primeira cópia sai inteira da tela, a posição
+// volta o equivalente a uma cópia — como a segunda é igual, o salto não
+// aparece e o movimento parece infinito.
+//
+// Pausa com o mouse em cima, ao tocar/arrastar ou focar nos cards, quando a
+// seção sai da tela, com a aba escondida e para quem pediu ao sistema menos
+// animação. As setas (desktop) pulam um card.
+const VELOCIDADE_PX_POR_SEG = 70
+const RETOMAR_APOS_TOQUE_MS = 2000
+const lista = [...equipe, ...equipe]
+
 export default function EquipeSection() {
     const trilhoRef = useRef(null)
-    const [pausado, setPausado] = useState(false)
+    const pausadoRef = useRef(false)
+    const pausaAteRef = useRef(0)
+    const posRef = useRef(0)
     const [visivel, setVisivel] = useState(false)
+
+    // Distância entre o primeiro card e a sua cópia = tamanho de uma volta
+    const tamanhoVolta = (trilho) => {
+        const cards = trilho.querySelectorAll('[data-card]')
+        return cards.length > equipe.length
+            ? cards[equipe.length].offsetLeft - cards[0].offsetLeft
+            : trilho.scrollWidth / 2
+    }
+
+    const pausar = (ms) => {
+        pausaAteRef.current = performance.now() + ms
+    }
 
     const rolar = (direcao) => {
         const trilho = trilhoRef.current
         if (!trilho) return
+        pausar(900)
+        const volta = tamanhoVolta(trilho)
         const card = trilho.querySelector('[data-card]')
         const passo = card ? card.offsetWidth + 16 : trilho.clientWidth
-        const fim = trilho.scrollWidth - trilho.clientWidth - 4
-        // Nas pontas, dá a volta em vez de travar
-        if (direcao > 0 && trilho.scrollLeft >= fim) {
-            trilho.scrollTo({ left: 0, behavior: 'smooth' })
-        } else if (direcao < 0 && trilho.scrollLeft <= 4) {
-            trilho.scrollTo({ left: trilho.scrollWidth, behavior: 'smooth' })
-        } else {
-            trilho.scrollBy({ left: direcao * passo, behavior: 'smooth' })
-        }
+        // Antes de animar, reposiciona na cópia equivalente para nunca bater
+        // numa ponta da faixa
+        if (direcao < 0 && trilho.scrollLeft < passo) trilho.scrollLeft += volta
+        if (direcao > 0 && trilho.scrollLeft + passo >= volta) trilho.scrollLeft -= volta
+        trilho.scrollBy({ left: direcao * passo, behavior: 'smooth' })
     }
 
     // Só roda enquanto a seção estiver na tela
     useEffect(() => {
         const trilho = trilhoRef.current
         if (!trilho || typeof IntersectionObserver === 'undefined') return
-        const obs = new IntersectionObserver(([e]) => setVisivel(e.isIntersecting), { threshold: 0.3 })
+        const obs = new IntersectionObserver(([e]) => setVisivel(e.isIntersecting), { threshold: 0.2 })
         obs.observe(trilho)
         return () => obs.disconnect()
     }, [])
 
     useEffect(() => {
-        if (pausado || !visivel) return
+        const trilho = trilhoRef.current
+        if (!trilho || !visivel) return
         if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
-        const id = setInterval(() => {
-            if (document.visibilityState === 'visible') rolar(1)
-        }, INTERVALO_MS)
-        return () => clearInterval(id)
-    }, [pausado, visivel])
+
+        let quadro
+        let anterior = performance.now()
+        posRef.current = trilho.scrollLeft
+
+        const passo = (agora) => {
+            const dt = Math.min(agora - anterior, 100) // evita salto depois de aba escondida
+            anterior = agora
+            const parado =
+                pausadoRef.current ||
+                agora < pausaAteRef.current ||
+                document.visibilityState !== 'visible'
+
+            if (parado) {
+                // Acompanha onde a pessoa deixou a faixa (arrastando ou pelas setas)
+                posRef.current = trilho.scrollLeft
+            } else {
+                const volta = tamanhoVolta(trilho)
+                posRef.current += (VELOCIDADE_PX_POR_SEG * dt) / 1000
+                if (posRef.current >= volta) posRef.current -= volta
+                trilho.scrollLeft = posRef.current
+            }
+            quadro = requestAnimationFrame(passo)
+        }
+        quadro = requestAnimationFrame(passo)
+        return () => cancelAnimationFrame(quadro)
+    }, [visivel])
 
     return (
         <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
@@ -67,20 +109,24 @@ export default function EquipeSection() {
                     <div className="lg:col-span-2 min-w-0">
                         <div
                             ref={trilhoRef}
-                            className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                            className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                             aria-label="Colaboradores da Domingos Assessoria"
-                            onMouseEnter={() => setPausado(true)}
-                            onMouseLeave={() => setPausado(false)}
-                            onTouchStart={() => setPausado(true)}
-                            onTouchEnd={() => setTimeout(() => setPausado(false), INTERVALO_MS)}
-                            onFocus={() => setPausado(true)}
-                            onBlur={() => setPausado(false)}
+                            onMouseEnter={() => { pausadoRef.current = true }}
+                            onMouseLeave={() => { pausadoRef.current = false }}
+                            onTouchStart={() => { pausadoRef.current = true }}
+                            onTouchEnd={() => {
+                                pausadoRef.current = false
+                                pausar(RETOMAR_APOS_TOQUE_MS)
+                            }}
+                            onFocus={() => { pausadoRef.current = true }}
+                            onBlur={() => { pausadoRef.current = false }}
                         >
-                            {equipe.map((pessoa) => (
+                            {lista.map((pessoa, i) => (
                                 <article
-                                    key={pessoa.nome + pessoa.cargo}
+                                    key={`${i}-${pessoa.nome}`}
                                     data-card
-                                    className="snap-start shrink-0 w-[62%] sm:w-[40%] md:w-[31%] bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden"
+                                    aria-hidden={i >= equipe.length ? true : undefined}
+                                    className="shrink-0 w-[62%] sm:w-[40%] md:w-[31%] bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden"
                                 >
                                     <div className="aspect-[3/4] bg-zinc-900">
                                         <img
