@@ -5,6 +5,7 @@ import SetoresSection from '../components/sections/SetoresSection'
 import DiferenciaisSection from '../components/sections/Diferenciais'
 import TestemunhosSection from '../components/sections/Testemunho'
 import CTASection from '../components/sections/Cta'
+import EquipeSection from '../components/sections/Equipe'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
 import OrganizationSchema from '../components/seo/OrganizationSchema'
 
@@ -23,10 +24,10 @@ export default function Home() {
     return (
         <>
             <SEOHead
-                title="Domingos Assessoria Empresarial | Contabilidade e Consultoria Fiscal"
-                description="Contabilidade, consultoria fiscal, tributária e assessoria empresarial para pequenas e médias empresas no interior paulista. Mais de 10 anos de expertise."
+                title="Contabilidade em Itaí e Interior Paulista | Domingos"
+                description="Escritório de contabilidade em Itaí-SP: contábil, fiscal, DP, consultoria e BPO financeiro para mais de 530 empresas em 80 cidades de 14 estados."
                 canonicalPath="/"
-                keywords="contabilidade, consultoria fiscal, tributário, planejamento fiscal, departamento pessoal, assessoria empresarial, interior paulista"
+                keywords="contabilidade Itaí, contabilidade no interior paulista, escritório de contabilidade Itaí SP, consultoria fiscal, departamento pessoal, BPO financeiro"
             />
             <LocalBusinessSchema />
             <OrganizationSchema />
@@ -38,6 +39,8 @@ export default function Home() {
             <SetoresSection />
             <Spacer variant="toBlack" />
             <DiferenciaisSection />
+            <Spacer />
+            <EquipeSection />
             <Spacer variant="toGray" />
             <TestemunhosSection />
             <Spacer variant="toBlack" />

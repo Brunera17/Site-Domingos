@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function SEOHead({
     title = 'Domingos Assessoria Empresarial',
-    description = 'Contabilidade, consultoria fiscal e assessoria empresarial para empresas do interior paulista.',
+    description = 'Contabilidade, consultoria fiscal e assessoria empresarial em Itaí-SP para empresas do interior paulista.',
     canonicalPath = '/',
     ogImage = null,
     ogType = 'website',
@@ -25,11 +25,14 @@ export default function SEOHead({
     const domínio = 'https://domingosassessoria.com.br';
     const canonicalUrl = `${domínio}${canonicalPath}`;
     const imageUrl = ogImage || `${domínio}/og-image.png`;
+    // Só acrescenta a marca quando o título ainda não a cita — evita títulos
+    // como "Domingos Assessoria Empresarial | ... | Domingos Assessoria".
+    const fullTitle = /domingos/i.test(title) ? title : `${title} | Domingos Assessoria`;
 
     return (
         <Helmet>
             {/* Meta tags básicas */}
-            <title>{`${title} | Domingos Assessoria`}</title>
+            <title>{fullTitle}</title>
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
             <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow'} />
@@ -57,10 +60,6 @@ export default function SEOHead({
 
             {/* Canonical URL */}
             <link rel="canonical" href={canonicalUrl} />
-
-            {/* Viewport & Charset */}
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
             {/* Theme Color */}
             <meta name="theme-color" content="#000000" />

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.js",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.js",
     "lint": "eslint .",
     "test": "node --experimental-test-module-mocks --test api/_lib/__tests__/contact-security.test.mjs api/_lib/__tests__/painel.test.mjs",
     "test:unit": "vitest run",

@@ -17,10 +17,12 @@ import { Helmet } from 'react-helmet-async';
 export default function LocalBusinessSchema() {
     const schema = {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "AccountingService",
+        "@id": "https://domingosassessoria.com.br/#escritorio",
         "name": "Domingos Assessoria Empresarial",
         "image": "https://domingosassessoria.com.br/logo.png",
-        "description": "Contabilidade, consultoria fiscal e assessoria empresarial para pequenas e médias empresas",
+        "description": "Escritório de contabilidade em Itaí-SP: contábil, fiscal, departamento pessoal, consultoria e BPO financeiro para empresas do interior paulista e de outros 13 estados.",
+        "logo": "https://domingosassessoria.com.br/logo.png",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Av. Antônio Justino Viera, 350",
@@ -51,12 +53,11 @@ export default function LocalBusinessSchema() {
                 "closes": "13:00"
             }
         ],
-        "priceRange": "$$",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "530"
-        }
+        "areaServed": [
+            { "@type": "City", "name": "Itaí" },
+            { "@type": "AdministrativeArea", "name": "Interior de São Paulo" }
+        ],
+        "priceRange": "$$"
     };
 
     return (
