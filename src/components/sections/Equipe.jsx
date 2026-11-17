@@ -19,8 +19,8 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // animação. As setas (desktop) pulam um card.
 const VELOCIDADE_PX_POR_SEG = 70
 const RETOMAR_APOS_TOQUE_MS = 2000
-// A liderança abre a faixa e tem card com visual próprio (borda e cargo em
-// laranja, selo "Liderança" na foto).
+// A liderança abre a faixa; o card é igual aos demais, só com o selo
+// "★ Liderança" na foto.
 const pessoas = [...lideranca.map((p) => ({ ...p, lider: true })), ...equipe]
 const lista = [...pessoas, ...pessoas]
 
@@ -128,11 +128,7 @@ export default function EquipeSection() {
                                     key={`${i}-${pessoa.nome}`}
                                     data-card
                                     aria-hidden={i >= pessoas.length ? true : undefined}
-                                    className={`shrink-0 w-[62%] sm:w-[40%] md:w-[31%] rounded-xl overflow-hidden border ${
-                                        pessoa.lider
-                                            ? 'bg-gradient-to-b from-orange-500/15 to-zinc-950 border-orange-500/70 ring-1 ring-orange-500/30'
-                                            : 'bg-zinc-950 border-zinc-800'
-                                    }`}
+                                    className="shrink-0 w-[62%] sm:w-[40%] md:w-[31%] bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden"
                                 >
                                     <div className="relative aspect-[3/4] bg-zinc-900">
                                         {pessoa.lider && (
@@ -153,13 +149,7 @@ export default function EquipeSection() {
                                     <div className="p-4">
                                         <h3 className="text-white font-bold text-base leading-tight">{pessoa.nome}</h3>
                                         {pessoa.cargo && (
-                                            <span
-                                                className={`inline-block mt-2 rounded-md px-2 py-0.5 text-xs font-semibold ${
-                                                    pessoa.lider
-                                                        ? 'bg-orange-500 text-white'
-                                                        : 'text-orange-500 bg-orange-500/10 border border-orange-500/20'
-                                                }`}
-                                            >
+                                            <span className="inline-block mt-2 text-orange-500 bg-orange-500/10 border border-orange-500/20 rounded-md px-2 py-0.5 text-xs font-semibold">
                                                 {pessoa.cargo}
                                             </span>
                                         )}
