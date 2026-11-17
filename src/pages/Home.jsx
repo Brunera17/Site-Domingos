@@ -7,6 +7,7 @@ import TestemunhosSection from '../components/sections/Testemunho'
 import CTASection from '../components/sections/Cta'
 import EquipeSection from '../components/sections/Equipe'
 import EquipeDestaqueSection from '../components/sections/EquipeDestaque'
+import FiscalDestaqueSection from '../components/sections/FiscalDestaque'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
 import OrganizationSchema from '../components/seo/OrganizationSchema'
 
@@ -46,7 +47,8 @@ export default function Home() {
             <Spacer variant="toGray" />
             {/* Versão alternativa do bloco da equipe, para comparar — manter só uma */}
             <EquipeDestaqueSection />
-            <Spacer variant="gray" />
+            <FiscalDestaqueSection />
+            <Spacer variant="toGray" />
             <TestemunhosSection />
             <Spacer variant="toBlack" />
             <CTASection />
