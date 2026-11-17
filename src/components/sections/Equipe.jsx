@@ -19,9 +19,21 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // animação. As setas (desktop) pulam um card.
 const VELOCIDADE_PX_POR_SEG = 70
 const RETOMAR_APOS_TOQUE_MS = 2000
-// A liderança abre a faixa; o card é igual aos demais, só com o selo
-// "★ Liderança" na foto.
-const pessoas = [...lideranca.map((p) => ({ ...p, lider: true })), ...equipe]
+// A liderança fica espalhada de forma uniforme ao longo da faixa (não em
+// bloco); o card é igual aos demais, só com o selo "★ Liderança" na foto.
+function intercalar(lideres, time) {
+    const resultado = [...time]
+    const total = lideres.length + time.length
+    lideres.forEach((lider, i) => {
+        // posição proporcional: 0, ~total/n, ~2·total/n...
+        resultado.splice(Math.round((i * total) / lideres.length), 0, lider)
+    })
+    return resultado
+}
+const pessoas = intercalar(
+    lideranca.map((p) => ({ ...p, lider: true })),
+    equipe
+)
 const lista = [...pessoas, ...pessoas]
 
 export default function EquipeSection() {
