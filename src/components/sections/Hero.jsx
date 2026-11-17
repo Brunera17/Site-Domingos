@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingDown, Users, MapPin, Award } from 'lucide-react'
+import fotoEscritorio from '../../assets/espaco/IMG_7022.webp'
 
 const stats = [
     { value: '530+', label: 'Clientes Ativos', icon: Users },
@@ -33,7 +34,8 @@ export default function Hero() {
             <div
                 className="hero-bg absolute inset-0 -top-20 -bottom-20 bg-cover bg-center will-change-transform"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=1000&fit=crop)',
+                    // Foto real do escritório em Itaí (antes: imagem de banco do Unsplash)
+                    backgroundImage: `url(${fotoEscritorio})`,
                 }}
             />
 

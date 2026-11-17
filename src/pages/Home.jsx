@@ -5,6 +5,7 @@ import SetoresSection from '../components/sections/SetoresSection'
 import DiferenciaisSection from '../components/sections/Diferenciais'
 import TestemunhosSection from '../components/sections/Testemunho'
 import CTASection from '../components/sections/Cta'
+import DepartamentosSection from '../components/sections/Departamentos'
 import EstruturaSection from '../components/sections/Estrutura'
 import TrocaContadorSection from '../components/sections/TrocaContador'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
@@ -17,6 +18,7 @@ const Spacer = ({ variant }) => {
     const gradients = {
         toGray: 'md:bg-gradient-to-b md:from-black md:to-zinc-950',
         toBlack: 'md:bg-gradient-to-b md:from-zinc-950 md:to-black',
+        gray: 'md:bg-zinc-950',
     }
     return <div className={`hidden md:block h-24 ${variant ? gradients[variant] : ''}`} />
 }
@@ -41,10 +43,12 @@ export default function Home() {
             <Spacer variant="toBlack" />
             <DiferenciaisSection />
             <Spacer variant="toGray" />
-            <EstruturaSection />
+            <DepartamentosSection />
             <Spacer variant="toBlack" />
-            <TrocaContadorSection />
+            <EstruturaSection />
             <Spacer variant="toGray" />
+            <TrocaContadorSection />
+            <Spacer variant="gray" />
             <TestemunhosSection />
             <Spacer variant="toBlack" />
             <CTASection />
