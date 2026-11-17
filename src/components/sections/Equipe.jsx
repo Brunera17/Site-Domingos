@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
@@ -8,18 +8,49 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // Mostra quem atende o cliente — o parecer de SEO apontou que a home só tinha
 // fotos de banco de imagens e nenhuma da equipe ou dos sócios.
 //
-// O carrossel é uma faixa com scroll-snap: no celular arrasta com o dedo, no
-// desktop as setas rolam um card por vez. Sem biblioteca e sem autoplay.
+// O carrossel é uma faixa com scroll-snap: passa sozinho a cada poucos
+// segundos e volta ao início no fim. Pausa quando o visitante passa o mouse,
+// toca ou foca nos cards, quando a seção sai da tela e para quem pediu ao
+// sistema menos animação. No celular também dá para arrastar; no desktop há setas.
+const INTERVALO_MS = 3500
 export default function EquipeSection() {
     const trilhoRef = useRef(null)
+    const [pausado, setPausado] = useState(false)
+    const [visivel, setVisivel] = useState(false)
 
     const rolar = (direcao) => {
         const trilho = trilhoRef.current
         if (!trilho) return
         const card = trilho.querySelector('[data-card]')
         const passo = card ? card.offsetWidth + 16 : trilho.clientWidth
-        trilho.scrollBy({ left: direcao * passo, behavior: 'smooth' })
+        const fim = trilho.scrollWidth - trilho.clientWidth - 4
+        // Nas pontas, dá a volta em vez de travar
+        if (direcao > 0 && trilho.scrollLeft >= fim) {
+            trilho.scrollTo({ left: 0, behavior: 'smooth' })
+        } else if (direcao < 0 && trilho.scrollLeft <= 4) {
+            trilho.scrollTo({ left: trilho.scrollWidth, behavior: 'smooth' })
+        } else {
+            trilho.scrollBy({ left: direcao * passo, behavior: 'smooth' })
+        }
     }
+
+    // Só roda enquanto a seção estiver na tela
+    useEffect(() => {
+        const trilho = trilhoRef.current
+        if (!trilho || typeof IntersectionObserver === 'undefined') return
+        const obs = new IntersectionObserver(([e]) => setVisivel(e.isIntersecting), { threshold: 0.3 })
+        obs.observe(trilho)
+        return () => obs.disconnect()
+    }, [])
+
+    useEffect(() => {
+        if (pausado || !visivel) return
+        if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+        const id = setInterval(() => {
+            if (document.visibilityState === 'visible') rolar(1)
+        }, INTERVALO_MS)
+        return () => clearInterval(id)
+    }, [pausado, visivel])
 
     return (
         <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
@@ -38,6 +69,12 @@ export default function EquipeSection() {
                             ref={trilhoRef}
                             className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                             aria-label="Colaboradores da Domingos Assessoria"
+                            onMouseEnter={() => setPausado(true)}
+                            onMouseLeave={() => setPausado(false)}
+                            onTouchStart={() => setPausado(true)}
+                            onTouchEnd={() => setTimeout(() => setPausado(false), INTERVALO_MS)}
+                            onFocus={() => setPausado(true)}
+                            onBlur={() => setPausado(false)}
                         >
                             {equipe.map((pessoa) => (
                                 <article
@@ -72,7 +109,7 @@ export default function EquipeSection() {
 
                         <div className="flex items-center justify-between mt-4">
                             <span className="text-zinc-400 text-sm">
-                                <strong className="text-white">30+ colaboradores</strong> · arraste para conhecer
+                                <strong className="text-white">30+ colaboradores</strong> · conheça o time
                             </span>
                             <div className="hidden sm:flex gap-2">
                                 <button
