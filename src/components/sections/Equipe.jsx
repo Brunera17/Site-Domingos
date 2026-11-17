@@ -30,9 +30,21 @@ function intercalar(lideres, time) {
     })
     return resultado
 }
+// Ordem aleatória a cada visita (Fisher-Yates), para ninguém ficar sempre
+// no começo da faixa. O HTML pré-renderizado sai numa ordem e o navegador
+// sorteia outra ao carregar — sem problema, o React substitui o conteúdo.
+function embaralhar(lista) {
+    const copia = [...lista]
+    for (let i = copia.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[copia[i], copia[j]] = [copia[j], copia[i]]
+    }
+    return copia
+}
+
 const pessoas = intercalar(
-    lideranca.map((p) => ({ ...p, lider: true })),
-    equipe
+    embaralhar(lideranca).map((p) => ({ ...p, lider: true })),
+    embaralhar(equipe)
 )
 const lista = [...pessoas, ...pessoas]
 
