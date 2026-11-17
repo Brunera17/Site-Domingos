@@ -9,6 +9,7 @@ import EquipeSection from '../components/sections/Equipe'
 import EquipeDestaqueSection from '../components/sections/EquipeDestaque'
 import FiscalDestaqueSection from '../components/sections/FiscalDestaque'
 import ContabilDestaqueSection from '../components/sections/ContabilDestaque'
+import SocietarioDestaqueSection from '../components/sections/SocietarioDestaque'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
 import OrganizationSchema from '../components/seo/OrganizationSchema'
 
@@ -50,7 +51,8 @@ export default function Home() {
             <EquipeDestaqueSection />
             <FiscalDestaqueSection />
             <ContabilDestaqueSection />
-            <Spacer variant="gray" />
+            <SocietarioDestaqueSection />
+            <Spacer variant="toGray" />
             <TestemunhosSection />
             <Spacer variant="toBlack" />
             <CTASection />
