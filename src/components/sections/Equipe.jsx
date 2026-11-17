@@ -13,8 +13,9 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // volta o equivalente a uma cópia — como a segunda é igual, o salto não
 // aparece e o movimento parece infinito.
 //
-// Pausa com o mouse em cima, ao tocar/arrastar ou focar nos cards, quando a
-// seção sai da tela, com a aba escondida e para quem pediu ao sistema menos
+// Não para com o mouse em cima (decisão do dono do site). Pausa só ao
+// tocar/arrastar no celular, com foco de teclado nos cards, quando a seção
+// sai da tela, com a aba escondida e para quem pediu ao sistema menos
 // animação. As setas (desktop) pulam um card.
 const VELOCIDADE_PX_POR_SEG = 70
 const RETOMAR_APOS_TOQUE_MS = 2000
@@ -111,8 +112,6 @@ export default function EquipeSection() {
                             ref={trilhoRef}
                             className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                             aria-label="Colaboradores da Domingos Assessoria"
-                            onMouseEnter={() => { pausadoRef.current = true }}
-                            onMouseLeave={() => { pausadoRef.current = false }}
                             onTouchStart={() => { pausadoRef.current = true }}
                             onTouchEnd={() => {
                                 pausadoRef.current = false
