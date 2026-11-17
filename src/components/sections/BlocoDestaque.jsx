@@ -23,6 +23,7 @@ export default function BlocoDestaque({
     fotoLargura,
     fotoAltura,
     legenda,
+    suavizarLados = false,
     lado = 'direita',
     fundo = 'cinza',
 }) {
@@ -95,6 +96,16 @@ export default function BlocoDestaque({
                         width={fotoLargura}
                         height={fotoAltura}
                         className="relative w-auto max-h-[420px] md:max-h-[560px] object-contain object-bottom"
+                        // Para fotos cortadas nas laterais (braços/ombros), esmaece as bordas
+                        // em vez de mostrar uma linha reta.
+                        style={
+                            suavizarLados
+                                ? {
+                                      maskImage: 'linear-gradient(to right, transparent 0, black 14%, black 86%, transparent 100%)',
+                                      WebkitMaskImage: 'linear-gradient(to right, transparent 0, black 14%, black 86%, transparent 100%)',
+                                  }
+                                : undefined
+                        }
                     />
                     {/* Suaviza o corte da foto na base */}
                     <div
