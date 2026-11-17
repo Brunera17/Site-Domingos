@@ -5,12 +5,6 @@ import SetoresSection from '../components/sections/SetoresSection'
 import DiferenciaisSection from '../components/sections/Diferenciais'
 import TestemunhosSection from '../components/sections/Testemunho'
 import CTASection from '../components/sections/Cta'
-import EquipeSection from '../components/sections/Equipe'
-import EquipeDestaqueSection from '../components/sections/EquipeDestaque'
-import FiscalDestaqueSection from '../components/sections/FiscalDestaque'
-import ContabilDestaqueSection from '../components/sections/ContabilDestaque'
-import SocietarioDestaqueSection from '../components/sections/SocietarioDestaque'
-import DpDestaqueSection from '../components/sections/DpDestaque'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
 import OrganizationSchema from '../components/seo/OrganizationSchema'
 
@@ -21,7 +15,6 @@ const Spacer = ({ variant }) => {
     const gradients = {
         toGray: 'md:bg-gradient-to-b md:from-black md:to-zinc-950',
         toBlack: 'md:bg-gradient-to-b md:from-zinc-950 md:to-black',
-        gray: 'md:bg-zinc-950',
     }
     return <div className={`hidden md:block h-24 ${variant ? gradients[variant] : ''}`} />
 }
@@ -45,16 +38,7 @@ export default function Home() {
             <SetoresSection />
             <Spacer variant="toBlack" />
             <DiferenciaisSection />
-            <Spacer />
-            <EquipeSection />
             <Spacer variant="toGray" />
-            {/* Versão alternativa do bloco da equipe, para comparar — manter só uma */}
-            <EquipeDestaqueSection />
-            <FiscalDestaqueSection />
-            <ContabilDestaqueSection />
-            <SocietarioDestaqueSection />
-            <DpDestaqueSection />
-            <Spacer variant="gray" />
             <TestemunhosSection />
             <Spacer variant="toBlack" />
             <CTASection />
