@@ -30,7 +30,7 @@ const passos = [
 
 export default function TrocaContadorSection() {
     return (
-        <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
+        <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
             <div className="max-w-6xl mx-auto">
                 <SectionHeading
                     eyebrow="Já tem contador?"
@@ -41,7 +41,7 @@ export default function TrocaContadorSection() {
 
                 <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     {passos.map(({ icon: Icon, titulo, texto }, i) => (
-                        <li key={titulo} className="relative bg-black border border-zinc-800 rounded-xl p-6">
+                        <li key={titulo} className="relative bg-zinc-950 border border-zinc-800 rounded-xl p-6">
                             <span className="absolute top-5 right-5 text-4xl font-black text-zinc-800 leading-none select-none">
                                 {String(i + 1).padStart(2, '0')}
                             </span>

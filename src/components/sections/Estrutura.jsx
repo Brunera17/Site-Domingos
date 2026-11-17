@@ -11,7 +11,7 @@ const MAPA = 'https://maps.google.com/?q=Av.+Antônio+Justino+Viera,+350,+Itaí,
 // home pareciam de banco de imagens). Sem destaque a pessoas: só o espaço.
 export default function EstruturaSection() {
     return (
-        <section className="py-section px-6 md:px-8 lg:px-10 bg-black">
+        <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-center">
                 {/* Texto */}
                 <div className="lg:col-span-2">
