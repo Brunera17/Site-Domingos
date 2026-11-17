@@ -1,4 +1,4 @@
-// Colaboradores exibidos no carrossel "Quem cuida da sua empresa" (home).
+// Colaboradores exibidos no bloco "Quem cuida da sua empresa" (home).
 //
 // Para preencher: `cargo` aparece como etiqueta abaixo do nome e `descricao`
 // como texto curto (1 a 2 linhas). Campos vazios simplesmente não aparecem.
@@ -26,24 +26,29 @@ import pedro from '../assets/colaboradores/otimizadas/PEDRO.webp'
 import taynara from '../assets/colaboradores/otimizadas/TAYNARA.webp'
 import yasmin from '../assets/colaboradores/otimizadas/YASMIN.webp'
 
+// Liderança: aparece em destaque, em cards maiores acima do carrossel.
+export const lideranca = [
+    { nome: 'Dayane', cargo: 'Gerente de Relacionamentos', descricao: '', foto: dayane },
+    { nome: 'Odair', cargo: 'Coordenador Fiscal', descricao: '', foto: odair },
+    { nome: 'Nelson', cargo: 'Coordenador Contábil', descricao: '', foto: nelson },
+    { nome: 'Pedro', cargo: 'Coordenador Societário', descricao: '', foto: pedro },
+    { nome: 'Lilian', cargo: 'Coordenadora DP', descricao: '', foto: lilian },
+]
+
+// Demais colaboradores: aparecem no carrossel.
 export const equipe = [
     { nome: 'Bruno', cargo: '', descricao: '', foto: bruno },
     { nome: 'Cleonice', cargo: '', descricao: '', foto: cleonice },
     { nome: 'Daniele', cargo: 'Contábil', descricao: '', foto: danieleContabil },
     { nome: 'Daniele Silva', cargo: '', descricao: '', foto: danieleSilva },
-    { nome: 'Dayane', cargo: '', descricao: '', foto: dayane },
     { nome: 'Gabi', cargo: '', descricao: '', foto: gabi },
     { nome: 'Iasmin', cargo: '', descricao: '', foto: iasmin },
     { nome: 'João Bryan', cargo: '', descricao: '', foto: joaoBryan },
     { nome: 'Larissa', cargo: '', descricao: '', foto: larissa },
     { nome: 'Laura', cargo: '', descricao: '', foto: laura },
-    { nome: 'Lilian', cargo: '', descricao: '', foto: lilian },
     { nome: 'Lucimara', cargo: '', descricao: '', foto: lucimara },
     { nome: 'Maria', cargo: 'Societário', descricao: '', foto: mariaSocietario },
     { nome: 'Mikaele', cargo: '', descricao: '', foto: mikaele },
-    { nome: 'Nelson', cargo: '', descricao: '', foto: nelson },
-    { nome: 'Odair', cargo: '', descricao: '', foto: odair },
-    { nome: 'Pedro', cargo: '', descricao: '', foto: pedro },
     { nome: 'Taynara', cargo: '', descricao: '', foto: taynara },
     { nome: 'Yasmin', cargo: '', descricao: '', foto: yasmin },
 ]
