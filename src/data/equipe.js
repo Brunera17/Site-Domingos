@@ -26,7 +26,7 @@ import pedro from '../assets/colaboradores/otimizadas/PEDRO.webp'
 import taynara from '../assets/colaboradores/otimizadas/TAYNARA.webp'
 import yasmin from '../assets/colaboradores/otimizadas/YASMIN.webp'
 
-// Liderança: aparece em destaque, em cards maiores acima do carrossel.
+// Liderança: abre o carrossel, com card em destaque.
 export const lideranca = [
     { nome: 'Dayane', cargo: 'Gerente de Relacionamentos', descricao: '', foto: dayane },
     { nome: 'Odair', cargo: 'Coordenador Fiscal', descricao: '', foto: odair },

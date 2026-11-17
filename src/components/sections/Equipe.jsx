@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import SectionHeading from '../ui/SectionHeading'
 import { equipe, lideranca } from '../../data/equipe'
 import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
@@ -19,35 +19,10 @@ import fotoMarcelo from '../../assets/colaboradores/otimizadas/MARCELO_2.webp'
 // animação. As setas (desktop) pulam um card.
 const VELOCIDADE_PX_POR_SEG = 70
 const RETOMAR_APOS_TOQUE_MS = 2000
-const lista = [...equipe, ...equipe]
-
-// Card maior para sócio e gestores: foto, nome e cargo em destaque.
-function CardLider({ nome, cargo, detalhe, descricao, foto, fundador = false }) {
-    return (
-        <article
-            className={`bg-zinc-950 rounded-xl overflow-hidden border ${
-                fundador ? 'border-orange-500/60 ring-1 ring-orange-500/30' : 'border-zinc-800'
-            }`}
-        >
-            <div className="aspect-[3/4] bg-zinc-900">
-                <img
-                    src={foto}
-                    alt={`${nome}, ${cargo} da Domingos Assessoria`}
-                    loading="lazy"
-                    className="w-full h-full object-cover object-top"
-                />
-            </div>
-            <div className="p-4">
-                <h4 className="text-white font-bold text-base leading-tight">{nome}</h4>
-                <span className="inline-block mt-2 bg-orange-500 text-white rounded-md px-2 py-0.5 text-xs font-semibold leading-snug">
-                    {cargo}
-                </span>
-                {detalhe && <p className="text-zinc-400 text-xs mt-2">{detalhe}</p>}
-                {descricao && <p className="text-zinc-400 text-sm leading-relaxed mt-3">{descricao}</p>}
-            </div>
-        </article>
-    )
-}
+// A liderança abre a faixa e tem card com visual próprio (borda e cargo em
+// laranja, selo "Liderança" na foto).
+const pessoas = [...lideranca.map((p) => ({ ...p, lider: true })), ...equipe]
+const lista = [...pessoas, ...pessoas]
 
 export default function EquipeSection() {
     const trilhoRef = useRef(null)
@@ -59,8 +34,8 @@ export default function EquipeSection() {
     // Distância entre o primeiro card e a sua cópia = tamanho de uma volta
     const tamanhoVolta = (trilho) => {
         const cards = trilho.querySelectorAll('[data-card]')
-        return cards.length > equipe.length
-            ? cards[equipe.length].offsetLeft - cards[0].offsetLeft
+        return cards.length > pessoas.length
+            ? cards[pessoas.length].offsetLeft - cards[0].offsetLeft
             : trilho.scrollWidth / 2
     }
 
@@ -133,94 +108,115 @@ export default function EquipeSection() {
                     className="mb-10"
                 />
 
-                {/* Liderança em destaque */}
-                <h3 className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">Liderança</h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <CardLider
-                        nome="Marcelo Domingos"
-                        cargo="Sócio Fundador"
-                        detalhe="CRC Nº 2SP 037.257/O-8"
-                        foto={fotoMarcelo}
-                        fundador
-                    />
-                    {lideranca.map((pessoa) => (
-                        <CardLider key={pessoa.nome} {...pessoa} />
-                    ))}
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Carrossel de colaboradores */}
+                    <div className="lg:col-span-2 min-w-0">
+                        <div
+                            ref={trilhoRef}
+                            className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                            aria-label="Colaboradores da Domingos Assessoria"
+                            onTouchStart={() => { pausadoRef.current = true }}
+                            onTouchEnd={() => {
+                                pausadoRef.current = false
+                                pausar(RETOMAR_APOS_TOQUE_MS)
+                            }}
+                            onFocus={() => { pausadoRef.current = true }}
+                            onBlur={() => { pausadoRef.current = false }}
+                        >
+                            {lista.map((pessoa, i) => (
+                                <article
+                                    key={`${i}-${pessoa.nome}`}
+                                    data-card
+                                    aria-hidden={i >= pessoas.length ? true : undefined}
+                                    className={`shrink-0 w-[62%] sm:w-[40%] md:w-[31%] rounded-xl overflow-hidden border ${
+                                        pessoa.lider
+                                            ? 'bg-gradient-to-b from-orange-500/15 to-zinc-950 border-orange-500/70 ring-1 ring-orange-500/30'
+                                            : 'bg-zinc-950 border-zinc-800'
+                                    }`}
+                                >
+                                    <div className="relative aspect-[3/4] bg-zinc-900">
+                                        {pessoa.lider && (
+                                            <span className="absolute top-3 left-3 z-10 inline-flex items-center gap-1 bg-orange-500 text-white text-[11px] font-bold uppercase tracking-wider rounded-full px-2.5 py-1 shadow-lg">
+                                                <Star size={11} className="fill-white" />
+                                                Liderança
+                                            </span>
+                                        )}
+                                        <img
+                                            src={pessoa.foto}
+                                            alt={`${pessoa.nome}${pessoa.cargo ? `, ${pessoa.cargo}` : ''} — Domingos Assessoria`}
+                                            loading="lazy"
+                                            width="600"
+                                            height="800"
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                    </div>
+                                    <div className="p-4">
+                                        <h3 className="text-white font-bold text-base leading-tight">{pessoa.nome}</h3>
+                                        {pessoa.cargo && (
+                                            <span
+                                                className={`inline-block mt-2 rounded-md px-2 py-0.5 text-xs font-semibold ${
+                                                    pessoa.lider
+                                                        ? 'bg-orange-500 text-white'
+                                                        : 'text-orange-500 bg-orange-500/10 border border-orange-500/20'
+                                                }`}
+                                            >
+                                                {pessoa.cargo}
+                                            </span>
+                                        )}
+                                        {pessoa.descricao && (
+                                            <p className="text-zinc-400 text-sm leading-relaxed mt-3">{pessoa.descricao}</p>
+                                        )}
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
 
-                {/* Restante do time */}
-                <div className="mt-14">
-                    <h3 className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">Nosso time</h3>
-                    <div
-                        ref={trilhoRef}
-                        className="flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                        aria-label="Colaboradores da Domingos Assessoria"
-                        onTouchStart={() => { pausadoRef.current = true }}
-                        onTouchEnd={() => {
-                            pausadoRef.current = false
-                            pausar(RETOMAR_APOS_TOQUE_MS)
-                        }}
-                        onFocus={() => { pausadoRef.current = true }}
-                        onBlur={() => { pausadoRef.current = false }}
-                    >
-                        {lista.map((pessoa, i) => (
-                            <article
-                                key={`${i}-${pessoa.nome}`}
-                                data-card
-                                aria-hidden={i >= equipe.length ? true : undefined}
-                                className="shrink-0 w-[58%] sm:w-[36%] md:w-[24%] lg:w-[19%] bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden"
-                            >
-                                <div className="aspect-[3/4] bg-zinc-900">
-                                    <img
-                                        src={pessoa.foto}
-                                        alt={`${pessoa.nome}${pessoa.cargo ? `, ${pessoa.cargo}` : ''} — Domingos Assessoria`}
-                                        loading="lazy"
-                                        width="600"
-                                        height="800"
-                                        className="w-full h-full object-cover object-top"
-                                    />
-                                </div>
-                                <div className="p-4">
-                                    <h3 className="text-white font-bold text-base leading-tight">{pessoa.nome}</h3>
-                                    {pessoa.cargo && (
-                                        <span className="inline-block mt-2 text-orange-500 bg-orange-500/10 border border-orange-500/20 rounded-md px-2 py-0.5 text-xs font-semibold">
-                                            {pessoa.cargo}
-                                        </span>
-                                    )}
-                                    {pessoa.descricao && (
-                                        <p className="text-zinc-400 text-sm leading-relaxed mt-3">{pessoa.descricao}</p>
-                                    )}
-                                </div>
-                            </article>
-                        ))}
+                        <div className="flex items-center justify-between mt-4">
+                            <span className="text-zinc-400 text-sm">
+                                <strong className="text-white">30+ colaboradores</strong> · conheça o time
+                            </span>
+                            <div className="hidden sm:flex gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => rolar(-1)}
+                                    aria-label="Colaborador anterior"
+                                    className="w-10 h-10 rounded-full border border-zinc-700 text-zinc-300 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center transition-colors"
+                                >
+                                    <ChevronLeft size={18} />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => rolar(1)}
+                                    aria-label="Próximo colaborador"
+                                    className="w-10 h-10 rounded-full border border-zinc-700 text-zinc-300 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center transition-colors"
+                                >
+                                    <ChevronRight size={18} />
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="flex items-center justify-between mt-4">
+                    {/* Sócio fundador */}
+                    <div className="bg-zinc-950 border border-zinc-800 rounded-xl p-6 flex flex-col">
+                        <img
+                            src={fotoMarcelo}
+                            alt="Marcelo Domingos, sócio fundador da Domingos Assessoria"
+                            loading="lazy"
+                            className="w-24 h-24 rounded-full object-cover object-top ring-2 ring-orange-500/40 mb-5"
+                        />
+                        <div className="text-white font-bold text-lg">Marcelo Domingos</div>
+                        <div className="text-zinc-400 text-sm mb-4">Sócio Fundador · CRC Nº 2SP 037.257/O-8</div>
+                        <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+                            Fundou o escritório em Itaí para levar contabilidade consultiva às pequenas e
+                            médias empresas do interior paulista.
+                        </p>
                         <Link
                             to="/sobre"
-                            className="group inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 font-semibold text-sm"
+                            className="group mt-auto inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 font-semibold text-sm"
                         >
-                            Conheça a nossa história
+                            Conheça a equipe
                             <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                         </Link>
-                        <div className="hidden sm:flex gap-2">
-                            <button
-                                type="button"
-                                onClick={() => rolar(-1)}
-                                aria-label="Colaborador anterior"
-                                className="w-10 h-10 rounded-full border border-zinc-700 text-zinc-300 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center transition-colors"
-                            >
-                                <ChevronLeft size={18} />
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => rolar(1)}
-                                aria-label="Próximo colaborador"
-                                className="w-10 h-10 rounded-full border border-zinc-700 text-zinc-300 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center transition-colors"
-                            >
-                                <ChevronRight size={18} />
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
