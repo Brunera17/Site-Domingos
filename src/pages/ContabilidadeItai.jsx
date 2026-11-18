@@ -44,7 +44,7 @@ export default function ContabilidadeItai() {
     return (
         <div className="bg-black">
             <SEOHead
-                title="Contabilidade em Itaí-SP e em todo o Brasil | Domingos"
+                title="Escritório de contabilidade em Itaí-SP | Domingos Assessoria"
                 description="Escritório de contabilidade em Itaí-SP: contábil, fiscal, DP, abertura de empresas e BPO financeiro. Atendimento presencial em Itaí e remoto em todo o Brasil."
                 canonicalPath="/contabilidade-itai-sp"
                 keywords="contabilidade Itaí, contador em Itaí SP, escritório de contabilidade Itaí, contabilidade online, contabilidade para todo o Brasil"

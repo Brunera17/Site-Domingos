@@ -14,7 +14,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function SEOHead({
     title = 'Domingos Assessoria Empresarial',
-    description = 'Contabilidade, consultoria fiscal e assessoria empresarial em Itaí-SP para empresas do interior paulista.',
+    description = 'Contabilidade, consultoria fiscal e assessoria empresarial em Itaí-SP, com atendimento para empresas de todo o Brasil.',
     canonicalPath = '/',
     ogImage = null,
     ogType = 'website',

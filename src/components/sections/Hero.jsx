@@ -67,7 +67,8 @@ export default function Hero() {
                             serviço e a cidade. Visualmente continua igual ao antigo selo. */}
                         <h1 className="text-white mb-5">
                             <span className="block mb-6 text-orange-500 text-xs font-bold uppercase tracking-widest opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                                Contabilidade em Itaí e interior paulista{' '}
+                                {/* espaços inseparáveis: no celular "para todo o Brasil" desce junto */}
+                                Contabilidade em Itaí-SP para{'\u00A0'}todo{'\u00A0'}o{'\u00A0'}Brasil{' '}
                             </span>
                             <span className="block text-display opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                                 Sua empresa{' '}

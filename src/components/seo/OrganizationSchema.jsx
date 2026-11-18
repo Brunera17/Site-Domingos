@@ -18,7 +18,7 @@ export default function OrganizationSchema() {
         "alternateName": "Domingos Assessoria",
         "url": "https://domingosassessoria.com.br",
         "logo": "https://domingosassessoria.com.br/logo.png",
-        "description": "Escritório de contabilidade, consultoria fiscal e assessoria empresarial especializado em pequenas e médias empresas no interior paulista",
+        "description": "Escritório de contabilidade, consultoria fiscal e assessoria empresarial para pequenas e médias empresas, com sede em Itaí-SP e atendimento em todo o Brasil",
         "foundingDate": "2017",
         "foundingLocation": {
             "@type": "Place",

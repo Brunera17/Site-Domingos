@@ -151,7 +151,7 @@ export default function ServicoDetalhe() {
                 title={`${service.title} em Itaí-SP | Domingos Assessoria`}
                 description={service.description}
                 canonicalPath={`/servicos/${id}`}
-                keywords={`${service.title} Itaí, ${service.title}, ${categoria}, contabilidade Itaí, interior paulista`}
+                keywords={`${service.title} Itaí, ${service.title}, ${categoria}, contabilidade Itaí, atendimento em todo o Brasil`}
             />
             <ServiceSchema
                 name={service.title}
