@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingDown, Users, MapPin, Award } from 'lucide-react'
 import fotoEscritorio from '../../assets/espaco/IMG_7022.webp'
+import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../../utils/whatsapp'
 
 const stats = [
     { value: '530+', label: 'Clientes Ativos', icon: Users },
@@ -87,13 +88,15 @@ export default function Hero() {
 
                         {/* Botões */}
                         <div className="flex flex-wrap gap-4 opacity-0 animate-[fadeInUp_0.7s_ease_0.5s_forwards]">
-                            <Link
-                                to="/planos"
+                            <a
+                                href={buildWhatsAppLink(getWhatsAppMessageForPath('/'))}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm hover:shadow-[0_0_30px_rgba(234,88,12,0.4)]"
                             >
-                                Solicitar Proposta
+                                Entrar em contato
                                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                            </Link>
+                            </a>
                             <Link
                                 to="/planos"
                                 className="group flex items-center gap-2 border border-zinc-600 text-zinc-300 hover:border-white hover:text-white font-semibold px-7 py-3.5 rounded-lg transition-all duration-200 text-sm backdrop-blur-sm"
