@@ -71,13 +71,12 @@ export default function Hero() {
 
                         {/* Título principal */}
                         <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
-                            {/* Três linhas de tamanho parecido: "Sua empresa pagando" /
-                                "menos impostos" / "e lucrando mais." */}
-                            Sua empresa pagando
+                            {/* Três linhas de tamanho parecido */}
+                            Sua empresa paga
                             <br />
                             <span className="text-orange-500 italic">menos impostos</span>
                             <br />
-                            e lucrando mais.
+                            e lucra mais.
                         </h1>
 
                         {/* Subtítulo */}
