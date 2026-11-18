@@ -5,7 +5,6 @@ import SetoresSection from '../components/sections/SetoresSection'
 import DiferenciaisSection from '../components/sections/Diferenciais'
 import TestemunhosSection from '../components/sections/Testemunho'
 import CTASection from '../components/sections/Cta'
-import DepartamentosBlocos from '../components/sections/DepartamentosBlocos'
 import EstruturaSection from '../components/sections/Estrutura'
 import TrocaContadorSection from '../components/sections/TrocaContador'
 import LocalBusinessSchema from '../components/seo/LocalBusinessSchema'
@@ -41,8 +40,6 @@ export default function Home() {
             <SetoresSection />
             <Spacer variant="toBlack" />
             <DiferenciaisSection />
-            <Spacer variant="toGray" />
-            <DepartamentosBlocos />
             <Spacer variant="toGray" />
             <EstruturaSection />
             <Spacer variant="toBlack" />

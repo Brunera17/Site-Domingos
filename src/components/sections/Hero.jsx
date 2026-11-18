@@ -73,7 +73,7 @@ export default function Hero() {
                         <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                             Sua empresa
                             <br />
-                            <span className="text-orange-500 italic">pagando menos</span>
+                            <span className="text-orange-500 italic">pagando menos impostos</span>
                             <br />
                             e lucrando mais.
                         </h1>
