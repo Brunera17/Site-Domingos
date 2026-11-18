@@ -72,11 +72,12 @@ export default function Hero() {
                         {/* Título principal */}
                         <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                             {/* Três linhas de tamanho parecido */}
-                            Sua empresa paga
+                            Contabilidade que
                             <br />
-                            <span className="text-orange-500 italic">menos impostos</span>
+                            <span className="text-orange-500 italic">reduz seus impostos</span>
                             <br />
-                            e lucra mais.
+                            {/* espaço inseparável: no celular "seu lucro." desce junto, sem palavra sozinha */}
+                            e aumenta seu{'\u00A0'}lucro.
                         </h1>
 
                         {/* Subtítulo */}
