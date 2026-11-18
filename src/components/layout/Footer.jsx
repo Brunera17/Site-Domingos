@@ -2,20 +2,21 @@ import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
 import logo from "../../assets/logo_domingos_transparente.png"
 import { featuredServices } from '../../data/services'
+import { empresa } from '../../data/empresa'
 
 const socialLinks = [
     {
-        href: 'https://instagram.com/domingosempresarial',
+        href: empresa.redes.instagram,
         label: 'Instagram',
         svg: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" /></svg>
     },
     {
-        href: 'https://facebook.com/domingosempresarial',
+        href: empresa.redes.facebook,
         label: 'Facebook',
         svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" /></svg>
     },
     {
-        href: 'https://linkedin.com/company/domingosempresarial',
+        href: empresa.redes.linkedin,
         label: 'LinkedIn',
         svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" /><circle cx="4" cy="4" r="2" /></svg>
     },
@@ -25,6 +26,7 @@ const quickLinks = [
     { to: '/', label: 'Início' },
     { to: '/sobre', label: 'Sobre' },
     { to: '/servicos', label: 'Serviços' },
+    { to: '/contabilidade-itai-sp', label: 'Contabilidade em Itaí' },
     //{ to: '/blog', label: 'Blog' },
     //{ to: '/trabalhe-conosco', label: 'Trabalhe Conosco' },
     { to: '/contato', label: 'Contato' },
@@ -58,7 +60,7 @@ export default function Footer() {
                         {/* Endereço */}
                         <div className="flex items-start gap-2.5 text-zinc-400 text-xs mb-6">
                             <MapPin size={14} className="mt-0.5 shrink-0 text-orange-500" />
-                            <span>Av. Antônio Justino Viera, 350 — Jardim Planalto,<br />Itaí - SP, 18730-136</span>
+                            <span>{empresa.endereco.rua} — {empresa.endereco.bairro},<br />{empresa.endereco.cidade} - {empresa.endereco.uf}, {empresa.endereco.cep}</span>
                         </div>
 
                         {/* Redes sociais */}
@@ -127,24 +129,24 @@ export default function Footer() {
                         <ul className="space-y-3 mb-6">
                             <li>
                                 <a
-                                    href="tel:+5514996580459"
+                                    href={`tel:${empresa.telefone.replace(/[^+\d]/g, '')}`}
                                     className="flex items-center gap-2.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200 group"
                                 >
                                     <span className="w-7 h-7 rounded-md bg-zinc-800 group-hover:bg-orange-500 flex items-center justify-center transition-colors duration-200 shrink-0">
                                         <Phone size={13} className="text-orange-500 group-hover:text-white transition-colors" />
                                     </span>
-                                    (14) 99658-0459
+                                    {empresa.telefoneExibicao}
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="mailto:sucessodocliente@domingosassessoria.com.br"
+                                    href={`mailto:${empresa.email}`}
                                     className="flex items-start gap-2.5 text-zinc-400 hover:text-white text-sm transition-colors duration-200 group"
                                 >
                                     <span className="w-7 h-7 rounded-md bg-zinc-800 group-hover:bg-orange-500 flex items-center justify-center transition-colors duration-200 shrink-0 mt-0.5">
                                         <Mail size={13} className="text-orange-500 group-hover:text-white transition-colors" />
                                     </span>
-                                    sucessodocliente@<br />domingosassessoria.com.br
+                                    {empresa.email.split('@')[0]}@<br />{empresa.email.split('@')[1]}
                                 </a>
                             </li>
                         </ul>
@@ -152,7 +154,7 @@ export default function Footer() {
                         {/* Horário */}
                         <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-4">
                             <p className="text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2">Horário de atendimento</p>
-                            <p className="text-zinc-300 text-xs">Seg – Sex: 8h às 17h</p>
+                            <p className="text-zinc-300 text-xs">{empresa.horario.texto}</p>
                         </div>
                     </div>
                 </div>

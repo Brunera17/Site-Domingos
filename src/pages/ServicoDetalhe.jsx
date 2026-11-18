@@ -191,8 +191,12 @@ export default function ServicoDetalhe() {
                             </motion.div>
                         </div>
 
+                        {/* O H1 diz o serviço e a cidade, como pede o parecer de SEO */}
                         <h1 className="text-display text-white mb-6">
-                            {service.title}
+                            {service.title}{' '}
+                            <span className="block mt-3 text-orange-500 text-lg md:text-xl font-bold tracking-tight leading-snug">
+                                em Itaí-SP, com atendimento em todo o Brasil
+                            </span>
                         </h1>
 
                         <p className="text-zinc-400 text-xl leading-relaxed max-w-2xl">

@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { empresa, enderecoSchema, SITE_URL } from '../../data/empresa';
 
 /**
  * Organization JSON-LD Schema
@@ -28,28 +29,16 @@ export default function OrganizationSchema() {
                 "addressCountry": "BR"
             }
         },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Antônio Justino Viera, 350",
-            "addressLocality": "Itaí",
-            "addressRegion": "SP",
-            "postalCode": "18730-136",
-            "addressCountry": "BR"
-        },
+        "address": enderecoSchema,
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "Customer Service",
-            "telephone": "+55 14 99658-0459",
-            "email": "contato@domingosassessoria.com.br",
+            "telephone": empresa.telefone,
+            "email": empresa.email,
             "areaServed": "BR",
             "availableLanguage": "pt-BR"
         },
-        "sameAs": [
-            "https://www.linkedin.com/company/domingos-assessoria",
-            "https://www.facebook.com/domingosassessoria",
-            "https://www.instagram.com/domingosassessoria",
-            "https://wa.me/5514996580459"
-        ],
+        "sameAs": [...Object.values(empresa.redes), "https://wa.me/5514996580459"],
         "knowsAbout": [
             "Contabilidade",
             "Consultoria Fiscal",
