@@ -67,7 +67,7 @@ export default function Hero() {
                             serviço e a cidade. Visualmente continua igual ao antigo selo. */}
                         <h1 className="text-white mb-5">
                             <span className="block mb-6 text-orange-500 text-xs font-bold uppercase tracking-widest opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                                Contabilidade em Itaí e interior paulista{' '}
+                                Contabilidade em Itaí e atendimento em todo o Brasil.{' '}
                             </span>
                             <span className="block text-display opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                                 Sua empresa{' '}
