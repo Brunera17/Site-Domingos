@@ -9,6 +9,7 @@ import CleanLayout from "./layouts/CleanLayout";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
 import Servicos from "./pages/Servicos";
+import ContabilidadeItai from "./pages/ContabilidadeItai";
 import ServicoDetalhe from "./pages/ServicoDetalhe";
 import Blog from "./pages/Blog";
 import TrabalheConosco from "./pages/TrabalheConosco";
@@ -46,6 +47,7 @@ export default function App() {
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/servicos" element={<Servicos />} />
             <Route path="/servicos/:id" element={<ServicoDetalhe />} />
+            <Route path="/contabilidade-itai-sp" element={<ContabilidadeItai />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/trabalhe-conosco" element={<TrabalheConosco />} />
             <Route path="/contato" element={<Contato />} />

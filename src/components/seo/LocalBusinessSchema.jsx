@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { empresa, enderecoSchema, areaAtendidaSchema, SITE_URL } from '../../data/empresa';
 
 /**
  * LocalBusiness JSON-LD Schema
@@ -18,45 +19,26 @@ export default function LocalBusinessSchema() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "AccountingService",
-        "@id": "https://domingosassessoria.com.br/#escritorio",
-        "name": "Domingos Assessoria Empresarial",
-        "image": "https://domingosassessoria.com.br/logo.png",
-        "description": "Escritório de contabilidade em Itaí-SP: contábil, fiscal, departamento pessoal, consultoria e BPO financeiro para empresas do interior paulista e de outros 13 estados.",
-        "logo": "https://domingosassessoria.com.br/logo.png",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Av. Antônio Justino Viera, 350",
-            "addressLocality": "Itaí",
-            "addressRegion": "SP",
-            "postalCode": "18730-136",
-            "addressCountry": "BR"
-        },
-        "telephone": "+55 14 99658-0459",
-        "url": "https://domingosassessoria.com.br",
-        "email": "contato@domingosassessoria.com.br",
-        "sameAs": [
-            "https://www.linkedin.com/company/domingos-assessoria",
-            "https://www.facebook.com/domingosassessoria",
-            "https://www.instagram.com/domingosassessoria"
-        ],
+        "@id": `${SITE_URL}/#escritorio`,
+        "name": empresa.nome,
+        "image": `${SITE_URL}/logo.png`,
+        "logo": `${SITE_URL}/logo.png`,
+        "description": "Escritório de contabilidade em Itaí-SP: contábil, fiscal, departamento pessoal, consultoria e BPO financeiro, com atendimento presencial em Itaí e remoto para empresas de todo o Brasil.",
+        "address": enderecoSchema,
+        "telephone": empresa.telefone,
+        "email": empresa.email,
+        "url": SITE_URL,
+        "hasMap": empresa.mapa,
+        "sameAs": Object.values(empresa.redes),
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "08:00",
-                "closes": "18:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "09:00",
-                "closes": "13:00"
+                "dayOfWeek": empresa.horario.dias,
+                "opens": empresa.horario.abre,
+                "closes": empresa.horario.fecha
             }
         ],
-        "areaServed": [
-            { "@type": "City", "name": "Itaí" },
-            { "@type": "AdministrativeArea", "name": "Interior de São Paulo" }
-        ],
+        "areaServed": areaAtendidaSchema,
         "priceRange": "$$"
     };
 

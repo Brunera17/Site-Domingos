@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { empresa, enderecoSchema, areaAtendidaSchema, SITE_URL } from '../../data/empresa';
 
 /**
  * Service JSON-LD Schema
@@ -21,7 +22,6 @@ export default function ServiceSchema({
     description = "Serviços contábeis especializados",
     serviceType = "ProfessionalService",
     url = "https://domingosassessoria.com.br/servicos",
-    areaServed = ["SP", "MG", "PR", "RS", "GO", "DF", "MS", "MT", "BA", "PE", "CE", "PA", "SC", "ES"],
 }) {
     const schema = {
         "@context": "https://schema.org",
@@ -30,24 +30,15 @@ export default function ServiceSchema({
         "description": description,
         "serviceType": serviceType,
         "provider": {
-            "@type": "LocalBusiness",
-            "name": "Domingos Assessoria Empresarial",
-            "url": "https://domingosassessoria.com.br",
-            "telephone": "+55 14 99658-0459",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Av. Antônio Justino Viera, 350",
-                "addressLocality": "Itaí",
-                "addressRegion": "SP",
-                "postalCode": "18730-136",
-                "addressCountry": "BR"
-            }
+            "@type": "AccountingService",
+            "@id": `${SITE_URL}/#escritorio`,
+            "name": empresa.nome,
+            "url": SITE_URL,
+            "telephone": empresa.telefone,
+            "address": enderecoSchema
         },
         "url": url,
-        "areaServed": areaServed.map(region => ({
-            "@type": "State",
-            "name": region
-        })),
+        "areaServed": areaAtendidaSchema,
         "availableLanguage": "pt-BR",
         "serviceAvailability": "https://schema.org/OnSiteServiceDelivery",
         "priceRange": "$$"

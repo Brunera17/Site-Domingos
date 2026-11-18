@@ -50,6 +50,7 @@ async function main() {
             changefreq: 'monthly',
             priority: '0.8',
         })),
+        { loc: '/contabilidade-itai-sp', lastmod: lastModDate('src/pages/ContabilidadeItai.jsx', 'src/data/empresa.js'), changefreq: 'monthly', priority: '0.9' },
         { loc: '/contato', lastmod: lastModDate('src/pages/Contato.jsx'), changefreq: 'monthly', priority: '0.8' },
         { loc: '/planos', lastmod: lastModDate('src/pages/Planos.jsx'), changefreq: 'monthly', priority: '0.7' },
         { loc: '/proposta', lastmod: lastModDate('src/pages/Proposta.jsx'), changefreq: 'monthly', priority: '0.7' },

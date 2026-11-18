@@ -25,10 +25,10 @@ export default function Home() {
     return (
         <>
             <SEOHead
-                title="Contabilidade em Itaí e Interior Paulista | Domingos"
+                title="Contabilidade em Itaí-SP para todo o Brasil | Domingos"
                 description="Escritório de contabilidade em Itaí-SP: contábil, fiscal, DP, consultoria e BPO financeiro para mais de 530 empresas em 80 cidades de 14 estados."
                 canonicalPath="/"
-                keywords="contabilidade Itaí, contabilidade no interior paulista, escritório de contabilidade Itaí SP, consultoria fiscal, departamento pessoal, BPO financeiro"
+                keywords="contabilidade Itaí, contabilidade para todo o Brasil, contabilidade online, escritório de contabilidade Itaí SP, consultoria fiscal, departamento pessoal, BPO financeiro"
             />
             <LocalBusinessSchema />
             <OrganizationSchema />
