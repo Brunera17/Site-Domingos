@@ -80,7 +80,7 @@ export default function Hero() {
 
                         {/* Subtítulo */}
                         <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
-                            Desde Itaí, no interior paulista, cuidamos da contabilidade de mais de
+                            De Itaí, no interior paulista, cuidamos da contabilidade de mais de
                             530 empresas em 80 cidades de 14 estados: contábil, fiscal, DP,
                             consultoria e BPO financeiro, com atendimento humanizado e ágil.
                         </p>
