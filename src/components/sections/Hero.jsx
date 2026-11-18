@@ -119,7 +119,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Indicador de rolagem: mostra que há conteúdo abaixo e, ao clicar,
+            {/* Indicador de rolagem (ícone de mouse balançando): mostra que há conteúdo abaixo e, ao clicar,
                 leva à próxima seção. Só em telas a partir de 1280px: abaixo disso
                 encostaria nos números da base, e no celular rolar com o dedo já é
                 natural. */}
@@ -131,12 +131,13 @@ export default function Hero() {
                     window.scrollTo({ top: hero.offsetTop + hero.offsetHeight, behavior: 'smooth' })
                 }}
                 aria-label="Rolar para ver mais"
-                className="hidden xl:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2 text-zinc-400 hover:text-white transition-colors opacity-0 animate-[fadeIn_0.8s_ease_1.2s_forwards]"
+                className="hidden xl:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 p-2 text-zinc-400 hover:text-white transition-colors opacity-0 animate-[fadeIn_0.8s_ease_1.2s_forwards]"
             >
-                <span className="w-6 h-10 rounded-full border-2 border-current flex justify-center pt-2">
-                    <span className="block w-1 h-2 rounded-full bg-orange-500 motion-safe:animate-[scrollDot_1.6s_ease-in-out_infinite]" />
+                {/* O ícone inteiro sobe e desce; o botão não anima o transform
+                    porque ele já usa -translate-x-1/2 para centralizar. */}
+                <span className="w-[18px] h-7 rounded-full border-2 border-current flex justify-center pt-1.5 motion-safe:animate-[scrollBob_1.6s_ease-in-out_infinite]">
+                    <span className="block w-0.5 h-1.5 rounded-full bg-orange-500" />
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">Role</span>
             </button>
 
             {/* Keyframes via style tag */}
@@ -153,10 +154,9 @@ export default function Hero() {
                     from { opacity: 0; }
                     to   { opacity: 1; }
                 }
-                @keyframes scrollDot {
-                    0%   { opacity: 0; transform: translateY(0); }
-                    30%  { opacity: 1; }
-                    100% { opacity: 0; transform: translateY(12px); }
+                @keyframes scrollBob {
+                    0%, 100% { transform: translateY(0); }
+                    50%      { transform: translateY(8px); }
                 }
             `}</style>
         </section>
