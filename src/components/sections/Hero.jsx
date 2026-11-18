@@ -62,20 +62,20 @@ export default function Hero() {
                 <div className="max-w-6xl mx-auto h-full flex flex-col justify-between py-24 md:py-12 gap-12 md:gap-0">
                     <div className="max-w-3xl mt-8">
 
-                        {/* Badge */}
-                        <div className="mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">
-                                Mais de 10 anos de experiência
+                        {/* Título principal. A linha pequena de cima faz parte do H1 de
+                            propósito: o parecer de SEO pede que o título principal diga o
+                            serviço e a cidade. Visualmente continua igual ao antigo selo. */}
+                        <h1 className="text-white mb-5">
+                            <span className="block mb-6 text-orange-500 text-xs font-bold uppercase tracking-widest opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
+                                Contabilidade em Itaí e interior paulista{' '}
                             </span>
-                        </div>
-
-                        {/* Título principal */}
-                        <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
-                            Sua empresa
-                            <br />
-                            <span className="text-orange-500 italic">pagando menos impostos</span>
-                            <br />
-                            e lucrando mais.
+                            <span className="block text-display opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
+                                Sua empresa{' '}
+                                <br />
+                                <span className="text-orange-500 italic">pagando menos impostos</span>{' '}
+                                <br />
+                                e lucrando mais.
+                            </span>
                         </h1>
 
                         {/* Subtítulo */}
