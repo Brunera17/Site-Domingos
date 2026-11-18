@@ -27,6 +27,7 @@ export default function WhatsAppButton() {
     const [balao, setBalao] = useState(false)
     const timerRef = useRef(null)
     const fechadoRef = useRef(false)
+    const agendarRef = useRef(null)
 
     useEffect(() => {
         fechadoRef.current = foiFechado()
@@ -38,6 +39,8 @@ export default function WhatsAppButton() {
                 if (document.visibilityState === 'visible') setBalao(true)
             }, TEMPO_PARADO_MS)
         }
+
+        agendarRef.current = agendar
 
         // Rolar (roda do mouse, dedo ou teclado) esconde o balão e reinicia a contagem
         const mexeu = () => {
@@ -60,9 +63,16 @@ export default function WhatsAppButton() {
         }
     }, [])
 
-    // Ao trocar de página, esconde o balão e recomeça a contagem
-    useEffect(() => {
+    // Ao trocar de página, esconde o balão (ajuste de estado durante a
+    // renderização, como recomenda o React, em vez de setState num efeito).
+    const [rotaAtual, setRotaAtual] = useState(pathname)
+    if (rotaAtual !== pathname) {
+        setRotaAtual(pathname)
         setBalao(false)
+    }
+    // ...e recomeça a contagem de tempo parado na página nova
+    useEffect(() => {
+        agendarRef.current?.()
     }, [pathname])
 
     const fechar = () => {
