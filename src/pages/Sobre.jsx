@@ -139,7 +139,7 @@ export default function Sobre() {
         <div className="bg-black">
 
             <SEOHead
-                title="Sobre Domingos Assessoria | 10+ Anos de Expertise em Contabilidade"
+                title="Sobre a Domingos Assessoria | Contabilidade em Itaí-SP"
                 description="Conheça a história, equipe e valores da Domingos Assessoria. 30 colaboradores especializados, presença em 14 estados e mais de 530 clientes ativos."
                 canonicalPath="/sobre"
                 keywords="sobre domingos, equipe contábil, história da empresa, valores, missão, contabilidade especializada"

@@ -148,10 +148,10 @@ export default function ServicoDetalhe() {
         <div className="bg-black">
 
             <SEOHead
-                title={`${service.title} | Domingos Assessoria Empresarial`}
+                title={`${service.title} em Itaí-SP | Domingos Assessoria`}
                 description={service.description}
                 canonicalPath={`/servicos/${id}`}
-                keywords={`${service.title}, ${categoria}, assessoria, consultoria, domingos`}
+                keywords={`${service.title} Itaí, ${service.title}, ${categoria}, contabilidade Itaí, interior paulista`}
             />
             <ServiceSchema
                 name={service.title}

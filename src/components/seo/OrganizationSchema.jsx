@@ -62,11 +62,6 @@ export default function OrganizationSchema() {
         "numberOfEmployees": {
             "@type": "QuantitativeValue",
             "value": "30"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "530"
         }
     };
 

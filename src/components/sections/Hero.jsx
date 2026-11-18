@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingDown, Users, MapPin, Award } from 'lucide-react'
+import fotoEscritorio from '../../assets/espaco/IMG_7022.webp'
 
 const stats = [
     { value: '530+', label: 'Clientes Ativos', icon: Users },
@@ -33,7 +34,8 @@ export default function Hero() {
             <div
                 className="hero-bg absolute inset-0 -top-20 -bottom-20 bg-cover bg-center will-change-transform"
                 style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&h=1000&fit=crop)',
+                    // Foto real do escritório em Itaí (antes: imagem de banco do Unsplash)
+                    backgroundImage: `url(${fotoEscritorio})`,
                 }}
             />
 
@@ -60,26 +62,27 @@ export default function Hero() {
                 <div className="max-w-6xl mx-auto h-full flex flex-col justify-between py-24 md:py-12 gap-12 md:gap-0">
                     <div className="max-w-3xl mt-8">
 
-                        {/* Badge */}
-                        <div className="mb-6 opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                            <span className="text-orange-500 text-xs font-bold uppercase tracking-widest">
-                                Mais de 10 anos de experiência
+                        {/* Título principal. A linha pequena de cima faz parte do H1 de
+                            propósito: o parecer de SEO pede que o título principal diga o
+                            serviço e a cidade. Visualmente continua igual ao antigo selo. */}
+                        <h1 className="text-white mb-5">
+                            <span className="block mb-6 text-orange-500 text-xs font-bold uppercase tracking-widest opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
+                                Contabilidade em Itaí e interior paulista{' '}
                             </span>
-                        </div>
-
-                        {/* Título principal */}
-                        <h1 className="text-display text-white mb-5 opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
-                            Sua empresa
-                            <br />
-                            <span className="text-orange-500 italic">pagando menos</span>
-                            <br />
-                            e lucrando mais.
+                            <span className="block text-display opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
+                                Sua empresa{' '}
+                                <br />
+                                <span className="text-orange-500 italic">pagando menos impostos</span>{' '}
+                                <br />
+                                e lucrando mais.
+                            </span>
                         </h1>
 
                         {/* Subtítulo */}
                         <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
-                            Hub completo de soluções empresariais com atendimento
-                            humanizado e ágil. Contabilidade, fiscal, DP e consultoria. Tudo em um só lugar.
+                            Desde Itaí, no interior paulista, cuidamos da contabilidade de mais de
+                            530 empresas em 80 cidades de 14 estados: contábil, fiscal, DP,
+                            consultoria e BPO financeiro, com atendimento humanizado e ágil.
                         </p>
 
                         {/* Botões */}
@@ -116,6 +119,27 @@ export default function Hero() {
                 </div>
             </div>
 
+            {/* Indicador de rolagem (ícone de mouse balançando): mostra que há conteúdo abaixo e, ao clicar,
+                leva à próxima seção. Só em telas a partir de 1280px: abaixo disso
+                encostaria nos números da base, e no celular rolar com o dedo já é
+                natural. */}
+            <button
+                type="button"
+                onClick={() => {
+                    const hero = heroRef.current
+                    if (!hero) return
+                    window.scrollTo({ top: hero.offsetTop + hero.offsetHeight, behavior: 'smooth' })
+                }}
+                aria-label="Rolar para ver mais"
+                className="hidden xl:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 p-2 text-zinc-400 hover:text-white transition-colors opacity-0 animate-[fadeIn_0.8s_ease_1.2s_forwards]"
+            >
+                {/* O ícone inteiro sobe e desce; o botão não anima o transform
+                    porque ele já usa -translate-x-1/2 para centralizar. */}
+                <span className="w-[18px] h-7 rounded-full border-2 border-current flex justify-center pt-1.5 motion-safe:animate-[scrollBob_1.6s_ease-in-out_infinite]">
+                    <span className="block w-0.5 h-1.5 rounded-full bg-orange-500" />
+                </span>
+            </button>
+
             {/* Keyframes via style tag */}
             <style>{`
                 @keyframes fadeInDown {
@@ -129,6 +153,10 @@ export default function Hero() {
                 @keyframes fadeIn {
                     from { opacity: 0; }
                     to   { opacity: 1; }
+                }
+                @keyframes scrollBob {
+                    0%, 100% { transform: translateY(0); }
+                    50%      { transform: translateY(8px); }
                 }
             `}</style>
         </section>

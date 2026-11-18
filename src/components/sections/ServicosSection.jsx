@@ -49,6 +49,8 @@ export default function ServicosSection() {
                 <SectionHeading
                     eyebrow="O que fazemos"
                     title={<>Nossos <span className="text-orange-500">Serviços</span></>}
+                    subtitle="Cada área com equipe e coordenação própria, trabalhando em conjunto para cuidar da sua empresa por inteiro."
+                    subtitleSize="sm"
                     variant="compact"
                     className="mb-2"
                 />
