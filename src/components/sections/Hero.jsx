@@ -67,8 +67,7 @@ export default function Hero() {
                             serviço e a cidade. Visualmente continua igual ao antigo selo. */}
                         <h1 className="text-white mb-5">
                             <span className="block mb-6 text-orange-500 text-xs font-bold uppercase tracking-widest opacity-0 animate-[fadeInDown_0.6s_ease_0.1s_forwards]">
-                                {/* espaços inseparáveis: no celular "para todo o Brasil" desce junto */}
-                                Contabilidade em Itaí-SP para{'\u00A0'}todo{'\u00A0'}o{'\u00A0'}Brasil{' '}
+                                Contabilidade em Itaí e atendimento em todo o Brasil.{' '}
                             </span>
                             <span className="block text-display opacity-0 animate-[fadeInUp_0.7s_ease_0.2s_forwards]">
                                 Sua empresa{' '}
@@ -81,7 +80,7 @@ export default function Hero() {
 
                         {/* Subtítulo */}
                         <p className="text-zinc-400 text-base leading-relaxed mb-8 max-w-lg opacity-0 animate-[fadeInUp_0.7s_ease_0.35s_forwards]">
-                            Desde Itaí, no interior paulista, cuidamos da contabilidade de mais de
+                            De Itaí, no interior paulista, cuidamos da contabilidade de mais de
                             530 empresas em 80 cidades de 14 estados: contábil, fiscal, DP,
                             consultoria e BPO financeiro, com atendimento humanizado e ágil.
                         </p>

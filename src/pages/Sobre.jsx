@@ -7,7 +7,7 @@ import SectionHeading from '../components/ui/SectionHeading'
 import { buildWhatsAppLink } from '../utils/whatsapp'
 
 // ── IMPORTS DE FOTOS ─────────────────────────────────────────────────────────
-import marcelofoto from '../assets/colaboradores/MARCELO_2.webp'
+import marcelofoto from '../assets/colaboradores/otimizadas/Marcelo terno azul.webp'
 import fotoComTodosFotoGrande from '../assets/colaboradores/FOTO_COM_TODOS_GRANDE.webp'
 
 import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
