@@ -13,6 +13,7 @@ import fotoComTodosFotoGrande from '../assets/colaboradores/FOTO_COM_TODOS_GRAND
 import areaTrabalhoFoto from '../assets/espaco/area_trabalho.webp'
 import lobbyFoto from '../assets/espaco/lobby.webp'
 import recepcaoFoto from '../assets/espaco/recepcao.webp'
+import novaSedeFoto from '../assets/espaco/nova_sede.webp'
 
 // ── DADOS ─────────────────────────────────────────────────────────────────────
 
@@ -127,8 +128,14 @@ const estruturaImages = [
     { src: areaTrabalhoFoto, alt: 'Área de trabalho' },
     { src: lobbyFoto,        alt: 'Lobby' },
     { src: recepcaoFoto,     alt: 'Recepção' },
+    // Imagem ilustrativa (render) — sempre exibida com a etiqueta abaixo
+    { src: novaSedeFoto,     alt: 'Projeto da nova sede', badge: 'Projeto da nova sede', pos: 'center 20%' },
     // Para adicionar mais fotos: { src: novaFoto, alt: 'Descrição' }
 ]
+
+// Miniaturas empilhadas ocupam exatamente a altura da foto em destaque (480px, gap 16px)
+const THUMB_COUNT = estruturaImages.length - 1
+const THUMB_HEIGHT = `${(480 - 16 * (THUMB_COUNT - 1)) / THUMB_COUNT}px`
 
 // ── COMPONENTE ────────────────────────────────────────────────────────────────
 
@@ -458,12 +465,18 @@ export default function Sobre() {
                     {/* Galeria com destaque clicável */}
                     <div className="flex flex-col md:flex-row gap-4">
                         {/* Imagem em destaque (grande) */}
-                        <div className="flex-1 overflow-hidden rounded-xl" style={{ height: '480px' }}>
+                        <div className="flex-1 relative overflow-hidden rounded-xl" style={{ height: '480px' }}>
                             <img
                                 src={estruturaImages[destaque].src}
                                 alt={estruturaImages[destaque].alt}
                                 className="w-full h-full object-cover transition-all duration-500"
+                                style={{ objectPosition: estruturaImages[destaque].pos ?? 'center' }}
                             />
+                            {estruturaImages[destaque].badge && (
+                                <span className="absolute bottom-3 left-3 bg-orange-500 text-white text-xs font-semibold rounded-md px-2.5 py-1">
+                                    {estruturaImages[destaque].badge}
+                                </span>
+                            )}
                         </div>
 
                         {/* Miniaturas — todas exceto a em destaque */}
@@ -476,7 +489,7 @@ export default function Sobre() {
                                         key={i}
                                         onClick={() => setDestaque(i)}
                                         className="overflow-hidden rounded-xl relative group flex-1 md:flex-none"
-                                        style={{ width: '280px', height: '232px' }}
+                                        style={{ width: '280px', height: THUMB_HEIGHT }}
                                     >
                                         <img
                                             src={img.src}
