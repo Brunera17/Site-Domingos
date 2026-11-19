@@ -3,6 +3,7 @@ import SectionHeading from '../ui/SectionHeading'
 import fotoSalao from '../../assets/espaco/area_trabalho.webp'
 import fotoRecepcao from '../../assets/espaco/recepcao.webp'
 import fotoLobby from '../../assets/espaco/lobby.webp'
+import fotoNovaSede from '../../assets/espaco/nova_sede.webp'
 
 const ENDERECO = 'Av. Antônio Justino Viera, 350 — Jardim Planalto, Itaí - SP, 18730-136'
 const MAPA = 'https://maps.google.com/?q=Av.+Antônio+Justino+Viera,+350,+Itaí,+SP'
@@ -39,9 +40,22 @@ export default function EstruturaSection() {
                     </a>
                 </div>
 
-                {/* Fotos do escritório */}
-                <div className="lg:col-span-3 grid grid-cols-2 gap-3 md:gap-4">
-                    <figure className="col-span-2 relative rounded-xl overflow-hidden aspect-[16/9]">
+                {/* Projeto da nova sede (imagem ilustrativa) + fotos reais do escritório atual */}
+                <div className="lg:col-span-3 grid grid-cols-3 gap-3 md:gap-4">
+                    <figure className="col-span-3 relative rounded-xl overflow-hidden aspect-[16/9]">
+                        <img
+                            src={fotoNovaSede}
+                            alt="Projeto ilustrativo da futura sede da Domingos Assessoria Empresarial em Itaí-SP"
+                            loading="lazy"
+                            width="1600"
+                            height="1600"
+                            className="w-full h-full object-cover object-[center_20%]"
+                        />
+                        <figcaption className="absolute bottom-3 left-3 bg-orange-500 text-white text-xs font-semibold rounded-md px-2.5 py-1">
+                            Projeto da nova sede
+                        </figcaption>
+                    </figure>
+                    <figure className="relative rounded-xl overflow-hidden aspect-[4/3]">
                         <img
                             src={fotoSalao}
                             alt="Salão de trabalho do escritório da Domingos Assessoria em Itaí-SP"
@@ -50,7 +64,7 @@ export default function EstruturaSection() {
                             height="1200"
                             className="w-full h-full object-cover"
                         />
-                        <figcaption className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold rounded-md px-2.5 py-1">
+                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
                             Salão de atendimento
                         </figcaption>
                     </figure>
@@ -63,7 +77,7 @@ export default function EstruturaSection() {
                             height="1200"
                             className="w-full h-full object-cover"
                         />
-                        <figcaption className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold rounded-md px-2.5 py-1">
+                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
                             Recepção
                         </figcaption>
                     </figure>
@@ -76,7 +90,7 @@ export default function EstruturaSection() {
                             height="1200"
                             className="w-full h-full object-cover"
                         />
-                        <figcaption className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold rounded-md px-2.5 py-1">
+                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
                             Espaço de espera
                         </figcaption>
                     </figure>
