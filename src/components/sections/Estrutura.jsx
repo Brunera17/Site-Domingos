@@ -84,7 +84,7 @@ export default function EstruturaSection() {
                     <SectionHeading
                         eyebrow="Venha nos conhecer"
                         title={<>Nossa estrutura <span className="text-orange-500">em Itaí</span></>}
-                        subtitle="Um escritório próprio, preparado para atender sua empresa de perto — presencialmente em Itaí ou de forma remota, em qualquer lugar do Brasil."
+                        subtitle="Um escritório próprio, preparado para atender sua empresa de perto, presencialmente em Itaí ou de forma remota, em qualquer lugar do Brasil."
                     />
 
                     <div className="mt-8 flex items-start gap-3 text-zinc-300 text-sm leading-relaxed">
