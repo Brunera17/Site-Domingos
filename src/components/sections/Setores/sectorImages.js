@@ -1,11 +1,11 @@
-import servicos from "../../../assets/setor-servicos.jpg";
-import comercio from "../../../assets/setor-comercio.jpg";
-import atacado from "../../../assets/setor-atacado.jpg";
-import rural from "../../../assets/setor-rural.jpg";
-import industria from "../../../assets/setor-industria.jpg";
-import ecommerce from "../../../assets/setor-ecommerce.jpg";
-import cooperativa from "../../../assets/setor-cooperativa.jpg";
-import hospital from "../../../assets/setor-hospital.jpg";
+import servicos from "../../../assets/setor-servicos.webp";
+import comercio from "../../../assets/setor-comercio.webp";
+import atacado from "../../../assets/setor-atacado.webp";
+import rural from "../../../assets/setor-rural.webp";
+import industria from "../../../assets/setor-industria.webp";
+import ecommerce from "../../../assets/setor-ecommerce.webp";
+import cooperativa from "../../../assets/setor-cooperativa.webp";
+import hospital from "../../../assets/setor-hospital.webp";
 
 export const sectorImages = {
   'Prestadores de Serviços': servicos,

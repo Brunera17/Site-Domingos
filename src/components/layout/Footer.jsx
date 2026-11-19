@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react'
-import logo from "../../assets/logo_domingos_transparente.png"
+import logo from "../../assets/logo_domingos_transparente.webp"
 import { featuredServices } from '../../data/services'
 import { empresa } from '../../data/empresa'
 
