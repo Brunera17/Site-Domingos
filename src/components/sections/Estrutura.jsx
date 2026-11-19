@@ -8,14 +8,79 @@ import fotoNovaSede from '../../assets/espaco/nova_sede.webp'
 const ENDERECO = 'Av. Antônio Justino Viera, 350 — Jardim Planalto, Itaí - SP, 18730-136'
 const MAPA = 'https://maps.google.com/?q=Av.+Antônio+Justino+Viera,+350,+Itaí,+SP'
 
-// Mostra o escritório real em Itaí (o parecer de SEO apontou que as fotos da
+// Fotos reais do escritório atual (o parecer de SEO apontou que as fotos da
 // home pareciam de banco de imagens). Sem destaque a pessoas: só o espaço.
+const FOTOS_ATUAIS = [
+    { src: fotoSalao, label: 'Salão de atendimento', alt: 'Salão de trabalho do escritório da Domingos Assessoria em Itaí-SP' },
+    { src: fotoRecepcao, label: 'Recepção', alt: 'Recepção do escritório da Domingos Assessoria' },
+    { src: fotoLobby, label: 'Espaço de espera', alt: 'Espaço de espera do escritório da Domingos Assessoria' },
+]
+
+// Mesma margem lateral do resto do site (max-w-6xl + mx-auto): os painéis são
+// ancorados nas bordas da tela, então o centralizador automático não se aplica.
+// (valor usado em style inline: calc() exige espaços em volta de + e -)
+const SITE_GUTTER = 'max(2.5rem, calc((100vw - 1232px) / 2 + 2.5rem))'
+
+// Layout espelha o bloco CTA: imagens num painel à esquerda com corte diagonal
+// (desktop) e texto à direita; no mobile, imagens em cima e texto embaixo.
 export default function EstruturaSection() {
     return (
-        <section className="py-section px-6 md:px-8 lg:px-10 bg-zinc-950">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-12 items-center">
-                {/* Texto */}
-                <div className="lg:col-span-2">
+        <section className="relative overflow-hidden bg-zinc-950 md:h-screen md:max-h-section-screen">
+            {/* Painel de imagens — à esquerda com clip diagonal no desktop */}
+            <div className="relative md:absolute md:left-0 md:top-0 md:bottom-0 md:w-[55%] md:[clip-path:polygon(0_0,85%_0,100%_100%,0_100%)]">
+                {/* Projeto da nova sede (imagem ilustrativa) como fundo do painel */}
+                <div className="relative h-72 sm:h-96 md:h-full">
+                    <img
+                        src={fotoNovaSede}
+                        alt="Projeto ilustrativo da futura sede da Domingos Assessoria Empresarial em Itaí-SP"
+                        loading="lazy"
+                        width="1600"
+                        height="1600"
+                        className="w-full h-full object-cover object-[center_20%]"
+                    />
+                    {/* Degradê para as miniaturas e a etiqueta se destacarem */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/30" />
+                    <span
+                        className="absolute bottom-3 left-6 md:bottom-auto md:top-8 md:left-8 lg:left-[var(--gutter)] bg-orange-500 text-white text-xs font-semibold rounded-md px-2.5 py-1"
+                        style={{ '--gutter': SITE_GUTTER }}
+                    >
+                        Projeto da nova sede
+                    </span>
+                </div>
+
+                {/* Fotos reais do escritório atual — abaixo da imagem no mobile,
+                    sobrepostas à base do painel no desktop (longe da borda diagonal) */}
+                <div
+                    className="grid grid-cols-3 gap-3 px-6 pt-3 md:absolute md:bottom-8 md:left-8 md:right-[18%] md:px-0 md:pt-0 lg:left-[var(--gutter)]"
+                    style={{ '--gutter': SITE_GUTTER }}
+                >
+                    {FOTOS_ATUAIS.map((foto) => (
+                        <figure
+                            key={foto.label}
+                            className="relative rounded-lg overflow-hidden aspect-[4/3] ring-1 ring-white/10 shadow-lg shadow-black/40"
+                        >
+                            <img
+                                src={foto.src}
+                                alt={foto.alt}
+                                loading="lazy"
+                                width="1600"
+                                height="1200"
+                                className="w-full h-full object-cover"
+                            />
+                            <figcaption className="absolute bottom-1.5 left-1.5 md:bottom-2 md:left-2 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 leading-tight">
+                                {foto.label}
+                            </figcaption>
+                        </figure>
+                    ))}
+                </div>
+            </div>
+
+            {/* Conteúdo — à direita no desktop, com a mesma margem direita do site */}
+            <div
+                className="relative px-6 md:px-8 py-12 md:absolute md:right-0 md:top-0 md:bottom-0 md:w-[45%] md:flex md:items-center md:py-0 lg:pl-10 lg:pr-[var(--gutter)]"
+                style={{ '--gutter': SITE_GUTTER }}
+            >
+                <div className="w-full max-w-lg">
                     <SectionHeading
                         eyebrow="Venha nos conhecer"
                         title={<>Nossa estrutura <span className="text-orange-500">em Itaí</span></>}
@@ -38,62 +103,6 @@ export default function EstruturaSection() {
                         Como chegar
                         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                     </a>
-                </div>
-
-                {/* Projeto da nova sede (imagem ilustrativa) + fotos reais do escritório atual */}
-                <div className="lg:col-span-3 grid grid-cols-3 gap-3 md:gap-4">
-                    <figure className="col-span-3 relative rounded-xl overflow-hidden aspect-[16/9]">
-                        <img
-                            src={fotoNovaSede}
-                            alt="Projeto ilustrativo da futura sede da Domingos Assessoria Empresarial em Itaí-SP"
-                            loading="lazy"
-                            width="1600"
-                            height="1600"
-                            className="w-full h-full object-cover object-[center_20%]"
-                        />
-                        <figcaption className="absolute bottom-3 left-3 bg-orange-500 text-white text-xs font-semibold rounded-md px-2.5 py-1">
-                            Projeto da nova sede
-                        </figcaption>
-                    </figure>
-                    <figure className="relative rounded-xl overflow-hidden aspect-[4/3]">
-                        <img
-                            src={fotoSalao}
-                            alt="Salão de trabalho do escritório da Domingos Assessoria em Itaí-SP"
-                            loading="lazy"
-                            width="1600"
-                            height="1200"
-                            className="w-full h-full object-cover"
-                        />
-                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
-                            Salão de atendimento
-                        </figcaption>
-                    </figure>
-                    <figure className="relative rounded-xl overflow-hidden aspect-[4/3]">
-                        <img
-                            src={fotoRecepcao}
-                            alt="Recepção do escritório da Domingos Assessoria"
-                            loading="lazy"
-                            width="1600"
-                            height="1200"
-                            className="w-full h-full object-cover"
-                        />
-                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
-                            Recepção
-                        </figcaption>
-                    </figure>
-                    <figure className="relative rounded-xl overflow-hidden aspect-[4/3]">
-                        <img
-                            src={fotoLobby}
-                            alt="Espaço de espera do escritório da Domingos Assessoria"
-                            loading="lazy"
-                            width="1600"
-                            height="1200"
-                            className="w-full h-full object-cover"
-                        />
-                        <figcaption className="absolute bottom-2 left-2 md:bottom-3 md:left-3 bg-black/60 backdrop-blur-sm text-white text-[10px] md:text-xs font-semibold rounded-md px-2 py-0.5 md:px-2.5 md:py-1">
-                            Espaço de espera
-                        </figcaption>
-                    </figure>
                 </div>
             </div>
         </section>
