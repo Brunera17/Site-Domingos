@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, TrendingDown, Users, MapPin, Award } from 'lucide-react'
-import fotoEscritorio from '../../assets/espaco/IMG_7022.webp'
+import fotoEscritorio from '../../assets/espaco/IMG_7022-hero.webp'
 import { buildWhatsAppLink, getWhatsAppMessageForPath } from '../../utils/whatsapp'
 
 const stats = [
@@ -33,7 +33,7 @@ export default function Hero() {
         >
             {/* Background com parallax */}
             <div
-                className="hero-bg absolute inset-0 -top-20 -bottom-20 bg-cover bg-center will-change-transform"
+                className="hero-bg absolute inset-0 -top-20 -bottom-20 bg-cover bg-[position:73%_center] md:bg-center will-change-transform"
                 style={{
                     // Foto real do escritório em Itaí (antes: imagem de banco do Unsplash)
                     backgroundImage: `url(${fotoEscritorio})`,
